@@ -4,7 +4,7 @@
 
 All notable changes to mdVü are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versions are `Major.Minor.Patch`, and the fourth number in the file version of the EXE is the build counter.
 
-## [0.7.0] — unreleased
+## [0.8.0] — unreleased
 
 The first public beta, and the first release under the name **mdVü**. Until version 0.6 the program was called *mdView* and lived inside the m3 library repository; it now has a repository, a version scheme and a release process of its own.
 
@@ -13,7 +13,7 @@ The first public beta, and the first release under the name **mdVü**. Until ver
 - **Outline pane** — all headings of the open document as a tree below the folder view; clicking jumps to the spot and flashes the target.
 - **Path bar** above the document, with clickable path segments.
 - **History** like a browser: back and forward via toolbar icons or `Alt+←` / `Alt+→`, right-click on the arrows opens the history list.
-- **Folder search** (`F3`): incremental filtering of the folder tree while you type, with hits highlighted.
+- **Search in every pane**: `Ctrl+F` opens the search strip for the view you are reading, `F3` and `Shift+F3` step through the hits, and `Ctrl+F3` searches wherever the keyboard focus is — the only way to reach the folder view, whose tree is filtered down while you type. `Esc` closes the strip; the search term survives it, so `F3` picks the search up again.
 - **Start page** listing the last five documents.
 - **PDF export** with a bookmark tree built from the document headings.
 - **Crash report**: on an access violation, mdVü writes `mdvu.exe.crash.log` next to the executable. Nothing is sent anywhere — the file is yours to mail in or ignore.
