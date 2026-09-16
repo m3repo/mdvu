@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 220">
+<!-- Welcome-Banner: froehlich-technisch, Schriftzug als Strich-Pfade (kein Font noetig) -->
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#3b6fd0"/>
+    <stop offset="1" stop-color="#5e93e6"/>
+  </linearGradient>
+</defs>
+<rect x="0" y="0" width="960" height="220" rx="14" fill="url(#bg)"/>
+<!-- Markdown-Dokument-Motiv links -->
+<rect x="72" y="62" width="76" height="100" rx="8" fill="#2f5cb0" opacity="0.45" transform="rotate(-4 110 112)"/>
+<rect x="68" y="58" width="76" height="100" rx="8" fill="#ffffff" transform="rotate(-4 106 108)"/>
+<g transform="rotate(-4 106 108)" fill="none" stroke="#3b6fd0" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M80,116 L80,88 L93,104 L106,88 L106,116"/>
+  <path d="M124,88 L124,112 M116,104 L124,114 L132,104"/>
+</g>
+<g transform="rotate(-4 106 108)" fill="#cdd9f0">
+  <rect x="80" y="132" width="48" height="6" rx="3"/>
+  <rect x="80" y="144" width="34" height="6" rx="3"/>
+</g>
+<!-- Schriftzug "Welcome!" (Strich-Lettern, Baseline 138) -->
+<g fill="none" stroke="#ffffff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M277,82 L289,138 L301,98 L313,138 L325,82"/>
+  <path d="M371,82 L341,82 L341,138 L371,138 M341,110 L365,110"/>
+  <path d="M387,82 L387,138 L415,138"/>
+  <path d="M480,92 A28 28 0 1 0 480,128"/>
+  <circle cx="531" cy="110" r="28"/>
+  <path d="M575,138 L575,82 L597,120 L619,82 L619,138"/>
+  <path d="M665,82 L635,82 L635,138 L665,138 M635,110 L659,110"/>
+  <path d="M683,82 L683,118"/>
+</g>
+<circle cx="683" cy="137" r="6.5" fill="#ffffff"/>
+<!-- Zahnraeder rechts -->
+<g stroke="#ffffff" fill="none" opacity="0.9">
+  <circle cx="856" cy="92" r="16" stroke-width="9"/>
+  <g stroke-width="8" stroke-linecap="round">
+    <path d="M856,66 L856,60 M856,118 L856,124 M830,92 L824,92 M882,92 L888,92"/>
+    <path d="M838,74 L834,70 M874,110 L878,114 M874,74 L878,70 M838,110 L834,114"/>
+  </g>
+  <circle cx="893" cy="138" r="10" stroke-width="7"/>
+  <g stroke-width="6" stroke-linecap="round">
+    <path d="M893,121 L893,116 M893,155 L893,160 M876,138 L871,138 M910,138 L915,138"/>
+  </g>
+</g>
+<!-- Leiterbahn-Deko -->
+<g stroke="#ffffff" stroke-width="3" fill="none" opacity="0.45" stroke-linecap="round">
+  <path d="M820,45 L850,45 L862,57"/>
+  <path d="M170,150 L150,170 L120,170"/>
+</g>
+<circle cx="820" cy="45" r="4" fill="#ffffff" opacity="0.6"/>
+<circle cx="120" cy="170" r="4" fill="#ffffff" opacity="0.6"/>
+<!-- Konfetti + Funkeln -->
+<g>
+  <rect x="212" y="52" width="14" height="6" rx="3" fill="#ffd35a" transform="rotate(24 219 55)"/>
+  <rect x="722" y="42" width="14" height="6" rx="3" fill="#8fd694" transform="rotate(-18 729 45)"/>
+  <rect x="248" y="170" width="14" height="6" rx="3" fill="#ff9d8a" transform="rotate(14 255 173)"/>
+  <rect x="700" y="176" width="14" height="6" rx="3" fill="#ffd35a" transform="rotate(-24 707 179)"/>
+  <circle cx="196" cy="106" r="5" fill="#c792ea"/>
+  <circle cx="748" cy="76" r="4" fill="#ffd35a"/>
+  <circle cx="774" cy="160" r="5" fill="#8fd694"/>
+  <circle cx="300" cy="34" r="4" fill="#ffffff" opacity="0.75"/>
+  <circle cx="646" cy="188" r="4" fill="#ff9d8a"/>
+  <polygon points="356,178 368,178 362,190" fill="#8fd694"/>
+  <polygon points="612,32 624,32 618,44" fill="#c792ea"/>
+</g>
+<g fill="#ffffff" opacity="0.9">
+  <path d="M232,132 Q233.5,140.5 242,142 Q233.5,143.5 232,152 Q230.5,143.5 222,142 Q230.5,140.5 232,132 Z"/>
+  <path d="M716,116 Q717,122 723,123 Q717,124 716,130 Q715,124 709,123 Q715,122 716,116 Z"/>
+  <path d="M568,40 Q569,46 575,47 Q569,48 568,54 Q567,48 561,47 Q567,46 568,40 Z"/>
+</g>
+</svg>

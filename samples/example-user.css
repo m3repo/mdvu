@@ -1,0 +1,120 @@
+/* ===========================================================================
+   Example user.css for mdVü
+   ---------------------------------------------------------------------------
+   Copy this into View -> CSS (Ctrl+4), or into
+   %APPDATA%\m3Works\mdVu\user.css while mdVü is closed.
+
+   Reference: docs/css-customizing.md
+   License:   MIT — do whatever you like with it.
+
+   Two things to keep in mind while editing:
+     * Sizes in pt, px, mm, cm or in. NOT em, %, rem — those are dropped.
+     * This file applies to light mode, dark mode, print and PDF alike.
+       Set colours sparingly and let the built-in dark sheet do its work.
+   =========================================================================== */
+
+/* The switch for the built-in design. Remove this line and you start from a
+   blank canvas — no default colours, no dark mode. Keep it unless that is
+   exactly what you want. */
+@import "builtin:default.css";
+
+
+/* --- Reading text ---------------------------------------------------------
+   A serif face and a little more line spacing. The list is a fallback chain:
+   the first font actually installed wins. */
+body, p, li, td, th {
+  font-family: 'Georgia', 'Iowan Old Style', 'Times New Roman';
+  font-size: 12pt;
+  line-height: 1.5;
+}
+
+/* Space between blocks. Note that margins ADD to this instead of collapsing
+   into it — if things drift apart, this is usually the reason. */
+body { gap: 6px; }
+ul, ol { row-gap: 3px; }
+
+
+/* --- Headings -------------------------------------------------------------
+   The default sheet gives h1 a top border and h2/h3 a left bar. Here they get
+   a quieter treatment: an underline for h1, nothing for the rest. */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Segoe UI Semibold', 'Segoe UI', Arial;
+}
+
+h1 {
+  font-size: 20pt;
+  border-top: none;
+  border-bottom: 1pt solid #c8ccd0;
+  margin-top: 12px;
+  margin-bottom: 14px;
+  padding: 0 0 5px 0;
+}
+
+h2 {
+  font-size: 15pt;
+  border-left: none;
+  padding: 0;
+}
+
+h3 {
+  font-size: 12.5pt;
+  border-left: none;
+  padding: 0;
+}
+
+
+/* --- Code -----------------------------------------------------------------
+   Six token classes carry the syntax highlighting. Only color, font-weight
+   and font-style are evaluated per token; a background belongs on `pre`. */
+pre {
+  background-color: #f6f8fa;
+  border: 1px solid #e2e6ea;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+code          { color: #24292e; }   /* inline code + base colour of blocks */
+.code-comment { color: #6a737d; font-style: italic; }
+.code-string  { color: #032f62; }
+.code-number  { color: #005cc5; }
+.code-keyword { color: #d73a49; font-weight: bold; }
+.code-ident   { color: #24292e; }
+.code-plain   { color: #24292e; }
+
+
+/* --- Quotes and callouts --------------------------------------------------
+   A callout is a block quote carrying its type as a class, so `> [!note]`
+   ends up as blockquote.note. Any type name works — invent your own. */
+blockquote {
+  background-color: #f7f8f9;
+  border-left: 3pt solid #c8ccd0;
+  padding: 6px 10px 6px 10px;
+}
+
+blockquote.note    { background-color: #eaf2fb; border-left-color: #4a80c0; }
+blockquote.tip     { background-color: #eaf7ee; border-left-color: #3d9a5c; }
+blockquote.warning { background-color: #fdf0e6; border-left-color: #d08030; }
+blockquote.danger  { background-color: #fbecec; border-left-color: #c0392b; }
+
+
+/* --- Tables ---------------------------------------------------------------
+   Row index 1 is the header row, so the data rows are 3, 5, 7 … */
+th { background-color: #dde5ee; }
+tr:nth-child(2n+3) { background-color: #f2f6fa; }
+td, th { padding: 3px 6px 3px 6px; }
+
+
+/* --- Links and rules ------------------------------------------------------ */
+a  { color: #0b5cad; }
+hr { background-color: #d8dcE0; height: 1px; }
+
+
+/* --- Front matter ---------------------------------------------------------
+   The YAML block at the top of a file. Shown by default, because in a viewer
+   metadata is content. To hide it: display: none. */
+frontmatter {
+  background-color: #f3f4f6;
+  color: #7a828c;
+  font-size: 9pt;
+}
+/* frontmatter { display: none; } */

@@ -1,0 +1,24 @@
+name: Idea or feedback
+description: Something missing, something in the way, something that could be better
+labels: ["idea"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        mdVü is a viewer, not an editor — that line is deliberate, and some things will stay out on purpose. Everything else is open. **English or German, both are fine.**
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like to see?
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: What are you trying to do?
+      description: The situation behind the wish is often more useful than the wish itself — it sometimes has a better answer.
+  - type: input
+    id: version
+    attributes:
+      label: mdVü version
+      placeholder: 0.7.1.25

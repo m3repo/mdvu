@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Crash log or anything private
+    url: mailto:mdView@outlook.de
+    about: A crash log carries file paths from your machine — mail it instead of posting it.
+  - name: Manual
+    url: https://github.com/m3repo/mdvu/blob/master/docs/manual.md
+    about: Shortcuts, settings, folder view, printing, PDF, CSS.

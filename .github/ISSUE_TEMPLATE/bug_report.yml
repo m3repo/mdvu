@@ -1,0 +1,52 @@
+name: Bug report
+description: Something in mdVü behaves wrong, breaks or crashes
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for testing mdVü. **Write in English or German — both are fine.**
+
+        Please do **not** paste a crash log (`mdvu.exe.crash.log`) into a public issue: it contains file paths from your machine. Mail it to `mdView@outlook.de` and just tick the box below.
+  - type: input
+    id: version
+    attributes:
+      label: mdVü version
+      description: Help → About, or right-click `mdvu.exe` → Properties → Details.
+      placeholder: 0.7.1.25
+    validations:
+      required: true
+  - type: input
+    id: windows
+    attributes:
+      label: Windows version
+      placeholder: Windows 11 24H2
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What did you do, what did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open a folder with ...
+        2. Press ...
+        3. ...
+  - type: textarea
+    id: document
+    attributes:
+      label: The document, if it matters
+      description: A short Markdown snippet that shows the problem — or drag the file in to attach it.
+      render: markdown
+  - type: checkboxes
+    id: crash
+    attributes:
+      label: Crash log
+      options:
+        - label: mdVü wrote an `mdvu.exe.crash.log` next to the EXE — I can mail it in.

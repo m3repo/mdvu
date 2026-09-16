@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 120" width="320" height="120" role="img" aria-label="Three coloured shapes">
+  <rect width="320" height="120" rx="8" fill="#f4f6f8"/>
+  <circle cx="70" cy="60" r="34" fill="#4a80c0"/>
+  <rect x="126" y="26" width="68" height="68" rx="6" fill="#3d9a5c"/>
+  <polygon points="250,26 288,94 212,94" fill="#d08030"/>
+</svg>

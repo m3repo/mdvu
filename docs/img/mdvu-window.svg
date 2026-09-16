@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620">
+<!-- Stilisierter mdVü-Screenshot (Mockup, nur Formen - kein Text/Font noetig) -->
+<rect x="1.5" y="1.5" width="957" height="617" rx="8" fill="#ffffff" stroke="#c8ccd2" stroke-width="2"/>
+<!-- Titelleiste (nur obere Ecken rund) -->
+<path d="M9.5,2.5 h941 a7,7 0 0 1 7,7 v30.5 h-955 v-30.5 a7,7 0 0 1 7,-7 z" fill="#e9ebee"/>
+<rect x="16" y="13" width="14" height="14" rx="3" fill="#3f74d1"/>
+<g fill="#9aa1ab">
+  <rect x="44" y="18" width="26" height="7" rx="2"/>
+  <rect x="80" y="18" width="30" height="7" rx="2"/>
+  <rect x="120" y="18" width="28" height="7" rx="2"/>
+  <rect x="420" y="18" width="150" height="7" rx="2" fill="#adb4bd"/>
+</g>
+<g stroke="#6b7280" stroke-width="1.8" fill="none">
+  <path d="M854,21.5 h12"/>
+  <rect x="886" y="15.5" width="11" height="11"/>
+  <path d="M918,16 l11,11 m0,-11 l-11,11"/>
+</g>
+<!-- Vertikale Icon-Leiste am linken Rand: oben Navigation/Ansichten, unten Mond+Zahnrad -->
+<rect x="2" y="40" width="38" height="554" fill="#f2f3f5"/>
+<rect x="40" y="40" width="1" height="554" fill="#dcdfe4"/>
+<g stroke="#5f6672" stroke-width="2.4" fill="none">
+  <path d="M26,50 l-9,7 9,7"/>
+  <path d="M17,78 l9,7 -9,7"/>
+</g>
+<rect x="9" y="102" width="24" height="1" fill="#d0d4da"/>
+<path d="M9,114 h9 l3,4 h11 v11 h-23 z" fill="#5f6672"/>
+<rect x="9" y="140" width="24" height="1" fill="#d0d4da"/>
+<g stroke="#5f6672" stroke-width="1.8" fill="none">
+  <rect x="13" y="152" width="16" height="16" rx="3"/>
+  <rect x="13" y="180" width="16" height="16" rx="3"/>
+  <rect x="13" y="208" width="16" height="16" rx="3"/>
+  <rect x="13" y="236" width="16" height="16" rx="3"/>
+</g>
+<g fill="#5f6672">
+  <rect x="17" y="158" width="8" height="2"/>
+  <rect x="17" y="186" width="8" height="2"/>
+  <rect x="17" y="214" width="8" height="2"/>
+  <rect x="17" y="242" width="8" height="2"/>
+</g>
+<circle cx="21" cy="545" r="8" fill="#5f6672"/>
+<circle cx="24" cy="542" r="7" fill="#f2f3f5"/>
+<circle cx="21" cy="575" r="7" fill="none" stroke="#5f6672" stroke-width="2"/>
+<circle cx="21" cy="575" r="2.5" fill="#5f6672"/>
+<!-- Linke Spalte: Ordnerbaum + Gliederung -->
+<rect x="270" y="40" width="1" height="554" fill="#dcdfe4"/>
+<rect x="41" y="40" width="229" height="26" fill="#eef0f3"/>
+<rect x="53" y="50" width="60" height="6" rx="2" fill="#8b93a0"/>
+<path d="M53,79 l8,5 -8,5 z" fill="#8b93a0"/>
+<rect x="43" y="117" width="225" height="22" rx="3" fill="#3f74d1"/>
+<g fill="#b9c0ca">
+  <rect x="67" y="81" width="90" height="7" rx="2"/>
+  <rect x="67" y="99" width="105" height="7" rx="2"/>
+  <rect x="67" y="124" width="110" height="7" rx="2" fill="#dce7fa"/>
+  <rect x="67" y="149" width="80" height="7" rx="2"/>
+  <rect x="67" y="173" width="120" height="7" rx="2"/>
+  <rect x="67" y="197" width="95" height="7" rx="2"/>
+  <rect x="67" y="221" width="112" height="7" rx="2"/>
+  <rect x="67" y="245" width="86" height="7" rx="2"/>
+</g>
+<rect x="41" y="300" width="229" height="1" fill="#dcdfe4"/>
+<rect x="41" y="301" width="229" height="26" fill="#eef0f3"/>
+<rect x="53" y="311" width="72" height="6" rx="2" fill="#8b93a0"/>
+<g fill="#b9c0ca">
+  <rect x="55" y="340" width="120" height="7" rx="2"/>
+  <rect x="69" y="362" width="95" height="7" rx="2"/>
+  <rect x="69" y="384" width="105" height="7" rx="2"/>
+  <rect x="83" y="406" width="80" height="7" rx="2"/>
+  <rect x="69" y="428" width="100" height="7" rx="2"/>
+</g>
+<!-- Pfadleiste -->
+<rect x="271" y="40" width="687" height="26" fill="#fafbfc"/>
+<rect x="271" y="66" width="687" height="1" fill="#e4e7eb"/>
+<g fill="#9aa1ab">
+  <rect x="288" y="50" width="40" height="6" rx="2"/>
+  <rect x="354" y="50" width="52" height="6" rx="2"/>
+  <rect x="432" y="50" width="70" height="6" rx="2" fill="#6b7280"/>
+</g>
+<g stroke="#b3b9c2" stroke-width="1.6" fill="none">
+  <path d="M338,49 l5,4 -5,4"/>
+  <path d="M416,49 l5,4 -5,4"/>
+</g>
+<!-- Dokument -->
+<rect x="300" y="92" width="300" height="16" rx="3" fill="#3d4450"/>
+<g fill="#d3d8de">
+  <rect x="300" y="130" width="620" height="8" rx="2"/>
+  <rect x="300" y="148" width="610" height="8" rx="2"/>
+  <rect x="300" y="166" width="200" height="8" rx="2"/>
+  <rect x="508" y="166" width="120" height="8" rx="2" fill="#3f74d1"/>
+  <rect x="636" y="166" width="274" height="8" rx="2"/>
+  <rect x="300" y="184" width="400" height="8" rx="2"/>
+</g>
+<rect x="300" y="220" width="200" height="12" rx="3" fill="#4b5563"/>
+<g fill="#d3d8de">
+  <rect x="300" y="252" width="610" height="8" rx="2"/>
+  <rect x="300" y="270" width="600" height="8" rx="2"/>
+  <rect x="300" y="288" width="360" height="8" rx="2"/>
+</g>
+<rect x="300" y="318" width="620" height="86" rx="4" fill="#f0f2f5"/>
+<g>
+  <rect x="318" y="334" width="60" height="7" rx="2" fill="#a26bc2"/>
+  <rect x="386" y="334" width="110" height="7" rx="2" fill="#8b93a0"/>
+  <rect x="334" y="354" width="90" height="7" rx="2" fill="#5f9e63"/>
+  <rect x="432" y="354" width="70" height="7" rx="2" fill="#8b93a0"/>
+  <rect x="318" y="374" width="46" height="7" rx="2" fill="#b0863f"/>
+  <rect x="372" y="374" width="130" height="7" rx="2" fill="#8b93a0"/>
+</g>
+<g fill="#d3d8de">
+  <rect x="300" y="432" width="620" height="8" rx="2"/>
+  <rect x="300" y="450" width="600" height="8" rx="2"/>
+  <rect x="300" y="468" width="300" height="8" rx="2"/>
+</g>
+<rect x="944" y="76" width="6" height="120" rx="3" fill="#c6ccd4"/>
+<!-- Fusszeile (nur untere Ecken rund) -->
+<rect x="2" y="594" width="956" height="1" fill="#dcdfe4"/>
+<path d="M2.5,595 h955 v15.5 a7,7 0 0 1 -7,7 h-941 a7,7 0 0 1 -7,-7 z" fill="#eef0f3"/>
+<rect x="14" y="603" width="180" height="6" rx="2" fill="#8b93a0"/>
+<rect x="800" y="603" width="40" height="6" rx="2" fill="#8b93a0"/>
+<rect x="852" y="603" width="56" height="6" rx="2" fill="#8b93a0"/>
+</svg>

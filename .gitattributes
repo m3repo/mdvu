@@ -1,0 +1,9 @@
+* text=auto eol=crlf
+
+# Binaerformate IMMER hier eintragen - auf die NUL-Heuristik ist kein Verlass.
+*.png binary
+*.jpg binary
+*.gif binary
+*.pdf binary
+*.zip binary
+*.exe binary
