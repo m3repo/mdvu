@@ -59,8 +59,6 @@ Settings live in `%APPDATA%\m3Works\mdVu` and the one-time license acknowledgeme
 
 Releases are published on the [Releases page](https://github.com/m3repo/mdvu/releases/latest): a single code-signed `mdvu.exe`, no installer and no setup. Download it, put it wherever you like, run it. Every release lists the SHA-256 of the file and a link to its VirusTotal report, so you can check that what you downloaded is what was published here.
 
-The first public beta is still being finalised — until it appears there, this repository carries the documentation and the sample files only.
-
 ## Beta notice
 
 mdVü is a **preview version**. It has been through a lot of internal testing, but features may change and malfunctions cannot be ruled out. The program is provided free of charge and "AS IS" — see [LICENSE](LICENSE.md).
