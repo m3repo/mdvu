@@ -138,10 +138,11 @@ Switching back from CSS to the Markdown view applies your changed stylesheet imm
 mdVü comes with its own print and PDF output — no detour through a browser or a PDF printer driver:
 
 - **Print preview** (`Ctrl+F2`): even for long documents, 100 pages are ready in a few seconds.
+- **Page setup:** a strip at the top of the print preview selects the printer, the paper size (A3, A4, A5, A6, Letter, Legal) and portrait or landscape. The preview is laid out anew right away, and print and PDF use exactly this format — what you see in the preview is what comes out of the printer. *Printer setup…* opens the Windows printer settings without printing; printer, paper size and orientation chosen there are taken over. Show or hide the strip with `Ctrl+Shift+P` (*View → Page setup*), close it with `Esc`. The choice is remembered. Paper sizes outside the list above are not supported yet; if the printer dialog returns one, mdVü keeps the size set in the strip.
 - **Native PDF:** *View → Export as PDF* produces a true vector PDF with selectable text and a PDF outline built from the document's headings. The files are usually smaller than "Print to PDF" via a printer driver.
 - **Clean page breaks:** orphaned lines are taken into account — a single line of a paragraph is never left alone at the top or bottom of a page.
 - **Wide tables** are fitted automatically: the font shrinks moderately (down to 70 %), anything still wider is cut off at the right page edge — so put the important columns first. Long-text columns are capped at 30 % of the page width when space is tight. The previous behaviour (squeeze all columns onto the page) is available via the setting `print/tableFit = squeeze`.
-- **Print** straight from the view with `Ctrl+P`.
+- **Print** straight from the view with `Ctrl+P`. The print dialog starts with the printer and paper from the page setup, and changes made there flow back into the preview.
 
 Print and PDF output is always light, regardless of the dark mode setting — a dark page background would waste toner and read badly on paper. Preview, print and PDF are limited to the first **200 pages**; a note appears in the status bar when a document is cut off.
 
@@ -189,11 +190,15 @@ The values worth knowing about:
 | Key | Meaning |
 |---|---|
 | `doc/maxLoadMB` | load limit for a single document in MB (default 50) |
+| `print/paper` | paper size: `A3`, `A4` (default), `A5`, `A6`, `Letter`, `Legal` — written by the page setup strip |
+| `print/orientation` | `portrait` (default) or `landscape` |
+| `print/printer` | printer name; empty means the Windows default printer |
 | `print/tableFit` | how wide tables are fitted: `shrink` (default) or `squeeze` |
 | `print/tableMaxColPct` | maximum width of a long-text column in percent of the page (default 30) |
 | `print/tableMinFontPct` | how far the font may shrink when fitting, in percent (default 70) |
 | `ui/theme`, `ui/mode` | named stylesheet and light/dark/system — written by the Dark Mode command |
 | `ui/currentFolder` | folder restored on the next start |
+| `ui/pageSetupBar` | show the page setup strip in the print preview (on by default) |
 | `ui/fileMru`, `ui/folderMru` | recently used files and folders |
 | `ui/resizeBudgetMs`, `ui/resizeSettleMs`, `ui/resizeRefreshMs` | timing of the re-layout while a window is being resized |
 
@@ -225,6 +230,7 @@ mdVü has a few deliberate hard limits. They exist so that an unusual file canno
 | `Ctrl+3` / `Ctrl+F2` | Print preview |
 | `Ctrl+4` | Edit CSS |
 | `Ctrl+P` | Print |
+| `Ctrl+Shift+P` | Page setup strip in the print preview on/off |
 
 ## Command line
 

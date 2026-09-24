@@ -4,6 +4,21 @@
 
 All notable changes to mdVü are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versions are `Major.Minor.Patch`, and the fourth number in the file version of the EXE is the build counter.
 
+## [0.9.0] — 2026-09-24
+
+### Added
+
+- **Page setup** in the print preview: a strip at the top selects printer, paper size (A3, A4, A5, A6, Letter, Legal) and portrait/landscape. The preview re-paginates immediately, and print and PDF use exactly the format shown. *Printer setup…* opens the Windows printer settings without printing. `Ctrl+Shift+P` shows or hides the strip; the choice is remembered (`print/paper`, `print/orientation`, `print/printer`).
+
+### Changed
+
+- Printing goes through the page setup: the print dialog starts with the chosen printer and paper, and changes made there flow back into the preview — so printer driver and preview always agree on the format.
+- The search strip now uses native Windows controls: it follows dark mode and scales cleanly with the display DPI.
+
+### Fixed
+
+- Printouts sit exactly on the paper: the printer's non-printable margin is now taken into account instead of shifting the page by that amount.
+
 ## [0.8.0] — 2026-09-16
 
 The first public beta, and the first release under the name **mdVü**. Until version 0.6 the program was called *mdView* and lived inside the m3 library repository; it now has a repository, a version scheme and a release process of its own.
