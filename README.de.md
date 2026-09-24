@@ -63,7 +63,7 @@ Releases werden auf der [Releases-Seite](https://github.com/m3repo/mdvu/releases
 
 mdVü ist eine **Vorschau-Version**. Sie hat viel internes Testen hinter sich, trotzdem können sich Funktionen ändern und Fehlfunktionen sind nicht auszuschließen. Das Programm wird kostenlos und „wie besehen“ („AS IS“) bereitgestellt — siehe [LICENSE](LICENSE.md).
 
-Rückmeldungen sind willkommen, gerade jetzt: was sich falsch anfühlt, was fehlt, was kaputtgeht. Für alles Reproduzierbare bitte ein [Issue anlegen](https://github.com/m3repo/mdvu/issues) — dann sehen es andere Tester mit. Für Absturzprotokolle (`mdvu.exe.crash.log`, wird neben der EXE abgelegt) oder Dinge, die nicht öffentlich stehen sollen, geht eine Mail an `mdView@outlook.de` (die Adresse stammt noch aus der Zeit vor der Umbenennung und funktioniert weiterhin).
+Rückmeldungen sind willkommen, gerade jetzt: was sich falsch anfühlt, was fehlt, was kaputtgeht. Für alles Reproduzierbare bitte ein [Issue anlegen](https://github.com/m3repo/mdvu/issues) — dann sehen es andere Tester mit. Für Absturzprotokolle (`mdvu.crash.log`, wird neben der EXE abgelegt) oder Dinge, die nicht öffentlich stehen sollen, geht eine Mail an `mdView@outlook.de` (die Adresse stammt noch aus der Zeit vor der Umbenennung und funktioniert weiterhin).
 
 ## Datenschutz und Sicherheit
 

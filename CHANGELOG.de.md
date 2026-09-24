@@ -31,7 +31,7 @@ Die erste öffentliche Beta und das erste Release unter dem Namen **mdVü**. Bis
 - **Suche in allen Bereichen:** `Strg+F` öffnet den Suchstreifen für die gerade gelesene Ansicht, `F3` und `Umschalt+F3` springen durch die Treffer, `Strg+F3` sucht dort, wo der Tastaturfokus liegt — und ist der einzige Weg zur Ordneransicht, deren Baum während der Eingabe gefiltert wird. `Esc` schließt den Streifen; der Suchbegriff bleibt erhalten, `F3` nimmt die Suche damit wieder auf.
 - **Startseite** mit den letzten fünf Dokumenten.
 - **PDF-Export** mit einem Lesezeichen-Baum aus den Überschriften des Dokuments.
-- **Absturzbericht**: Bei einer Zugriffsverletzung schreibt mdVü `mdvu.exe.crash.log` neben die ausführbare Datei. Verschickt wird nichts — die Datei einzusenden oder zu ignorieren, bleibt dem Anwender überlassen.
+- **Absturzbericht**: Bei einer Zugriffsverletzung schreibt mdVü `mdvu.crash.log` neben die ausführbare Datei. Verschickt wird nichts — die Datei einzusenden oder zu ignorieren, bleibt dem Anwender überlassen.
 - **Import-Prüfung im Release-Ablauf**: Die DLL-Importe der EXE werden vor dem Signieren gegen eine versionierte Baseline verglichen, eine eingeschlichene Netzwerkbibliothek fiele damit auf. mdVü bindet überhaupt keine Socket-DLL ein.
 - **Signierte Releases**: Veröffentlichte Builds sind code-signiert und zeitgestempelt.
 

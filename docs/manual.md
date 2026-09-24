@@ -262,7 +262,7 @@ Print, preview and PDF use a separate stylesheet and are always light. Rules tha
 Switch dark mode off and on again. If it persists, it's worth reporting — please mention whether it happened right after the first start.
 
 **The program crashed.**
-mdVü writes `mdvu.exe.crash.log` next to the executable. The file contains the error location and a stack dump, no document content. Nothing is sent anywhere — mailing it in is entirely your decision, and it makes fixing the bug much more likely.
+mdVü writes `mdvu.crash.log` next to the executable. If that folder is read-only (for example below *Program Files*), the file goes to `%LOCALAPPDATA%` instead — type that into the Explorer address bar to get there. The file contains the error location and a stack dump, no document content. Nothing is sent anywhere — mailing it in is entirely your decision, and it makes fixing the bug much more likely.
 
 ## Uninstalling
 

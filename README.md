@@ -63,7 +63,7 @@ Releases are published on the [Releases page](https://github.com/m3repo/mdvu/rel
 
 mdVü is a **preview version**. It has been through a lot of internal testing, but features may change and malfunctions cannot be ruled out. The program is provided free of charge and "AS IS" — see [LICENSE](LICENSE.md).
 
-Feedback is genuinely welcome, especially now: what feels wrong, what is missing, what breaks. Please [open an issue](https://github.com/m3repo/mdvu/issues) for anything reproducible — that way other testers see it too. For crash logs (`mdvu.exe.crash.log`, written next to the EXE) or anything you'd rather not post publicly, mail to `mdView@outlook.de` (the address predates the rename and still works).
+Feedback is genuinely welcome, especially now: what feels wrong, what is missing, what breaks. Please [open an issue](https://github.com/m3repo/mdvu/issues) for anything reproducible — that way other testers see it too. For crash logs (`mdvu.crash.log`, written next to the EXE) or anything you'd rather not post publicly, mail to `mdView@outlook.de` (the address predates the rename and still works).
 
 ## Privacy and security
 

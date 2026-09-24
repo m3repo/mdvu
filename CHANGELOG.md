@@ -31,7 +31,7 @@ The first public beta, and the first release under the name **mdVü**. Until ver
 - **Search in every pane**: `Ctrl+F` opens the search strip for the view you are reading, `F3` and `Shift+F3` step through the hits, and `Ctrl+F3` searches wherever the keyboard focus is — the only way to reach the folder view, whose tree is filtered down while you type. `Esc` closes the strip; the search term survives it, so `F3` picks the search up again.
 - **Start page** listing the last five documents.
 - **PDF export** with a bookmark tree built from the document headings.
-- **Crash report**: on an access violation, mdVü writes `mdvu.exe.crash.log` next to the executable. Nothing is sent anywhere — the file is yours to mail in or ignore.
+- **Crash report**: on an access violation, mdVü writes `mdvu.crash.log` next to the executable. Nothing is sent anywhere — the file is yours to mail in or ignore.
 - **Import baseline check** in the release process: the DLL imports of the EXE are compared against a versioned baseline before signing, so that a networking library sneaking in would be caught. mdVü imports no socket DLL at all.
 - **Signed releases**: published builds are code-signed and timestamped.
 
