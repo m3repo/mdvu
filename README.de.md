@@ -8,9 +8,8 @@
 
 Genau dafür ist mdVü gebaut.
 
-![mdVü-Hauptfenster (stilisiert)|620](docs/img/mdvu-window.svg)
+![mdVü-Hauptfenster |620](docs/img/mdvu-screenshot-main-en.png)
 
-*Die Abbildung ist eine stilisierte Darstellung des Fensteraufbaus — echte Screenshots folgen mit dem ersten öffentlichen Release.*
 
 ## Was es anders macht
 

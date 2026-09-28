@@ -8,9 +8,9 @@
 
 That's what mdVü is built for.
 
-![mdVü main window (stylized)|620](docs/img/mdvu-window.svg)
+![mdVü main window|620](docs/img/mdvu-screenshot-main-en.png)
 
-*The illustration is a stylized rendering of the window layout — real screenshots will follow with the first public release.*
+
 
 ## What makes it different
 
