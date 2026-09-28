@@ -53,7 +53,7 @@ Es wird nichts systemweit installiert, es sind keine Admin-Rechte nötig, und es
 
 ## Das Fenster im Überblick
 
-![mdVü-Hauptfenster (stilisiert)|620](img/mdvu-window.svg)
+![mdVü-Hauptfenster | 620](img/mdvu-screenshot-main-de.png)
 
 Das Fenster hat keine klassische Menüleiste — das **Hauptmenü sitzt in der Titelleiste** (*Datei*, *Ansicht*, *Hilfe*), neben den Symbolen der Werkzeugleiste.
 

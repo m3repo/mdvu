@@ -53,7 +53,7 @@ Nothing is installed system-wide, no admin rights are required, and no services 
 
 ## The window at a glance
 
-![mdVü main window (stylized)|620](img/mdvu-window.svg)
+![mdVü main window |620](img/mdvu-screenshot-main-en.png)
 
 The window has no classic menu bar — the **main menu sits in the title bar** (*File*, *View*, *Help*), next to the toolbar icons.
 
