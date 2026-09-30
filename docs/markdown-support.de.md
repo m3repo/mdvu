@@ -160,6 +160,18 @@ Ein nicht auflösbarer Link zeigt einen Hinweis in der Statuszeile.
 
 Noch nicht unterstützt: `![[notiz.md]]` — das Einbetten einer anderen *Notiz* — und Embeds von Nicht-Bildern (`![[datei.pdf]]`); beides erscheint als Text. `[[Notiz#Überschrift]]` öffnet die Notiz, springt aber noch nicht zur Überschrift.
 
+## Kommentare
+
+```markdown
+Sichtbar %%versteckt%% sichtbar
+%%
+Ein versteckter Block,
+auch über Leerzeilen hinweg.
+%%
+```
+
+Obsidian-Kommentare werden nie angezeigt — weder am Bildschirm noch in Druckvorschau, Druck oder PDF. Ein nicht geschlossener Kommentar verbirgt wie in Obsidian alles, was danach kommt. In Code (`` `%%x%%` `` und Code-Blöcken) wird nichts verborgen.
+
 ## Frontmatter
 
 Ein durch `---` begrenzter YAML-Block ganz am Dateianfang wird als Frontmatter erkannt und als gedämpfter Monospace-Block angezeigt, samt der Zäune. Er wird bewusst *nicht* versteckt: In einem Viewer sind Metadaten Inhalt — Tags und Datum will man in der Regel sehen.

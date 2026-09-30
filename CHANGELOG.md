@@ -4,6 +4,12 @@
 
 All notable changes to mdVü are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versions are `Major.Minor.Patch`, and the fourth number in the file version of the EXE is the build counter.
 
+## [0.10.1] — 2026-09-30
+
+### Fixed
+
+- **Obsidian comments** (`%%…%%`, inline and as blocks) were shown — and printed. They are now hidden everywhere, including print and PDF.
+
 ## [0.10.0] — 2026-09-30
 
 ### Added

@@ -160,6 +160,18 @@ A link that can't be resolved shows a notice in the status bar.
 
 Not supported yet: `![[note.md]]` — transclusion of another *note* — and embeds of non-image files (`![[file.pdf]]`); both appear as plain text. `[[Note#Heading]]` opens the note but doesn't jump to the heading yet.
 
+## Comments
+
+```markdown
+Visible %%hidden%% visible
+%%
+A hidden block,
+even across blank lines.
+%%
+```
+
+Obsidian comments are never shown — neither on screen nor in the print preview, print or PDF. A comment that is never closed hides everything after it, as in Obsidian. Inside code (`` `%%x%%` `` and code blocks) nothing is hidden.
+
 ## Front matter
 
 A YAML block delimited by `---` at the very beginning of the file is recognized as front matter and shown as a dimmed monospaced block, fences included. It is deliberately *not* hidden: in a viewer, metadata is content — you usually want to see the tags and the date.
