@@ -144,14 +144,21 @@ The fold marker (`> [!note]-`) is parsed but not acted upon; the content is alwa
 ## Wikilinks
 
 ```markdown
-[[Other note.md]]              link to a file next to this one
-[[Other note.md|see there]]    with display text
+[[Other note]]                 link to a note (".md" may be omitted)
+[[Other note|see there]]       with display text
+[[Folder/Other note]]          narrowed down by folder
+[[#Heading]]                   jump to a heading in this document
 ![[picture.png]]               embed a picture
+![[picture.png|200]]           ... 200 pixels wide
 ```
 
-Wikilinks are shown as links and the target is resolved relative to the current document — but **the target is used verbatim, extension included**. `[[Other note]]` without `.md` therefore looks like a link and leads nowhere: mdVü does not search the folder for a matching note the way Obsidian does. Write the file name in full and it works.
+**Inside an Obsidian vault** (a folder containing `.obsidian`), mdVü resolves wikilinks the way Obsidian does: by name, anywhere in the vault, without the path. Upper and lower case don't matter. If several files share the name, the one in the same folder as the current note wins, then the one closest to the vault root. `[[/Folder/Note]]` starts at the vault root, `[[../Note]]` goes up one folder. Files in the vault's trash (`.trash`) are never link targets. mdVü reads the vault's file names in the background when the first note from it is opened, and keeps the list up to date while you work — a note or picture you add in Obsidian is found right away.
 
-`![[note.md]]` — transclusion of another *note* — is **not** supported; only image embeds are.
+**Outside a vault**, the target is looked up next to the current document (again with or without `.md`).
+
+A link that can't be resolved shows a notice in the status bar.
+
+Not supported yet: `![[note.md]]` — transclusion of another *note* — and embeds of non-image files (`![[file.pdf]]`); both appear as plain text. `[[Note#Heading]]` opens the note but doesn't jump to the heading yet.
 
 ## Front matter
 

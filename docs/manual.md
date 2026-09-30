@@ -154,6 +154,8 @@ If a file lies in an **Obsidian vault** (a folder containing `.obsidian`), mdVü
 
 The status bar shows where a file lives: **Obs** for an Obsidian vault, **Git** for a Git repository, **Obs/Git** if both share the same folder. A click opens that folder in the folder view.
 
+**Wikilinks** such as `[[Note]]` and embeds such as `![[picture.png]]` are resolved inside a vault the way Obsidian does it: by name, anywhere in the vault. See [Markdown support](markdown-support.md#wikilinks) for the details.
+
 ## Dark mode
 
 *View → Dark Mode* switches the whole UI including the document. The setting is remembered.

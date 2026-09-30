@@ -144,14 +144,21 @@ Der Faltmarker (`> [!note]-`) wird gelesen, aber nicht umgesetzt; der Inhalt ist
 ## Wikilinks
 
 ```markdown
-[[Andere Notiz.md]]              Link auf eine Datei nebenan
-[[Andere Notiz.md|siehe dort]]   mit Anzeigetext
+[[Andere Notiz]]                 Link auf eine Notiz (".md" darf fehlen)
+[[Andere Notiz|siehe dort]]      mit Anzeigetext
+[[Ordner/Andere Notiz]]          über den Ordner eingegrenzt
+[[#Überschrift]]                 Sprung zu einer Überschrift im Dokument
 ![[bild.png]]                    Bild einbetten
+![[bild.png|200]]                ... 200 Pixel breit
 ```
 
-Wikilinks werden als Link dargestellt und relativ zum aktuellen Dokument aufgelöst — **das Ziel wird dabei aber wörtlich genommen, samt Dateiendung**. `[[Andere Notiz]]` ohne `.md` sieht deshalb aus wie ein Link und führt ins Leere: mdVü durchsucht den Ordner nicht nach einer passenden Notiz, wie Obsidian es tut. Mit vollem Dateinamen funktioniert es.
+**In einem Obsidian-Vault** (ein Ordner mit `.obsidian`) löst mdVü Wikilinks auf wie Obsidian: über den Namen, irgendwo im Vault, ohne Pfadangabe. Groß- und Kleinschreibung spielen keine Rolle. Tragen mehrere Dateien denselben Namen, gewinnt die im Ordner der aktuellen Notiz, danach die nächste zur Vault-Wurzel. `[[/Ordner/Notiz]]` beginnt an der Vault-Wurzel, `[[../Notiz]]` geht einen Ordner hinauf. Dateien im Papierkorb des Vaults (`.trash`) sind nie Linkziel. mdVü liest die Dateinamen des Vaults beim Öffnen der ersten Notiz daraus im Hintergrund ein und hält die Liste während der Arbeit aktuell — eine in Obsidian angelegte Notiz oder ein eingefügtes Bild wird sofort gefunden.
 
-`![[notiz.md]]` — das Einbetten einer anderen *Notiz* — wird **nicht** unterstützt; nur Bild-Embeds.
+**Außerhalb eines Vaults** wird das Ziel neben dem aktuellen Dokument gesucht (ebenfalls mit oder ohne `.md`).
+
+Ein nicht auflösbarer Link zeigt einen Hinweis in der Statuszeile.
+
+Noch nicht unterstützt: `![[notiz.md]]` — das Einbetten einer anderen *Notiz* — und Embeds von Nicht-Bildern (`![[datei.pdf]]`); beides erscheint als Text. `[[Notiz#Überschrift]]` öffnet die Notiz, springt aber noch nicht zur Überschrift.
 
 ## Frontmatter
 

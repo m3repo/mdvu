@@ -4,15 +4,17 @@
 
 All notable changes to mdVü are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versions are `Major.Minor.Patch`, and the fourth number in the file version of the EXE is the build counter.
 
-## [Unreleased]
+## [0.10.0] — 2026-09-30
 
 ### Added
 
+- **Wikilinks and embeds work like in Obsidian:** inside a vault, `[[Note]]` and `![[picture.png]]` are resolved by name anywhere in the vault — no path, no `.md` needed; with duplicate names the same folder wins, then the one closest to the vault root. mdVü reads the vault's file names in the background and keeps them up to date, so a note or picture added in Obsidian is found right away. `[[#Heading]]` jumps within the document. Outside a vault, `[[Note]]` finds `Note.md` next to the current file.
 - **Obsidian vaults and Git repositories are recognised:** the status bar shows **Obs**, **Git** or **Obs/Git** with the folder name; a click opens the vault or repository in the folder view.
 - Inside an Obsidian vault, line breaks follow the vault's *Strict line breaks* setting, so notes look as they do in Obsidian. Outside a vault, the new setting `doc/lineBreaks = newline` breaks at every line.
 
 ### Fixed
 
+- `[[Note]]` without `.md` used to lead nowhere.
 - Line breaks marked by two trailing spaces or a backslash (`\`) were shown as a space; they now break the line, as the Markdown standard requires.
 
 ## [0.9.0] — 2026-09-24
