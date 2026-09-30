@@ -63,7 +63,7 @@ Below that, the window is split:
 - **left, bottom:** the **outline** of the open document — all headings as a tree
 - **right, top:** the **path bar** with the location of the current file
 - **right, centre:** the **document**
-- **bottom:** the status bar with document information and notices
+- **bottom:** the status bar with document information and notices, and where the file lives (Obsidian vault, Git repository)
 
 `F6` cycles the keyboard focus between the panes.
 
@@ -146,6 +146,14 @@ mdVü comes with its own print and PDF output — no detour through a browser or
 
 Print and PDF output is always light, regardless of the dark mode setting — a dark page background would waste toner and read badly on paper. Preview, print and PDF are limited to the first **200 pages**; a note appears in the status bar when a document is cut off.
 
+## Line breaks, Obsidian and Git
+
+By default, mdVü follows the Markdown standard (CommonMark): a single line break inside a paragraph becomes a space. A line only breaks where it ends with two spaces or a backslash `\`. Apps like Typora and Obsidian break at every line instead.
+
+If a file lies in an **Obsidian vault** (a folder containing `.obsidian`), mdVü uses the vault's setting *Strict line breaks*, so the note looks the way it does in Obsidian. For all other files, `doc/lineBreaks = newline` in `settings.ini` switches to one line, one break.
+
+The status bar shows where a file lives: **Obs** for an Obsidian vault, **Git** for a Git repository, **Obs/Git** if both share the same folder. A click opens that folder in the folder view.
+
 ## Dark mode
 
 *View → Dark Mode* switches the whole UI including the document. The setting is remembered.
@@ -190,6 +198,7 @@ The values worth knowing about:
 | Key | Meaning |
 |---|---|
 | `doc/maxLoadMB` | load limit for a single document in MB (default 50) |
+| `doc/lineBreaks` | line breaks outside an Obsidian vault: `standard` (default, Markdown standard) or `newline` (every line break breaks, as in Typora). Inside a vault, the vault's own setting applies. Takes effect on the next start |
 | `print/paper` | paper size: `A3`, `A4` (default), `A5`, `A6`, `Letter`, `Legal` — written by the page setup strip |
 | `print/orientation` | `portrait` (default) or `landscape` |
 | `print/printer` | printer name; empty means the Windows default printer |

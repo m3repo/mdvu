@@ -63,7 +63,7 @@ Darunter ist das Fenster geteilt:
 - **links unten:** die **Gliederung** des geöffneten Dokuments — alle Überschriften als Baum
 - **rechts oben:** die **Pfadleiste** mit dem Ort der aktuellen Datei
 - **rechts in der Mitte:** das **Dokument**
-- **unten:** die Statuszeile mit Angaben zum Dokument und Hinweisen
+- **unten:** die Statuszeile mit Angaben zum Dokument und Hinweisen, dazu, wo die Datei liegt (Obsidian-Vault, Git-Repository)
 
 `F6` schaltet den Tastaturfokus reihum zwischen den Bereichen weiter.
 
@@ -146,6 +146,14 @@ mdVü bringt eine eigene Druck- und PDF-Ausgabe mit — kein Umweg über den Bro
 
 Die Druck- und PDF-Ausgabe ist immer hell, unabhängig vom Dunkelmodus der Anzeige — ein dunkler Seitengrund würde Toner verschwenden und sich auf Papier schlecht lesen. Vorschau, Druck und PDF sind auf die ersten **200 Seiten** begrenzt; wird ein Dokument gekürzt, erscheint ein Hinweis in der Statuszeile.
 
+## Zeilenumbrüche, Obsidian und Git
+
+Standardmäßig folgt mdVü dem Markdown-Standard (CommonMark): Ein einfacher Zeilenumbruch innerhalb eines Absatzes wird zum Leerzeichen. Umbrochen wird nur, wo eine Zeile mit zwei Leerzeichen oder einem Backslash `\` endet. Programme wie Typora und Obsidian brechen dagegen an jeder Zeile um.
+
+Liegt eine Datei in einem **Obsidian-Vault** (ein Ordner mit `.obsidian`), übernimmt mdVü dessen Einstellung *Strict line breaks* — die Notiz sieht aus wie in Obsidian. Für alle anderen Dateien schaltet `doc/lineBreaks = newline` in der `settings.ini` auf „jede Zeile ein Umbruch" um.
+
+Die Statuszeile zeigt, wo eine Datei liegt: **Obs** für einen Obsidian-Vault, **Git** für ein Git-Repository, **Obs/Git**, wenn beide denselben Ordner haben. Ein Klick öffnet diesen Ordner in der Ordneransicht.
+
 ## Dunkelmodus
 
 *Ansicht → Dark Mode* schaltet die komplette Oberfläche samt Dokument um. Die Einstellung wird gemerkt.
@@ -190,6 +198,7 @@ Die Werte, die man kennen sollte:
 | Schlüssel | Bedeutung |
 |---|---|
 | `doc/maxLoadMB` | Ladegrenze für ein einzelnes Dokument in MB (Standard 50) |
+| `doc/lineBreaks` | Zeilenumbrüche außerhalb eines Obsidian-Vaults: `standard` (Standard, Markdown-Standard) oder `newline` (jeder Zeilenumbruch bricht um, wie in Typora). Im Vault gilt dessen eigene Einstellung. Wirkt beim nächsten Start |
 | `print/paper` | Papierformat: `A3`, `A4` (Standard), `A5`, `A6`, `Letter`, `Legal` — wird von der Seiteneinrichtung geschrieben |
 | `print/orientation` | `portrait` (Hochformat, Standard) oder `landscape` (Querformat) |
 | `print/printer` | Druckername; leer bedeutet den Windows-Standarddrucker |

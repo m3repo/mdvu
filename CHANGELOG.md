@@ -4,6 +4,17 @@
 
 All notable changes to mdVü are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versions are `Major.Minor.Patch`, and the fourth number in the file version of the EXE is the build counter.
 
+## [Unreleased]
+
+### Added
+
+- **Obsidian vaults and Git repositories are recognised:** the status bar shows **Obs**, **Git** or **Obs/Git** with the folder name; a click opens the vault or repository in the folder view.
+- Inside an Obsidian vault, line breaks follow the vault's *Strict line breaks* setting, so notes look as they do in Obsidian. Outside a vault, the new setting `doc/lineBreaks = newline` breaks at every line.
+
+### Fixed
+
+- Line breaks marked by two trailing spaces or a backslash (`\`) were shown as a space; they now break the line, as the Markdown standard requires.
+
 ## [0.9.0] — 2026-09-24
 
 ### Added

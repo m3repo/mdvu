@@ -4,6 +4,17 @@
 
 Hier stehen alle nennenswerten Änderungen an mdVü. Das Format folgt [Keep a Changelog](https://keepachangelog.com/de/1.1.0/); Versionen sind `Major.Minor.Patch`, die vierte Stelle in der Dateiversion der EXE ist der Build-Zähler.
 
+## [Unveröffentlicht]
+
+### Neu
+
+- **Obsidian-Vaults und Git-Repositories werden erkannt:** Die Statuszeile zeigt **Obs**, **Git** oder **Obs/Git** mit dem Ordnernamen; ein Klick öffnet den Vault bzw. das Repository in der Ordneransicht.
+- In einem Obsidian-Vault folgen die Zeilenumbrüche dessen Einstellung *Strict line breaks* — Notizen sehen aus wie in Obsidian. Außerhalb eines Vaults bricht die neue Einstellung `doc/lineBreaks = newline` an jeder Zeile um.
+
+### Behoben
+
+- Zeilenumbrüche mit zwei Leerzeichen oder einem Backslash (`\`) am Zeilenende wurden als Leerzeichen dargestellt; sie brechen jetzt um, wie es der Markdown-Standard verlangt.
+
 ## [0.9.0] — 2026-09-24
 
 ### Neu
