@@ -137,7 +137,21 @@ Eine unbekannte Sprache ist kein Problem: Der Block bleibt einfach in der normal
 > Der Titel ist optional — der Typ allein genügt.
 ```
 
-Der Typ wird als CSS-Klasse an das Stylesheet durchgereicht: `note`, `warning`, `tip` und Verwandte lassen sich in der eigenen `user.css` also einfärben. Ohne Zutun erscheinen sie als gewöhnliche Blockzitate — das eingebaute Stylesheet bringt für sie noch keine Farbschemata mit. Jeder Typname funktioniert, mdVü führt keine Liste erlaubter Typen.
+Callouts sehen aus wie in Obsidian: ein farbiger Kasten mit einer Titelzeile in der Farbe des Typs, hell wie dunkel. Der Titel darf Inline-Auszeichnungen enthalten; fehlt er, steht der Typname an seiner Stelle (`> [!warning]` → „Warning“, `> [!my-type]` → „My type“).
+
+Die Farben sind Obsidians Standardfarben, eine je Gruppe — Obsidians Aliase teilen die Farbe ihrer Gruppe:
+
+| Farbe | Typen (Aliase in Klammern) |
+|---|---|
+| blau | `note`, `info`, `todo` |
+| cyan | `abstract` (`summary`, `tldr`), `tip` (`hint`, `important`) |
+| grün | `success` (`check`, `done`) |
+| orange | `question` (`help`, `faq`), `warning` (`caution`, `attention`) |
+| rot | `failure` (`fail`, `missing`), `danger` (`error`), `bug` |
+| lila | `example` |
+| grau | `quote` (`cite`) |
+
+Jeder andere Typname funktioniert ebenfalls und erscheint wie `note` — mdVü führt keine Liste erlaubter Typen. Wie man ihm ein eigenes Aussehen gibt oder einen eingebauten Typ umfärbt, steht unter [Callouts einfärben](css-customizing.de.md#callouts-einfärben).
 
 Der Faltmarker (`> [!note]-`) wird gelesen, aber nicht umgesetzt; der Inhalt ist immer sichtbar.
 

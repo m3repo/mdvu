@@ -75,16 +75,16 @@ Aufgabenlisten:
 > Zitate verschachteln sich:
 > > und das innere wird weiter eingerückt.
 
-Callouts sind Zitate mit einem Typ. Ohne Zutun erscheinen sie wie gewöhnliche Zitate — [mit Farben versehen](../docs/css-customizing.de.md#callouts-einfärben) in der eigenen `user.css` erwachen sie zum Leben:
+Callouts sind Zitate mit einem Typ. Sie bekommen Obsidians Farben und eine Titelzeile — [umgestalten](../docs/css-customizing.de.md#callouts-einfärben) lassen sie sich in der eigenen `user.css`:
 
 > [!note] Gut zu wissen
 > Der Titel hinter dem Typ ist optional.
 
 > [!warning]
-> Ohne Titel steht der Typ allein.
+> Ohne Titel wird der Typname zum Titel.
 
 > [!tip] Jeder Name funktioniert
-> mdVü führt keine Liste erlaubter Typen — `[!spoiler]`, `[!rezept]` und `[!bananen]` sind alle in Ordnung.
+> mdVü führt keine Liste erlaubter Typen — `[!spoiler]`, `[!rezept]` und `[!bananen]` sind alle in Ordnung; unbekannte sehen aus wie `note`.
 
 ## Code
 

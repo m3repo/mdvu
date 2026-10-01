@@ -137,7 +137,21 @@ An unknown language is not a problem: the block simply stays in the plain code c
 > The title is optional — the type alone will do.
 ```
 
-The type is passed through to the stylesheet as a CSS class, so you can give `note`, `warning`, `tip` and friends their own colours in your `user.css`. Out of the box they render as ordinary block quotes: the built-in stylesheet doesn't ship colour schemes for them yet. Any type name works — mdVü doesn't police the list.
+Callouts look like they do in Obsidian: a coloured box with a title line in the type's colour, in light and dark mode alike. The title may contain inline markup; without one, the type name stands in (`> [!warning]` → "Warning", `> [!my-type]` → "My type").
+
+The colours are Obsidian's defaults, one per group — Obsidian's aliases share their group's colour:
+
+| Colour | Types (aliases in brackets) |
+|---|---|
+| blue | `note`, `info`, `todo` |
+| cyan | `abstract` (`summary`, `tldr`), `tip` (`hint`, `important`) |
+| green | `success` (`check`, `done`) |
+| orange | `question` (`help`, `faq`), `warning` (`caution`, `attention`) |
+| red | `failure` (`fail`, `missing`), `danger` (`error`), `bug` |
+| purple | `example` |
+| grey | `quote` (`cite`) |
+
+Any other type name works too and is drawn like `note` — mdVü doesn't police the list. To give it a look of its own, or to restyle a built-in type, see [Colouring callouts](css-customizing.md#colouring-callouts).
 
 The fold marker (`> [!note]-`) is parsed but not acted upon; the content is always shown.
 

@@ -46,6 +46,7 @@ Every block element in the document carries a style tag; those are your selector
 | `code` | inline code *and* the base colour of code blocks |
 | `pre` | the box around a code block |
 | `blockquote` | block quotes and callouts |
+| `callout-title` | the title line of a callout (colour, font) |
 | `frontmatter` | the YAML block at the start of the file |
 | `table`, `tr`, `th`, `td` | tables, rows, header cells, data cells |
 | `ul`, `ol`, `li` | lists and list items |
@@ -57,6 +58,7 @@ What works beyond plain tags:
 ```css
 .klasse { … }              /* a style class, e.g. .code-comment */
 blockquote.warning { … }   /* tag plus class — callouts land here */
+callout-title.warning { … } /* the callout's title line */
 * { … }                    /* everything */
 tr:nth-child(2n+3) { … }   /* nth-child, counting ALL children */
 ```
@@ -160,15 +162,24 @@ Only `color`, `font-weight` and `font-style` are evaluated per token — a backg
 
 ### Colouring callouts
 
-Callout types arrive as a class on the block quote, so each type can look different:
+Callouts come with Obsidian's colours out of the box. Your `user.css` overrides them: the callout type arrives as a class on the block quote, and the title line is a `callout-title` with the same classes.
+
+An alias carries **two** classes — its group and its own name. `> [!caution]` becomes `blockquote.warning.caution`, so a `blockquote.warning` rule reaches it, and `blockquote.caution` sets it apart from a plain warning. A type mdVü doesn't know carries `note` plus its own name (`> [!recipe]` → `blockquote.note.recipe`):
 
 ```css
-blockquote.note    { background-color: #eaf2fb; border-left: 3pt solid #4a80c0; }
-blockquote.warning { background-color: #fdf0e6; border-left: 3pt solid #d08030; }
-blockquote.tip     { background-color: #eaf7ee; border-left: 3pt solid #3d9a5c; }
+/* a type of your own */
+blockquote.recipe    { background-color: #fdf6e3; border-left: 3pt solid #b58900; }
+callout-title.recipe { color: #b58900; }
+
+/* set caution apart from warning */
+blockquote.caution    { border-left: 3pt solid #c03030; }
+callout-title.caution { color: #c03030; }
+
+/* no coloured bar, like Obsidian itself */
+blockquote.note { border-left: 0px; }
 ```
 
-The type name is whatever you wrote in `> [!name]` — mdVü doesn't keep a list of allowed ones.
+Title colours go on `callout-title.<type>` — `blockquote.note callout-title` does **not** reach the title's text colour. Like everything in `user.css`, these colours apply in light *and* dark mode — pick ones that read on both.
 
 ### Hiding front matter
 

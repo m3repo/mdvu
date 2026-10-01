@@ -75,16 +75,16 @@ Task lists:
 > Quotes nest:
 > > and the inner one is indented further.
 
-Callouts are quotes with a type. Out of the box they render like ordinary quotes — [give them colours](../docs/css-customizing.md#colouring-callouts) in your `user.css` and they come to life:
+Callouts are quotes with a type. They get Obsidian's colours and a title line — [restyle them](../docs/css-customizing.md#colouring-callouts) in your `user.css` if you like:
 
 > [!note] Worth knowing
 > The title after the type is optional.
 
 > [!warning]
-> Without a title, the type stands alone.
+> Without a title, the type name becomes the title.
 
 > [!tip] Any name works
-> mdVü doesn't keep a list of allowed types — `[!spoiler]`, `[!recipe]` and `[!bananas]` are all fine.
+> mdVü doesn't keep a list of allowed types — `[!spoiler]`, `[!recipe]` and `[!bananas]` are all fine; unknown ones look like `note`.
 
 ## Code
 
