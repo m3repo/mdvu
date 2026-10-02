@@ -8,7 +8,7 @@ All notable changes to mdVü are documented here. The format follows [Keep a Cha
 
 ### Added
 
-- **Links jump to a section in another document:** `[[Note#Heading]]` and `[details](note.md#installation)` open the document and scroll to the heading. The target may be the anchor name or the heading's text; `[[Note#Chapter 2#Details]]` picks "Details" under "Chapter 2" when the title occurs twice. A link to the document that is already open just jumps. In large files mdVü jumps as soon as the heading has been loaded; if it is missing, the document opens at the top with a notice in the status bar.
+- **Links jump to a section in another document:** `[[Note#Heading]]` and `[details](note.md#installation)` open the document and scroll to the heading. The target may be the anchor name or the heading's text; `[[Note#Chapter 2#Details]]` picks "Details" under "Chapter 2" when the title occurs twice. A link to the document that is already open just jumps. The outline takes the same route: after Back, Forward returns to the heading you last picked there. In large files mdVü jumps as soon as the heading has been loaded; if it is missing, the document opens at the top with a notice in the status bar.
 
 ### Fixed
 
