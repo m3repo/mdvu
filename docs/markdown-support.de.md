@@ -99,6 +99,45 @@ Markdown in diesen Tags wirkt weiter (`<u>*beides*</u>`). Groß- und Kleinschrei
 
 Auch in sehr großen Dokumenten, die in Stücken geladen werden, finden Sprungmarken und die Gliederung ihr Ziel, selbst wenn es noch nicht geladen ist. Ein `#` im Dateinamen muss im Link als `%23` stehen — sonst gilt alles dahinter als Sprungmarke.
 
+## Fundstellen verlinken
+
+Ein Link auf `mdvu:open` öffnet ein Dokument und bringt dabei Markierungen oder eine Suche mit — gedacht für Notizen, Trefferlisten und Werkzeuge, die auf bestimmte Stellen in anderen Dateien zeigen wollen:
+
+```
+[Alle Rechnungen](mdvu:open?uri=C:/Notizen/plan.md&find=Rechnung)
+[Der dritte Treffer, ganzes Wort](mdvu:open?uri=C:/Notizen/plan.md&find=Rechnung&word&hit=3)
+[Zeilen 40–42 als Warnung](mdvu:open?uri=C:/src/README.md&mark=12:5-20&mark=40-42~warn)
+[Markierung plus Abschnitt](mdvu:open?uri=C:/Notizen/plan.md&mark=7~ffcc00#Ziele)
+```
+
+`uri=` ist der vollständige Pfad der Datei mit `/` statt `\`; Leerzeichen und andere Sonderzeichen stehen prozent-kodiert (`%20`, `&` als `%26`). Solche Links funktionieren in Dokumenten — die Kommandozeile nimmt nur Dateien und Ordner.
+
+**`find=` — alle Fundstellen markieren, wie die Suche.** mdVü sucht im ganzen Dokument, markiert alle Treffer und blendet den Suchstreifen mit dem Begriff ein; `F3` und `Umschalt+F3` gehen weiter, `Esc` räumt ab.
+
+| Zusatz | Bedeutung |
+|---|---|
+| `&case` | Groß-/Kleinschreibung beachten |
+| `&word` | nur ganze Wörter |
+| `&regex` | Suchtext als regulären Ausdruck lesen (ohne Regex-Unterstützung im Programm wird nach dem Text gesucht; die Statuszeile sagt Bescheid) |
+| `&hit=3` | der dritte Treffer ist der aktive (Vorgabe: der erste) |
+| `find=TODO~todo` | Farbe der Markierung (siehe unten) |
+
+**`mark=` — Zeilen oder Bereiche hervorheben**, beliebig oft. Die Angaben beziehen sich auf den **Quelltext** der Datei, so wie ihn ein Editor oder `grep` zeigt; Zeilen und Spalten zählen ab 1, das Ende ist ausschließlich:
+
+| Angabe | Bereich |
+|---|---|
+| `12` | ganze Zeile 12 |
+| `12-14` | Zeilen 12 bis 14 |
+| `12:5-20` | Zeile 12, Spalte 5 bis vor Spalte 20 |
+| `12:5-14:3` | von Zeile 12, Spalte 5 bis vor Zeile 14, Spalte 3 |
+| `12:5` | nur Sprungziel, keine Markierung |
+
+Markup, das nicht sichtbar ist (`**`, Link-Adressen, Kommentare), wird ausgespart. Bereiche hinter dem Dateiende entfallen; liegen alle dahinter, sagt die Statuszeile Bescheid. Höchstens 1000 `mark` je Link.
+
+**Farben:** `~` und dahinter entweder eine Klasse — `warn`, `error`, `ok`, `info`, `find` — oder eine Farbe als sechs Hex-Ziffern **ohne** `#` (`~ffcc00`; das `#` leitete in einem Link schon den Abschnitt ein). Ohne Angabe nimmt `mark` Gelb und `find` die Farbe der Suche. Die Klassen sind Stilregeln im Dokument-CSS und lassen sich in der `user.css` umfärben oder ergänzen, z.B. `highlight.todo { background-color: #a0e0ff; }`.
+
+**Wohin gesprungen wird:** zum Abschnitt hinter `#`, sonst zur ersten `mark`, sonst zum aktiven `find`-Treffer — markiert wird in jedem Fall alles. Beim Zurückblättern gewinnt die Stelle, an der man zuletzt war. `Esc` im Dokument räumt die Markierungen ab.
+
 ## Bilder
 
 ```markdown

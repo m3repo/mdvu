@@ -99,6 +99,45 @@ Markdown inside these tags keeps working (`<u>*both*</u>`). Upper and lower case
 
 Anchors and the outline also find their target in very large documents that are loaded in chunks, even if it hasn't been loaded yet. A `#` in a file name must be written as `%23` in the link — otherwise everything after it counts as the anchor.
 
+## Linking to places
+
+A link to `mdvu:open` opens a document and brings highlights or a search along — meant for notes, lists of matches and tools that want to point at particular spots in other files:
+
+```
+[All invoices](mdvu:open?uri=C:/Notes/plan.md&find=invoice)
+[The third match, whole word](mdvu:open?uri=C:/Notes/plan.md&find=invoice&word&hit=3)
+[Lines 40–42 as a warning](mdvu:open?uri=C:/src/README.md&mark=12:5-20&mark=40-42~warn)
+[Highlight plus section](mdvu:open?uri=C:/Notes/plan.md&mark=7~ffcc00#Goals)
+```
+
+`uri=` is the full path of the file with `/` instead of `\`; spaces and other special characters are percent-encoded (`%20`, `&` as `%26`). Such links work inside documents — the command line only takes files and folders.
+
+**`find=` — highlight every match, like the search.** mdVü searches the whole document, highlights all hits and shows the search strip with the term; `F3` and `Shift+F3` move on, `Esc` clears.
+
+| Addition | Meaning |
+|---|---|
+| `&case` | match case |
+| `&word` | whole words only |
+| `&regex` | read the search text as a regular expression (without regex support in the program, mdVü searches for the plain text; the status bar tells you) |
+| `&hit=3` | the third hit is the active one (default: the first) |
+| `find=TODO~todo` | colour of the highlight (see below) |
+
+**`mark=` — highlight lines or ranges**, as often as you like. The positions refer to the file's **source text**, as an editor or `grep` shows it; lines and columns count from 1, the end is exclusive:
+
+| Position | Range |
+|---|---|
+| `12` | the whole of line 12 |
+| `12-14` | lines 12 to 14 |
+| `12:5-20` | line 12, column 5 up to column 20 |
+| `12:5-14:3` | from line 12, column 5 up to line 14, column 3 |
+| `12:5` | jump target only, no highlight |
+
+Markup that isn't visible (`**`, link addresses, comments) is left out. Ranges beyond the end of the file are dropped; if all of them are, the status bar tells you. At most 1000 `mark` per link.
+
+**Colours:** `~` followed by either a class — `warn`, `error`, `ok`, `info`, `find` — or a colour as six hex digits **without** `#` (`~ffcc00`; in a link, `#` already starts the section). Without it, `mark` uses yellow and `find` the search colour. The classes are style rules in the document CSS and can be recoloured or extended in `user.css`, e.g. `highlight.todo { background-color: #a0e0ff; }`.
+
+**Where it jumps:** to the section after `#`, otherwise to the first `mark`, otherwise to the active `find` hit — everything is highlighted either way. When you go back, the place you last were wins. `Esc` in the document clears the highlights.
+
 ## Images
 
 ```markdown

@@ -9,12 +9,24 @@ All notable changes to mdVü are documented here. The format follows [Keep a Cha
 ### Added
 
 - **Links jump to a section in another document:** `[[Note#Heading]]` and `[details](note.md#installation)` open the document and scroll to the heading. The target may be the anchor name or the heading's text; `[[Note#Chapter 2#Details]]` picks "Details" under "Chapter 2" when the title occurs twice. A link to the document that is already open just jumps. The outline takes the same route: after Back, Forward returns to the heading you last picked there. In large files mdVü jumps as soon as the heading has been loaded; if it is missing, the document opens at the top with a notice in the status bar.
+- **Linking to places:** a link `mdvu:open?uri=…&find=term` opens the document, highlights every match like the search does and shows the search strip (`&case`, `&word`, `&hit=3` as in the search). `&mark=12-14` or `&mark=12:5-20` highlight lines or ranges of the source text, as often as you like and in colour if you wish (`~warn`, `~ffcc00`); the colour classes can be changed in `user.css`. `Esc` clears them. See [Linking to places](docs/markdown-support.md#linking-to-places).
+- **Back takes you to where you were:** back/forward restores the reading position instead of landing at the top of the document — anchored to the line of text, not to pixels, so it still fits after a change of window width, zoom or piecewise loading. A running search comes back too: term, options, active hit and the search strip.
+- **Search in the outline:** `Ctrl+F3` with the focus in the outline filters it to matching headings (with their parents) and highlights the search text — just like the folder view. When you close the search, it is expanded the way it was before.
+
+### Changed
+
+- **The document search covers the whole text**, including parts of large files that haven't been displayed yet. Until now it only found what had already been built — hits further down only showed up once you had scrolled there.
+- **Search as you type:** mdVü searches after a short pause (0.3 seconds) and from 3 characters on, so typing stays smooth in large documents too. `Enter` and `F3` search right away, shorter terms as well; a term in quotes (`"ab"`) searches for exactly that text.
+- **`F3` / `Shift+F3` always act on the main pane**, even with the focus in the folder view or the outline. Only `Ctrl+F3` depends on where you are.
 
 ### Fixed
 
 - Markdown links to another document with an anchor (`other.md#section`) led nowhere.
 - Percent-encoded links, as Obsidian writes them (`My%20Note.md`), were not found.
 - In very large documents, anchors and the outline could not reach headings that hadn't been loaded yet, and duplicate headings far apart could share the same anchor.
+- Crash in very large documents when searching with `F3` or selecting text after scrolling far.
+- Crash when dragging with the mouse button held down after clicking a link that jumps far.
+- After closing the search in the folder view, the tree was collapsed down to the selected file; it now looks the way it did before the search.
 
 ## [0.11.0] — 2026-10-02
 

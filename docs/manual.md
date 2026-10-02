@@ -86,11 +86,11 @@ Very large files are loaded up to a limit of **50 MB** — a banner at the top o
 
 The folder view shows the folder of the current document, filtered to `*.md`. It is not a vault and not a workspace: it's simply the folder you are in, and it follows you as you navigate.
 
-`Ctrl+F` opens the search strip for the main pane — the view currently showing: document, source text, CSS or print preview. `F3` and `Shift+F3` step to the next and previous hit; they work from the search field as well as from the document itself, so you can keep reading and press `F3` to move on.
+`Ctrl+F` opens the search strip for the main pane — the view currently showing: document, source text, CSS or print preview. `F3` and `Shift+F3` step to the next and previous hit in the main pane, wherever the focus is: in the search field, in the document, even in the folder view or the outline. So you can keep reading and press `F3` to move on.
 
-`Ctrl+F3` searches wherever you are — the pane holding the keyboard focus gets the strip. It is the only way to reach the folder view, and unlike `Ctrl+F` it also switches the strip off again.
+`Ctrl+F3` searches wherever you are — the pane holding the keyboard focus gets the strip. It is the only way to reach the folder view and the outline, and unlike `Ctrl+F` it also switches the strip off again.
 
-In the **folder view** the strip appears above the tree. As you type, the tree is filtered to matching files and hits are highlighted in the name. The arrow-down key moves the focus from the search field into the tree, so you can type, then browse without touching the mouse.
+In the **folder view** and the **outline** the strip appears above the tree. As you type, the tree is filtered — to matching files or headings — and hits are highlighted. The arrow-down key moves the focus from the search field into the tree, so you can type, then browse without touching the mouse. When you close the strip, the tree is expanded the way it was before the search.
 
 In the **document, source text, CSS editor and print preview** the strip appears below the path bar and works like a browser's find bar: `Enter` and `Shift+Enter` step through the hits, a counter shows *hit / total*, and all hits are highlighted at once. Three toggles refine the search:
 
@@ -100,9 +100,11 @@ In the **document, source text, CSS editor and print preview** the strip appears
 | `.*` | Read the search term as a regular expression |
 | `Sel` | Restrict the search to the current selection (document only; needs a non-empty selection) |
 
+In the **document**, mdVü always searches the whole text — including parts of very large files that haven't been displayed yet; it finds what you see (`foo` also matches `**fo**o`, but not a link address). While you type, mdVü waits until you pause briefly (0.3 seconds) and until you've entered **3 characters**, so typing stays smooth even in large documents. `Enter` and `F3` search right away, shorter terms too. A term in quotes (`"ab"`) searches for exactly that text, even if it is short or has spaces at the edges. With a very large number of hits, the first 10,000 are highlighted; the status bar tells you.
+
 `Ctrl+F3` again, `Esc` or the `X` button closes the strip — highlights disappear, the folder filter is lifted. The search term itself is kept: `Ctrl+F` brings it back into the field, and `F3` resumes the search from the first hit. That also means `F3` can leave highlights in the document without a visible strip; `Esc` in the document clears them.
 
-Only one strip is open at a time, and switching views closes it.
+Only one strip is open at a time; switching views closes the main pane's strip (the strips above the trees stay).
 
 Note on the print preview: it searches what has actually been paginated. Documents cut off at the 200-page limit end there for the search as well.
 
@@ -110,7 +112,7 @@ Note on the print preview: it searches what has actually been paginated. Documen
 
 Below the folder view, mdVü shows the **outline** of the current document — all headings as a tree, nested by level. A click jumps to that position in the document; the target flashes briefly so your eye finds it right away.
 
-For a long document, the outline is the fastest way around: no scrolling, no searching, one click.
+For a long document, the outline is the fastest way around: no scrolling, no searching, one click. With very many headings, press `Ctrl+F3` with the focus in the outline: the strip filters it to the headings containing the search text — together with their parent headings, so you can see where they are.
 
 ## Path bar, back and forward
 
@@ -118,7 +120,9 @@ Above the document, the **path bar** shows the location of the current file. Eve
 
 mdVü navigates its history like a browser: the arrow icons in the toolbar or `Alt+←` / `Alt+→` step back and forward. **Right-clicking the arrows** opens the history list, so you can jump straight to any earlier document instead of stepping through them.
 
-Links inside documents work as you'd expect: a relative link to another `.md` file opens that file; a link to a heading (`#section`) jumps within the document; an `http(s)` link opens in your browser after a confirmation. Links that lead nowhere sensible are refused rather than followed.
+**Back takes you to where you were** — not to the top of the document. mdVü remembers the topmost visible line of text rather than a pixel position, so this still fits when the window width or zoom has changed in the meantime or the document is loaded in pieces. If the file has become shorter, you land at its end. A running search in the document comes back too: search term, options, active hit and the strip. If you closed the search with `Esc` before moving on, it won't come back either.
+
+Links inside documents work as you'd expect: a relative link to another `.md` file opens that file; a link to a heading (`#section`) jumps within the document; an `http(s)` link opens in your browser after a confirmation. Links that lead nowhere sensible are refused rather than followed. A link of the form `mdvu:open?uri=…&find=…` or `&mark=…` opens a document and highlights matches or lines in it — see [Linking to places](markdown-support.md#linking-to-places).
 
 ## The four views
 
@@ -230,8 +234,8 @@ mdVü has a few deliberate hard limits. They exist so that an unusual file canno
 | `Ctrl+O` | Open file |
 | `F1` | Manual |
 | `Ctrl+F` | Search in the main pane |
-| `F3` / `Shift+F3` | Next / previous hit |
-| `Ctrl+F3` | Search in the focused pane on/off (incl. folder view) |
+| `F3` / `Shift+F3` | Next / previous hit in the main pane |
+| `Ctrl+F3` | Search in the focused pane on/off (incl. folder view and outline) |
 | `Esc` | Close the search strip / clear the highlights |
 | `F5` | Reload document |
 | `F6` | Switch between panes (tree / document / editor) |

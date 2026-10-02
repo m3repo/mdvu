@@ -9,12 +9,24 @@ Hier stehen alle nennenswerten Änderungen an mdVü. Das Format folgt [Keep a Ch
 ### Neu
 
 - **Links springen zum Abschnitt in einem anderen Dokument:** `[[Notiz#Überschrift]]` und `[Details](notiz.md#installation)` öffnen das Dokument und scrollen zur Überschrift. Als Ziel taugt der Ankername oder der Text der Überschrift; `[[Notiz#Kapitel 2#Details]]` wählt „Details“ unter „Kapitel 2“, wenn der Titel doppelt vorkommt. Ein Link auf das schon offene Dokument springt nur. Die Gliederung geht denselben Weg: Nach Zurück führt Vor wieder an die dort zuletzt gewählte Überschrift. In großen Dateien springt mdVü, sobald die Überschrift geladen ist; fehlt sie, öffnet sich das Dokument oben mit einem Hinweis in der Statuszeile.
+- **Fundstellen verlinken:** Ein Link `mdvu:open?uri=…&find=Begriff` öffnet das Dokument, markiert alle Fundstellen wie die Suche und blendet den Suchstreifen ein (`&case`, `&word`, `&hit=3` wie in der Suche). `&mark=12-14` oder `&mark=12:5-20` heben Zeilen bzw. Bereiche des Quelltexts hervor, beliebig oft, auf Wunsch farbig (`~warn`, `~ffcc00`); die Farbklassen lassen sich per `user.css` anpassen. `Esc` räumt ab. Siehe [Fundstellen verlinken](docs/markdown-support.de.md#fundstellen-verlinken).
+- **Zurück führt dorthin, wo man war:** Vor/Zurück stellt die Leseposition wieder her statt am Dokumentanfang zu landen — verankert an der Textzeile, nicht an Pixeln, passt also auch nach geänderter Fensterbreite, Zoom oder stückweisem Nachladen. Eine laufende Suche kommt mit zurück: Begriff, Optionen, aktiver Treffer und Suchstreifen.
+- **Suche in der Gliederung:** `Strg+F3` mit dem Fokus in der Gliederung filtert sie auf passende Überschriften (samt übergeordneten) und hebt den Suchtext hervor — wie in der Ordneransicht. Nach dem Schließen ist sie wieder so aufgeklappt wie vorher.
+
+### Geändert
+
+- **Die Suche im Dokument durchsucht den ganzen Text**, auch Teile großer Dateien, die noch nicht angezeigt wurden. Bisher fand sie dort nur, was schon aufgebaut war — Treffer weiter unten tauchten erst nach dem Hinscrollen auf.
+- **Suchen beim Tippen:** Gesucht wird erst nach einer kurzen Pause (0,3 Sekunden) und ab 3 Zeichen, damit die Eingabe auch in großen Dokumenten flüssig bleibt. `Eingabe` und `F3` suchen sofort, auch kürzere Begriffe; in Anführungszeichen (`"ab"`) wird genau dieser Text gesucht.
+- **`F3` / `Umschalt+F3` gelten immer dem Haupt-Pane**, auch wenn der Fokus in Ordneransicht oder Gliederung steht. Bereichsabhängig ist nur noch `Strg+F3`.
 
 ### Behoben
 
 - Markdown-Links mit Sprungmarke in ein anderes Dokument (`andere.md#abschnitt`) führten ins Leere.
 - Prozent-kodierte Links, wie Obsidian sie schreibt (`Meine%20Notiz.md`), wurden nicht gefunden.
 - In sehr großen Dokumenten erreichten Sprungmarken und Gliederung noch nicht geladene Überschriften nicht, und weit auseinanderliegende gleichnamige Überschriften konnten denselben Anker tragen.
+- Absturz in sehr großen Dokumenten, wenn nach weitem Scrollen mit `F3` gesucht oder Text ausgewählt wurde.
+- Absturz, wenn nach einem Klick auf einen weit springenden Link mit gedrückter Maustaste weitergezogen wurde.
+- Nach dem Schließen der Suche in der Ordneransicht war der Baum bis auf die gewählte Datei zugeklappt; er steht jetzt wieder wie vor der Suche.
 
 ## [0.11.0] — 2026-10-02
 
