@@ -4,6 +4,18 @@
 
 Hier stehen alle nennenswerten Änderungen an mdVü. Das Format folgt [Keep a Changelog](https://keepachangelog.com/de/1.1.0/); Versionen sind `Major.Minor.Patch`, die vierte Stelle in der Dateiversion der EXE ist der Build-Zähler.
 
+## [Unreleased]
+
+### Neu
+
+- **Links springen zum Abschnitt in einem anderen Dokument:** `[[Notiz#Überschrift]]` und `[Details](notiz.md#installation)` öffnen das Dokument und scrollen zur Überschrift. Als Ziel taugt der Ankername oder der Text der Überschrift; `[[Notiz#Kapitel 2#Details]]` wählt „Details“ unter „Kapitel 2“, wenn der Titel doppelt vorkommt. Ein Link auf das schon offene Dokument springt nur. In großen Dateien springt mdVü, sobald die Überschrift geladen ist; fehlt sie, öffnet sich das Dokument oben mit einem Hinweis in der Statuszeile.
+
+### Behoben
+
+- Markdown-Links mit Sprungmarke in ein anderes Dokument (`andere.md#abschnitt`) führten ins Leere.
+- Prozent-kodierte Links, wie Obsidian sie schreibt (`Meine%20Notiz.md`), wurden nicht gefunden.
+- In sehr großen Dokumenten erreichten Sprungmarken und Gliederung noch nicht geladene Überschriften nicht, und weit auseinanderliegende gleichnamige Überschriften konnten denselben Anker tragen.
+
 ## [0.11.0] — 2026-10-02
 
 ### Neu

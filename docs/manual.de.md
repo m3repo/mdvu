@@ -154,7 +154,7 @@ Liegt eine Datei in einem **Obsidian-Vault** (ein Ordner mit `.obsidian`), über
 
 Die Statuszeile zeigt, wo eine Datei liegt: **Obs** für einen Obsidian-Vault, **Git** für ein Git-Repository, **Obs/Git**, wenn beide denselben Ordner haben. Ein Klick öffnet diesen Ordner in der Ordneransicht.
 
-**Wikilinks** wie `[[Notiz]]` und Einbettungen wie `![[bild.png]]` löst mdVü in einem Vault auf wie Obsidian: über den Namen, irgendwo im Vault. Einzelheiten stehen in der [Markdown-Referenz](markdown-support.de.md#wikilinks).
+**Wikilinks** wie `[[Notiz]]` und Einbettungen wie `![[bild.png]]` löst mdVü in einem Vault auf wie Obsidian: über den Namen, irgendwo im Vault. `[[Notiz#Überschrift]]` öffnet die Notiz und springt zur Überschrift — ebenso ein Markdown-Link wie `[Details](notiz.md#installation)`. Einzelheiten stehen in der [Markdown-Referenz](markdown-support.de.md#wikilinks).
 
 ## Dunkelmodus
 

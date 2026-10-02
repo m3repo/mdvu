@@ -93,10 +93,11 @@ Markdown in diesen Tags wirkt weiter (`<u>*beides*</u>`). Groß- und Kleinschrei
 
 - **Relative Links** (`[Handbuch](manual.de.md)`) werden gegen den Ordner des aktuellen Dokuments aufgelöst und öffnen die Datei in mdVü.
 - **Sprungmarken** (`[zum Abschnitt](#tabellen)`) springen innerhalb des Dokuments. Der Ankername wird aus der Überschrift gebildet: kleingeschrieben, Leerzeichen werden zu Bindestrichen, Binde- und Unterstriche bleiben, alles andere (Satzzeichen, Symbole) fällt weg. Aus `## Links und Sprungmarken` wird also `#links-und-sprungmarken`. Gleichnamige Überschriften werden durchnummeriert: `#notizen`, `#notizen-1`, `#notizen-2`. Das entspricht der Konvention von GitHub, derselbe Link funktioniert also meist an beiden Orten.
+- **Sprungmarken in andere Dokumente** (`[Details](andere.md#installation)`) öffnen das Dokument und springen zur Überschrift. Hinter dem `#` darf der Ankername stehen (wie oben) oder der Text der Überschrift. Prozent-kodierte Links, wie Obsidian sie bei abgeschalteten Wikilinks schreibt (`[x](Meine%20Notiz.md#Mein%20Abschnitt)`), funktionieren ebenso. Zeigt der Link auf das schon offene Dokument, wird nur gesprungen. Fehlt der Abschnitt, öffnet sich das Dokument oben und die Statuszeile sagt Bescheid.
 - **`http(s)`-Links** öffnen nach Rückfrage den Standardbrowser.
 - Links auf alles Übrige werden abgelehnt statt befolgt. mdVü startet aus einem Dokument heraus niemals ein Programm oder einen Shell-Befehl.
 
-In einem sehr großen Dokument, das in Stücken geladen wird, kann eine weiter unten liegende Sprungmarke im Moment des Klicks noch nicht existieren — dann passiert nichts. Ein Stück scrollen und erneut klicken.
+Auch in sehr großen Dokumenten, die in Stücken geladen werden, finden Sprungmarken und die Gliederung ihr Ziel, selbst wenn es noch nicht geladen ist. Ein `#` im Dateinamen muss im Link als `%23` stehen — sonst gilt alles dahinter als Sprungmarke.
 
 ## Bilder
 
@@ -190,6 +191,8 @@ Der Faltmarker (`> [!note]-`) wird gelesen, aber nicht umgesetzt; der Inhalt ist
 [[Andere Notiz|siehe dort]]      mit Anzeigetext
 [[Ordner/Andere Notiz]]          über den Ordner eingegrenzt
 [[#Überschrift]]                 Sprung zu einer Überschrift im Dokument
+[[Andere Notiz#Überschrift]]     Notiz öffnen und zur Überschrift springen
+[[Notiz#Kapitel 2#Details]]      "Details" unter "Kapitel 2" (bei gleichen Titeln)
 ![[bild.png]]                    Bild einbetten
 ![[bild.png|200]]                ... 200 Pixel breit
 ```
@@ -200,7 +203,9 @@ Der Faltmarker (`> [!note]-`) wird gelesen, aber nicht umgesetzt; der Inhalt ist
 
 Ein nicht auflösbarer Link zeigt einen Hinweis in der Statuszeile.
 
-Noch nicht unterstützt: `![[notiz.md]]` — das Einbetten einer anderen *Notiz* — und Embeds von Nicht-Bildern (`![[datei.pdf]]`); beides erscheint als Text. `[[Notiz#Überschrift]]` öffnet die Notiz, springt aber noch nicht zur Überschrift.
+Der Abschnitt hinter dem `#` wird wie in Obsidian über den Text der Überschrift gefunden, Groß- und Kleinschreibung egal; bei gleichnamigen Überschriften gewinnt die erste, außer ein Pfad wie `#Kapitel 2#Details` grenzt ein. Fehlt der Abschnitt, öffnet sich die Notiz oben.
+
+Noch nicht unterstützt: `![[notiz.md]]` — das Einbetten einer anderen *Notiz* — und Embeds von Nicht-Bildern (`![[datei.pdf]]`); beides erscheint als Text. Block-Verweise (`[[Notiz#^abc123]]`) öffnen die Notiz oben, ohne zum Absatz zu springen.
 
 ## Kommentare
 

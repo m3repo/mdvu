@@ -93,10 +93,11 @@ Markdown inside these tags keeps working (`<u>*both*</u>`). Upper and lower case
 
 - **Relative links** (`[Manual](manual.md)`) are resolved against the folder of the current document and open that file in mdVü.
 - **Anchors** (`[to the section](#tables)`) jump inside the document. The anchor name is derived from the heading: lower-cased, spaces become hyphens, hyphens and underscores are kept, everything else (punctuation, symbols) is dropped. `## Links and anchors` therefore becomes `#links-and-anchors`. Duplicate headings are numbered: `#notes`, `#notes-1`, `#notes-2`. This matches the convention GitHub uses, so the same link usually works in both places.
+- **Anchors into other documents** (`[details](other.md#installation)`) open the document and jump to the heading. After the `#` you can use the anchor name (as above) or the heading's text. Percent-encoded links, as Obsidian writes them with wikilinks turned off (`[x](My%20Note.md#My%20Section)`), work too. If the link points to the document that is already open, mdVü just jumps. If the section doesn't exist, the document opens at the top and the status bar tells you.
 - **`http(s)` links** open in your default browser after a confirmation.
 - Links to anything else are refused rather than followed. mdVü never opens an executable or a shell command from a document.
 
-In a very large document that is loaded in chunks, an anchor further down may not exist yet at the moment you click it — the jump then does nothing. Scroll a bit and try again.
+Anchors and the outline also find their target in very large documents that are loaded in chunks, even if it hasn't been loaded yet. A `#` in a file name must be written as `%23` in the link — otherwise everything after it counts as the anchor.
 
 ## Images
 
@@ -190,6 +191,8 @@ The fold marker (`> [!note]-`) is parsed but not acted upon; the content is alwa
 [[Other note|see there]]       with display text
 [[Folder/Other note]]          narrowed down by folder
 [[#Heading]]                   jump to a heading in this document
+[[Other note#Heading]]         open the note and jump to the heading
+[[Note#Chapter 2#Details]]     "Details" under "Chapter 2" (for duplicate titles)
 ![[picture.png]]               embed a picture
 ![[picture.png|200]]           ... 200 pixels wide
 ```
@@ -200,7 +203,9 @@ The fold marker (`> [!note]-`) is parsed but not acted upon; the content is alwa
 
 A link that can't be resolved shows a notice in the status bar.
 
-Not supported yet: `![[note.md]]` — transclusion of another *note* — and embeds of non-image files (`![[file.pdf]]`); both appear as plain text. `[[Note#Heading]]` opens the note but doesn't jump to the heading yet.
+As in Obsidian, the section after the `#` is found by the heading's text, regardless of case; with duplicate headings the first one wins, unless a path like `#Chapter 2#Details` narrows it down. If the section doesn't exist, the note opens at the top.
+
+Not supported yet: `![[note.md]]` — transclusion of another *note* — and embeds of non-image files (`![[file.pdf]]`); both appear as plain text. Block references (`[[Note#^abc123]]`) open the note at the top without jumping to the paragraph.
 
 ## Comments
 

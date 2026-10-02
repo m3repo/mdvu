@@ -4,6 +4,18 @@
 
 All notable changes to mdVü are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versions are `Major.Minor.Patch`, and the fourth number in the file version of the EXE is the build counter.
 
+## [Unreleased]
+
+### Added
+
+- **Links jump to a section in another document:** `[[Note#Heading]]` and `[details](note.md#installation)` open the document and scroll to the heading. The target may be the anchor name or the heading's text; `[[Note#Chapter 2#Details]]` picks "Details" under "Chapter 2" when the title occurs twice. A link to the document that is already open just jumps. In large files mdVü jumps as soon as the heading has been loaded; if it is missing, the document opens at the top with a notice in the status bar.
+
+### Fixed
+
+- Markdown links to another document with an anchor (`other.md#section`) led nowhere.
+- Percent-encoded links, as Obsidian writes them (`My%20Note.md`), were not found.
+- In very large documents, anchors and the outline could not reach headings that hadn't been loaded yet, and duplicate headings far apart could share the same anchor.
+
 ## [0.11.0] — 2026-10-02
 
 ### Added
