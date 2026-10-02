@@ -4,6 +4,17 @@
 
 Hier stehen alle nennenswerten Änderungen an mdVü. Das Format folgt [Keep a Changelog](https://keepachangelog.com/de/1.1.0/); Versionen sind `Major.Minor.Patch`, die vierte Stelle in der Dateiversion der EXE ist der Build-Zähler.
 
+## [0.11.0] — 2026-10-02
+
+### Neu
+
+- **Callouts sehen aus wie in Obsidian:** ein farbiger Kasten mit Titelzeile in der Farbe des Typs, hell wie dunkel. Ohne Titel steht der Typname da (`> [!warning]` → „Warning“). Die Farben sind Obsidians Standardfarben; Aliase wie `caution` oder `tldr` teilen die Farbe ihrer Gruppe, unbekannte Typen erscheinen wie `note`. Per `user.css` lässt sich jeder Typ samt Titelzeile (`callout-title`) umgestalten — siehe [Callouts einfärben](docs/css-customizing.de.md#callouts-einfärben).
+
+### Behoben
+
+- Der Titel eines Callouts (`> [!note] Mein Titel`) ging verloren.
+- Durchgestrichenes und die Unterstreichung von Links fehlten im PDF-Export.
+
 ## [0.10.1] — 2026-09-30
 
 ### Behoben
