@@ -35,6 +35,8 @@ Alles auf einmal sehen? [`samples/showcase.de.md`](../samples/showcase.de.md) in
 | `**fett**`, `__fett__` | **fett** |
 | `***beides***` | Verschachtelung in jeder Kombination |
 | `~~durchgestrichen~~` | durchgestrichen, mit echter Linie |
+| `==markiert==` | markiert wie mit einem Textmarker — siehe [Markierungen](#markierungen) |
+| `<u>unterstrichen</u>` | unterstrichen — Markdown hat dafür keine eigene Syntax |
 | `` `Code` `` | Inline-Code in eigener Farbe |
 | `[Text](url)`, `[Text](url "Titel")` | Link |
 | `<https://example.com>` | Autolink |
@@ -43,9 +45,35 @@ Alles auf einmal sehen? [`samples/showcase.de.md`](../samples/showcase.de.md) in
 | `[[Ziel]]`, `[[Ziel\|Alias]]` | Wikilink |
 | `![[bild.png]]` | Bild-Embed |
 | 🎉 Emoji | wird farbig dargestellt, nicht als schwarze Kontur |
-| `<b>rohes HTML</b>` | erscheint als wörtlicher Text — siehe [Was nicht unterstützt wird](#was-nicht-unterstützt-wird) |
+| `<kbd>Strg</kbd>`, `<span class="…">` | einige HTML-Formatier-Tags — siehe [Inline-HTML](#inline-html) |
 
 Die Auszeichnungen werden tolerant gelesen: ein unbalanciertes `**fett ohne Ende` bleibt einfacher Text, statt den Rest des Absatzes zu verschlucken.
+
+## Markierungen
+
+```markdown
+Das ist ==wichtig== und das ist ==**sehr** wichtig==.
+```
+
+`==Text==` markiert wie in Obsidian — in jedem Dokument, nicht nur im Vault. Die Zeichen müssen am Text anliegen: in `a == b` bleiben die Gleichheitszeichen, was sie sind. Auszeichnungen innerhalb der Markierung wirken, und ein Link darin behält seine Linkfarbe. Läuft eine Markierung über einen Zeilenumbruch, setzt sie sich in der nächsten Zeile ohne Naht fort.
+
+Ab Werk ist die Markierung hellgelb, im Dunkelmodus ein gedecktes Gelb; sie wird auch gedruckt und ins PDF übernommen. Per `user.css` lässt sie sich ändern — siehe [Markierungen, Tasten und eigene Klassen](css-customizing.de.md#markierungen-tasten-und-eigene-klassen).
+
+## Inline-HTML
+
+mdVü hat keine HTML-Engine, versteht im Text aber eine kurze Liste von Formatier-Tags:
+
+| Tag | Ergebnis |
+|---|---|
+| `<u>…</u>` | unterstrichen |
+| `<mark>…</mark>` | markiert, wie `==…==` |
+| `<s>…</s>`, `<del>…</del>` | durchgestrichen, wie `~~…~~` |
+| `<b>…</b>`, `<strong>…</strong>` | fett |
+| `<i>…</i>`, `<em>…</em>` | kursiv |
+| `<kbd>…</kbd>` | eine Taste: dicktengleich, mit hellem Rahmen |
+| `<span class="name">…</span>` | ohne eigenes Aussehen — das gibt ihm `span.name { … }` in der `user.css` |
+
+Markdown in diesen Tags wirkt weiter (`<u>*beides*</u>`). Groß- und Kleinschreibung spielt keine Rolle. Als Attribut zählt nur `class`; `style="…"` und alle anderen werden ignoriert. Ein Tag, das nie geschlossen wird, gilt bis zum Ende des Absatzes; ein schließendes Tag ohne öffnendes bleibt als Text sichtbar. Alle anderen Tags erscheinen als wörtlicher Text.
 
 ## Tabellen
 
@@ -201,7 +229,7 @@ frontmatter { display: none; }
 | Nicht unterstützt | Was stattdessen passiert | Warum |
 |---|---|---|
 | HTML-Blöcke (`<div>…</div>`) | werden übersprungen, es erscheint nichts | es gibt keine HTML-Pipeline — mdVü rendert Markdown direkt |
-| Inline-HTML (`<b>x</b>`) | erscheint als wörtlicher Text | derselbe Grund |
+| Übriges Inline-HTML (`<sup>x</sup>`, `<a href>`, `style="…"`) | erscheint als wörtlicher Text — verstanden werden nur die [Formatier-Tags](#inline-html) | derselbe Grund |
 | Referenz-Links (`[Text][id]` plus Definitionsblock) | bleibt einfacher Text | erfordert einen zweiten Durchlauf über das Dokument |
 | Fußnoten (`[^1]`) | bleibt einfacher Text | als Option vorgesehen, nicht umgesetzt |
 | Definitionslisten | bleibt einfacher Text | in Notizen selten |

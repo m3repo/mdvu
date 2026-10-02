@@ -34,6 +34,8 @@ Plain paragraphs are just text. A blank line starts a new one.
 
 This paragraph shows the inline markup: *italic*, **bold**, ***both at once***, `inline code`, ~~struck through~~, and a [link to the manual](../docs/manual.md). Unbalanced markup like **this one is fine — it stays literal text instead of eating the rest of the paragraph.
 
+Highlights work like in Obsidian: ==a marked phrase==, ==with **bold** and a [link](../README.md) inside==, and a longer highlight that is allowed to run across the end of the line so you can see that it continues on the next one without a seam. A comparison like a == b stays as it is. A few HTML tags help where Markdown has no syntax: <u>underlined</u>, <mark>marked</mark>, <kbd>Ctrl</kbd>+<kbd>F</kbd>.
+
 A hard line break is two spaces at the end of a line —  
 which continues here, in the same paragraph. A backslash at the end works as well.\
 Like this.
@@ -135,7 +137,7 @@ Indented code blocks work as well — four spaces:
 |:---------|---------------:|:------------:|
 | Pascal   |           1970 |      yes     |
 | C        |           1972 |      yes     |
-| Perl     |           1987 |    depends   |
+| Perl     |           1987 |  ==depends== |
 
 The alignment row decides the columns: left, right, centred. Cells hold inline markup — **bold**, `code`, [links](../README.md) — but no block elements.
 
@@ -183,7 +185,7 @@ External links ask for confirmation before your browser opens. Note the `.md` in
 
 Some things are shown as plain text rather than rendered — this is the honest part of the sample:
 
-Raw HTML stays literal: <b>not bold</b> and <span style="color:red">not red</span>.
+Other HTML stays literal: <sup>not raised</sup>, and a `style` attribute is ignored: <span style="color:red">not red</span>.
 
 A footnote reference[^1] is literal text.
 

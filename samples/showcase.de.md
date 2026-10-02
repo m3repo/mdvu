@@ -34,6 +34,8 @@ Gewöhnliche Absätze sind einfach Text. Eine Leerzeile beginnt einen neuen.
 
 Dieser Absatz zeigt die Inline-Auszeichnungen: *kursiv*, **fett**, ***beides zugleich***, `Inline-Code`, ~~durchgestrichen~~ und ein [Link auf das Handbuch](../docs/manual.de.md). Unbalancierte Auszeichnung wie **diese hier ist unproblematisch — sie bleibt wörtlicher Text, statt den Rest des Absatzes zu verschlucken.
 
+Markierungen wirken wie in Obsidian: ==eine markierte Stelle==, ==mit **Fettem** und einem [Link](../README.de.md) darin== und eine längere Markierung, die ruhig über das Zeilenende laufen darf, damit man sieht, dass sie in der nächsten Zeile ohne Naht weitergeht. Ein Vergleich wie a == b bleibt, wie er ist. Wo Markdown keine Syntax hat, helfen einige HTML-Tags: <u>unterstrichen</u>, <mark>markiert</mark>, <kbd>Strg</kbd>+<kbd>F</kbd>.
+
 Ein harter Zeilenumbruch sind zwei Leerzeichen am Zeilenende —  
 es geht hier weiter, im selben Absatz. Ein Backslash am Ende tut dasselbe.\
 So wie hier.
@@ -135,7 +137,7 @@ Eingerückte Codeblöcke funktionieren ebenfalls — vier Leerzeichen:
 |:--------|-----------:|:---------------:|
 | Pascal  |       1970 |        ja       |
 | C       |       1972 |        ja       |
-| Perl    |       1987 |    kommt drauf an |
+| Perl    |       1987 | ==kommt drauf an== |
 
 Die Ausrichtungszeile entscheidet über die Spalten: links, rechts, zentriert. Zellen tragen Inline-Auszeichnungen — **fett**, `Code`, [Links](../README.de.md) — aber keine Blockelemente.
 
@@ -183,7 +185,7 @@ Externe Links fragen nach, bevor der Browser aufgeht. Man beachte das `.md` in d
 
 Manches wird als einfacher Text gezeigt statt gerendert — das ist der ehrliche Teil dieses Beispiels:
 
-Rohes HTML bleibt wörtlich: <b>nicht fett</b> und <span style="color:red">nicht rot</span>.
+Übriges HTML bleibt wörtlich: <sup>nicht hochgestellt</sup>, und ein `style`-Attribut wird ignoriert: <span style="color:red">nicht rot</span>.
 
 Eine Fußnoten-Referenz[^1] ist wörtlicher Text.
 

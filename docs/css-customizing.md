@@ -47,6 +47,8 @@ Every block element in the document carries a style tag; those are your selector
 | `pre` | the box around a code block |
 | `blockquote` | block quotes and callouts |
 | `callout-title` | the title line of a callout (colour, font) |
+| `mark` | highlights (`==…==`, `<mark>`) |
+| `u`, `kbd`, `span.name` | the [inline HTML tags](markdown-support.md#inline-html) |
 | `frontmatter` | the YAML block at the start of the file |
 | `table`, `tr`, `th`, `td` | tables, rows, header cells, data cells |
 | `ul`, `ol`, `li` | lists and list items |
@@ -103,6 +105,10 @@ Specificity: a tag counts 1, a class counts 10. On a tie, the later rule wins.
 | `vertical-align` | `top`, `middle`, `bottom` |
 | `line-clamp` | `N` — at most N lines, ending in "…" |
 | `display` | `none` hides an element completely; anything else shows it |
+
+### Inline (highlights, `u`, `kbd`, `span`)
+
+On `mark`, `u`, `kbd` and `span.name` four properties count: `color`, `background-color`, `border` and `text-decoration` (`underline`, `line-through`, `none`). The box sits behind the text without taking space: `padding` and `margin` are ignored here, so a highlight never shifts the line.
 
 **Colours:** hex (`#fff`, `#ffffff`), CSS names (`rebeccapurple`), `rgb()` / `rgba()`, and `transparent`.
 
@@ -180,6 +186,25 @@ blockquote.note { border-left: 0px; }
 ```
 
 Title colours go on `callout-title.<type>` — `blockquote.note callout-title` does **not** reach the title's text colour. Like everything in `user.css`, these colours apply in light *and* dark mode — pick ones that read on both.
+
+### Highlights, keys and your own classes
+
+```css
+/* a green marker instead of yellow */
+mark { background-color: #c8f0c0; }
+
+/* a framed highlight */
+mark { background-color: #fff3c4; border: 1px solid #e0b000; }
+
+/* key caps a bit darker */
+kbd { background-color: #e8e8e8; border: 1px solid #a0a0a0; }
+
+/* colours of your own: <span class="red">…</span> in the text */
+span.red  { background-color: #ffd6d6; }
+span.todo { color: #c03030; text-decoration: underline; }
+```
+
+The default colours sit in the built-in stylesheet, the dark mode has its own (`mark` is a muted yellow there). A rule in your `user.css` applies to light **and** dark mode — pick a colour that reads on both, or set `color` along with it.
 
 ### Hiding front matter
 

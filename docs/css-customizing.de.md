@@ -47,6 +47,8 @@ Jedes Blockelement im Dokument trägt ein Style-Tag; das sind die Selektoren.
 | `pre` | den Kasten um einen Codeblock |
 | `blockquote` | Blockzitate und Callouts |
 | `callout-title` | die Titelzeile eines Callouts (Farbe, Schrift) |
+| `mark` | Markierungen (`==…==`, `<mark>`) |
+| `u`, `kbd`, `span.name` | die [Inline-HTML-Tags](markdown-support.de.md#inline-html) |
 | `frontmatter` | den YAML-Block am Dateianfang |
 | `table`, `tr`, `th`, `td` | Tabellen, Zeilen, Kopfzellen, Datenzellen |
 | `ul`, `ol`, `li` | Listen und Listenpunkte |
@@ -103,6 +105,10 @@ Spezifität: ein Tag zählt 1, eine Klasse 10. Bei Gleichstand gewinnt die spät
 | `vertical-align` | `top`, `middle`, `bottom` |
 | `line-clamp` | `N` — höchstens N Zeilen, Abschluss „…“ |
 | `display` | `none` blendet ein Element vollständig aus, alles andere zeigt es |
+
+### Inline (Markierungen, `u`, `kbd`, `span`)
+
+An `mark`, `u`, `kbd` und `span.name` zählen vier Eigenschaften: `color`, `background-color`, `border` und `text-decoration` (`underline`, `line-through`, `none`). Der Kasten liegt hinter dem Text, ohne Platz zu beanspruchen: `padding` und `margin` werden hier ignoriert, eine Markierung verschiebt die Zeile also nie.
 
 **Farben:** Hex (`#fff`, `#ffffff`), CSS-Namen (`rebeccapurple`), `rgb()` / `rgba()` und `transparent`.
 
@@ -180,6 +186,25 @@ blockquote.note { border-left: 0px; }
 ```
 
 Titelfarben gehören an `callout-title.<typ>` — `blockquote.note callout-title` erreicht die Textfarbe des Titels **nicht**. Wie alles in der `user.css` gelten diese Farben hell *und* dunkel — also Farben wählen, die auf beidem lesbar sind.
+
+### Markierungen, Tasten und eigene Klassen
+
+```css
+/* grüner statt gelber Textmarker */
+mark { background-color: #c8f0c0; }
+
+/* Markierung mit Rahmen */
+mark { background-color: #fff3c4; border: 1px solid #e0b000; }
+
+/* Tasten etwas dunkler */
+kbd { background-color: #e8e8e8; border: 1px solid #a0a0a0; }
+
+/* eigene Farben: <span class="rot">…</span> im Text */
+span.rot  { background-color: #ffd6d6; }
+span.todo { color: #c03030; text-decoration: underline; }
+```
+
+Die Standardfarben stehen im eingebauten Stylesheet, der Dunkelmodus hat eigene (`mark` ist dort ein gedecktes Gelb). Eine Regel in der `user.css` gilt für hell **und** dunkel — eine Farbe wählen, die auf beiden lesbar ist, oder `color` mitsetzen.
 
 ### Frontmatter ausblenden
 

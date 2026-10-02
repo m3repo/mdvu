@@ -35,6 +35,8 @@ Want to see it all at once? Open [`samples/showcase.md`](../samples/showcase.md)
 | `**bold**`, `__bold__` | **bold** |
 | `***both***` | nesting works in any combination |
 | `~~struck~~` | struck through, with a real strike line |
+| `==highlighted==` | highlighted like a text marker — see [Highlights](#highlights) |
+| `<u>underlined</u>` | underlined — Markdown has no syntax of its own for it |
 | `` `code` `` | inline code, in its own colour |
 | `[text](url)`, `[text](url "title")` | link |
 | `<https://example.com>` | autolink |
@@ -43,9 +45,35 @@ Want to see it all at once? Open [`samples/showcase.md`](../samples/showcase.md)
 | `[[Target]]`, `[[Target\|Alias]]` | wikilink |
 | `![[picture.png]]` | image embed |
 | 🎉 emoji | rendered in colour, not as a monochrome outline |
-| `<b>raw HTML</b>` | shown as literal text — see [What is not supported](#what-is-not-supported) |
+| `<kbd>Ctrl</kbd>`, `<span class="…">` | a few HTML formatting tags — see [Inline HTML](#inline-html) |
 
 Emphasis is parsed tolerantly: an unbalanced `**bold with no end` stays plain text instead of swallowing the rest of the paragraph.
+
+## Highlights
+
+```markdown
+This is ==important== and this is ==**very** important==.
+```
+
+`==text==` highlights like in Obsidian — in every document, not only inside a vault. The marks have to hug the text: in `a == b` the equals signs stay what they are. Formatting inside a highlight works, and a link inside one keeps its link colour. A highlight that runs across a line break continues on the next line without a seam.
+
+Out of the box the highlight is a light yellow, in dark mode a muted one; it is printed and exported to PDF as well. Your `user.css` can change it — see [Highlights, keys and your own classes](css-customizing.md#highlights-keys-and-your-own-classes).
+
+## Inline HTML
+
+mdVü has no HTML engine, but it understands a short list of formatting tags inside the text:
+
+| Tag | Result |
+|---|---|
+| `<u>…</u>` | underlined |
+| `<mark>…</mark>` | highlighted, same as `==…==` |
+| `<s>…</s>`, `<del>…</del>` | struck through, same as `~~…~~` |
+| `<b>…</b>`, `<strong>…</strong>` | bold |
+| `<i>…</i>`, `<em>…</em>` | italic |
+| `<kbd>…</kbd>` | a key cap: monospaced, with a light frame |
+| `<span class="name">…</span>` | no look of its own — give it one with `span.name { … }` in your `user.css` |
+
+Markdown inside these tags keeps working (`<u>*both*</u>`). Upper and lower case don't matter. The only attribute that counts is `class`; `style="…"` and all others are ignored. A tag that is never closed lasts until the end of the paragraph; a closing tag without an opening one stays visible as text. Every other tag is shown as literal text.
 
 ## Tables
 
@@ -201,7 +229,7 @@ frontmatter { display: none; }
 | Not supported | What happens instead | Why |
 |---|---|---|
 | HTML blocks (`<div>…</div>`) | skipped, nothing is shown | there is no HTML pipeline — mdVü renders Markdown directly |
-| Inline HTML (`<b>x</b>`) | shown as literal text | same reason |
+| Other inline HTML (`<sup>x</sup>`, `<a href>`, `style="…"`) | shown as literal text — only the [formatting tags](#inline-html) are understood | same reason |
 | Reference links (`[text][id]` plus a definition block) | stays plain text | needs a second pass over the document |
 | Footnotes (`[^1]`) | stays plain text | planned as an option, not implemented |
 | Definition lists | stays plain text | rarely used in notes |
