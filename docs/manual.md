@@ -108,6 +108,30 @@ Only one strip is open at a time; switching views closes the main pane's strip (
 
 Note on the print preview: it searches what has actually been paginated. Documents cut off at the 200-page limit end there for the search as well.
 
+## Search in files
+
+`Ctrl+Shift+F` opens a strip that searches **all Markdown files** of an area at once. Next to the search field you pick the area:
+
+| Area | What it covers |
+|---|---|
+| Vault | the Obsidian vault of the current document |
+| Repository | the Git repository of the current document |
+| Folder | the folder shown in the folder view, with all subfolders |
+
+The narrowest area is preselected — inside a vault the vault, inside a repository the repository, otherwise the folder. Selected text or the term of a running document search is filled in. `Enter` starts the search. `Aa` matches case; a term in quotes (`"ab"`) searches for exactly that text. There is no search-as-you-type here: a search across thousands of files only starts when you ask for it.
+
+The result is a **document of its own**, with its own place in the history:
+
+- files whose **name** matches come first, even without a hit in the text;
+- then the hits, grouped by folder — each file with its number of hits and up to three lines of context, the hit highlighted;
+- clicking a file name opens the file at its first hit, clicking a line number opens it at exactly that hit. The document search is already filled in there, so `F3` walks on through the file.
+
+**Back** (`Alt+←`) returns to the result list at the place you left. The list is kept — the last five result lists are held in memory — so it looks exactly as before, even if files have changed since. `F5` on the result list searches again. Because the list is a document, you can search in it (`Ctrl+F`), print it or save it as PDF, and its outline lists the folders and files.
+
+Large folders are searched in the background: the list grows while you read, and the footer shows the progress. Opening another document stops a running search; going back to it then searches again. Files larger than the load limit (`doc/maxLoadMB`) are searched up to that limit, like the display; the list marks them.
+
+mdVü searches **the text you see** — in files exactly as in the document, so both count the same hits: front matter (properties) is included and marked as such in the list, but `%%comments%%`, link targets and Markdown markup are not. Obsidian's own search does find comments. Hidden folders (starting with a dot, like `.obsidian` or `.git`) are skipped, and only `*.md` files are searched.
+
 ## Outline
 
 Below the folder view, mdVü shows the **outline** of the current document — all headings as a tree, nested by level. A click jumps to that position in the document; the target flashes briefly so your eye finds it right away.
@@ -226,6 +250,7 @@ mdVü has a few deliberate hard limits. They exist so that an unusual file canno
 | File size | 50 MB | only the beginning is displayed, with a yellow banner at the top; adjustable via `doc/maxLoadMB` |
 | Pages in preview / print / PDF | 200 | output is cut off, with a note in the status bar |
 | Single paragraph | 100 KB | an over-long paragraph is split (this affects generated files, not hand-written prose) |
+| Search in files | 500 files | the result list stops there, with a note to narrow the search |
 
 ## Keyboard shortcuts
 
@@ -236,8 +261,9 @@ mdVü has a few deliberate hard limits. They exist so that an unusual file canno
 | `Ctrl+F` | Search in the main pane |
 | `F3` / `Shift+F3` | Next / previous hit in the main pane |
 | `Ctrl+F3` | Search in the focused pane on/off (incl. folder view and outline) |
+| `Ctrl+Shift+F` | Search in files (vault, repository or folder) |
 | `Esc` | Close the search strip / clear the highlights |
-| `F5` | Reload document |
+| `F5` | Reload document / search again on the result list |
 | `F6` | Switch between panes (tree / document / editor) |
 | `Alt+←` / `Alt+→` | Back / forward |
 | `Ctrl+1` | Markdown view |
