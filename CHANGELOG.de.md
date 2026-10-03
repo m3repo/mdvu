@@ -4,6 +4,12 @@
 
 Hier stehen alle nennenswerten Änderungen an mdVü. Das Format folgt [Keep a Changelog](https://keepachangelog.com/de/1.1.0/); Versionen sind `Major.Minor.Patch`, die vierte Stelle in der Dateiversion der EXE ist der Build-Zähler.
 
+## [Unreleased]
+
+### Neu
+
+- **Links auf fehlende Notizen oder Dateien erscheinen blasser**, wie die nicht aufgelösten Links in Obsidian — Wikilinks wie relative Markdown-Links. Klickbar bleiben sie. Im Vault zieht die Markierung mit, wenn Sie eine Notiz anlegen oder löschen. Die Farbe lässt sich über `a.unresolved` in der `user.css` ändern.
+
 ## [0.12.0] — 2026-10-03
 
 ### Neu

@@ -99,6 +99,8 @@ Markdown in diesen Tags wirkt weiter (`<u>*beides*</u>`). Groß- und Kleinschrei
 
 Auch in sehr großen Dokumenten, die in Stücken geladen werden, finden Sprungmarken und die Gliederung ihr Ziel, selbst wenn es noch nicht geladen ist. Ein `#` im Dateinamen muss im Link als `%23` stehen — sonst gilt alles dahinter als Sprungmarke.
 
+**Links auf fehlende Dateien** erscheinen blasser als andere Links, wie die nicht aufgelösten Links in Obsidian — bei relativen Links wie bei Wikilinks. Klickbar bleiben sie. Ein Link auf einen fehlenden *Abschnitt* einer vorhandenen Datei wird wie in Obsidian nicht markiert. Die Farbe kommt aus `a.unresolved` in Ihrer `user.css` — siehe [Selektoren](css-customizing.de.md#selektoren).
+
 ## Fundstellen verlinken
 
 Ein Link auf `mdvu:open` öffnet ein Dokument und bringt dabei Markierungen oder eine Suche mit — gedacht für Notizen, Trefferlisten und Werkzeuge, die auf bestimmte Stellen in anderen Dateien zeigen wollen:
@@ -240,7 +242,7 @@ Der Faltmarker (`> [!note]-`) wird gelesen, aber nicht umgesetzt; der Inhalt ist
 
 **Außerhalb eines Vaults** wird das Ziel neben dem aktuellen Dokument gesucht (ebenfalls mit oder ohne `.md`).
 
-Ein nicht auflösbarer Link zeigt einen Hinweis in der Statuszeile.
+Ein nicht auflösbarer Link erscheint blasser als andere Links und zeigt beim Klick einen Hinweis in der Statuszeile. In einem Vault prüft mdVü die Links erneut, sobald die Dateinamen des Vaults gelesen sind, und wieder, wenn Sie in Obsidian eine Notiz anlegen oder löschen.
 
 Der Abschnitt hinter dem `#` wird wie in Obsidian über den Text der Überschrift gefunden, Groß- und Kleinschreibung egal; bei gleichnamigen Überschriften gewinnt die erste, außer ein Pfad wie `#Kapitel 2#Details` grenzt ein. Fehlt der Abschnitt, öffnet sich die Notiz oben.
 

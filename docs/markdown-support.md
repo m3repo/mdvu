@@ -99,6 +99,8 @@ Markdown inside these tags keeps working (`<u>*both*</u>`). Upper and lower case
 
 Anchors and the outline also find their target in very large documents that are loaded in chunks, even if it hasn't been loaded yet. A `#` in a file name must be written as `%23` in the link — otherwise everything after it counts as the anchor.
 
+**Links to missing files** are shown paler than other links, like Obsidian's unresolved links — for relative links and wikilinks alike. They stay clickable. A link to a missing *section* of an existing file is not marked, as in Obsidian. The colour comes from `a.unresolved` in your `user.css` — see [Selectors](css-customizing.md#selectors).
+
 ## Linking to places
 
 A link to `mdvu:open` opens a document and brings highlights or a search along — meant for notes, lists of matches and tools that want to point at particular spots in other files:
@@ -240,7 +242,7 @@ The fold marker (`> [!note]-`) is parsed but not acted upon; the content is alwa
 
 **Outside a vault**, the target is looked up next to the current document (again with or without `.md`).
 
-A link that can't be resolved shows a notice in the status bar.
+A link that can't be resolved is shown paler than other links and shows a notice in the status bar when clicked. Inside a vault, mdVü re-checks the links as soon as it has read the vault's file names, and again when you add or delete a note in Obsidian.
 
 As in Obsidian, the section after the `#` is found by the heading's text, regardless of case; with duplicate headings the first one wins, unless a path like `#Chapter 2#Details` narrows it down. If the section doesn't exist, the note opens at the top.
 

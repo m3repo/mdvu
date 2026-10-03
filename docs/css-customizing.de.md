@@ -43,6 +43,7 @@ Jedes Blockelement im Dokument trägt ein Style-Tag; das sind die Selektoren.
 | `p` | Absätze |
 | `h1` … `h6` | Überschriften |
 | `a` | Links (nur Farbe) |
+| `a.unresolved` | Links, deren Zieldatei fehlt (Farbe, `text-decoration`, `background-color`, `border`) |
 | `code` | Inline-Code *und* die Grundfarbe von Codeblöcken |
 | `pre` | den Kasten um einen Codeblock |
 | `blockquote` | Blockzitate und Callouts |
