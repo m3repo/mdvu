@@ -118,7 +118,14 @@ Note on the print preview: it searches what has actually been paginated. Documen
 | Repository | the Git repository of the current document |
 | Folder | the folder shown in the folder view, with all subfolders |
 
-The narrowest area is preselected — inside a vault the vault, inside a repository the repository, otherwise the folder. Selected text or the term of a running document search is filled in. `Enter` starts the search. `Aa` matches case; a term in quotes (`"ab"`) searches for exactly that text. There is no search-as-you-type here: a search across thousands of files only starts when you ask for it.
+The narrowest area is preselected — inside a vault the vault, inside a repository the repository, otherwise the folder. Selected text or the term of a running document search is filled in. `Enter` starts the search. `Aa` matches case; a term in quotes (`"ab"`) searches for exactly that text. Two more toggles set word boundaries — only one of them can be on:
+
+| Toggle | Meaning |
+|---|---|
+| `ab…` | Beginning of a word, also after a hyphen or punctuation: `der` finds *derzeit* and *Nord-der*, but not *oder* |
+| `\|ab\|` | Whole words only |
+
+There is no search-as-you-type here: a search across thousands of files only starts when you ask for it.
 
 The result is a **document of its own**, with its own place in the history:
 

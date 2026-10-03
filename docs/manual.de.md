@@ -118,7 +118,14 @@ Hinweis zur Druckvorschau: Sie durchsucht, was tatsächlich paginiert wurde. Dok
 | Repository | das Git-Repository des aktuellen Dokuments |
 | Ordner | den Ordner der Ordneransicht samt Unterordnern |
 
-Vorausgewählt ist der engste Bereich — im Vault der Vault, im Repository das Repository, sonst der Ordner. Markierter Text oder der Begriff einer laufenden Dokumentsuche wird übernommen. `Enter` startet die Suche. `Aa` beachtet Groß-/Kleinschreibung; ein Begriff in Anführungszeichen (`"ab"`) sucht genau diesen Text. Suchen beim Tippen gibt es hier nicht: eine Suche über Tausende Dateien beginnt erst, wenn Sie sie anstoßen.
+Vorausgewählt ist der engste Bereich — im Vault der Vault, im Repository das Repository, sonst der Ordner. Markierter Text oder der Begriff einer laufenden Dokumentsuche wird übernommen. `Enter` startet die Suche. `Aa` beachtet Groß-/Kleinschreibung; ein Begriff in Anführungszeichen (`"ab"`) sucht genau diesen Text. Zwei weitere Umschalter legen Wortgrenzen fest — es ist immer höchstens einer an:
+
+| Umschalter | Bedeutung |
+|---|---|
+| `ab…` | Wortanfang, auch nach Bindestrich oder Satzzeichen: `der` findet *derzeit* und *Nord-der*, aber nicht *oder* |
+| `\|ab\|` | nur ganze Wörter |
+
+Suchen beim Tippen gibt es hier nicht: eine Suche über Tausende Dateien beginnt erst, wenn Sie sie anstoßen.
 
 Das Ergebnis ist ein **eigenes Dokument** mit eigenem Platz im Verlauf:
 
