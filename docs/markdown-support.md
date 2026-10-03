@@ -279,8 +279,8 @@ frontmatter { display: none; }
 | Reference links (`[text][id]` plus a definition block) | stays plain text | needs a second pass over the document |
 | Footnotes (`[^1]`) | stays plain text | planned as an option, not implemented |
 | Definition lists | stays plain text | rarely used in notes |
-| Math / LaTeX (`$…$`) | stays plain text | would need a formula engine |
-| Mermaid and other diagram fences | shown as a code block | rendering diagrams is a different program's job |
+| Math / LaTeX (`$…$`, `$$…$$`) | stays plain text | **by design:** mdVü has no JavaScript engine (no browser component, no scripts); Obsidian renders math with JavaScript |
+| Mermaid and other diagram fences | shown as a code block | **by design**, same reason: Mermaid is a JavaScript library |
 | Note transclusion (`![[note]]`) | stays plain text | only image embeds are resolved |
 
 If you rely on one of these, the source view (`Ctrl+2`) always shows the file exactly as it is on disk.

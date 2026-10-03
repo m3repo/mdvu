@@ -279,8 +279,8 @@ frontmatter { display: none; }
 | Referenz-Links (`[Text][id]` plus Definitionsblock) | bleibt einfacher Text | erfordert einen zweiten Durchlauf über das Dokument |
 | Fußnoten (`[^1]`) | bleibt einfacher Text | als Option vorgesehen, nicht umgesetzt |
 | Definitionslisten | bleibt einfacher Text | in Notizen selten |
-| Mathematik / LaTeX (`$…$`) | bleibt einfacher Text | bräuchte einen Formelsatz |
-| Mermaid und andere Diagramm-Zäune | erscheint als Codeblock | Diagramme zu rendern ist Aufgabe eines anderen Programms |
+| Mathematik / LaTeX (`$…$`, `$$…$$`) | bleibt einfacher Text | **bewusst:** mdVü hat keine JavaScript-Engine (keine Browser-Komponente, keine Skripte); Obsidian setzt Formeln mit JavaScript |
+| Mermaid und andere Diagramm-Zäune | erscheint als Codeblock | **bewusst**, aus demselben Grund: Mermaid ist eine JavaScript-Bibliothek |
 | Notiz-Transklusion (`![[notiz]]`) | bleibt einfacher Text | nur Bild-Embeds werden aufgelöst |
 
 Wer auf eines davon angewiesen ist: Die Quelltext-Ansicht (`Strg+2`) zeigt die Datei immer genau so, wie sie auf der Platte steht.
