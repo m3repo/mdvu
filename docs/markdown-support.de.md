@@ -280,7 +280,7 @@ frontmatter { display: none; }
 | Fußnoten (`[^1]`) | bleibt einfacher Text | als Option vorgesehen, nicht umgesetzt |
 | Definitionslisten | bleibt einfacher Text | in Notizen selten |
 | Mathematik / LaTeX (`$…$`, `$$…$$`) | bleibt einfacher Text | **bewusst:** mdVü hat keine JavaScript-Engine (keine Browser-Komponente, keine Skripte); Obsidian setzt Formeln mit JavaScript |
-| Mermaid und andere Diagramm-Zäune | erscheint als Codeblock | **bewusst**, aus demselben Grund: Mermaid ist eine JavaScript-Bibliothek |
+| Mermaid und andere Diagramm-Zäune | erscheint als Codeblock | Mermaid ist eine JavaScript-Bibliothek, und mdVü führt kein JavaScript aus; einfache Diagramme könnte später die eigene Engine zeichnen |
 | Notiz-Transklusion (`![[notiz]]`) | bleibt einfacher Text | nur Bild-Embeds werden aufgelöst |
 
 Wer auf eines davon angewiesen ist: Die Quelltext-Ansicht (`Strg+2`) zeigt die Datei immer genau so, wie sie auf der Platte steht.

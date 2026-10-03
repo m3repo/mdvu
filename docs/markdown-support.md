@@ -280,7 +280,7 @@ frontmatter { display: none; }
 | Footnotes (`[^1]`) | stays plain text | planned as an option, not implemented |
 | Definition lists | stays plain text | rarely used in notes |
 | Math / LaTeX (`$…$`, `$$…$$`) | stays plain text | **by design:** mdVü has no JavaScript engine (no browser component, no scripts); Obsidian renders math with JavaScript |
-| Mermaid and other diagram fences | shown as a code block | **by design**, same reason: Mermaid is a JavaScript library |
+| Mermaid and other diagram fences | shown as a code block | Mermaid is a JavaScript library, and mdVü runs no JavaScript; simple diagrams might later be drawn by mdVü's own engine |
 | Note transclusion (`![[note]]`) | stays plain text | only image embeds are resolved |
 
 If you rely on one of these, the source view (`Ctrl+2`) always shows the file exactly as it is on disk.
