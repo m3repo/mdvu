@@ -183,7 +183,7 @@ External links ask for confirmation before your browser opens. Note the `.md` in
 
 ## Charts
 
-Pie, bar/line and sequence diagrams from Mermaid code blocks — a slimmed-down subset, drawn by mdVü itself:
+Pie, bar/line and sequence diagrams and flowcharts from Mermaid code blocks — a slimmed-down subset, drawn by mdVü itself:
 
 ```mermaid
 pie showData
@@ -225,6 +225,13 @@ sequenceDiagram
     end
 ```
 
+```mermaid
+flowchart LR
+    A[Markdown] --> B[Layout tree] --> C[Screen]
+    B --> D[[Print / PDF]]
+    A -. edited .-> A
+```
+
 ## What deliberately does nothing
 
 Some things are shown as plain text rather than rendered — this is the honest part of the sample:
@@ -244,8 +251,8 @@ Math stays text: $E = mc^2$.
 Other Mermaid diagram types render as a code block:
 
 ```mermaid
-flowchart LR
-  A[Markdown] --> B[Layout tree] --> C[Screen]
+classDiagram
+  Note <|-- Callout
 ```
 
 ---

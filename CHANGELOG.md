@@ -9,6 +9,7 @@ All notable changes to mdVü are documented here. The format follows [Keep a Cha
 ### Added
 
 - **Charts from Mermaid code blocks:** pie charts (`pie`), bar/line charts (`xychart-beta`, also horizontal) and sequence diagrams (`sequenceDiagram` with activations, notes, frames, numbering and participant symbols) are drawn by mdVü itself — a deliberately slimmed-down subset of Mermaid, without JavaScript. The charts follow dark mode and `user.css` and stay vector graphics in print and PDF. Other diagram types remain code blocks; a faulty chart shows its code block with a note naming the line. See [Charts](docs/markdown-support.md#charts-mermaid-subset).
+- **Flowcharts from Mermaid code blocks:** `flowchart`/`graph` in all four directions, with the common node shapes, dotted and thick edges, circle and cross ends, edge labels and loops. mdVü arranges the nodes in levels like Mermaid's default renderer, so nodes and labels never overlap and edges cross as rarely as possible. `subgraph` frames and styling statements are skipped for now. See [Flowcharts](docs/markdown-support.md#flowcharts).
 
 ## [0.12.1] — 2026-10-03
 

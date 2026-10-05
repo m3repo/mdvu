@@ -183,7 +183,7 @@ Externe Links fragen nach, bevor der Browser aufgeht. Man beachte das `.md` in d
 
 ## Diagramme
 
-Kreis-, Balken-/Linien- und Sequenzdiagramme aus Mermaid-Codeblöcken — eine abgespeckte Teilmenge, gezeichnet von mdVü selbst:
+Kreis-, Balken-/Linien-, Sequenz- und Flussdiagramme aus Mermaid-Codeblöcken — eine abgespeckte Teilmenge, gezeichnet von mdVü selbst:
 
 ```mermaid
 pie showData
@@ -225,6 +225,13 @@ sequenceDiagram
     end
 ```
 
+```mermaid
+flowchart LR
+    A[Markdown] --> B[Layout-Baum] --> C[Bildschirm]
+    B --> D[[Druck / PDF]]
+    A -. bearbeitet .-> A
+```
+
 ## Was absichtlich nichts tut
 
 Manches wird als einfacher Text gezeigt statt gerendert — das ist der ehrliche Teil dieses Beispiels:
@@ -244,8 +251,8 @@ Mathematik bleibt Text: $E = mc^2$.
 Andere Mermaid-Diagrammarten erscheinen als Codeblock:
 
 ```mermaid
-flowchart LR
-  A[Markdown] --> B[Layout-Baum] --> C[Bildschirm]
+classDiagram
+  Notiz <|-- Callout
 ```
 
 ---

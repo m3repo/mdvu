@@ -22,7 +22,7 @@ Alles auf einmal sehen? [`samples/showcase.de.md`](../samples/showcase.de.md) in
 | `> Zitat` | Blockzitate, verschachtelbar |
 | `> [!note] Titel` | Callouts — siehe unten |
 | ` ```sprache … ``` ` | Codeblöcke mit Syntaxhervorhebung; `~~~` geht auch als Zaun |
-| ` ```mermaid … ``` ` | Kreis-, Balken-/Linien- und Sequenzdiagramme — siehe [Diagramme](#diagramme-mermaid-teilmenge) |
+| ` ```mermaid … ``` ` | Kreis-, Balken-/Linien-, Sequenz- und Flussdiagramme — siehe [Diagramme](#diagramme-mermaid-teilmenge) |
 | vier führende Leerzeichen | eingerückter Codeblock |
 | `\| a \| b \|` + `\|---\|---\|` | GFM-Tabellen — siehe unten |
 | `---`, `***`, `___` | Trennlinie |
@@ -200,7 +200,7 @@ Eine unbekannte Sprache ist kein Problem: Der Block bleibt einfach in der normal
 
 ## Diagramme (Mermaid-Teilmenge)
 
-Drei Arten von [Mermaid](https://mermaid.js.org/)-Diagrammen zeichnet mdVü selbst: **Kreisdiagramme**, **Balken-/Liniendiagramme** und **Sequenzdiagramme**. Das ist bewusst eine abgespeckte Umsetzung. mdVü hat keine JavaScript-Engine und führt Mermaid nicht aus; es liest einen kleinen Teil der Mermaid-Syntax und zeichnet das Diagramm mit der eigenen Layout-Engine. Dafür erscheinen die Diagramme sofort, folgen dem Dunkelmodus und Ihrer `user.css` und bleiben in Druck und PDF scharfe Vektorgrafik.
+Vier Arten von [Mermaid](https://mermaid.js.org/)-Diagrammen zeichnet mdVü selbst: **Kreisdiagramme**, **Balken-/Liniendiagramme**, **Sequenzdiagramme** und **Flussdiagramme**. Das ist bewusst eine abgespeckte Umsetzung. mdVü hat keine JavaScript-Engine und führt Mermaid nicht aus; es liest einen kleinen Teil der Mermaid-Syntax und zeichnet das Diagramm mit der eigenen Layout-Engine. Dafür erscheinen die Diagramme sofort, folgen dem Dunkelmodus und Ihrer `user.css` und bleiben in Druck und PDF scharfe Vektorgrafik.
 
 ````markdown
 ```mermaid
@@ -236,9 +236,9 @@ Was verstanden wird:
 | `title …` | mit oder ohne Anführungszeichen |
 | `accTitle:`, `accDescr:` | dienen als Alternativtext des Diagramms |
 
-Alles andere wird kommentarlos übergangen: `%%{init: …}%%`-Konfiguration und Themes, Datenbeschriftungen, Klick-Handler. Andere Diagrammarten — Fluss-, Klassen-, Zustands- und Gantt-Diagramme usw. — bleiben ein Codeblock. Enthält ein Diagramm einen Fehler, erscheint der Codeblock mit einem kurzen Hinweis darunter, der die Zeile nennt.
+Alles andere wird kommentarlos übergangen: `%%{init: …}%%`-Konfiguration und Themes, Datenbeschriftungen, Klick-Handler. Andere Diagrammarten — Klassen-, Zustands- und Gantt-Diagramme usw. — bleiben ein Codeblock. Enthält ein Diagramm einen Fehler, erscheint der Codeblock mit einem kurzen Hinweis darunter, der die Zeile nennt.
 
-Die Farben kommen aus dem Stylesheet. Jede Reihe (bzw. jedes Kreissegment) hat eine Klasse `series-1`, `series-2`, … ; weitere Klassen sind `title`, `legend`, `axis-label`, `axis-title`, `grid`, `axis`, `line` und `slice-label`, für Sequenzdiagramme außerdem `actor`, `actor-label`, `lifeline`, `message`, `message-label`, `note`, `activation`, `frame` und `frame-label`:
+Die Farben kommen aus dem Stylesheet. Jede Reihe (bzw. jedes Kreissegment) hat eine Klasse `series-1`, `series-2`, … ; weitere Klassen sind `title`, `legend`, `axis-label`, `axis-title`, `grid`, `axis`, `line` und `slice-label`, für Sequenzdiagramme außerdem `actor`, `actor-label`, `lifeline`, `message`, `message-label`, `note`, `activation`, `frame` und `frame-label`, für Flussdiagramme `node`, `node-label`, `edge`, `edge-thick`, `edge-head`, `edge-label` und `edge-label-box`:
 
 ```css
 .chart .series-1 { background-color: #2e7d32; }  /* erste Reihe / erstes Segment */
@@ -281,6 +281,38 @@ sequenceDiagram
 | `<br/>`, `#35;`, `#infin;`, `;` | Zeilenumbruch, Zeichencodes, mehrere Anweisungen in einer Zeile |
 
 Vorerst übergangen: `create`/`destroy` (ein erzeugter Teilnehmer ist einfach von Anfang an da), Akteur-Menüs (`link`), die Halbpfeile und Mittelanschlüsse aus Mermaid 11.12. Ein Diagramm, das breiter als die Seite ist, wird noch nicht verkleinert.
+
+### Flussdiagramme
+
+```mermaid
+flowchart TD
+    A([Start]) --> B[Eingabe lesen]
+    B --> C{Gültig?}
+    C -->|ja| D[(Speichern)]
+    C -->|nein| E[/Fehler melden/]
+    E -.-> B
+    D --> F((Ende))
+```
+
+Die Anordnung übernimmt mdVü selbst, in Ebenen wie Mermaids Standard-Renderer: Knoten überlappen nie, Kantenbeschriftungen bekommen einen eigenen Platz, und Kanten kreuzen sich so selten, wie es die Anordnung zulässt.
+
+| Syntax | Hinweise |
+|---|---|
+| `flowchart TD`, `graph LR` | Richtung `TD`/`TB`, `BT`, `LR` oder `RL`; ohne Angabe von oben nach unten |
+| `A`, `A[Text]`, `A["Text"]` | Knoten-Id, wahlweise mit Form und Text; Anführungszeichen erlauben Klammern im Text; eine spätere Definition ersetzt Form und Text |
+| `[ ]`, `( )`, `([ ])`, `[[ ]]`, `[( )]` | Rechteck, abgerundet, Stadion, Unterprogramm, Zylinder |
+| `(( ))`, `((( )))`, `> ]`, `{ }`, `{{ }}` | Kreis, Doppelkreis, Fahne, Raute, Sechseck |
+| `[/ /]`, `[\ \]`, `[/ \]`, `[\ /]` | Parallelogramme und Trapeze |
+| `-->`, `---`, `-.->`, `-.-`, `==>`, `===` | Pfeil oder einfache Linie, gepunktet, dick |
+| `--o`, `--x`, `<-->`, `o--o`, `x--x` | Kreis- und Kreuzenden, Spitzen an beiden Enden |
+| `--->`, `---->` | eine längere Kante überspannt mehr Ebenen |
+| `~~~` | unsichtbare Verbindung, wirkt nur auf die Anordnung |
+| `-- Text -->`, `-. Text .->`, `== Text ==>` | Kantenbeschriftungen; oder zwischen senkrechten Strichen direkt hinter dem Pfeil, wie im Beispiel |
+| `A --> B --> C`, `A & B --> C` | Ketten und Gruppen |
+| `A --> A` | Schleife zurück zum selben Knoten |
+| `<br/>`, `#quot;`, `;` | Zeilenumbruch, Zeichencodes, mehrere Anweisungen in einer Zeile |
+
+Vorerst übergangen: `subgraph`-Rahmen (die Knoten darin erscheinen, ohne Rahmen), `classDef`, `class`, `style` und `linkStyle` (die Farben kommen aus dem Stylesheet), `click`, die neue Formsyntax `A@{ shape: … }` und Markdown in Beschriftungen. Ein Flussdiagramm, das breiter als die Seite ist, wird noch nicht verkleinert.
 
 ## Callouts
 
@@ -365,7 +397,7 @@ frontmatter { display: none; }
 | Fußnoten (`[^1]`) | bleibt einfacher Text | als Option vorgesehen, nicht umgesetzt |
 | Definitionslisten | bleibt einfacher Text | in Notizen selten |
 | Mathematik / LaTeX (`$…$`, `$$…$$`) | bleibt einfacher Text | **bewusst:** mdVü hat keine JavaScript-Engine (keine Browser-Komponente, keine Skripte); Obsidian setzt Formeln mit JavaScript |
-| Mermaid-Fluss-, Klassen-, Zustands-, Gantt- und andere Diagrammarten | erscheint als Codeblock | Mermaid ist eine JavaScript-Bibliothek, und mdVü führt kein JavaScript aus; nur [Kreis-, Balken-/Linien- und Sequenzdiagramme](#diagramme-mermaid-teilmenge) zeichnet mdVü selbst |
+| Mermaid-Klassen-, Zustands-, Gantt- und andere Diagrammarten | erscheint als Codeblock | Mermaid ist eine JavaScript-Bibliothek, und mdVü führt kein JavaScript aus; nur [Kreis-, Balken-/Linien-, Sequenz- und Flussdiagramme](#diagramme-mermaid-teilmenge) zeichnet mdVü selbst |
 | Notiz-Transklusion (`![[notiz]]`) | bleibt einfacher Text | nur Bild-Embeds werden aufgelöst |
 
 Wer auf eines davon angewiesen ist: Die Quelltext-Ansicht (`Strg+2`) zeigt die Datei immer genau so, wie sie auf der Platte steht.
