@@ -181,6 +181,35 @@ A missing file leaves its alt text behind:
 
 External links ask for confirmation before your browser opens. Note the `.md` in the wikilinks: mdVü takes the target literally instead of searching the folder for a matching note — [[code-samples]] renders as a link but leads nowhere.
 
+## Charts
+
+Pie and bar/line charts from Mermaid code blocks — a slimmed-down subset, drawn by mdVü itself:
+
+```mermaid
+pie showData
+    title Where the time goes
+    "Reading" : 45
+    "Writing" : 30
+    "Searching" : 15
+    "Meetings" : 10
+```
+
+```mermaid
+xychart-beta
+    title Notes per month
+    x-axis [Jan, Feb, Mar, Apr, May, Jun]
+    y-axis "Notes"
+    bar "Written" [12, 18, 15, 22, 27, 24]
+    line "Read" [30, 34, 29, 41, 45, 50]
+```
+
+```mermaid
+xychart-beta horizontal
+    title Balance by region
+    x-axis [North, South, West, East]
+    bar [12.5, -4, 7, 3]
+```
+
 ## What deliberately does nothing
 
 Some things are shown as plain text rather than rendered — this is the honest part of the sample:
@@ -197,7 +226,7 @@ A reference link [like this][ref] stays as written.
 
 Math stays text: $E = mc^2$.
 
-A mermaid fence renders as a code block:
+Other Mermaid diagram types render as a code block:
 
 ```mermaid
 flowchart LR

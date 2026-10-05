@@ -181,6 +181,35 @@ Eine fehlende Datei hinterlässt ihren Alternativtext:
 
 Externe Links fragen nach, bevor der Browser aufgeht. Man beachte das `.md` in den Wikilinks: mdVü nimmt das Ziel wörtlich, statt den Ordner nach einer passenden Notiz zu durchsuchen — [[code-samples]] erscheint als Link, führt aber ins Leere.
 
+## Diagramme
+
+Kreis- und Balken-/Liniendiagramme aus Mermaid-Codeblöcken — eine abgespeckte Teilmenge, gezeichnet von mdVü selbst:
+
+```mermaid
+pie showData
+    title Wohin die Zeit geht
+    "Lesen" : 45
+    "Schreiben" : 30
+    "Suchen" : 15
+    "Besprechungen" : 10
+```
+
+```mermaid
+xychart-beta
+    title Notizen je Monat
+    x-axis [Jan, Feb, Mär, Apr, Mai, Jun]
+    y-axis "Notizen"
+    bar "Geschrieben" [12, 18, 15, 22, 27, 24]
+    line "Gelesen" [30, 34, 29, 41, 45, 50]
+```
+
+```mermaid
+xychart-beta horizontal
+    title Saldo je Region
+    x-axis [Nord, Süd, West, Ost]
+    bar [12.5, -4, 7, 3]
+```
+
 ## Was absichtlich nichts tut
 
 Manches wird als einfacher Text gezeigt statt gerendert — das ist der ehrliche Teil dieses Beispiels:
@@ -197,7 +226,7 @@ Ein Referenz-Link [wie dieser][ref] bleibt so stehen, wie er geschrieben ist.
 
 Mathematik bleibt Text: $E = mc^2$.
 
-Ein Mermaid-Zaun erscheint als Codeblock:
+Andere Mermaid-Diagrammarten erscheinen als Codeblock:
 
 ```mermaid
 flowchart LR

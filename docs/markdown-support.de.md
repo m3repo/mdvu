@@ -22,6 +22,7 @@ Alles auf einmal sehen? [`samples/showcase.de.md`](../samples/showcase.de.md) in
 | `> Zitat` | Blockzitate, verschachtelbar |
 | `> [!note] Titel` | Callouts — siehe unten |
 | ` ```sprache … ``` ` | Codeblöcke mit Syntaxhervorhebung; `~~~` geht auch als Zaun |
+| ` ```mermaid … ``` ` | Kreis- und Balken-/Liniendiagramme — siehe [Diagramme](#diagramme-mermaid-teilmenge) |
 | vier führende Leerzeichen | eingerückter Codeblock |
 | `\| a \| b \|` + `\|---\|---\|` | GFM-Tabellen — siehe unten |
 | `---`, `***`, `___` | Trennlinie |
@@ -197,6 +198,54 @@ Eine unbekannte Sprache ist kein Problem: Der Block bleibt einfach in der normal
 
 [`samples/code-samples.de.md`](../samples/code-samples.de.md) zeigt die Hervorhebung für ein Dutzend Sprachen nebeneinander.
 
+## Diagramme (Mermaid-Teilmenge)
+
+Zwei Arten von [Mermaid](https://mermaid.js.org/)-Diagrammen zeichnet mdVü selbst: **Kreisdiagramme** und **Balken-/Liniendiagramme**. Das ist bewusst eine abgespeckte Umsetzung. mdVü hat keine JavaScript-Engine und führt Mermaid nicht aus; es liest einen kleinen Teil der Mermaid-Syntax und zeichnet das Diagramm mit der eigenen Layout-Engine. Dafür erscheinen die Diagramme sofort, folgen dem Dunkelmodus und Ihrer `user.css` und bleiben in Druck und PDF scharfe Vektorgrafik.
+
+````markdown
+```mermaid
+pie showData
+    title Vermittelte Haustiere
+    "Hunde" : 386
+    "Katzen" : 85
+    "Ratten" : 15
+```
+
+```mermaid
+xychart-beta
+    title "Umsatz"
+    x-axis [Jan, Feb, Mär, Apr, Mai, Jun]
+    y-axis "Umsatz (€)" 4000 --> 11000
+    bar [5000, 6000, 7500, 8200, 9500, 10500]
+    line [5000, 6000, 7500, 8200, 9500, 10500]
+```
+````
+
+Was verstanden wird:
+
+| Syntax | Hinweise |
+|---|---|
+| `pie`, `pie showData` | `showData` ergänzt die Werte in der Legende; die Segmente zeigen Prozente |
+| `"Beschriftung" : 42.5` | ein Segment je Zeile; Zahlen mit Punkt als Dezimaltrenner, keine negativen Werte |
+| `xychart-beta`, `xychart-beta horizontal` | `horizontal` setzt die Kategorien nach links und die Werte nach unten |
+| `x-axis [a, b, "c d"]` | Kategorien, Titel wahlweise davor: `x-axis Monat [Jan, Feb]` |
+| `x-axis "Jahr" 2020 --> 2025` | stattdessen ein Zahlenbereich; die Werte verteilen sich gleichmäßig darüber |
+| `y-axis "Titel" 0 --> 100` | Titel und Bereich sind beide optional — ohne Bereich wählt mdVü runde Zahlen |
+| `bar [..]`, `line [..]` | beliebig viele, beliebig gemischt; mehrere Balkenreihen stehen nebeneinander, Linien liegen obenauf |
+| `bar "Name" [..]` | **mdVü-Erweiterung:** benannte Reihen bekommen eine Legende |
+| `title …` | mit oder ohne Anführungszeichen |
+| `accTitle:`, `accDescr:` | dienen als Alternativtext des Diagramms |
+
+Alles andere wird kommentarlos übergangen: `%%{init: …}%%`-Konfiguration und Themes, Datenbeschriftungen, Klick-Handler. Andere Diagrammarten — Fluss-, Sequenz-, Klassen- und Gantt-Diagramme usw. — bleiben ein Codeblock. Enthält ein Kreis- oder Balkendiagramm einen Fehler, erscheint der Codeblock mit einem kurzen Hinweis darunter, der die Zeile nennt.
+
+Die Farben kommen aus dem Stylesheet. Jede Reihe (bzw. jedes Kreissegment) hat eine Klasse `series-1`, `series-2`, … ; weitere Klassen sind `title`, `legend`, `axis-label`, `axis-title`, `grid`, `axis`, `line` und `slice-label`:
+
+```css
+.chart .series-1 { background-color: #2e7d32; }  /* erste Reihe / erstes Segment */
+.chart .grid     { border-color: #dddddd; }
+.chart .title    { font-size: 12pt; }
+```
+
 ## Callouts
 
 ```markdown
@@ -280,7 +329,7 @@ frontmatter { display: none; }
 | Fußnoten (`[^1]`) | bleibt einfacher Text | als Option vorgesehen, nicht umgesetzt |
 | Definitionslisten | bleibt einfacher Text | in Notizen selten |
 | Mathematik / LaTeX (`$…$`, `$$…$$`) | bleibt einfacher Text | **bewusst:** mdVü hat keine JavaScript-Engine (keine Browser-Komponente, keine Skripte); Obsidian setzt Formeln mit JavaScript |
-| Mermaid und andere Diagramm-Zäune | erscheint als Codeblock | Mermaid ist eine JavaScript-Bibliothek, und mdVü führt kein JavaScript aus; einfache Diagramme könnte später die eigene Engine zeichnen |
+| Mermaid-Fluss-, Sequenz- und andere Diagrammarten | erscheint als Codeblock | Mermaid ist eine JavaScript-Bibliothek, und mdVü führt kein JavaScript aus; nur [Kreis- und Balken-/Liniendiagramme](#diagramme-mermaid-teilmenge) zeichnet mdVü selbst |
 | Notiz-Transklusion (`![[notiz]]`) | bleibt einfacher Text | nur Bild-Embeds werden aufgelöst |
 
 Wer auf eines davon angewiesen ist: Die Quelltext-Ansicht (`Strg+2`) zeigt die Datei immer genau so, wie sie auf der Platte steht.

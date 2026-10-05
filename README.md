@@ -26,6 +26,7 @@ That's what mdVü is built for.
 | | |
 |---|---|
 | **Formats** | GitHub-flavoured Markdown, plus Obsidian callouts, wikilinks and image embeds — see [Markdown support](docs/markdown-support.md) |
+| **Charts** | Pie, bar and line charts from Mermaid code blocks — a slimmed-down subset, drawn natively without JavaScript, crisp in print and PDF — see [Charts](docs/markdown-support.md#charts-mermaid-subset) |
 | **Folder view** | Tree of the current folder with live refresh, incremental search (`Ctrl+F3`) and arrow-key browsing |
 | **Outline** | All headings of the document as a tree; clicking jumps to the spot and flashes the target |
 | **Navigation** | Browser-style back/forward with history list, clickable path bar, working links between documents |

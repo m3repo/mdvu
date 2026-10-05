@@ -22,6 +22,7 @@ Want to see it all at once? Open [`samples/showcase.md`](../samples/showcase.md)
 | `> quote` | block quotes, nestable |
 | `> [!note] Title` | callouts — see below |
 | ` ```lang … ``` ` | fenced code blocks with syntax highlighting; `~~~` works as a fence too |
+| ` ```mermaid … ``` ` | pie and bar/line charts — see [Charts](#charts-mermaid-subset) |
 | four leading spaces | indented code block |
 | `\| a \| b \|` + `\|---\|---\|` | GFM tables — see below |
 | `---`, `***`, `___` | horizontal rule |
@@ -197,6 +198,54 @@ An unknown language is not a problem: the block simply stays in the plain code c
 
 [`samples/code-samples.md`](../samples/code-samples.md) shows the highlighting for a dozen languages side by side.
 
+## Charts (Mermaid subset)
+
+mdVü draws two kinds of [Mermaid](https://mermaid.js.org/) diagrams itself: **pie charts** and **bar/line charts**. This is a deliberately slimmed-down implementation. mdVü has no JavaScript engine and does not run Mermaid; it reads a small part of Mermaid's syntax and draws the chart with its own layout engine. In return the charts open instantly, follow dark mode and your `user.css`, and stay sharp vector graphics in print and PDF.
+
+````markdown
+```mermaid
+pie showData
+    title Pets adopted
+    "Dogs" : 386
+    "Cats" : 85
+    "Rats" : 15
+```
+
+```mermaid
+xychart-beta
+    title "Sales Revenue"
+    x-axis [jan, feb, mar, apr, may, jun]
+    y-axis "Revenue (in $)" 4000 --> 11000
+    bar [5000, 6000, 7500, 8200, 9500, 10500]
+    line [5000, 6000, 7500, 8200, 9500, 10500]
+```
+````
+
+What is understood:
+
+| Syntax | Notes |
+|---|---|
+| `pie`, `pie showData` | `showData` adds the values to the legend; the slices show percentages |
+| `"Label" : 42.5` | one slice per line; numbers with a dot as decimal separator, no negative values |
+| `xychart-beta`, `xychart-beta horizontal` | `horizontal` puts the categories on the left and the values along the bottom |
+| `x-axis [a, b, "c d"]` | categories, title optional in front: `x-axis Month [jan, feb]` |
+| `x-axis "Year" 2020 --> 2025` | a number range instead; the values are spread evenly across it |
+| `y-axis "Title" 0 --> 100` | title and range are both optional — without a range mdVü picks round numbers |
+| `bar [..]`, `line [..]` | as many as you like, in any mix; several bar series stand side by side, lines are drawn on top |
+| `bar "Name" [..]` | **mdVü extension:** named series get a legend |
+| `title …` | with or without quotes |
+| `accTitle:`, `accDescr:` | used as the chart's alternative text |
+
+Everything else is skipped without complaint: `%%{init: …}%%` configuration and themes, data labels, click handlers. Other diagram types — flowcharts, sequence, class and Gantt diagrams and so on — stay a code block. If a pie or bar chart contains a mistake, the code block is shown with a short note below it naming the line.
+
+The colours come from the stylesheet. Each series (or pie slice) has a class `series-1`, `series-2`, … ; further classes are `title`, `legend`, `axis-label`, `axis-title`, `grid`, `axis`, `line` and `slice-label`:
+
+```css
+.chart .series-1 { background-color: #2e7d32; }  /* first series / slice */
+.chart .grid     { border-color: #dddddd; }
+.chart .title    { font-size: 12pt; }
+```
+
 ## Callouts
 
 ```markdown
@@ -280,7 +329,7 @@ frontmatter { display: none; }
 | Footnotes (`[^1]`) | stays plain text | planned as an option, not implemented |
 | Definition lists | stays plain text | rarely used in notes |
 | Math / LaTeX (`$…$`, `$$…$$`) | stays plain text | **by design:** mdVü has no JavaScript engine (no browser component, no scripts); Obsidian renders math with JavaScript |
-| Mermaid and other diagram fences | shown as a code block | Mermaid is a JavaScript library, and mdVü runs no JavaScript; simple diagrams might later be drawn by mdVü's own engine |
+| Mermaid flowcharts, sequence diagrams and other diagram types | shown as a code block | Mermaid is a JavaScript library, and mdVü runs no JavaScript; mdVü draws only [pie and bar/line charts](#charts-mermaid-subset) itself |
 | Note transclusion (`![[note]]`) | stays plain text | only image embeds are resolved |
 
 If you rely on one of these, the source view (`Ctrl+2`) always shows the file exactly as it is on disk.

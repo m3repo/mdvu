@@ -4,6 +4,12 @@
 
 Hier stehen alle nennenswerten Änderungen an mdVü. Das Format folgt [Keep a Changelog](https://keepachangelog.com/de/1.1.0/); Versionen sind `Major.Minor.Patch`, die vierte Stelle in der Dateiversion der EXE ist der Build-Zähler.
 
+## [Unveröffentlicht]
+
+### Neu
+
+- **Diagramme aus Mermaid-Codeblöcken:** Kreisdiagramme (`pie`) und Balken-/Liniendiagramme (`xychart-beta`, auch waagerecht) zeichnet mdVü selbst — eine bewusst abgespeckte Teilmenge von Mermaid, ohne JavaScript. Die Diagramme folgen dem Dunkelmodus und der `user.css` und bleiben in Druck und PDF Vektorgrafik. Andere Diagrammarten bleiben Codeblöcke; ein fehlerhaftes Diagramm zeigt seinen Codeblock mit einem Hinweis auf die Zeile. Siehe [Diagramme](docs/markdown-support.de.md#diagramme-mermaid-teilmenge).
+
 ## [0.12.1] — 2026-10-03
 
 ### Neu

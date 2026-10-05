@@ -25,6 +25,7 @@ Genau dafür ist mdVü gebaut.
 | | |
 |---|---|
 | **Formate** | GitHub-Flavoured Markdown, dazu Obsidian-Callouts, Wikilinks und Bild-Embeds — siehe [Markdown-Unterstützung](docs/markdown-support.de.md) |
+| **Diagramme** | Kreis-, Balken- und Liniendiagramme aus Mermaid-Codeblöcken — eine abgespeckte Teilmenge, nativ gezeichnet ohne JavaScript, scharf in Druck und PDF — siehe [Diagramme](docs/markdown-support.de.md#diagramme-mermaid-teilmenge) |
 | **Ordneransicht** | Baum des aktuellen Ordners mit Live-Aktualisierung, Suche während der Eingabe (`Strg+F3`) und Blättern per Pfeiltasten |
 | **Gliederung** | Alle Überschriften des Dokuments als Baum; ein Klick springt zur Stelle und lässt das Ziel kurz aufleuchten |
 | **Navigation** | Vor/Zurück wie im Browser samt Verlaufsliste, klickbare Pfadleiste, funktionierende Links zwischen Dokumenten |
