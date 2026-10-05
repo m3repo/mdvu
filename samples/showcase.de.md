@@ -183,7 +183,7 @@ Externe Links fragen nach, bevor der Browser aufgeht. Man beachte das `.md` in d
 
 ## Diagramme
 
-Kreis- und Balken-/Liniendiagramme aus Mermaid-Codeblöcken — eine abgespeckte Teilmenge, gezeichnet von mdVü selbst:
+Kreis-, Balken-/Linien- und Sequenzdiagramme aus Mermaid-Codeblöcken — eine abgespeckte Teilmenge, gezeichnet von mdVü selbst:
 
 ```mermaid
 pie showData
@@ -208,6 +208,21 @@ xychart-beta horizontal
     title Saldo je Region
     x-axis [Nord, Süd, West, Ost]
     bar [12.5, -4, 7, 3]
+```
+
+```mermaid
+sequenceDiagram
+    actor L as Leser
+    participant V as mdVü
+    participant P as Platte
+    L->>+V: öffne notiz.md
+    V->>P: Datei lesen
+    P-->>V: Markdown
+    V-->>-L: gerenderte Seite
+    loop bei jedem Speichern
+        P-)V: Datei geändert
+        V->>V: neu laden, Position halten
+    end
 ```
 
 ## Was absichtlich nichts tut

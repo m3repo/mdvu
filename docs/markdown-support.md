@@ -22,7 +22,7 @@ Want to see it all at once? Open [`samples/showcase.md`](../samples/showcase.md)
 | `> quote` | block quotes, nestable |
 | `> [!note] Title` | callouts — see below |
 | ` ```lang … ``` ` | fenced code blocks with syntax highlighting; `~~~` works as a fence too |
-| ` ```mermaid … ``` ` | pie and bar/line charts — see [Charts](#charts-mermaid-subset) |
+| ` ```mermaid … ``` ` | pie, bar/line and sequence diagrams — see [Charts](#charts-mermaid-subset) |
 | four leading spaces | indented code block |
 | `\| a \| b \|` + `\|---\|---\|` | GFM tables — see below |
 | `---`, `***`, `___` | horizontal rule |
@@ -200,7 +200,7 @@ An unknown language is not a problem: the block simply stays in the plain code c
 
 ## Charts (Mermaid subset)
 
-mdVü draws two kinds of [Mermaid](https://mermaid.js.org/) diagrams itself: **pie charts** and **bar/line charts**. This is a deliberately slimmed-down implementation. mdVü has no JavaScript engine and does not run Mermaid; it reads a small part of Mermaid's syntax and draws the chart with its own layout engine. In return the charts open instantly, follow dark mode and your `user.css`, and stay sharp vector graphics in print and PDF.
+mdVü draws three kinds of [Mermaid](https://mermaid.js.org/) diagrams itself: **pie charts**, **bar/line charts** and **sequence diagrams**. This is a deliberately slimmed-down implementation. mdVü has no JavaScript engine and does not run Mermaid; it reads a small part of Mermaid's syntax and draws the chart with its own layout engine. In return the charts open instantly, follow dark mode and your `user.css`, and stay sharp vector graphics in print and PDF.
 
 ````markdown
 ```mermaid
@@ -236,15 +236,51 @@ What is understood:
 | `title …` | with or without quotes |
 | `accTitle:`, `accDescr:` | used as the chart's alternative text |
 
-Everything else is skipped without complaint: `%%{init: …}%%` configuration and themes, data labels, click handlers. Other diagram types — flowcharts, sequence, class and Gantt diagrams and so on — stay a code block. If a pie or bar chart contains a mistake, the code block is shown with a short note below it naming the line.
+Everything else is skipped without complaint: `%%{init: …}%%` configuration and themes, data labels, click handlers. Other diagram types — flowcharts, class, state and Gantt diagrams and so on — stay a code block. If a chart contains a mistake, the code block is shown with a short note below it naming the line.
 
-The colours come from the stylesheet. Each series (or pie slice) has a class `series-1`, `series-2`, … ; further classes are `title`, `legend`, `axis-label`, `axis-title`, `grid`, `axis`, `line` and `slice-label`:
+The colours come from the stylesheet. Each series (or pie slice) has a class `series-1`, `series-2`, … ; further classes are `title`, `legend`, `axis-label`, `axis-title`, `grid`, `axis`, `line` and `slice-label`, and for sequence diagrams `actor`, `actor-label`, `lifeline`, `message`, `message-label`, `note`, `activation`, `frame` and `frame-label`:
 
 ```css
 .chart .series-1 { background-color: #2e7d32; }  /* first series / slice */
 .chart .grid     { border-color: #dddddd; }
 .chart .title    { font-size: 12pt; }
 ```
+
+### Sequence diagrams
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor U as User
+    participant W as Web app
+    participant A as Auth
+    U->>+W: Send login form
+    W->>+A: check(name, password)
+    alt password correct
+        A-->>W: Token
+        W-->>U: Start page
+    else wrong
+        A--xW: rejected
+        W-->>U: Error message<br/>please try again
+    end
+    deactivate A
+    deactivate W
+    Note over U,W: Session running
+```
+
+| Syntax | Notes |
+|---|---|
+| `participant A`, `actor A` | participants appear in the order of declaration, otherwise of first use; `as Name` sets the displayed name |
+| `participant A@{ "type": "database" }` | symbols: `actor`, `boundary`, `control`, `entity`, `database`, `collections`, `queue`; `"alias": "…"` sets the name |
+| `A->>B: text` | arrows `->`, `-->`, `->>`, `-->>`, `<<->>`, `<<-->>`, `-x`, `--x`, `-)`, `--)` — two dashes draw a dashed line |
+| `A->>+B`, `B-->>-A`, `activate A`, `deactivate A` | activation bars, nestable |
+| `Note left of A`, `right of`, `over A,B` | notes |
+| `loop`, `alt`/`else`, `opt`, `par`/`and`, `critical`/`option`, `break` | frames with a label, nestable |
+| `rect rgb(…)`, `box Colour Title … end` | coloured background and participant groups; in dark mode the colours are toned down so text stays readable |
+| `autonumber`, `autonumber 10 5` | numbered messages, optionally with start and step |
+| `<br/>`, `#35;`, `#infin;`, `;` | line breaks, character codes, several statements on one line |
+
+Skipped for now: `create`/`destroy` (a created participant simply appears from the start), actor menus (`link`), the half arrows and central connections of Mermaid 11.12. A diagram wider than the page is not scaled down yet.
 
 ## Callouts
 
@@ -329,7 +365,7 @@ frontmatter { display: none; }
 | Footnotes (`[^1]`) | stays plain text | planned as an option, not implemented |
 | Definition lists | stays plain text | rarely used in notes |
 | Math / LaTeX (`$…$`, `$$…$$`) | stays plain text | **by design:** mdVü has no JavaScript engine (no browser component, no scripts); Obsidian renders math with JavaScript |
-| Mermaid flowcharts, sequence diagrams and other diagram types | shown as a code block | Mermaid is a JavaScript library, and mdVü runs no JavaScript; mdVü draws only [pie and bar/line charts](#charts-mermaid-subset) itself |
+| Mermaid flowcharts, class, state, Gantt and other diagram types | shown as a code block | Mermaid is a JavaScript library, and mdVü runs no JavaScript; mdVü draws only [pie, bar/line and sequence diagrams](#charts-mermaid-subset) itself |
 | Note transclusion (`![[note]]`) | stays plain text | only image embeds are resolved |
 
 If you rely on one of these, the source view (`Ctrl+2`) always shows the file exactly as it is on disk.

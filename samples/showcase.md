@@ -183,7 +183,7 @@ External links ask for confirmation before your browser opens. Note the `.md` in
 
 ## Charts
 
-Pie and bar/line charts from Mermaid code blocks — a slimmed-down subset, drawn by mdVü itself:
+Pie, bar/line and sequence diagrams from Mermaid code blocks — a slimmed-down subset, drawn by mdVü itself:
 
 ```mermaid
 pie showData
@@ -208,6 +208,21 @@ xychart-beta horizontal
     title Balance by region
     x-axis [North, South, West, East]
     bar [12.5, -4, 7, 3]
+```
+
+```mermaid
+sequenceDiagram
+    actor R as Reader
+    participant V as mdVü
+    participant D as Disk
+    R->>+V: open note.md
+    V->>D: read file
+    D-->>V: Markdown
+    V-->>-R: rendered page
+    loop on every save
+        D-)V: file changed
+        V->>V: reload, keep position
+    end
 ```
 
 ## What deliberately does nothing

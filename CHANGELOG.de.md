@@ -8,7 +8,7 @@ Hier stehen alle nennenswerten Änderungen an mdVü. Das Format folgt [Keep a Ch
 
 ### Neu
 
-- **Diagramme aus Mermaid-Codeblöcken:** Kreisdiagramme (`pie`) und Balken-/Liniendiagramme (`xychart-beta`, auch waagerecht) zeichnet mdVü selbst — eine bewusst abgespeckte Teilmenge von Mermaid, ohne JavaScript. Die Diagramme folgen dem Dunkelmodus und der `user.css` und bleiben in Druck und PDF Vektorgrafik. Andere Diagrammarten bleiben Codeblöcke; ein fehlerhaftes Diagramm zeigt seinen Codeblock mit einem Hinweis auf die Zeile. Siehe [Diagramme](docs/markdown-support.de.md#diagramme-mermaid-teilmenge).
+- **Diagramme aus Mermaid-Codeblöcken:** Kreisdiagramme (`pie`), Balken-/Liniendiagramme (`xychart-beta`, auch waagerecht) und Sequenzdiagramme (`sequenceDiagram` mit Aktivierungen, Notizen, Rahmen, Nummerierung und Teilnehmer-Symbolen) zeichnet mdVü selbst — eine bewusst abgespeckte Teilmenge von Mermaid, ohne JavaScript. Die Diagramme folgen dem Dunkelmodus und der `user.css` und bleiben in Druck und PDF Vektorgrafik. Andere Diagrammarten bleiben Codeblöcke; ein fehlerhaftes Diagramm zeigt seinen Codeblock mit einem Hinweis auf die Zeile. Siehe [Diagramme](docs/markdown-support.de.md#diagramme-mermaid-teilmenge).
 
 ## [0.12.1] — 2026-10-03
 

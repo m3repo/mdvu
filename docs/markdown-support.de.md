@@ -22,7 +22,7 @@ Alles auf einmal sehen? [`samples/showcase.de.md`](../samples/showcase.de.md) in
 | `> Zitat` | Blockzitate, verschachtelbar |
 | `> [!note] Titel` | Callouts — siehe unten |
 | ` ```sprache … ``` ` | Codeblöcke mit Syntaxhervorhebung; `~~~` geht auch als Zaun |
-| ` ```mermaid … ``` ` | Kreis- und Balken-/Liniendiagramme — siehe [Diagramme](#diagramme-mermaid-teilmenge) |
+| ` ```mermaid … ``` ` | Kreis-, Balken-/Linien- und Sequenzdiagramme — siehe [Diagramme](#diagramme-mermaid-teilmenge) |
 | vier führende Leerzeichen | eingerückter Codeblock |
 | `\| a \| b \|` + `\|---\|---\|` | GFM-Tabellen — siehe unten |
 | `---`, `***`, `___` | Trennlinie |
@@ -200,7 +200,7 @@ Eine unbekannte Sprache ist kein Problem: Der Block bleibt einfach in der normal
 
 ## Diagramme (Mermaid-Teilmenge)
 
-Zwei Arten von [Mermaid](https://mermaid.js.org/)-Diagrammen zeichnet mdVü selbst: **Kreisdiagramme** und **Balken-/Liniendiagramme**. Das ist bewusst eine abgespeckte Umsetzung. mdVü hat keine JavaScript-Engine und führt Mermaid nicht aus; es liest einen kleinen Teil der Mermaid-Syntax und zeichnet das Diagramm mit der eigenen Layout-Engine. Dafür erscheinen die Diagramme sofort, folgen dem Dunkelmodus und Ihrer `user.css` und bleiben in Druck und PDF scharfe Vektorgrafik.
+Drei Arten von [Mermaid](https://mermaid.js.org/)-Diagrammen zeichnet mdVü selbst: **Kreisdiagramme**, **Balken-/Liniendiagramme** und **Sequenzdiagramme**. Das ist bewusst eine abgespeckte Umsetzung. mdVü hat keine JavaScript-Engine und führt Mermaid nicht aus; es liest einen kleinen Teil der Mermaid-Syntax und zeichnet das Diagramm mit der eigenen Layout-Engine. Dafür erscheinen die Diagramme sofort, folgen dem Dunkelmodus und Ihrer `user.css` und bleiben in Druck und PDF scharfe Vektorgrafik.
 
 ````markdown
 ```mermaid
@@ -236,15 +236,51 @@ Was verstanden wird:
 | `title …` | mit oder ohne Anführungszeichen |
 | `accTitle:`, `accDescr:` | dienen als Alternativtext des Diagramms |
 
-Alles andere wird kommentarlos übergangen: `%%{init: …}%%`-Konfiguration und Themes, Datenbeschriftungen, Klick-Handler. Andere Diagrammarten — Fluss-, Sequenz-, Klassen- und Gantt-Diagramme usw. — bleiben ein Codeblock. Enthält ein Kreis- oder Balkendiagramm einen Fehler, erscheint der Codeblock mit einem kurzen Hinweis darunter, der die Zeile nennt.
+Alles andere wird kommentarlos übergangen: `%%{init: …}%%`-Konfiguration und Themes, Datenbeschriftungen, Klick-Handler. Andere Diagrammarten — Fluss-, Klassen-, Zustands- und Gantt-Diagramme usw. — bleiben ein Codeblock. Enthält ein Diagramm einen Fehler, erscheint der Codeblock mit einem kurzen Hinweis darunter, der die Zeile nennt.
 
-Die Farben kommen aus dem Stylesheet. Jede Reihe (bzw. jedes Kreissegment) hat eine Klasse `series-1`, `series-2`, … ; weitere Klassen sind `title`, `legend`, `axis-label`, `axis-title`, `grid`, `axis`, `line` und `slice-label`:
+Die Farben kommen aus dem Stylesheet. Jede Reihe (bzw. jedes Kreissegment) hat eine Klasse `series-1`, `series-2`, … ; weitere Klassen sind `title`, `legend`, `axis-label`, `axis-title`, `grid`, `axis`, `line` und `slice-label`, für Sequenzdiagramme außerdem `actor`, `actor-label`, `lifeline`, `message`, `message-label`, `note`, `activation`, `frame` und `frame-label`:
 
 ```css
 .chart .series-1 { background-color: #2e7d32; }  /* erste Reihe / erstes Segment */
 .chart .grid     { border-color: #dddddd; }
 .chart .title    { font-size: 12pt; }
 ```
+
+### Sequenzdiagramme
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor U as Benutzer
+    participant W as Web-App
+    participant A as Auth
+    U->>+W: Login-Formular senden
+    W->>+A: prüfe(Name, Kennwort)
+    alt Kennwort stimmt
+        A-->>W: Token
+        W-->>U: Startseite
+    else falsch
+        A--xW: abgelehnt
+        W-->>U: Fehlermeldung<br/>erneut versuchen
+    end
+    deactivate A
+    deactivate W
+    Note over U,W: Sitzung läuft
+```
+
+| Syntax | Hinweise |
+|---|---|
+| `participant A`, `actor A` | Teilnehmer erscheinen in der Reihenfolge der Deklaration, sonst des ersten Auftretens; `as Name` setzt den angezeigten Namen |
+| `participant A@{ "type": "database" }` | Symbole: `actor`, `boundary`, `control`, `entity`, `database`, `collections`, `queue`; `"alias": "…"` setzt den Namen |
+| `A->>B: Text` | Pfeile `->`, `-->`, `->>`, `-->>`, `<<->>`, `<<-->>`, `-x`, `--x`, `-)`, `--)` — zwei Striche zeichnen eine gestrichelte Linie |
+| `A->>+B`, `B-->>-A`, `activate A`, `deactivate A` | Aktivierungsbalken, verschachtelbar |
+| `Note left of A`, `right of`, `over A,B` | Notizen |
+| `loop`, `alt`/`else`, `opt`, `par`/`and`, `critical`/`option`, `break` | Rahmen mit Beschriftung, verschachtelbar |
+| `rect rgb(…)`, `box Farbe Titel … end` | farbiger Hintergrund und Teilnehmergruppen; im Dunkelmodus werden die Farben gedämpft, damit die Schrift lesbar bleibt |
+| `autonumber`, `autonumber 10 5` | nummerierte Nachrichten, wahlweise mit Start und Schritt |
+| `<br/>`, `#35;`, `#infin;`, `;` | Zeilenumbruch, Zeichencodes, mehrere Anweisungen in einer Zeile |
+
+Vorerst übergangen: `create`/`destroy` (ein erzeugter Teilnehmer ist einfach von Anfang an da), Akteur-Menüs (`link`), die Halbpfeile und Mittelanschlüsse aus Mermaid 11.12. Ein Diagramm, das breiter als die Seite ist, wird noch nicht verkleinert.
 
 ## Callouts
 
@@ -329,7 +365,7 @@ frontmatter { display: none; }
 | Fußnoten (`[^1]`) | bleibt einfacher Text | als Option vorgesehen, nicht umgesetzt |
 | Definitionslisten | bleibt einfacher Text | in Notizen selten |
 | Mathematik / LaTeX (`$…$`, `$$…$$`) | bleibt einfacher Text | **bewusst:** mdVü hat keine JavaScript-Engine (keine Browser-Komponente, keine Skripte); Obsidian setzt Formeln mit JavaScript |
-| Mermaid-Fluss-, Sequenz- und andere Diagrammarten | erscheint als Codeblock | Mermaid ist eine JavaScript-Bibliothek, und mdVü führt kein JavaScript aus; nur [Kreis- und Balken-/Liniendiagramme](#diagramme-mermaid-teilmenge) zeichnet mdVü selbst |
+| Mermaid-Fluss-, Klassen-, Zustands-, Gantt- und andere Diagrammarten | erscheint als Codeblock | Mermaid ist eine JavaScript-Bibliothek, und mdVü führt kein JavaScript aus; nur [Kreis-, Balken-/Linien- und Sequenzdiagramme](#diagramme-mermaid-teilmenge) zeichnet mdVü selbst |
 | Notiz-Transklusion (`![[notiz]]`) | bleibt einfacher Text | nur Bild-Embeds werden aufgelöst |
 
 Wer auf eines davon angewiesen ist: Die Quelltext-Ansicht (`Strg+2`) zeigt die Datei immer genau so, wie sie auf der Platte steht.
