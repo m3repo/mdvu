@@ -117,6 +117,7 @@ Note on the print preview: it searches what has actually been paginated. Documen
 | Vault | the Obsidian vault of the current document |
 | Repository | the Git repository of the current document |
 | Folder | the folder shown in the folder view, with all subfolders |
+| All favorites | every folder among your favorites at once; the hits are grouped by favorite |
 
 The narrowest area is preselected — inside a vault the vault, inside a repository the repository, otherwise the folder. Selected text or the term of a running document search is filled in. `Enter` starts the search. `Aa` matches case; a term in quotes (`"ab"`) searches for exactly that text. Two more toggles set word boundaries — only one of them can be on:
 
@@ -144,6 +145,10 @@ mdVü searches **the text you see** — in files exactly as in the document, so 
 Below the folder view, mdVü shows the **outline** of the current document — all headings as a tree, nested by level. A click jumps to that position in the document; the target flashes briefly so your eye finds it right away.
 
 For a long document, the outline is the fastest way around: no scrolling, no searching, one click. With very many headings, press `Ctrl+F3` with the focus in the outline: the strip filters it to the headings containing the search text — together with their parent headings, so you can see where they are.
+
+## Favorites
+
+Folders you return to often — your vaults, your repositories — can be kept as **favorites**. `Ctrl+D` adds the folder shown in the folder view, or removes it again; the **star** in the toolbar is filled when the current folder is a favorite. Clicking the star (or `Ctrl+Shift+D`) opens the list: arrow keys and `Enter` open a favorite, `Del` removes the selected one. The favorites also appear in the **File** menu, and the menu of a file or folder (right-click in the folder view) adds or removes them. Search in files can search **all favorites** at once. mdVü keeps them in `favorites.yaml` next to its other settings.
 
 ## Path bar, back and forward
 
@@ -223,7 +228,7 @@ There is no settings dialog yet. *Help → Setting* opens a small note with a cl
 %APPDATA%\m3Works\mdVu
 ```
 
-It contains `settings.ini` (values) and `user.css` (your stylesheet). Values are written through immediately — mdVü never loses a setting on a crash, but it also means **you should close the program before editing `settings.ini` by hand**, otherwise your changes will be overwritten.
+It contains `settings.ini` (values), `user.css` (your stylesheet) and `favorites.yaml` (your favorites). Values are written through immediately — mdVü never loses a setting on a crash, but it also means **you should close the program before editing `settings.ini` by hand**, otherwise your changes will be overwritten.
 
 Keys are hierarchical: everything before the slash is the INI section, everything after is the key name. `doc/maxLoadMB = 80` therefore looks like this in the file:
 
@@ -276,6 +281,8 @@ mdVü has a few deliberate hard limits. They exist so that an unusual file canno
 | `F6` | Switch between panes (tree / document / editor) |
 | `Alt+←` / `Alt+→` | Back / forward |
 | `F10` / `Alt` | Menu bar by keyboard: `←`/`→` choose a menu, `Enter` opens it, `↑`/`↓` + `Enter` run an entry, a letter jumps to it, `Esc` steps back. `Alt`+initial letter opens a menu directly |
+| `Ctrl+D` | Add/remove the current folder as favorite |
+| `Ctrl+Shift+D` | Show favorites |
 | `Ctrl+1` | Markdown view |
 | `Ctrl+2` | Source view |
 | `Ctrl+3` / `Ctrl+F2` | Print preview |

@@ -117,6 +117,7 @@ Hinweis zur Druckvorschau: Sie durchsucht, was tatsächlich paginiert wurde. Dok
 | Vault | den Obsidian-Vault des aktuellen Dokuments |
 | Repository | das Git-Repository des aktuellen Dokuments |
 | Ordner | den Ordner der Ordneransicht samt Unterordnern |
+| Alle Favoriten | alle Ordner unter Ihren Favoriten auf einmal; die Treffer nach Favorit gruppiert |
 
 Vorausgewählt ist der engste Bereich — im Vault der Vault, im Repository das Repository, sonst der Ordner. Markierter Text oder der Begriff einer laufenden Dokumentsuche wird übernommen. `Enter` startet die Suche. `Aa` beachtet Groß-/Kleinschreibung; ein Begriff in Anführungszeichen (`"ab"`) sucht genau diesen Text. Zwei weitere Umschalter legen Wortgrenzen fest — es ist immer höchstens einer an:
 
@@ -144,6 +145,10 @@ mdVü durchsucht **den Text, den Sie sehen** — in Dateien genau wie im Dokumen
 Unterhalb der Ordneransicht zeigt mdVü die **Gliederung** des aktuellen Dokuments — alle Überschriften als Baum, nach Ebenen verschachtelt. Ein Klick springt zur entsprechenden Stelle im Dokument; das Sprungziel leuchtet kurz auf, damit das Auge es sofort findet.
 
 Bei einem langen Dokument ist die Gliederung der schnellste Weg: kein Scrollen, kein Suchen, ein Klick. Bei sehr vielen Überschriften hilft `Strg+F3` mit dem Fokus in der Gliederung: Der Streifen filtert sie auf die Überschriften, die den Suchtext enthalten — samt der übergeordneten, damit man sieht, wo sie stehen.
+
+## Favoriten
+
+Ordner, zu denen Sie oft zurückkehren — Ihre Vaults, Ihre Repositories —, lassen sich als **Favoriten** merken. `Strg+D` nimmt den Ordner der Ordneransicht auf oder entfernt ihn wieder; der **Stern** in der Leiste ist gefüllt, wenn der aktuelle Ordner ein Favorit ist. Ein Klick auf den Stern (oder `Strg+Umschalt+D`) öffnet die Liste: Pfeiltasten und `Enter` öffnen einen Favoriten, `Entf` entfernt den markierten. Die Favoriten stehen auch im Menü **File**, und das Menü zu einer Datei oder einem Ordner (Rechtsklick in der Ordneransicht) nimmt sie auf oder entfernt sie. Die Suche in Dateien kann **alle Favoriten** auf einmal durchsuchen. mdVü speichert sie in `favorites.yaml` bei den übrigen Einstellungen.
 
 ## Pfadleiste, vor und zurück
 
@@ -223,7 +228,7 @@ Einen Einstellungsdialog gibt es noch nicht. *Hilfe → Setting* öffnet einen k
 %APPDATA%\m3Works\mdVu
 ```
 
-Darin liegen `settings.ini` (Werte) und `user.css` (das eigene Stylesheet). Werte werden sofort geschrieben — mdVü verliert bei einem Absturz keine Einstellung, das heißt aber auch: **vor dem Bearbeiten der `settings.ini` von Hand das Programm schließen**, sonst werden die Änderungen wieder überschrieben.
+Darin liegen `settings.ini` (Werte), `user.css` (das eigene Stylesheet) und `favorites.yaml` (die Favoriten). Werte werden sofort geschrieben — mdVü verliert bei einem Absturz keine Einstellung, das heißt aber auch: **vor dem Bearbeiten der `settings.ini` von Hand das Programm schließen**, sonst werden die Änderungen wieder überschrieben.
 
 Die Schlüssel sind hierarchisch: alles vor dem Schrägstrich ist der INI-Abschnitt, alles dahinter der Name. `doc/maxLoadMB = 80` sieht in der Datei also so aus:
 
@@ -276,6 +281,8 @@ mdVü hat einige bewusst gesetzte harte Grenzen. Sie sorgen dafür, dass eine un
 | `F6` | Zwischen Bereichen wechseln (Baum / Dokument / Editor) |
 | `Alt+←` / `Alt+→` | Zurück / Vorwärts |
 | `F10` / `Alt` | Menüleiste per Tastatur: `←`/`→` wählen das Menü, `Enter` öffnet es, `↑`/`↓` + `Enter` führen einen Eintrag aus, ein Buchstabe springt dorthin, `Esc` geht zurück. `Alt`+Anfangsbuchstabe öffnet ein Menü direkt |
+| `Strg+D` | Aktuellen Ordner als Favorit aufnehmen/entfernen |
+| `Strg+Umschalt+D` | Favoriten anzeigen |
 | `Strg+1` | Markdown-Ansicht |
 | `Strg+2` | Quelltext-Ansicht |
 | `Strg+3` / `Strg+F2` | Druckvorschau |
