@@ -14,6 +14,7 @@ Dies ist das ausführliche Handbuch für alle, die das ganze Bild wollen — sam
 - [Dateien öffnen](#dateien-öffnen)
 - [Ordneransicht und Suche](#ordneransicht-und-suche)
 - [Gliederung](#gliederung)
+- [Lesen mit der Tastatur](#lesen-mit-der-tastatur)
 - [Pfadleiste, vor und zurück](#pfadleiste-vor-und-zurück)
 - [Die vier Ansichten](#die-vier-ansichten)
 - [Drucken und PDF](#drucken-und-pdf)
@@ -92,7 +93,7 @@ Die Ordneransicht zeigt den Ordner des aktuellen Dokuments, gefiltert auf `*.md`
 
 In der **Ordneransicht** und in der **Gliederung** erscheint der Streifen über dem Baum. Während der Eingabe wird der Baum gefiltert — auf passende Dateien bzw. Überschriften —, Treffer werden hervorgehoben. Die Pfeil-runter-Taste setzt den Fokus vom Suchfeld in den Baum — tippen, dann blättern, ganz ohne Maus. Nach dem Schließen ist der Baum wieder so aufgeklappt wie vor der Suche.
 
-Im **Dokument, im Quelltext, im CSS-Editor und in der Druckvorschau** erscheint der Streifen unter der Pfadleiste und arbeitet wie die Suchleiste eines Browsers: `Eingabe` und `Umschalt+Eingabe` gehen durch die Treffer, ein Zähler zeigt *Treffer / gesamt*, und alle Treffer sind gleichzeitig hervorgehoben. Drei Umschalter verfeinern die Suche:
+Im **Dokument, im Quelltext, im CSS-Editor und in der Druckvorschau** erscheint der Streifen unter der Pfadleiste und arbeitet wie die Suchleiste eines Browsers: `Eingabe` und `Umschalt+Eingabe` gehen durch die Treffer (im Dokument führt ein weiteres `Eingabe` stattdessen in den Text — s. *Lesen mit der Tastatur*), ein Zähler zeigt *Treffer / gesamt*, und alle Treffer sind gleichzeitig hervorgehoben. Drei Umschalter verfeinern die Suche:
 
 | Umschalter | Bedeutung |
 |---|---|
@@ -132,7 +133,7 @@ Das Ergebnis ist ein **eigenes Dokument** mit eigenem Platz im Verlauf:
 
 - zuerst die Dateien, deren **Name** passt, auch ohne Treffer im Text;
 - dann die Treffer nach Ordnern gruppiert — jede Datei mit der Zahl ihrer Treffer und bis zu drei Zeilen Kontext, der Treffer hervorgehoben;
-- ein Klick auf den Dateinamen öffnet die Datei am ersten Treffer, ein Klick auf eine Zeilennummer genau an diesem Treffer. Die Dokumentsuche ist dort schon belegt, `F3` geht also in der Datei weiter.
+- ein Klick auf den Dateinamen öffnet die Datei am ersten Treffer, ein Klick auf eine Zeilennummer genau an diesem Treffer. Die Dokumentsuche ist dort schon belegt, `F3` geht also in der Datei weiter. Die Liste öffnet bereit für die Tastatur: Pfeiltasten oder `Tab` gehen von Treffer-Link zu Treffer-Link, `Eingabe` öffnet ihn (s. *Lesen mit der Tastatur*).
 
 **Zurück** (`Alt+←`) führt zur Trefferliste an die Stelle, von der Sie kamen. Die Liste wird aufbewahrt — die letzten fünf Trefferlisten hält mdVü im Speicher —, sie sieht also genauso aus wie vorher, auch wenn sich Dateien inzwischen geändert haben. `F5` auf der Trefferliste sucht neu. Weil die Liste ein Dokument ist, können Sie darin suchen (`Strg+F`), sie drucken oder als PDF speichern, und ihre Gliederung zeigt die Ordner und Dateien.
 
@@ -145,6 +146,23 @@ mdVü durchsucht **den Text, den Sie sehen** — in Dateien genau wie im Dokumen
 Unterhalb der Ordneransicht zeigt mdVü die **Gliederung** des aktuellen Dokuments — alle Überschriften als Baum, nach Ebenen verschachtelt. Ein Klick springt zur entsprechenden Stelle im Dokument; das Sprungziel leuchtet kurz auf, damit das Auge es sofort findet.
 
 Bei einem langen Dokument ist die Gliederung der schnellste Weg: kein Scrollen, kein Suchen, ein Klick. Bei sehr vielen Überschriften hilft `Strg+F3` mit dem Fokus in der Gliederung: Der Streifen filtert sie auf die Überschriften, die den Suchtext enthalten — samt der übergeordneten, damit man sieht, wo sie stehen.
+
+## Lesen mit der Tastatur
+
+mdVü ist ein Leser, das Dokument braucht also nicht ständig einen Textcursor — die Tasten sind frei, um sich in **Einheiten** durchs Dokument zu bewegen, ähnlich wie man im Browser per Tab durch die Links geht. Der Footer zeigt immer die aktive Einheit:
+
+| Taste | Einheit | Footer | Pfeiltasten |
+|---|---|---|---|
+| `0` | Scrollen | `SCROLL` | scrollen wie im Browser, ebenso `Bild↑`/`Bild↓` und `Pos1`/`Ende` (Grundeinstellung) |
+| `1` | Caret | `CARET` | bewegen einen Textcursor zeichen- und zeilenweise, wie nach einem Klick in den Text |
+| `L` | Links | `LINK 3/41` | `←`/`→` voriger/nächster Link in Lesereihenfolge, `↑`/`↓` nächstgelegener Link in der Zeile darüber/darunter |
+| `H` | Treffer | `HIT 2/17` | gehen durch die Treffer der Dokumentsuche (`Strg+F`) |
+
+`F7` schaltet zwischen Scrollen und Caret um (wie *Caret Browsing* im Browser). `Tab` und `Umschalt+Tab` gehen immer zum nächsten/vorigen Link, egal welche Einheit gilt, und `Eingabe` folgt dem aktiven Link — bzw. dem Link am Caret. Der erste Link ist der erste **im Bild**, nicht der erste im Dokument; der aktive Link ist hervorgehoben (CSS: `highlight.nav`). `↑`/`↓` bewegen sich wirklich senkrecht: Sie überspringen die übrigen Links derselben Zeile und gehen zum nächstgelegenen Link in der nächsten Zeile darüber bzw. darunter, die einen hat.
+
+Der Weg aus der Suche: In der Suchleiste des Dokuments sucht das erste `Eingabe`, jedes weitere `Eingabe` — und `↓` jederzeit — setzt den Fokus ins Dokument mit der Einheit *Treffer*, `←`/`→` gehen dann durch die Treffer weiter. Die Trefferliste von *Suchen in Dateien* öffnet mit der Einheit *Links*: der erste sichtbare Treffer ist hervorgehoben, `Eingabe` öffnet ihn.
+
+Ein Klick in den Text schaltet auf den Caret; `Esc` führt von Links oder Treffern zurück zum Scrollen. Die Einheit gehört zum Ort im Verlauf: **Zurück** bringt sie wieder, samt aktivem Link. Die Tasten `2` bis `5` sind für Wörter, Sätze, Absätze und Überschriften reserviert. Links funktionieren auch in sehr großen Dokumenten, auch in Teilen, die noch nicht angezeigt wurden.
 
 ## Favoriten
 
@@ -276,7 +294,11 @@ mdVü hat einige bewusst gesetzte harte Grenzen. Sie sorgen dafür, dass eine un
 | `F3` / `Umschalt+F3` | Nächster / vorheriger Treffer im Haupt-Pane |
 | `Strg+F3` | Suche im fokussierten Bereich ein/aus (inkl. Ordneransicht und Gliederung) |
 | `Strg+Umschalt+F` | Suchen in Dateien (Vault, Repository oder Ordner) |
-| `Esc` | Suchstreifen schließen / Hervorhebungen wegräumen |
+| `Esc` | Suchstreifen schließen / Hervorhebungen wegräumen / zurück zum Scrollen |
+| `0` / `1` / `F7` | Dokument: Scrollen / Caret / umschalten |
+| `L` / `H` | Dokument: mit den Pfeiltasten durch Links / Suchtreffer |
+| `Tab` / `Umschalt+Tab` | Dokument: nächster / voriger Link |
+| `Eingabe` | Dokument: aktivem Link folgen |
 | `F5` | Dokument neu laden / auf der Trefferliste neu suchen |
 | `F6` | Zwischen Bereichen wechseln (Baum / Dokument / Editor) |
 | `Alt+←` / `Alt+→` | Zurück / Vorwärts |

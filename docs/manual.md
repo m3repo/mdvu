@@ -14,6 +14,7 @@ This is the extended manual for readers who want the whole picture, including in
 - [Opening files](#opening-files)
 - [Folder view and search](#folder-view-and-search)
 - [Outline](#outline)
+- [Reading with the keyboard](#reading-with-the-keyboard)
 - [Path bar, back and forward](#path-bar-back-and-forward)
 - [The four views](#the-four-views)
 - [Printing and PDF](#printing-and-pdf)
@@ -92,7 +93,7 @@ The folder view shows the folder of the current document, filtered to `*.md`. It
 
 In the **folder view** and the **outline** the strip appears above the tree. As you type, the tree is filtered — to matching files or headings — and hits are highlighted. The arrow-down key moves the focus from the search field into the tree, so you can type, then browse without touching the mouse. When you close the strip, the tree is expanded the way it was before the search.
 
-In the **document, source text, CSS editor and print preview** the strip appears below the path bar and works like a browser's find bar: `Enter` and `Shift+Enter` step through the hits, a counter shows *hit / total*, and all hits are highlighted at once. Three toggles refine the search:
+In the **document, source text, CSS editor and print preview** the strip appears below the path bar and works like a browser's find bar: `Enter` and `Shift+Enter` step through the hits (in the document, a further `Enter` moves into the text instead — see *Reading with the keyboard*), a counter shows *hit / total*, and all hits are highlighted at once. Three toggles refine the search:
 
 | Toggle | Meaning |
 |---|---|
@@ -132,7 +133,7 @@ The result is a **document of its own**, with its own place in the history:
 
 - files whose **name** matches come first, even without a hit in the text;
 - then the hits, grouped by folder — each file with its number of hits and up to three lines of context, the hit highlighted;
-- clicking a file name opens the file at its first hit, clicking a line number opens it at exactly that hit. The document search is already filled in there, so `F3` walks on through the file.
+- clicking a file name opens the file at its first hit, clicking a line number opens it at exactly that hit. The document search is already filled in there, so `F3` walks on through the file. The list opens ready for the keyboard: arrow keys or `Tab` move between the hit links, `Enter` opens one (see *Reading with the keyboard*).
 
 **Back** (`Alt+←`) returns to the result list at the place you left. The list is kept — the last five result lists are held in memory — so it looks exactly as before, even if files have changed since. `F5` on the result list searches again. Because the list is a document, you can search in it (`Ctrl+F`), print it or save it as PDF, and its outline lists the folders and files.
 
@@ -145,6 +146,23 @@ mdVü searches **the text you see** — in files exactly as in the document, so 
 Below the folder view, mdVü shows the **outline** of the current document — all headings as a tree, nested by level. A click jumps to that position in the document; the target flashes briefly so your eye finds it right away.
 
 For a long document, the outline is the fastest way around: no scrolling, no searching, one click. With very many headings, press `Ctrl+F3` with the focus in the outline: the strip filters it to the headings containing the search text — together with their parent headings, so you can see where they are.
+
+## Reading with the keyboard
+
+mdVü is a reader, so the document doesn't need a text cursor all the time — the keys are free for moving through it in **units**, much like a browser lets you tab through links. The footer always shows the active unit:
+
+| Key | Unit | Footer | Arrow keys |
+|---|---|---|---|
+| `0` | Scroll | `SCROLL` | scroll like in a browser, as do `Page Up`/`Page Down` and `Home`/`End` (default) |
+| `1` | Caret | `CARET` | move a text cursor by character and line, as after a click into the text |
+| `L` | Links | `LINK 3/41` | `←`/`→` previous/next link in reading order, `↑`/`↓` nearest link in the line above/below |
+| `H` | Hits | `HIT 2/17` | walk through the hits of the document search (`Ctrl+F`) |
+
+`F7` switches between scrolling and the caret (as *caret browsing* does in browsers). `Tab` and `Shift+Tab` always go to the next/previous link, whatever unit is active, and `Enter` follows the active link — or the link at the caret. The first link is the first one **on screen**, not the first one in the document; the active link is highlighted (CSS: `highlight.nav`). `↑`/`↓` really move vertically: they skip the other links of the same line and go to the closest link in the next line above or below that has one.
+
+The way in from the search: in the document search strip, the first `Enter` searches, every further `Enter` — and `↓` at any time — puts the focus into the document with the unit *Hits*, so `←`/`→` continue through the hits. The result list of *Search in files* opens with the unit *Links*: the first visible hit is highlighted and `Enter` opens it.
+
+A click into the text switches to the caret; `Esc` returns from links or hits to scrolling. The unit belongs to the place in the history: **Back** brings it back, including the active link. Keys `2` to `5` are reserved for words, sentences, paragraphs and headings. Links work in very large documents too, also in parts that haven't been displayed yet.
 
 ## Favorites
 
@@ -276,7 +294,11 @@ mdVü has a few deliberate hard limits. They exist so that an unusual file canno
 | `F3` / `Shift+F3` | Next / previous hit in the main pane |
 | `Ctrl+F3` | Search in the focused pane on/off (incl. folder view and outline) |
 | `Ctrl+Shift+F` | Search in files (vault, repository or folder) |
-| `Esc` | Close the search strip / clear the highlights |
+| `Esc` | Close the search strip / clear the highlights / back to scrolling |
+| `0` / `1` / `F7` | Document: scroll / caret / switch between them |
+| `L` / `H` | Document: walk through links / search hits with the arrow keys |
+| `Tab` / `Shift+Tab` | Document: next / previous link |
+| `Enter` | Document: follow the active link |
 | `F5` | Reload document / search again on the result list |
 | `F6` | Switch between panes (tree / document / editor) |
 | `Alt+←` / `Alt+→` | Back / forward |
