@@ -149,6 +149,8 @@ Bei einem langen Dokument ist die Gliederung der schnellste Weg: kein Scrollen, 
 
 Über dem Dokument zeigt die **Pfadleiste** den Ort der aktuellen Datei. Jedes Segment ist klickbar: Ein Klick auf einen Ordner öffnet ihn in der Ordneransicht.
 
+**Das Menü zur Datei.** Ein Klick auf den Dateipfad in der Statuszeile öffnet ein Menü zu dieser Datei: Pfad kopieren, im Explorer zeigen, in Obsidian öffnen (innerhalb eines Vaults) oder mit einem anderen Programm, das für `.md`-Dateien installiert ist. Dasselbe Menü öffnet ein Rechtsklick auf eine Datei oder einen Ordner in der Ordneransicht oder auf die **Obs**/**Git**-Plakette in der Statuszeile — in der Ordneransicht auch per Tastatur mit `Umschalt+F10` oder der Kontextmenü-Taste.
+
 Wie im Browser navigiert mdVü durch die Historie: Pfeil-Symbole in der Leiste oder `Alt+←` / `Alt+→`. Ein **Rechtsklick auf die Pfeile** öffnet die Verlaufsliste — damit lässt sich ein früheres Dokument direkt anspringen, statt sich Schritt für Schritt zurückzuklicken.
 
 **Zurück führt an die Stelle, an der Sie waren** — nicht an den Dokumentanfang. mdVü merkt sich dafür die oberste sichtbare Zeile im Text, nicht eine Pixelposition; das passt auch dann noch, wenn sich Fensterbreite oder Zoom inzwischen geändert haben oder das Dokument erst stückweise nachgeladen wird. Ist die Datei inzwischen kürzer geworden, landet man am Ende. Eine laufende Suche im Dokument kommt mit zurück: Suchbegriff, Optionen, aktiver Treffer und Streifen. Wer die Suche vor dem Weitergehen mit `Esc` geschlossen hat, findet sie beim Zurückblättern auch nicht wieder.

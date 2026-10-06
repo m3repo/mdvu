@@ -149,6 +149,8 @@ For a long document, the outline is the fastest way around: no scrolling, no sea
 
 Above the document, the **path bar** shows the location of the current file. Every segment is clickable: clicking a folder opens it in the folder view.
 
+**The file's own menu.** Clicking the file path in the status bar opens a menu for that file: copy the path, show it in Explorer, open it in Obsidian (inside a vault) or with another program installed for `.md` files. Right-clicking a file or folder in the folder view, or the **Obs**/**Git** badge in the status bar, opens the same menu — in the folder view also by keyboard with `Shift+F10` or the context-menu key.
+
 mdVü navigates its history like a browser: the arrow icons in the toolbar or `Alt+←` / `Alt+→` step back and forward. **Right-clicking the arrows** opens the history list, so you can jump straight to any earlier document instead of stepping through them.
 
 **Back takes you to where you were** — not to the top of the document. mdVü remembers the topmost visible line of text rather than a pixel position, so this still fits when the window width or zoom has changed in the meantime or the document is loaded in pieces. If the file has become shorter, you land at its end. A running search in the document comes back too: search term, options, active hit and the strip. If you closed the search with `Esc` before moving on, it won't come back either.
