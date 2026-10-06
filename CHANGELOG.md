@@ -6,10 +6,24 @@ All notable changes to mdVü are documented here. The format follows [Keep a Cha
 
 ## [Unreleased]
 
+## [0.13.0] — 2026-10-06
+
 ### Added
 
 - **Charts from Mermaid code blocks:** pie charts (`pie`), bar/line charts (`xychart-beta`, also horizontal) and sequence diagrams (`sequenceDiagram` with activations, notes, frames, numbering and participant symbols) are drawn by mdVü itself — a deliberately slimmed-down subset of Mermaid, without JavaScript. The charts follow dark mode and `user.css` and stay vector graphics in print and PDF. Other diagram types remain code blocks; a faulty chart shows its code block with a note naming the line. See [Charts](docs/markdown-support.md#charts-mermaid-subset).
 - **Flowcharts from Mermaid code blocks:** `flowchart`/`graph` in all four directions, with the common node shapes, dotted and thick edges, circle and cross ends, edge labels and loops. mdVü arranges the nodes in levels like Mermaid's default renderer, so nodes and labels never overlap and edges cross as rarely as possible. `subgraph` frames and styling statements are skipped for now. See [Flowcharts](docs/markdown-support.md#flowcharts).
+- **Reading with the keyboard:** the arrow keys move in a unit you choose, shown in the footer — `0` scroll (as in a browser), `1` caret (`F7` switches between the two), `L` links, `H` search hits. In the link unit `←`/`→` go through the links in reading order, `↑`/`↓` to the nearest link in the line above or below, and `Enter` follows it; `Tab`/`Shift+Tab` always go to the next/previous link. It starts at the first link on screen and works in very large documents too, also in parts not displayed yet. The unit belongs to the place: Back brings it back, including the active link. See [Reading with the keyboard](docs/manual.md#reading-with-the-keyboard).
+- **Favorites:** `Ctrl+D` keeps the current folder as a favorite (the star in the toolbar shows it), `Ctrl+Shift+D` opens the list — arrow keys and `Enter` open one, `Del` removes it. Favorites are also in the *File* menu and in the menu of a file or folder, and *Search in files* can search all favorites at once, grouped by favorite. See [Favorites](docs/manual.md#favorites).
+- **The file's own menu:** clicking the file path in the status bar opens a menu for that file — copy the path, show it in Explorer, open it in Obsidian (inside a vault) or with another program. A right-click on a file or folder in the folder view, or on the Obs/Git badges, opens the same menu.
+- **Menu bar by keyboard:** `F10` or a single `Alt` puts the menu bar into keyboard mode — `←`/`→` choose a menu, `Enter` opens it, `↑`/`↓` and `Enter` run an entry, a letter jumps to it, `Esc` steps back. `Alt`+initial letter opens a menu directly.
+
+### Changed
+
+- **From the search into the document:** in the document search, the first `Enter` searches and every further `Enter` — and `↓` at any time — moves into the document with the unit *hits*, so `←`/`→` walk on through them. In *Search in files*, `Enter` on the result list that is already showing, and `↓` at any time, move into the list with the unit *links*; if the term or options have changed, `↓` searches first. `Esc` steps back one at a time: from the links or hits into the search field, from there out of the strip into the document, scrolling.
+
+### Fixed
+
+- `Enter` and `Esc` in the search fields no longer sound the Windows beep.
 
 ## [0.12.1] — 2026-10-03
 

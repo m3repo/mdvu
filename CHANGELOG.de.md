@@ -6,10 +6,24 @@ Hier stehen alle nennenswerten Änderungen an mdVü. Das Format folgt [Keep a Ch
 
 ## [Unveröffentlicht]
 
+## [0.13.0] — 2026-10-06
+
 ### Neu
 
 - **Diagramme aus Mermaid-Codeblöcken:** Kreisdiagramme (`pie`), Balken-/Liniendiagramme (`xychart-beta`, auch waagerecht) und Sequenzdiagramme (`sequenceDiagram` mit Aktivierungen, Notizen, Rahmen, Nummerierung und Teilnehmer-Symbolen) zeichnet mdVü selbst — eine bewusst abgespeckte Teilmenge von Mermaid, ohne JavaScript. Die Diagramme folgen dem Dunkelmodus und der `user.css` und bleiben in Druck und PDF Vektorgrafik. Andere Diagrammarten bleiben Codeblöcke; ein fehlerhaftes Diagramm zeigt seinen Codeblock mit einem Hinweis auf die Zeile. Siehe [Diagramme](docs/markdown-support.de.md#diagramme-mermaid-teilmenge).
 - **Flussdiagramme aus Mermaid-Codeblöcken:** `flowchart`/`graph` in allen vier Richtungen, mit den gängigen Knotenformen, gepunkteten und dicken Kanten, Kreis- und Kreuzenden, Kantenbeschriftungen und Schleifen. mdVü ordnet die Knoten in Ebenen an wie Mermaids Standard-Renderer, sodass Knoten und Beschriftungen nie überlappen und Kanten sich so selten wie möglich kreuzen. `subgraph`-Rahmen und Stilangaben werden vorerst übergangen. Siehe [Flussdiagramme](docs/markdown-support.de.md#flussdiagramme).
+- **Lesen mit der Tastatur:** Die Pfeiltasten bewegen sich in einer Einheit, die Sie wählen und die der Footer anzeigt — `0` Scrollen (wie im Browser), `1` Caret (`F7` schaltet zwischen beiden um), `L` Links, `H` Suchtreffer. In der Einheit Links gehen `←`/`→` in Lesereihenfolge durch die Links, `↑`/`↓` zum nächstgelegenen Link in der Zeile darüber bzw. darunter, `Eingabe` folgt ihm; `Tab`/`Umschalt+Tab` gehen immer zum nächsten/vorigen Link. Begonnen wird beim ersten Link im Bild; das klappt auch in sehr großen Dokumenten, auch in noch nicht angezeigten Teilen. Die Einheit gehört zum Ort: Zurück bringt sie wieder, samt aktivem Link. Siehe [Lesen mit der Tastatur](docs/manual.de.md#lesen-mit-der-tastatur).
+- **Favoriten:** `Strg+D` merkt den aktuellen Ordner als Favorit (der Stern in der Leiste zeigt es), `Strg+Umschalt+D` öffnet die Liste — Pfeiltasten und `Eingabe` öffnen einen, `Entf` entfernt ihn. Die Favoriten stehen auch im Menü *File* und im Menü einer Datei bzw. eines Ordners, und *Suchen in Dateien* kann alle Favoriten auf einmal durchsuchen, nach Favorit gruppiert. Siehe [Favoriten](docs/manual.de.md#favoriten).
+- **Menü zur Datei:** Ein Klick auf den Dateipfad in der Statuszeile öffnet ein Menü für diese Datei — Pfad kopieren, im Explorer zeigen, in Obsidian öffnen (im Vault) oder mit einem anderen Programm. Ein Rechtsklick auf Datei oder Ordner in der Ordneransicht oder auf die Obs-/Git-Badges öffnet dasselbe Menü.
+- **Menüleiste per Tastatur:** `F10` oder ein einzelnes `Alt` schaltet die Menüleiste in den Tastaturmodus — `←`/`→` wählen das Menü, `Eingabe` öffnet es, `↑`/`↓` und `Eingabe` führen einen Eintrag aus, ein Buchstabe springt dorthin, `Esc` geht zurück. `Alt`+Anfangsbuchstabe öffnet ein Menü direkt.
+
+### Geändert
+
+- **Aus der Suche ins Dokument:** In der Dokumentsuche sucht das erste `Eingabe`, jedes weitere — und `↓` jederzeit — wechselt ins Dokument mit der Einheit *Treffer*, `←`/`→` gehen dann durch sie weiter. Bei *Suchen in Dateien* wechseln `Eingabe` auf der schon angezeigten Trefferliste und `↓` jederzeit in die Liste mit der Einheit *Links*; sind Begriff oder Schalter geändert, sucht `↓` vorher. `Esc` geht Schritt für Schritt zurück: von Links oder Treffern ins Suchfeld, von dort aus dem Streifen zurück ins Dokument beim Scrollen.
+
+### Behoben
+
+- `Eingabe` und `Esc` in den Suchfeldern lösen keinen Windows-Ton mehr aus.
 
 ## [0.12.1] — 2026-10-03
 
