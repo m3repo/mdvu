@@ -162,7 +162,7 @@ mdVü ist ein Leser, das Dokument braucht also nicht ständig einen Textcursor �
 
 Der Weg aus der Suche: In der Suchleiste des Dokuments sucht das erste `Eingabe`, jedes weitere `Eingabe` — und `↓` jederzeit — setzt den Fokus ins Dokument mit der Einheit *Treffer*, `←`/`→` gehen dann durch die Treffer weiter. Die Trefferliste von *Suchen in Dateien* öffnet mit der Einheit *Links*: der erste sichtbare Treffer ist hervorgehoben, `Eingabe` öffnet ihn.
 
-Ein Klick in den Text schaltet auf den Caret. `Esc` geht den Weg zurück, den Sie gekommen sind: von Links oder Treffern ins Feld des offenen Suchstreifens (Dokumentsuche oder Suchen in Dateien) — ein zweites `Esc` dort schließt ihn —, ohne Streifen zum Scrollen. Die Einheit gehört zum Ort im Verlauf: **Zurück** bringt sie wieder, samt aktivem Link. Die Tasten `2` bis `5` sind für Wörter, Sätze, Absätze und Überschriften reserviert. Links funktionieren auch in sehr großen Dokumenten, auch in Teilen, die noch nicht angezeigt wurden.
+Ein Klick in den Text schaltet auf den Caret. `Esc` geht den Weg zurück, den Sie gekommen sind: von Links oder Treffern ins Feld des offenen Suchstreifens (Dokumentsuche oder Suchen in Dateien) — ein zweites `Esc` dort schließt ihn und führt zurück ins Dokument beim Scrollen —, ohne Streifen direkt zum Scrollen. Die Einheit gehört zum Ort im Verlauf: **Zurück** bringt sie wieder, samt aktivem Link. Die Tasten `2` bis `5` sind für Wörter, Sätze, Absätze und Überschriften reserviert. Links funktionieren auch in sehr großen Dokumenten, auch in Teilen, die noch nicht angezeigt wurden.
 
 ## Favoriten
 

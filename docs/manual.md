@@ -162,7 +162,7 @@ mdVü is a reader, so the document doesn't need a text cursor all the time — t
 
 The way in from the search: in the document search strip, the first `Enter` searches, every further `Enter` — and `↓` at any time — puts the focus into the document with the unit *Hits*, so `←`/`→` continue through the hits. The result list of *Search in files* opens with the unit *Links*: the first visible hit is highlighted and `Enter` opens it.
 
-A click into the text switches to the caret. `Esc` steps back the way you came: from links or hits into the field of the open search strip (document search or search in files) — a second `Esc` there closes the strip — and without a strip to scrolling. The unit belongs to the place in the history: **Back** brings it back, including the active link. Keys `2` to `5` are reserved for words, sentences, paragraphs and headings. Links work in very large documents too, also in parts that haven't been displayed yet.
+A click into the text switches to the caret. `Esc` steps back the way you came: from links or hits into the field of the open search strip (document search or search in files) — a second `Esc` there closes the strip and returns you to the document in scroll mode — and without a strip straight to scrolling. The unit belongs to the place in the history: **Back** brings it back, including the active link. Keys `2` to `5` are reserved for words, sentences, paragraphs and headings. Links work in very large documents too, also in parts that haven't been displayed yet.
 
 ## Favorites
 
