@@ -120,7 +120,7 @@ Note on the print preview: it searches what has actually been paginated. Documen
 | Folder | the folder shown in the folder view, with all subfolders |
 | All favorites | every folder among your favorites at once; the hits are grouped by favorite |
 
-The narrowest area is preselected — inside a vault the vault, inside a repository the repository, otherwise the folder. Selected text or the term of a running document search is filled in. `Enter` starts the search; once the result list for exactly this search is showing, `Enter` — and `↓` at any time — moves the focus into the list instead (`F5` searches again). `Aa` matches case; a term in quotes (`"ab"`) searches for exactly that text. Two more toggles set word boundaries — only one of them can be on:
+The narrowest area is preselected — inside a vault the vault, inside a repository the repository, otherwise the folder. Selected text or the term of a running document search is filled in. `Enter` starts the search; once the result list for exactly this search is showing, `Enter` moves the focus into the list instead (`F5` searches again). `↓` always ends up in the list — if the term or the options have changed since, it searches first, so you never land in stale results. `Aa` matches case; a term in quotes (`"ab"`) searches for exactly that text. Two more toggles set word boundaries — only one of them can be on:
 
 | Toggle | Meaning |
 |---|---|
