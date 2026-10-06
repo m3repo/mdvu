@@ -273,6 +273,7 @@ mdVü hat einige bewusst gesetzte harte Grenzen. Sie sorgen dafür, dass eine un
 | `F5` | Dokument neu laden / auf der Trefferliste neu suchen |
 | `F6` | Zwischen Bereichen wechseln (Baum / Dokument / Editor) |
 | `Alt+←` / `Alt+→` | Zurück / Vorwärts |
+| `F10` / `Alt` | Menüleiste per Tastatur: `←`/`→` wählen das Menü, `Enter` öffnet es, `↑`/`↓` + `Enter` führen einen Eintrag aus, ein Buchstabe springt dorthin, `Esc` geht zurück. `Alt`+Anfangsbuchstabe öffnet ein Menü direkt |
 | `Strg+1` | Markdown-Ansicht |
 | `Strg+2` | Quelltext-Ansicht |
 | `Strg+3` / `Strg+F2` | Druckvorschau |

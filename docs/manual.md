@@ -273,6 +273,7 @@ mdVü has a few deliberate hard limits. They exist so that an unusual file canno
 | `F5` | Reload document / search again on the result list |
 | `F6` | Switch between panes (tree / document / editor) |
 | `Alt+←` / `Alt+→` | Back / forward |
+| `F10` / `Alt` | Menu bar by keyboard: `←`/`→` choose a menu, `Enter` opens it, `↑`/`↓` + `Enter` run an entry, a letter jumps to it, `Esc` steps back. `Alt`+initial letter opens a menu directly |
 | `Ctrl+1` | Markdown view |
 | `Ctrl+2` | Source view |
 | `Ctrl+3` / `Ctrl+F2` | Print preview |
