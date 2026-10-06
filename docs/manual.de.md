@@ -120,7 +120,7 @@ Hinweis zur Druckvorschau: Sie durchsucht, was tatsächlich paginiert wurde. Dok
 | Ordner | den Ordner der Ordneransicht samt Unterordnern |
 | Alle Favoriten | alle Ordner unter Ihren Favoriten auf einmal; die Treffer nach Favorit gruppiert |
 
-Vorausgewählt ist der engste Bereich — im Vault der Vault, im Repository das Repository, sonst der Ordner. Markierter Text oder der Begriff einer laufenden Dokumentsuche wird übernommen. `Enter` startet die Suche. `Aa` beachtet Groß-/Kleinschreibung; ein Begriff in Anführungszeichen (`"ab"`) sucht genau diesen Text. Zwei weitere Umschalter legen Wortgrenzen fest — es ist immer höchstens einer an:
+Vorausgewählt ist der engste Bereich — im Vault der Vault, im Repository das Repository, sonst der Ordner. Markierter Text oder der Begriff einer laufenden Dokumentsuche wird übernommen. `Enter` startet die Suche; zeigt das Dokument schon die Trefferliste genau dieser Suche, setzt `Enter` — und `↓` jederzeit — stattdessen den Fokus in die Liste (`F5` sucht neu). `Aa` beachtet Groß-/Kleinschreibung; ein Begriff in Anführungszeichen (`"ab"`) sucht genau diesen Text. Zwei weitere Umschalter legen Wortgrenzen fest — es ist immer höchstens einer an:
 
 | Umschalter | Bedeutung |
 |---|---|
