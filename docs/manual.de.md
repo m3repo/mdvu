@@ -158,6 +158,8 @@ mdVü ist ein Leser, das Dokument braucht also nicht ständig einen Textcursor �
 | `L` | Links | `LINK 3/41` | `←`/`→` voriger/nächster Link in Lesereihenfolge, `↑`/`↓` nächstgelegener Link in der Zeile darüber/darunter |
 | `H` | Treffer | `HIT 2/17` | gehen durch die Treffer der Dokumentsuche (`Strg+F`) |
 
+Ein Klick auf die Einheit im Footer öffnet ein Menü mit allen Einheiten.
+
 `F7` schaltet zwischen Scrollen und Caret um (wie *Caret Browsing* im Browser). `Tab` und `Umschalt+Tab` gehen immer zum nächsten/vorigen Link, egal welche Einheit gilt, und `Eingabe` folgt dem aktiven Link — bzw. dem Link am Caret. Der erste Link ist der erste **im Bild**, nicht der erste im Dokument; der aktive Link ist hervorgehoben (CSS: `highlight.nav`). `↑`/`↓` bewegen sich wirklich senkrecht: Sie überspringen die übrigen Links derselben Zeile und gehen zum nächstgelegenen Link in der nächsten Zeile darüber bzw. darunter, die einen hat.
 
 Der Weg aus der Suche: In der Suchleiste des Dokuments sucht das erste `Eingabe`, jedes weitere `Eingabe` — und `↓` jederzeit — setzt den Fokus ins Dokument mit der Einheit *Treffer*, `←`/`→` gehen dann durch die Treffer weiter. Die Trefferliste von *Suchen in Dateien* öffnet mit der Einheit *Links*: sobald Sie hineinwechseln, ist der erste Link im Bild hervorgehoben, `Eingabe` öffnet ihn. Die Markierung bleibt an ihrem Ziel, auch wenn eine große Suche noch Ergebnisse nachliefert.
@@ -260,6 +262,7 @@ Die Werte, die man kennen sollte:
 | Schlüssel | Bedeutung |
 |---|---|
 | `doc/maxLoadMB` | Ladegrenze für ein einzelnes Dokument in MB (Standard 50) |
+| `doc/zoom` | Zoom des Dokuments in Prozent (Standard 100); es gilt die nächstgelegene Stufe — geschrieben beim Zoomen |
 | `doc/lineBreaks` | Zeilenumbrüche außerhalb eines Obsidian-Vaults: `standard` (Standard, Markdown-Standard) oder `newline` (jeder Zeilenumbruch bricht um, wie in Typora). Im Vault gilt dessen eigene Einstellung. Wirkt beim nächsten Start |
 | `print/paper` | Papierformat: `A3`, `A4` (Standard), `A5`, `A6`, `Letter`, `Legal` — wird von der Seiteneinrichtung geschrieben |
 | `print/orientation` | `portrait` (Hochformat, Standard) oder `landscape` (Querformat) |
@@ -299,6 +302,7 @@ mdVü hat einige bewusst gesetzte harte Grenzen. Sie sorgen dafür, dass eine un
 | `L` / `H` | Dokument: mit den Pfeiltasten durch Links / Suchtreffer |
 | `Tab` / `Umschalt+Tab` | Dokument: nächster / voriger Link |
 | `Eingabe` | Dokument: aktivem Link folgen |
+| `Strg+Mausrad` | Dokument: Zoom (50–200 %). Ein Klick auf den Zoomwert im Footer bietet alle Stufen an; der Zoom bleibt für den nächsten Start erhalten |
 | `F5` | Dokument neu laden / auf der Trefferliste neu suchen |
 | `F6` | Zwischen Bereichen wechseln (Baum / Dokument / Editor) |
 | `Alt+←` / `Alt+→` | Zurück / Vorwärts |

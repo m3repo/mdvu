@@ -158,6 +158,8 @@ mdVü is a reader, so the document doesn't need a text cursor all the time — t
 | `L` | Links | `LINK 3/41` | `←`/`→` previous/next link in reading order, `↑`/`↓` nearest link in the line above/below |
 | `H` | Hits | `HIT 2/17` | walk through the hits of the document search (`Ctrl+F`) |
 
+A click on the unit in the footer opens a menu with all units.
+
 `F7` switches between scrolling and the caret (as *caret browsing* does in browsers). `Tab` and `Shift+Tab` always go to the next/previous link, whatever unit is active, and `Enter` follows the active link — or the link at the caret. The first link is the first one **on screen**, not the first one in the document; the active link is highlighted (CSS: `highlight.nav`). `↑`/`↓` really move vertically: they skip the other links of the same line and go to the closest link in the next line above or below that has one.
 
 The way in from the search: in the document search strip, the first `Enter` searches, every further `Enter` — and `↓` at any time — puts the focus into the document with the unit *Hits*, so `←`/`→` continue through the hits. The result list of *Search in files* opens with the unit *Links*: as soon as you move into it, the first link on screen is highlighted and `Enter` opens it. The highlight stays on its target while a large search is still adding results.
@@ -260,6 +262,7 @@ The values worth knowing about:
 | Key | Meaning |
 |---|---|
 | `doc/maxLoadMB` | load limit for a single document in MB (default 50) |
+| `doc/zoom` | document zoom in percent (default 100); the closest step applies — written when you zoom |
 | `doc/lineBreaks` | line breaks outside an Obsidian vault: `standard` (default, Markdown standard) or `newline` (every line break breaks, as in Typora). Inside a vault, the vault's own setting applies. Takes effect on the next start |
 | `print/paper` | paper size: `A3`, `A4` (default), `A5`, `A6`, `Letter`, `Legal` — written by the page setup strip |
 | `print/orientation` | `portrait` (default) or `landscape` |
@@ -299,6 +302,7 @@ mdVü has a few deliberate hard limits. They exist so that an unusual file canno
 | `L` / `H` | Document: walk through links / search hits with the arrow keys |
 | `Tab` / `Shift+Tab` | Document: next / previous link |
 | `Enter` | Document: follow the active link |
+| `Ctrl+mouse wheel` | Document: zoom (50–200 %). A click on the zoom value in the footer offers all steps; the zoom is kept for the next start |
 | `F5` | Reload document / search again on the result list |
 | `F6` | Switch between panes (tree / document / editor) |
 | `Alt+←` / `Alt+→` | Back / forward |
