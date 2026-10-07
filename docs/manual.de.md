@@ -85,7 +85,9 @@ Sehr große Dateien werden bis zu einer Grenze von **50 MB** geladen — ein Ban
 
 ## Ordneransicht und Suche
 
-Die Ordneransicht zeigt den Ordner des aktuellen Dokuments, gefiltert auf `*.md`. Sie ist kein Vault und kein Workspace: es ist schlicht der Ordner, in dem man gerade ist, und sie folgt der Navigation.
+Die Ordneransicht zeigt den Ordner des aktuellen Dokuments, gefiltert auf `*.md`. Sie ist kein Vault und kein Workspace: es ist schlicht der Ordner, in dem man gerade ist, und sie folgt der Navigation. In einem Obsidian-Vault oder Git-Repository zeigt der Baum alle Unterordner, sonst zwei Ebenen tief — damit etwa `C:\` nicht das ganze Laufwerk durchsucht.
+
+**Zuletzt geändert.** Ein farbiger Punkt hinter einer Datei zeigt, wie lange die letzte Änderung her ist — rot bis 10 Minuten, orange bis eine Stunde, gelb bis ein Tag, grau bis eine Woche. Ein Ordner zeigt den Punkt der zuletzt geänderten Datei darin, auch wenn er zugeklappt ist. Die Punkte gehen mit, solange mdVü offen ist, auch bei Änderungen durch andere Programme, und eine eben geänderte oder neue Datei leuchtet kurz auf. Die Uhr ⏱ im Kopf der Ordneransicht filtert den Baum: nur Dateien zeigen, die in den letzten 10 oder 30 Minuten, der letzten Stunde, dem letzten Tag oder der letzten Woche geändert wurden. Der Filter bleibt beim Suchen in der Ordneransicht und beim Wechsel in einen anderen Ordner eingeschaltet; beim nächsten Start ist er wieder aus.
 
 `Strg+F` öffnet den Suchstreifen für das Haupt-Pane — also für die gerade sichtbare Ansicht: Dokument, Quelltext, CSS oder Druckvorschau. `F3` und `Umschalt+F3` springen zum nächsten bzw. vorherigen Treffer im Haupt-Pane, egal wo der Fokus gerade steht: im Suchfeld, im Dokument, auch in Ordneransicht oder Gliederung. Man kann also weiterlesen und mit `F3` weiterspringen.
 
@@ -286,6 +288,7 @@ mdVü hat einige bewusst gesetzte harte Grenzen. Sie sorgen dafür, dass eine un
 | Seiten in Vorschau / Druck / PDF | 200 | die Ausgabe wird gekappt, mit Hinweis in der Statuszeile |
 | Einzelner Absatz | 100 KB | ein überlanger Absatz wird geteilt (betrifft generierte Dateien, nicht von Hand geschriebenen Text) |
 | Suchen in Dateien | 500 Dateien | die Trefferliste endet dort, mit dem Hinweis, die Suche einzugrenzen |
+| Tiefe der Ordneransicht | 2 Ebenen unter dem geöffneten Ordner | tiefere Ordner erscheinen nicht; keine Grenze in einem Obsidian-Vault oder Git-Repository |
 
 ## Tastaturkürzel
 

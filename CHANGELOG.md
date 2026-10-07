@@ -6,6 +6,15 @@ All notable changes to mdVü are documented here. The format follows [Keep a Cha
 
 ## [Unreleased]
 
+### Added
+
+- **Recently changed at a glance:** a coloured dot behind each file in the folder view shows how long ago it was changed — red within 10 minutes, orange within an hour, yellow within a day, grey within a week. Folders show the dot of their most recently changed file, even when collapsed. The dots follow changes made by other programs while mdVü is open, and a file that has just been changed or added lights up briefly. See [Folder view and search](docs/manual.md#folder-view-and-search).
+- **Filter by last change:** the clock ⏱ in the header of the folder view shows only files changed in the last 10 minutes, 30 minutes, hour, day or week. The filter combines with the search in the folder view and stays on when you open another folder.
+
+### Changed
+
+- **Folder view depth:** inside an Obsidian vault or a Git repository the folder view now shows all subfolders instead of two levels. Elsewhere the limit of two levels stays, so that opening a drive root doesn't scan the whole drive. If large vaults or repositories feel slower because of this, please [let us know](https://github.com/m3repo/mdvu/issues) — the depth could then become a setting.
+
 ### Fixed
 
 - When the window is made wider, narrow strips of document content no longer flash up between the folder view and the document.

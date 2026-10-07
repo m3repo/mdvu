@@ -6,6 +6,15 @@ Hier stehen alle nennenswerten Änderungen an mdVü. Das Format folgt [Keep a Ch
 
 ## [Unveröffentlicht]
 
+### Neu
+
+- **Zuletzt geändert auf einen Blick:** Ein farbiger Punkt hinter jeder Datei in der Ordneransicht zeigt, wie lange die letzte Änderung her ist — rot bis 10 Minuten, orange bis eine Stunde, gelb bis ein Tag, grau bis eine Woche. Ordner zeigen den Punkt ihrer zuletzt geänderten Datei, auch zugeklappt. Die Punkte folgen Änderungen durch andere Programme, solange mdVü offen ist, und eine eben geänderte oder neue Datei leuchtet kurz auf. Siehe [Ordneransicht und Suche](docs/manual.de.md#ordneransicht-und-suche).
+- **Nach letzter Änderung filtern:** Die Uhr ⏱ im Kopf der Ordneransicht zeigt nur Dateien, die in den letzten 10 oder 30 Minuten, der letzten Stunde, dem letzten Tag oder der letzten Woche geändert wurden. Der Filter wirkt zusammen mit der Suche in der Ordneransicht und bleibt beim Wechsel in einen anderen Ordner eingeschaltet.
+
+### Geändert
+
+- **Tiefe der Ordneransicht:** In einem Obsidian-Vault oder Git-Repository zeigt die Ordneransicht jetzt alle Unterordner statt zwei Ebenen. Anderswo bleibt es bei zwei Ebenen, damit das Öffnen eines Laufwerks nicht das ganze Laufwerk durchsucht. Wirken große Vaults oder Repositories dadurch langsamer, [geben Sie bitte Bescheid](https://github.com/m3repo/mdvu/issues) — dann könnte die Tiefe einstellbar werden.
+
 ### Behoben
 
 - Beim Verbreitern des Fensters blitzen zwischen Ordneransicht und Dokument keine schmalen Streifen mit Dokumentinhalt mehr auf.

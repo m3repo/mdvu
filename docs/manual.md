@@ -85,7 +85,9 @@ Very large files are loaded up to a limit of **50 MB** — a banner at the top o
 
 ## Folder view and search
 
-The folder view shows the folder of the current document, filtered to `*.md`. It is not a vault and not a workspace: it's simply the folder you are in, and it follows you as you navigate.
+The folder view shows the folder of the current document, filtered to `*.md`. It is not a vault and not a workspace: it's simply the folder you are in, and it follows you as you navigate. Inside an Obsidian vault or a Git repository the tree shows all subfolders; elsewhere it goes two levels deep, so that opening something like `C:\` doesn't scan the whole drive.
+
+**Recently changed.** A coloured dot behind a file shows how long ago it was changed — red within 10 minutes, orange within an hour, yellow within a day, grey within a week. A folder shows the dot of the most recently changed file inside it, even when it is collapsed. The dots update while mdVü is open, also for changes made by other programs, and a file that has just been changed or added lights up briefly. The clock ⏱ in the header of the folder view filters the tree: show only files changed in the last 10 minutes, 30 minutes, hour, day or week. The filter stays on while you search the folder view or open another folder; it is not kept for the next start.
 
 `Ctrl+F` opens the search strip for the main pane — the view currently showing: document, source text, CSS or print preview. `F3` and `Shift+F3` step to the next and previous hit in the main pane, wherever the focus is: in the search field, in the document, even in the folder view or the outline. So you can keep reading and press `F3` to move on.
 
@@ -286,6 +288,7 @@ mdVü has a few deliberate hard limits. They exist so that an unusual file canno
 | Pages in preview / print / PDF | 200 | output is cut off, with a note in the status bar |
 | Single paragraph | 100 KB | an over-long paragraph is split (this affects generated files, not hand-written prose) |
 | Search in files | 500 files | the result list stops there, with a note to narrow the search |
+| Folder view depth | 2 levels below the opened folder | deeper folders are not shown; no limit inside an Obsidian vault or a Git repository |
 
 ## Keyboard shortcuts
 
