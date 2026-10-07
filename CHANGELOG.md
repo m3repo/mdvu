@@ -6,6 +6,10 @@ All notable changes to mdVü are documented here. The format follows [Keep a Cha
 
 ## [Unreleased]
 
+### Fixed
+
+- When the window is made wider, narrow strips of document content no longer flash up between the folder view and the document.
+
 ## [0.14.0] — 2026-10-07
 
 ### Added

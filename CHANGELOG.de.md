@@ -6,6 +6,10 @@ Hier stehen alle nennenswerten Änderungen an mdVü. Das Format folgt [Keep a Ch
 
 ## [Unveröffentlicht]
 
+### Behoben
+
+- Beim Verbreitern des Fensters blitzen zwischen Ordneransicht und Dokument keine schmalen Streifen mit Dokumentinhalt mehr auf.
+
 ## [0.14.0] — 2026-10-07
 
 ### Neu
