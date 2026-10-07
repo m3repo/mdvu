@@ -73,6 +73,7 @@ mdVü has no HTML engine, but it understands a short list of formatting tags ins
 | `<i>…</i>`, `<em>…</em>` | italic |
 | `<kbd>…</kbd>` | a key cap: monospaced, with a light frame |
 | `<span class="name">…</span>` | no look of its own — give it one with `span.name { … }` in your `user.css` |
+| `<br>`, `<br/>`, `<br />` | a line break — the only way to get one inside a table cell |
 
 Markdown inside these tags keeps working (`<u>*both*</u>`). Upper and lower case don't matter. The only attribute that counts is `class`; `style="…"` and all others are ignored. A tag that is never closed lasts until the end of the paragraph; a closing tag without an opening one stays visible as text. Every other tag is shown as literal text.
 
@@ -87,7 +88,7 @@ Markdown inside these tags keeps working (`<u>*both*</u>`). Upper and lower case
 - The alignment row (`:---`, `:---:`, `---:`) is honoured, on screen and in print.
 - A table **needs a header row**. Rows without a valid `|---|` separator line stay a paragraph — that's GFM behaviour, and it stops accidental pipe characters from turning prose into a table.
 - Ragged rows are tolerated: too few cells are padded, extra ones dropped, based on the header's column count.
-- Cells hold inline markup (bold, code, links), not block elements.
+- Cells hold inline markup (bold, code, links), not block elements. A `<br>` starts a new line within the cell.
 - Very wide tables are automatically fitted when printing — see the [manual](manual.md#printing-and-pdf).
 
 ## Links and anchors

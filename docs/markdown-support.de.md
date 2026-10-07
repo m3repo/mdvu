@@ -73,6 +73,7 @@ mdVü hat keine HTML-Engine, versteht im Text aber eine kurze Liste von Formatie
 | `<i>…</i>`, `<em>…</em>` | kursiv |
 | `<kbd>…</kbd>` | eine Taste: dicktengleich, mit hellem Rahmen |
 | `<span class="name">…</span>` | ohne eigenes Aussehen — das gibt ihm `span.name { … }` in der `user.css` |
+| `<br>`, `<br/>`, `<br />` | ein Zeilenumbruch — in Tabellenzellen der einzige Weg dazu |
 
 Markdown in diesen Tags wirkt weiter (`<u>*beides*</u>`). Groß- und Kleinschreibung spielt keine Rolle. Als Attribut zählt nur `class`; `style="…"` und alle anderen werden ignoriert. Ein Tag, das nie geschlossen wird, gilt bis zum Ende des Absatzes; ein schließendes Tag ohne öffnendes bleibt als Text sichtbar. Alle anderen Tags erscheinen als wörtlicher Text.
 
@@ -87,7 +88,7 @@ Markdown in diesen Tags wirkt weiter (`<u>*beides*</u>`). Groß- und Kleinschrei
 - Die Ausrichtungszeile (`:---`, `:---:`, `---:`) wird beachtet, am Bildschirm wie im Druck.
 - Eine Tabelle **braucht eine Kopfzeile**. Zeilen ohne gültige `|---|`-Trennzeile bleiben ein Absatz — so schreibt es GFM vor, und so wird aus einem versehentlichen senkrechten Strich im Fließtext keine Tabelle.
 - Ausgefranste Zeilen werden toleriert: zu wenige Zellen werden aufgefüllt, überzählige verworfen, Maßstab ist die Spaltenzahl des Kopfes.
-- Zellen tragen Inline-Auszeichnungen (fett, Code, Links), keine Blockelemente.
+- Zellen tragen Inline-Auszeichnungen (fett, Code, Links), keine Blockelemente. Ein `<br>` beginnt innerhalb der Zelle eine neue Zeile.
 - Sehr breite Tabellen werden beim Drucken automatisch eingepasst — siehe [Handbuch](manual.de.md#drucken-und-pdf).
 
 ## Links und Sprungmarken
