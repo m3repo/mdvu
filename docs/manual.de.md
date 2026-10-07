@@ -302,6 +302,9 @@ mdVü hat einige bewusst gesetzte harte Grenzen. Sie sorgen dafür, dass eine un
 | `L` / `H` | Dokument: mit den Pfeiltasten durch Links / Suchtreffer |
 | `Tab` / `Umschalt+Tab` | Dokument: nächster / voriger Link |
 | `Eingabe` | Dokument: aktivem Link folgen |
+| `Strg+C` | Dokument: Auswahl kopieren — als Text und mit Formatierung für Word, Outlook & Co. |
+| `Strg+Umschalt+C` | Dokument: Auswahl als Markdown kopieren |
+| Rechte Maustaste | Dokument: Menü mit Kopieren, Als Markdown kopieren, Zurück und Vor |
 | `Strg+Mausrad` | Dokument: Zoom (50–200 %). Ein Klick auf den Zoomwert im Footer bietet alle Stufen an; der Zoom bleibt für den nächsten Start erhalten |
 | `F5` | Dokument neu laden / auf der Trefferliste neu suchen |
 | `F6` | Zwischen Bereichen wechseln (Baum / Dokument / Editor) |
