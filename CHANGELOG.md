@@ -6,6 +6,26 @@ All notable changes to mdVü are documented here. The format follows [Keep a Cha
 
 ## [Unreleased]
 
+## [0.14.0] — 2026-10-07
+
+### Added
+
+- **Copy with formatting:** `Ctrl+C` in the document now puts the selection on the clipboard as text *and* as HTML, the way a browser does. Pasted into Word, Outlook or OneNote, headings, bold and italics, lists, tables and links arrive as such — with the fonts and colours of the print layout. A heading or list you only partly selected keeps its format. Images go along as links to the original files in their original format (Word embeds them when pasting); relative links and Obsidian embeds are resolved to absolute paths. Callout backgrounds don't arrive in Word yet.
+- **Copy as Markdown:** `Ctrl+Shift+C` copies the Markdown source of the selection — starting at a heading or list item, including its `##` or `-`.
+- **Context menu in the document:** a right click (or the context-menu key) offers Copy, Copy as Markdown, Back and Forward.
+- **Line breaks with `<br>`:** `<br>`, `<br/>` and `<br />` start a new line — inside table cells, too, where Markdown has no other way. See [Inline HTML](docs/markdown-support.md#inline-html).
+- **Zoom menu and persistent zoom:** a click on the zoom value in the footer offers all steps from 50 to 200 %. The zoom is kept for the next start (`doc/zoom` in `settings.ini`).
+- **Unit menu:** a click on `SCROLL`/`CARET`/`LINK`/`HIT` in the footer opens a menu with all reading units.
+
+### Changed
+
+- In *Search in files*, the scope list is narrower; when opened it is as wide as the longest entry.
+
+### Fixed
+
+- In caret mode, the hover highlight in the footer no longer flickers between the element under the mouse and another one.
+- In narrow windows, the buttons of the search strips no longer slide to the left into the folder view.
+
 ## [0.13.0] — 2026-10-06
 
 ### Added

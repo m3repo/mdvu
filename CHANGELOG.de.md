@@ -6,6 +6,26 @@ Hier stehen alle nennenswerten Änderungen an mdVü. Das Format folgt [Keep a Ch
 
 ## [Unveröffentlicht]
 
+## [0.14.0] — 2026-10-07
+
+### Neu
+
+- **Kopieren mit Formatierung:** `Strg+C` im Dokument legt die Auswahl jetzt als Text *und* als HTML in die Zwischenablage, wie ein Browser. In Word, Outlook oder OneNote eingefügt, kommen Überschriften, Fett und Kursiv, Listen, Tabellen und Links als solche an — mit den Schriften und Farben des Drucklayouts. Eine nur teilweise markierte Überschrift oder Liste behält ihr Format. Bilder gehen als Verweis auf die Originaldatei im Originalformat mit (Word bettet sie beim Einfügen ein); relative Links und Obsidian-Embeds werden zu absoluten Pfaden. Die Flächen von Callouts kommen in Word noch nicht an.
+- **Als Markdown kopieren:** `Strg+Umschalt+C` kopiert den Markdown-Quelltext der Auswahl — beginnt sie an einer Überschrift oder einem Listenpunkt, samt `##` bzw. `-`.
+- **Kontextmenü im Dokument:** Ein Rechtsklick (oder die Menütaste) bietet Kopieren, Als Markdown kopieren, Zurück und Vor.
+- **Zeilenumbruch mit `<br>`:** `<br>`, `<br/>` und `<br />` beginnen eine neue Zeile — auch in Tabellenzellen, wo Markdown sonst keinen Weg kennt. Siehe [Inline-HTML](docs/markdown-support.de.md#inline-html).
+- **Zoom-Menü und Zoom bleibt erhalten:** Ein Klick auf den Zoomwert im Footer bietet alle Stufen von 50 bis 200 % an. Der Zoom bleibt für den nächsten Start erhalten (`doc/zoom` in der `settings.ini`).
+- **Menü der Einheiten:** Ein Klick auf `SCROLL`/`CARET`/`LINK`/`HIT` im Footer öffnet ein Menü mit allen Lese-Einheiten.
+
+### Geändert
+
+- In *Suchen in Dateien* ist die Bereichsauswahl schmaler; aufgeklappt ist sie so breit wie der längste Eintrag.
+
+### Behoben
+
+- Im Caret-Modus springt die Hover-Hervorhebung im Footer nicht mehr zwischen dem Element unter der Maus und einem anderen hin und her.
+- In schmalen Fenstern wandern die Knöpfe der Suchleisten nicht mehr nach links in die Ordneransicht.
+
 ## [0.13.0] — 2026-10-06
 
 ### Neu
