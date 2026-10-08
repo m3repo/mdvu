@@ -6,6 +6,15 @@ Hier stehen alle nennenswerten Änderungen an mdVü. Das Format folgt [Keep a Ch
 
 ## [Unveröffentlicht]
 
+### Geändert
+
+- **In der Link-Einheit bleiben:** Wer einem Link folgt, während die Einheit *Links* aktiv ist, bleibt darin — das nächste Dokument beginnt beim ersten Link im Bild, und es geht ohne Maus von Link zu Link weiter. Links, die eine Suche mitbringen (die Treffer von *Suchen in Dateien*), öffnen weiterhin mit ihrer Suche.
+
+### Behoben
+
+- Die Ordnerseite zeigte das Badge **Obs**/**Git** ihres Vaults bzw. Repositorys nicht, und *Suchen in Dateien* bot von dort den Vault nicht als Bereich an. Auch die Trefferseite einer Suche zeigt jetzt das Badge ihres Ordners.
+- Wikilinks in Tabellenzellen erschienen als reiner Text und waren nicht anklickbar. Sie funktionieren jetzt wie überall sonst, auch in der Alias-Form `[[Notiz\|Text]]`, die Obsidian in Tabellen verwendet. `%%Kommentare%%` in Tabellenzellen werden ebenfalls ausgeblendet.
+
 ## [0.15.0] — 2026-10-08
 
 ### Neu

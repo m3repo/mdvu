@@ -6,6 +6,15 @@ All notable changes to mdVü are documented here. The format follows [Keep a Cha
 
 ## [Unreleased]
 
+### Changed
+
+- **Staying in the link unit:** following a link while the unit *Links* is active keeps it — the next document starts at its first link on screen, so you can read on from link to link without the mouse. Links that carry a search (the hits of *Search in files*) still open with their search.
+
+### Fixed
+
+- The folder page did not show the **Obs**/**Git** badge of the vault or repository it belongs to, and *Search in files* did not offer the vault as scope from there. The result page of a search now shows the badge of its folder as well.
+- Wikilinks inside table cells were shown as plain text and could not be clicked. They now work like everywhere else, including the alias form `[[Note\|text]]` that Obsidian uses in tables. `%%comments%%` in table cells are hidden as well.
+
 ## [0.15.0] — 2026-10-08
 
 ### Added
