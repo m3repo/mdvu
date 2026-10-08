@@ -8,6 +8,7 @@ Hier stehen alle nennenswerten Änderungen an mdVü. Das Format folgt [Keep a Ch
 
 ### Neu
 
+- **Zurück/Vor mit der Maus:** Die Seitentasten der Maus (und die Browser-Tasten mancher Tastaturen) blättern zurück und vor, wie im Browser. Auf Tastaturen mit `AltGr` wirkt `AltGr+←`/`→` wie `Alt+←`/`→` — einhändig neben den Pfeiltasten.
 - **Ordnerseite:** Ein in der Ordneransicht gewählter Ordner erscheint als Seite — seine Unterordner und Markdown-Dateien mit Größe, Datum und den ersten Zeilen jeder Datei. `Enter` wechselt mit Link-Navigation hinein: Die Pfeiltasten gehen von Datei zu Datei, `Enter` öffnet sie. Die Seite folgt Änderungen im Ordner. Siehe [Ordneransicht und Suche](docs/manual.de.md#ordneransicht-und-suche).
 - **Zuletzt geändert auf einen Blick:** Ein farbiger Punkt hinter jeder Datei in der Ordneransicht zeigt, wie lange die letzte Änderung her ist — rot bis 10 Minuten, orange bis eine Stunde, gelb bis ein Tag, grau bis eine Woche. Ordner zeigen den Punkt ihrer zuletzt geänderten Datei, auch zugeklappt. Die Punkte folgen Änderungen durch andere Programme, solange mdVü offen ist, und eine eben geänderte oder neue Datei leuchtet kurz auf. Siehe [Ordneransicht und Suche](docs/manual.de.md#ordneransicht-und-suche).
 - **Nach letzter Änderung filtern:** Die Uhr ⏱ im Kopf der Ordneransicht zeigt nur Dateien, die in den letzten 10 oder 30 Minuten, der letzten Stunde, dem letzten Tag oder der letzten Woche geändert wurden. Der Filter wirkt zusammen mit der Suche in der Ordneransicht und bleibt beim Wechsel in einen anderen Ordner eingeschaltet.

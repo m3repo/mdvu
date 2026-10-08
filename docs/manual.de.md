@@ -312,7 +312,8 @@ mdVü hat einige bewusst gesetzte harte Grenzen. Sie sorgen dafür, dass eine un
 | `F5` | Dokument neu laden / auf der Trefferliste neu suchen |
 | `F6` | Zwischen Bereichen wechseln (Baum / Dokument / Editor) |
 | `Strg+Umschalt+E` | Zur Ordneransicht |
-| `Alt+←` / `Alt+→` | Zurück / Vorwärts |
+| `Alt+←` / `Alt+→` | Zurück / Vorwärts (auch `AltGr+←` / `AltGr+→`, einhändig neben den Pfeiltasten) |
+| Maus-Seitentasten | Zurück / Vorwärts |
 | `F10` / `Alt` | Menüleiste per Tastatur: `←`/`→` wählen das Menü, `Enter` öffnet es, `↑`/`↓` + `Enter` führen einen Eintrag aus, ein Buchstabe springt dorthin, `Esc` geht zurück. `Alt`+Anfangsbuchstabe öffnet ein Menü direkt |
 | `Strg+D` | Aktuellen Ordner als Favorit aufnehmen/entfernen |
 | `Strg+Umschalt+D` | Favoriten anzeigen |

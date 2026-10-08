@@ -8,6 +8,7 @@ All notable changes to mdVü are documented here. The format follows [Keep a Cha
 
 ### Added
 
+- **Mouse back/forward buttons:** the side buttons of the mouse (and the browser keys of some keyboards) go back and forward, like in a browser. On keyboards with `AltGr`, `AltGr+←`/`→` does the same as `Alt+←`/`→` — with one hand next to the arrow keys.
 - **Folder page:** selecting a folder in the folder view shows it as a page — its subfolders and Markdown files with size, date and the first lines of each file. `Enter` moves into the page with link navigation: the arrow keys go from file to file, `Enter` opens one. The page follows changes in the folder. See [Folder view and search](docs/manual.md#folder-view-and-search).
 - **Recently changed at a glance:** a coloured dot behind each file in the folder view shows how long ago it was changed — red within 10 minutes, orange within an hour, yellow within a day, grey within a week. Folders show the dot of their most recently changed file, even when collapsed. The dots follow changes made by other programs while mdVü is open, and a file that has just been changed or added lights up briefly. See [Folder view and search](docs/manual.md#folder-view-and-search).
 - **Filter by last change:** the clock ⏱ in the header of the folder view shows only files changed in the last 10 minutes, 30 minutes, hour, day or week. The filter combines with the search in the folder view and stays on when you open another folder.

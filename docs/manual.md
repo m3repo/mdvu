@@ -312,7 +312,8 @@ mdVü has a few deliberate hard limits. They exist so that an unusual file canno
 | `F5` | Reload document / search again on the result list |
 | `F6` | Switch between panes (tree / document / editor) |
 | `Ctrl+Shift+E` | Go to the folder view |
-| `Alt+←` / `Alt+→` | Back / forward |
+| `Alt+←` / `Alt+→` | Back / forward (also `AltGr+←` / `AltGr+→`, one-handed next to the arrow keys) |
+| Mouse side buttons | Back / forward |
 | `F10` / `Alt` | Menu bar by keyboard: `←`/`→` choose a menu, `Enter` opens it, `↑`/`↓` + `Enter` run an entry, a letter jumps to it, `Esc` steps back. `Alt`+initial letter opens a menu directly |
 | `Ctrl+D` | Add/remove the current folder as favorite |
 | `Ctrl+Shift+D` | Show favorites |
