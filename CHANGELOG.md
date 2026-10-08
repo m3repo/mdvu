@@ -6,17 +6,19 @@ All notable changes to mdVü are documented here. The format follows [Keep a Cha
 
 ## [Unreleased]
 
+## [0.15.0] — 2026-10-08
+
 ### Added
 
-- **Mouse back/forward buttons:** the side buttons of the mouse (and the browser keys of some keyboards) go back and forward, like in a browser. On keyboards with `AltGr`, `AltGr+←`/`→` does the same as `Alt+←`/`→` — with one hand next to the arrow keys.
 - **Folder page:** selecting a folder in the folder view shows it as a page — its subfolders and Markdown files with size, date and the first lines of each file. `Enter` moves into the page with link navigation: the arrow keys go from file to file, `Enter` opens one. The page follows changes in the folder. See [Folder view and search](docs/manual.md#folder-view-and-search).
 - **Recently changed at a glance:** a coloured dot behind each file in the folder view shows how long ago it was changed — red within 10 minutes, orange within an hour, yellow within a day, grey within a week. Folders show the dot of their most recently changed file, even when collapsed. The dots follow changes made by other programs while mdVü is open, and a file that has just been changed or added lights up briefly. See [Folder view and search](docs/manual.md#folder-view-and-search).
 - **Filter by last change:** the clock ⏱ in the header of the folder view shows only files changed in the last 10 minutes, 30 minutes, hour, day or week. The filter combines with the search in the folder view and stays on when you open another folder.
+- **Mouse back/forward buttons:** the side buttons of the mouse (and the browser keys of some keyboards) go back and forward, like in a browser. On keyboards with `AltGr`, `AltGr+←`/`→` does the same as `Alt+←`/`→` — with one hand next to the arrow keys.
 
 ### Changed
 
-- **Short notices instead of dialogs:** going back or forward past the end of the history no longer opens a message box — the status bar says *Start of history reached* or *End of history reached* for a moment, in red. Other short messages (path copied, preview limited, …) appear there as well.
 - **Peek while browsing:** clicking or moving with the arrow keys through the folder view or the outline still shows each document right away, but only as a *peek* — it no longer fills the history (*Back*) or the list of recent files, and the path bar shows its name in italics. `Enter` or a double-click opens it for real and moves the focus into the document; so does clicking into the document or `F6`. Jumps in the outline made with `Enter` or a double-click are now part of the history. `Ctrl+Shift+E` goes to the folder view. See [Folder view and search](docs/manual.md#folder-view-and-search).
+- **Short notices instead of dialogs:** going back or forward past the end of the history no longer opens a message box — the status bar says *Start of history reached* or *End of history reached* for a moment, in red. Other short messages (path copied, preview limited, …) appear there as well.
 - **Folder view depth:** inside an Obsidian vault or a Git repository the folder view now shows all subfolders instead of two levels. Elsewhere the limit of two levels stays, so that opening a drive root doesn't scan the whole drive. If large vaults or repositories feel slower because of this, please [let us know](https://github.com/m3repo/mdvu/issues) — the depth could then become a setting.
 
 ### Fixed
