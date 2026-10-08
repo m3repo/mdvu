@@ -74,7 +74,7 @@ There are several ways to open a file:
 
 - **Drag & drop:** drop an `.md` file or a whole **folder** onto the window. A folder opens in the folder view. If you drop several things at once, a file takes precedence over a folder.
 - **Open dialog** with `Ctrl+O`.
-- **Folder view:** clicking a file in the folder tree on the left shows it immediately — the view also follows as you move through the tree with the arrow keys.
+- **Folder view:** clicking a file in the folder tree on the left, or moving through the tree with the arrow keys, shows it right away — just a **peek**: it does not end up in the history (*Back*) or among the recent files, and the path bar shows its name in *italics*. `Enter` or a double-click opens the file for real and moves the focus into the document; clicking into the document or `F6` does the same for a peeked file. `Ctrl+Shift+E` takes you back to the folder view.
 - **Recently used:** the *File* menu lists recently opened files and folders. The **start page** (*File → Start page*) also shows the last five files.
 - **Double-click in Explorer:** *File → Register as Markdown default* associates mdVü with `.md` files (per user, no admin rights required). Windows may ask once via "Open with" — see [Troubleshooting](#troubleshooting).
 - **Command line:** `mdvu.exe "C:\Notes\Readme.md"` — see [Command line](#command-line).
@@ -145,7 +145,7 @@ mdVü searches **the text you see** — in files exactly as in the document, so 
 
 ## Outline
 
-Below the folder view, mdVü shows the **outline** of the current document — all headings as a tree, nested by level. A click jumps to that position in the document; the target flashes briefly so your eye finds it right away.
+Below the folder view, mdVü shows the **outline** of the current document — all headings as a tree, nested by level. A click jumps to that position in the document; the target flashes briefly so your eye finds it right away. Like the folder view, a click or the arrow keys only peek; `Enter` or a double-click makes the jump part of the history, so *Back* returns to that chapter.
 
 For a long document, the outline is the fastest way around: no scrolling, no searching, one click. With very many headings, press `Ctrl+F3` with the focus in the outline: the strip filters it to the headings containing the search text — together with their parent headings, so you can see where they are.
 
@@ -311,6 +311,7 @@ mdVü has a few deliberate hard limits. They exist so that an unusual file canno
 | `Ctrl+mouse wheel` | Document: zoom (50–200 %). A click on the zoom value in the footer offers all steps; the zoom is kept for the next start |
 | `F5` | Reload document / search again on the result list |
 | `F6` | Switch between panes (tree / document / editor) |
+| `Ctrl+Shift+E` | Go to the folder view |
 | `Alt+←` / `Alt+→` | Back / forward |
 | `F10` / `Alt` | Menu bar by keyboard: `←`/`→` choose a menu, `Enter` opens it, `↑`/`↓` + `Enter` run an entry, a letter jumps to it, `Esc` steps back. `Alt`+initial letter opens a menu directly |
 | `Ctrl+D` | Add/remove the current folder as favorite |

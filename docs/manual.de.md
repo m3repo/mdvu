@@ -74,7 +74,7 @@ Es gibt mehrere Wege, eine Datei zu öffnen:
 
 - **Drag & Drop:** eine `.md`-Datei oder einen ganzen **Ordner** auf das Fenster ziehen. Ein Ordner wird in der Ordneransicht geöffnet. Wird mehreres zugleich fallengelassen, hat eine Datei Vorrang vor einem Ordner.
 - **Öffnen-Dialog** mit `Strg+O`.
-- **Ordneransicht:** Ein Klick auf eine Datei im Ordnerbaum links zeigt sie sofort an — auch beim Durchblättern mit den Pfeiltasten folgt die Anzeige.
+- **Ordneransicht:** Ein Klick auf eine Datei im Ordnerbaum links oder das Durchblättern mit den Pfeiltasten zeigt sie sofort an — aber nur zum **Hineinschauen** (Peek): Sie landet weder im Verlauf (*Zurück*) noch in den zuletzt benutzten Dateien, und die Pfadleiste zeigt ihren Namen *kursiv*. `Enter` oder ein Doppelklick öffnet die Datei richtig und setzt den Fokus ins Dokument; ein Klick ins Dokument oder `F6` macht dasselbe mit einer angesehenen Datei. `Strg+Umschalt+E` führt zurück in die Ordneransicht.
 - **Zuletzt verwendet:** Das *Datei*-Menü führt die zuletzt geöffneten Dateien und Ordner. Auch die **Startseite** (*Datei → Startseite*) zeigt die letzten fünf Dateien.
 - **Doppelklick im Explorer:** Über *Datei → Als Markdown-Standard registrieren* verknüpft sich mdVü mit `.md`-Dateien (pro Benutzer, keine Admin-Rechte nötig). Windows fragt ggf. einmalig per „Öffnen mit“ nach — siehe [Fehlersuche](#fehlersuche).
 - **Kommandozeile:** `mdvu.exe "C:\Notizen\Liesmich.md"` — siehe [Kommandozeile](#kommandozeile).
@@ -145,7 +145,7 @@ mdVü durchsucht **den Text, den Sie sehen** — in Dateien genau wie im Dokumen
 
 ## Gliederung
 
-Unterhalb der Ordneransicht zeigt mdVü die **Gliederung** des aktuellen Dokuments — alle Überschriften als Baum, nach Ebenen verschachtelt. Ein Klick springt zur entsprechenden Stelle im Dokument; das Sprungziel leuchtet kurz auf, damit das Auge es sofort findet.
+Unterhalb der Ordneransicht zeigt mdVü die **Gliederung** des aktuellen Dokuments — alle Überschriften als Baum, nach Ebenen verschachtelt. Ein Klick springt zur entsprechenden Stelle im Dokument; das Sprungziel leuchtet kurz auf, damit das Auge es sofort findet. Wie in der Ordneransicht schauen Klick und Pfeiltasten nur hinein; erst `Enter` oder ein Doppelklick nimmt den Sprung in den Verlauf auf, *Zurück* führt dann wieder zu diesem Kapitel.
 
 Bei einem langen Dokument ist die Gliederung der schnellste Weg: kein Scrollen, kein Suchen, ein Klick. Bei sehr vielen Überschriften hilft `Strg+F3` mit dem Fokus in der Gliederung: Der Streifen filtert sie auf die Überschriften, die den Suchtext enthalten — samt der übergeordneten, damit man sieht, wo sie stehen.
 
@@ -311,6 +311,7 @@ mdVü hat einige bewusst gesetzte harte Grenzen. Sie sorgen dafür, dass eine un
 | `Strg+Mausrad` | Dokument: Zoom (50–200 %). Ein Klick auf den Zoomwert im Footer bietet alle Stufen an; der Zoom bleibt für den nächsten Start erhalten |
 | `F5` | Dokument neu laden / auf der Trefferliste neu suchen |
 | `F6` | Zwischen Bereichen wechseln (Baum / Dokument / Editor) |
+| `Strg+Umschalt+E` | Zur Ordneransicht |
 | `Alt+←` / `Alt+→` | Zurück / Vorwärts |
 | `F10` / `Alt` | Menüleiste per Tastatur: `←`/`→` wählen das Menü, `Enter` öffnet es, `↑`/`↓` + `Enter` führen einen Eintrag aus, ein Buchstabe springt dorthin, `Esc` geht zurück. `Alt`+Anfangsbuchstabe öffnet ein Menü direkt |
 | `Strg+D` | Aktuellen Ordner als Favorit aufnehmen/entfernen |

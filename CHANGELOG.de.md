@@ -13,6 +13,7 @@ Hier stehen alle nennenswerten Änderungen an mdVü. Das Format folgt [Keep a Ch
 
 ### Geändert
 
+- **Hineinschauen beim Durchblättern:** Wer in Ordneransicht oder Gliederung klickt oder mit den Pfeiltasten läuft, sieht jedes Dokument weiterhin sofort — aber nur zum Hineinschauen (Peek): Es füllt nicht mehr den Verlauf (*Zurück*) und die Liste der zuletzt benutzten Dateien, und die Pfadleiste zeigt seinen Namen kursiv. `Enter` oder ein Doppelklick öffnet es richtig und setzt den Fokus ins Dokument; ebenso ein Klick ins Dokument oder `F6`. Mit `Enter` oder Doppelklick angesprungene Kapitel der Gliederung stehen jetzt im Verlauf. `Strg+Umsch+E` führt in die Ordneransicht. Siehe [Ordneransicht und Suche](docs/manual.de.md#ordneransicht-und-suche).
 - **Tiefe der Ordneransicht:** In einem Obsidian-Vault oder Git-Repository zeigt die Ordneransicht jetzt alle Unterordner statt zwei Ebenen. Anderswo bleibt es bei zwei Ebenen, damit das Öffnen eines Laufwerks nicht das ganze Laufwerk durchsucht. Wirken große Vaults oder Repositories dadurch langsamer, [geben Sie bitte Bescheid](https://github.com/m3repo/mdvu/issues) — dann könnte die Tiefe einstellbar werden.
 
 ### Behoben
