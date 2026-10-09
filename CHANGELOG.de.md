@@ -8,6 +8,7 @@ Hier stehen alle nennenswerten Änderungen an mdVü. Das Format folgt [Keep a Ch
 
 ### Neu
 
+- **Kontextmenü im Explorer:** *Datei → Als Markdown-Standard registrieren* ergänzt jetzt bei jeder `.md`-Datei *Print with mdVü* (öffnet die Druckvorschau), *Export as PDF with mdVü* und *Open with mdVü* — auch wenn ein anderes Programm wie Obsidian Standard ist — und bei Ordnern *Open in mdVü*; in einem Vault oder Repository öffnet sich das Ganze. Unter Windows 11 stehen die Einträge unter *Weitere Optionen anzeigen*. Schon registriert? Einmal neu registrieren. Siehe [Dateien öffnen](docs/manual.de.md#dateien-öffnen).
 - **Screenreader, erste Schritte:** Ordnerbaum und Gliederung funktionieren jetzt mit Screenreadern (geprüft mit der Windows-Sprachausgabe) — sie sagen die gewählte Datei bzw. Überschrift an und ob ein Ordner aufgeklappt ist. Die Dokumentansicht selbst können Screenreader noch nicht lesen; bis dahin öffnet **Read in browser** (`Strg+Umschalt+B`, Menü *Ansicht*) das aktuelle Dokument als Webseite im Standardbrowser, wo jeder Screenreader Überschriften, Listen, Tabellen und Links beherrscht. mdVü vollständig zugänglich zu machen, ist ein erklärtes Ziel — Rückmeldungen von Screenreader-Nutzern sind sehr willkommen. Siehe [Screenreader](docs/manual.de.md#screenreader).
 
 ### Geändert

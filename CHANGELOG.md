@@ -8,6 +8,7 @@ All notable changes to mdVü are documented here. The format follows [Keep a Cha
 
 ### Added
 
+- **Explorer context menu:** *File → Register as Markdown default* now also adds *Print with mdVü* (opens the print preview), *Export as PDF with mdVü* and *Open with mdVü* to every `.md` file — even when another program such as Obsidian is the default — and *Open in mdVü* to folders; inside a vault or repository the whole of it opens. On Windows 11 these are under *Show more options*. Already registered? Register once more. See [Opening files](docs/manual.md#opening-files).
 - **Screen readers, first steps:** the folder view and the outline now work with screen readers (tested with Narrator) — they announce the selected file or heading, and whether a folder is expanded. The document view itself cannot be read by screen readers yet; until it can, **Read in browser** (`Ctrl+Shift+B`, *View* menu) opens the current document as a web page in your default browser, where every screen reader handles headings, lists, tables and links. Making mdVü fully accessible is a declared goal — feedback from screen reader users is very welcome. See [Screen readers](docs/manual.md#screen-readers).
 
 ### Changed
