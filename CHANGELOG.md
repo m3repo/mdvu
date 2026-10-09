@@ -6,6 +6,8 @@ All notable changes to mdVü are documented here. The format follows [Keep a Cha
 
 ## [Unreleased]
 
+## [0.16.0] — 2026-10-09
+
 ### Added
 
 - **Explorer context menu:** *File → Register as Markdown default* now also adds *Print with mdVü* (opens the print preview), *Export as PDF with mdVü* and *Open with mdVü* to every `.md` file — even when another program such as Obsidian is the default — and *Open in mdVü* to folders; inside a vault or repository the whole of it opens. On Windows 11 these are under *Show more options*. Already registered? Register once more. See [Opening files](docs/manual.md#opening-files).
