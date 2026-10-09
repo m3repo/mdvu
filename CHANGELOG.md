@@ -18,6 +18,7 @@ All notable changes to mdVü are documented here. The format follows [Keep a Cha
 
 ### Fixed
 
+- The scrollbars of the folder view and the outline could flicker every half second, and mdVü caused a small but constant load in Task Manager even while idle. Both are gone — and screen readers no longer repeat the name of the folder view over and over.
 - The folder page did not show the **Obs**/**Git** badge of the vault or repository it belongs to, and *Search in files* did not offer the vault as scope from there. The result page of a search now shows the badge of its folder as well.
 - Wikilinks inside table cells were shown as plain text and could not be clicked. They now work like everywhere else, including the alias form `[[Note\|text]]` that Obsidian uses in tables. `%%comments%%` in table cells are hidden as well.
 

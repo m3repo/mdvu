@@ -18,6 +18,7 @@ Hier stehen alle nennenswerten Änderungen an mdVü. Das Format folgt [Keep a Ch
 
 ### Behoben
 
+- Die Bildlaufleisten von Ordneransicht und Gliederung konnten alle halbe Sekunde flackern, und mdVü erzeugte auch im Leerlauf eine kleine, aber dauernde Last im Task-Manager. Beides ist behoben — und Screenreader sagen nicht mehr ständig den Namen der Ordneransicht an.
 - Die Ordnerseite zeigte das Badge **Obs**/**Git** ihres Vaults bzw. Repositorys nicht, und *Suchen in Dateien* bot von dort den Vault nicht als Bereich an. Auch die Trefferseite einer Suche zeigt jetzt das Badge ihres Ordners.
 - Wikilinks in Tabellenzellen erschienen als reiner Text und waren nicht anklickbar. Sie funktionieren jetzt wie überall sonst, auch in der Alias-Form `[[Notiz\|Text]]`, die Obsidian in Tabellen verwendet. `%%Kommentare%%` in Tabellenzellen werden ebenfalls ausgeblendet.
 
