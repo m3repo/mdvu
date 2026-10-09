@@ -26,7 +26,7 @@ Genau dafür ist mdVü gebaut.
 |---|---|
 | **Formate** | GitHub-Flavoured Markdown, dazu Obsidian-Callouts, Wikilinks und Bild-Embeds — siehe [Markdown-Unterstützung](docs/markdown-support.de.md) |
 | **Diagramme** | Kreis-, Balken-, Linien- und Sequenzdiagramme aus Mermaid-Codeblöcken — eine abgespeckte Teilmenge, nativ gezeichnet ohne JavaScript, scharf in Druck und PDF — siehe [Diagramme](docs/markdown-support.de.md#diagramme-mermaid-teilmenge) |
-| **Ordneransicht** | Baum des aktuellen Ordners mit Live-Aktualisierung, Suche während der Eingabe (`Strg+F3`) und Blättern per Pfeiltasten |
+| **Ordneransicht** | Baum des aktuellen Ordners — oder des ganzen Obsidian-Vaults bzw. Git-Repositorys, zu dem er gehört — mit Live-Aktualisierung, farbigen Punkten für kürzlich geänderte Dateien, einer Seite je Ordner, Suche während der Eingabe (`Strg+F3`) und Blättern per Pfeiltasten. Schnell auch in Vaults mit Tausenden Notizen |
 | **Gliederung** | Alle Überschriften des Dokuments als Baum; ein Klick springt zur Stelle und lässt das Ziel kurz aufleuchten |
 | **Navigation** | Vor/Zurück wie im Browser samt Verlaufsliste, klickbare Pfadleiste, funktionierende Links zwischen Dokumenten |
 | **Druck & PDF** | Druckvorschau, natives PDF, automatisches Einpassen überbreiter Tabellen, Umbruch ohne verwaiste Zeilen |
@@ -34,6 +34,7 @@ Genau dafür ist mdVü gebaut.
 | **Eigenes Aussehen** | Eine `user.css` über den eingebauten Vorgaben — siehe [Anpassen per CSS](docs/css-customizing.de.md) |
 | **Windows-Integration** | Drag & Drop, Kommandozeile, `.md`-Verknüpfung pro Benutzer (ohne Admin-Rechte) |
 | **Automatisches Neuladen** | Die geöffnete Datei lädt sich selbst neu, wenn ein anderes Programm sie ändert — die Scrollposition bleibt |
+| **Screenreader** | Erste Schritte: Ordneransicht und Gliederung lassen sich mit einem Screenreader bedienen (geprüft mit der Windows-Sprachausgabe); **Read in browser** (`Strg+Umschalt+B`) öffnet das Dokument als Webseite für den Screenreader. Volle Zugänglichkeit ist ein erklärtes Ziel — siehe [Screenreader](docs/manual.de.md#screenreader) |
 
 ## Dokumentation
 

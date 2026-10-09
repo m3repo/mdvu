@@ -19,6 +19,7 @@ This is the extended manual for readers who want the whole picture, including in
 - [The four views](#the-four-views)
 - [Printing and PDF](#printing-and-pdf)
 - [Dark mode](#dark-mode)
+- [Screen readers](#screen-readers)
 - [Customizing the display](#customizing-the-display)
 - [Settings](#settings)
 - [Limits](#limits)
@@ -72,9 +73,9 @@ Below that, the window is split:
 
 There are several ways to open a file:
 
-- **Drag & drop:** drop an `.md` file or a whole **folder** onto the window. A folder opens in the folder view. If you drop several things at once, a file takes precedence over a folder.
+- **Drag & drop:** drop an `.md` file or a whole **folder** onto the window. A folder opens in the folder view and shows its folder page. If you drop several things at once, a file takes precedence over a folder.
 - **Open dialog** with `Ctrl+O`.
-- **Folder view:** clicking a file in the folder tree on the left, or moving through the tree with the arrow keys, shows it right away — just a **peek**: it does not end up in the history (*Back*) or among the recent files, and the path bar shows its name in *italics*. `Enter` or a double-click opens the file for real and moves the focus into the document; clicking into the document or `F6` does the same for a peeked file. `Ctrl+Shift+E` takes you back to the folder view. A **folder** shows up as a page of its own: its subfolders and Markdown files with size, date and the first lines of each file. `Enter` (or clicking into the page) moves into it ready for the keyboard — the arrow keys go from link to link, `Enter` opens a file or subfolder.
+- **Folder view:** clicking a file in the folder tree on the left, or moving through the tree with the arrow keys, shows it right away — just a **peek**: it does not end up in the history (*Back*) or among the recent files, and the path bar shows its name in *italics*. `Enter` or a double-click opens the file for real and moves the focus into the document; clicking into the document or `F6` does the same for a peeked file. `Ctrl+Shift+E` takes you back to the folder view. A **folder** shows up as a page of its own: its subfolders and Markdown files with size, date and the first lines of each file. `Enter` (or clicking into the page) moves into it ready for the keyboard — the arrow keys go from link to link, `Enter` opens a file or subfolder. Opening a file or folder that belongs to an Obsidian vault or a Git repository — from the command line, the file dialog, drag & drop, a link, the path bar or the recent files — shows the **whole vault or repository** in the folder view, with the file or folder selected; if they are nested, the innermost one. As long as you stay inside it, the folder view stays put. Files and folders whose name starts with a dot (`.git`, `.obsidian` …) are not shown (setting `ui/folderTreeHideDot`).
 - **Recently used:** the *File* menu lists recently opened files and folders. The **start page** (*File → Start page*) also shows the last five files.
 - **Double-click in Explorer:** *File → Register as Markdown default* associates mdVü with `.md` files (per user, no admin rights required). Windows may ask once via "Open with" — see [Troubleshooting](#troubleshooting).
 - **Command line:** `mdvu.exe "C:\Notes\Readme.md"` — see [Command line](#command-line).
@@ -174,7 +175,7 @@ Folders you return to often — your vaults, your repositories — can be kept a
 
 ## Path bar, back and forward
 
-Above the document, the **path bar** shows the location of the current file. Every segment is clickable: clicking a folder opens it in the folder view.
+Above the document, the **path bar** shows the location of the current file. Every segment is clickable: clicking a folder opens it in the folder view and shows its folder page.
 
 **The file's own menu.** Clicking the file path in the status bar opens a menu for that file: copy the path, show it in Explorer, open it in Obsidian (inside a vault) or with another program installed for `.md` files. Right-clicking a file or folder in the folder view, or the **Obs**/**Git** badge in the status bar, opens the same menu — in the folder view also by keyboard with `Shift+F10` or the context-menu key.
 
@@ -226,6 +227,10 @@ The status bar shows where a file lives: **Obs** for an Obsidian vault, **Git** 
 
 Dark mode in the document is entirely CSS-driven: the built-in dark stylesheet is layered on top of the light one. This matters when you write your own CSS — see [Customizing with CSS](css-customizing.md), which explains why a colour you set only for dark mode can "stick" when you switch back.
 
+## Screen readers
+
+mdVü draws the document itself, and screen readers (NVDA, JAWS, Narrator) cannot read that view yet. Until they can, `Ctrl+Shift+B` (*View → Read in browser*) opens the current document as a web page in your default browser — with headings, lists, tables and links that every screen reader handles well. The page is written to a temporary folder; nothing leaves your computer. The folder view and the outline already work with screen readers: they announce the name of the selected file or heading.
+
 ## Customizing the display
 
 *View → CSS* (`Ctrl+4`) opens your own stylesheet, which is applied on top of the built-in defaults. Use it to adjust things like font, font size, colours and spacing. The file (`user.css`) lives in the settings folder and survives updates.
@@ -274,6 +279,7 @@ The values worth knowing about:
 | `print/tableMinFontPct` | how far the font may shrink when fitting, in percent (default 70) |
 | `ui/theme`, `ui/mode` | named stylesheet and light/dark/system — written by the Dark Mode command |
 | `ui/currentFolder` | folder restored on the next start |
+| `ui/folderTreeHideDot` | hide files and folders whose name starts with a dot (`.git`, `.obsidian`, `.trash` …) in the folder view; mdVü then doesn't look inside them either, which keeps large vaults and repositories fast. `true` (default) or `false`. Takes effect on the next start |
 | `ui/pageSetupBar` | show the page setup strip in the print preview (on by default) |
 | `ui/fileMru`, `ui/folderMru` | recently used files and folders |
 | `ui/resizeBudgetMs`, `ui/resizeSettleMs`, `ui/resizeRefreshMs` | timing of the re-layout while a window is being resized |
@@ -323,6 +329,7 @@ mdVü has a few deliberate hard limits. They exist so that an unusual file canno
 | `Ctrl+4` | Edit CSS |
 | `Ctrl+P` | Print |
 | `Ctrl+Shift+P` | Page setup strip in the print preview on/off |
+| `Ctrl+Shift+B` | Read the document in the browser (for screen readers) |
 
 ## Command line
 

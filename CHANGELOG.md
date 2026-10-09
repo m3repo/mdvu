@@ -6,8 +6,14 @@ All notable changes to mdVü are documented here. The format follows [Keep a Cha
 
 ## [Unreleased]
 
+### Added
+
+- **Screen readers, first steps:** the folder view and the outline now work with screen readers (tested with Narrator) — they announce the selected file or heading, and whether a folder is expanded. The document view itself cannot be read by screen readers yet; until it can, **Read in browser** (`Ctrl+Shift+B`, *View* menu) opens the current document as a web page in your default browser, where every screen reader handles headings, lists, tables and links. Making mdVü fully accessible is a declared goal — feedback from screen reader users is very welcome. See [Screen readers](docs/manual.md#screen-readers).
+
 ### Changed
 
+- **The whole vault or repository in the folder view:** opening a file or folder that belongs to an Obsidian vault or a Git repository — from the command line, the file dialog, drag & drop, a link or the recent files — now shows the whole vault or repository in the folder view, with the file or folder selected, instead of just its own folder. Moving around inside it no longer changes the folder view. Clicking a folder in the path bar or dropping a folder onto the window also shows its folder page. See [Opening files](docs/manual.md#opening-files).
+- **Faster folder view in large vaults:** switching to a large vault or repository is noticeably quicker — each folder is now read only once, and folders whose name starts with a dot (`.git`, `.obsidian`, `.trash` …) are neither shown nor searched. The setting `ui/folderTreeHideDot = false` shows them again.
 - **Staying in the link unit:** following a link while the unit *Links* is active keeps it — the next document starts at its first link on screen, so you can read on from link to link without the mouse. Links that carry a search (the hits of *Search in files*) still open with their search.
 
 ### Fixed

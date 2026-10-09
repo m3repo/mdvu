@@ -19,6 +19,7 @@ Dies ist das ausführliche Handbuch für alle, die das ganze Bild wollen — sam
 - [Die vier Ansichten](#die-vier-ansichten)
 - [Drucken und PDF](#drucken-und-pdf)
 - [Dunkelmodus](#dunkelmodus)
+- [Screenreader](#screenreader)
 - [Darstellung anpassen](#darstellung-anpassen)
 - [Einstellungen](#einstellungen)
 - [Grenzen](#grenzen)
@@ -72,9 +73,9 @@ Darunter ist das Fenster geteilt:
 
 Es gibt mehrere Wege, eine Datei zu öffnen:
 
-- **Drag & Drop:** eine `.md`-Datei oder einen ganzen **Ordner** auf das Fenster ziehen. Ein Ordner wird in der Ordneransicht geöffnet. Wird mehreres zugleich fallengelassen, hat eine Datei Vorrang vor einem Ordner.
+- **Drag & Drop:** eine `.md`-Datei oder einen ganzen **Ordner** auf das Fenster ziehen. Ein Ordner wird in der Ordneransicht geöffnet und zeigt seine Ordnerseite. Wird mehreres zugleich fallengelassen, hat eine Datei Vorrang vor einem Ordner.
 - **Öffnen-Dialog** mit `Strg+O`.
-- **Ordneransicht:** Ein Klick auf eine Datei im Ordnerbaum links oder das Durchblättern mit den Pfeiltasten zeigt sie sofort an — aber nur zum **Hineinschauen** (Peek): Sie landet weder im Verlauf (*Zurück*) noch in den zuletzt benutzten Dateien, und die Pfadleiste zeigt ihren Namen *kursiv*. `Enter` oder ein Doppelklick öffnet die Datei richtig und setzt den Fokus ins Dokument; ein Klick ins Dokument oder `F6` macht dasselbe mit einer angesehenen Datei. `Strg+Umschalt+E` führt zurück in die Ordneransicht. Ein **Ordner** erscheint als eigene Seite: seine Unterordner und Markdown-Dateien mit Größe, Datum und den ersten Zeilen jeder Datei. `Enter` (oder ein Klick in die Seite) wechselt hinein, bereit für die Tastatur — die Pfeiltasten gehen von Link zu Link, `Enter` öffnet eine Datei oder einen Unterordner.
+- **Ordneransicht:** Ein Klick auf eine Datei im Ordnerbaum links oder das Durchblättern mit den Pfeiltasten zeigt sie sofort an — aber nur zum **Hineinschauen** (Peek): Sie landet weder im Verlauf (*Zurück*) noch in den zuletzt benutzten Dateien, und die Pfadleiste zeigt ihren Namen *kursiv*. `Enter` oder ein Doppelklick öffnet die Datei richtig und setzt den Fokus ins Dokument; ein Klick ins Dokument oder `F6` macht dasselbe mit einer angesehenen Datei. `Strg+Umschalt+E` führt zurück in die Ordneransicht. Ein **Ordner** erscheint als eigene Seite: seine Unterordner und Markdown-Dateien mit Größe, Datum und den ersten Zeilen jeder Datei. `Enter` (oder ein Klick in die Seite) wechselt hinein, bereit für die Tastatur — die Pfeiltasten gehen von Link zu Link, `Enter` öffnet eine Datei oder einen Unterordner. Öffnen Sie eine Datei oder einen Ordner, die zu einem Obsidian-Vault oder Git-Repository gehören — per Kommandozeile, Dateidialog, Drag & Drop, Link, Pfadleiste oder aus den zuletzt benutzten Dateien —, zeigt die Ordneransicht den **ganzen Vault bzw. das ganze Repository** und markiert darin die Datei oder den Ordner; bei Verschachtelung den inneren Vault bzw. das innere Repository. Solange Sie sich darin bewegen, bleibt die Ordneransicht stehen. Dateien und Ordner, deren Name mit einem Punkt beginnt (`.git`, `.obsidian` …), werden nicht angezeigt (Einstellung `ui/folderTreeHideDot`).
 - **Zuletzt verwendet:** Das *Datei*-Menü führt die zuletzt geöffneten Dateien und Ordner. Auch die **Startseite** (*Datei → Startseite*) zeigt die letzten fünf Dateien.
 - **Doppelklick im Explorer:** Über *Datei → Als Markdown-Standard registrieren* verknüpft sich mdVü mit `.md`-Dateien (pro Benutzer, keine Admin-Rechte nötig). Windows fragt ggf. einmalig per „Öffnen mit“ nach — siehe [Fehlersuche](#fehlersuche).
 - **Kommandozeile:** `mdvu.exe "C:\Notizen\Liesmich.md"` — siehe [Kommandozeile](#kommandozeile).
@@ -174,7 +175,7 @@ Ordner, zu denen Sie oft zurückkehren — Ihre Vaults, Ihre Repositories —, l
 
 ## Pfadleiste, vor und zurück
 
-Über dem Dokument zeigt die **Pfadleiste** den Ort der aktuellen Datei. Jedes Segment ist klickbar: Ein Klick auf einen Ordner öffnet ihn in der Ordneransicht.
+Über dem Dokument zeigt die **Pfadleiste** den Ort der aktuellen Datei. Jedes Segment ist klickbar: Ein Klick auf einen Ordner öffnet ihn in der Ordneransicht und zeigt seine Ordnerseite.
 
 **Das Menü zur Datei.** Ein Klick auf den Dateipfad in der Statuszeile öffnet ein Menü zu dieser Datei: Pfad kopieren, im Explorer zeigen, in Obsidian öffnen (innerhalb eines Vaults) oder mit einem anderen Programm, das für `.md`-Dateien installiert ist. Dasselbe Menü öffnet ein Rechtsklick auf eine Datei oder einen Ordner in der Ordneransicht oder auf die **Obs**/**Git**-Plakette in der Statuszeile — in der Ordneransicht auch per Tastatur mit `Umschalt+F10` oder der Kontextmenü-Taste.
 
@@ -226,6 +227,10 @@ Die Statuszeile zeigt, wo eine Datei liegt: **Obs** für einen Obsidian-Vault, *
 
 Der Dunkelmodus im Dokument ist vollständig CSS-getrieben: Das eingebaute dunkle Stylesheet wird über das helle gelegt. Das ist wichtig, sobald man eigenes CSS schreibt — [Anpassen per CSS](css-customizing.de.md) erklärt, warum eine nur für den Dunkelmodus gesetzte Farbe beim Zurückschalten „hängenbleiben“ kann.
 
+## Screenreader
+
+mdVü zeichnet das Dokument selbst, und Screenreader (NVDA, JAWS, Windows-Sprachausgabe) können diese Ansicht noch nicht lesen. Bis dahin öffnet `Strg+Umschalt+B` (*Ansicht → Read in browser*) das aktuelle Dokument als Webseite im Standardbrowser — mit Überschriften, Listen, Tabellen und Links, mit denen jeder Screenreader gut umgehen kann. Die Seite wird in einem temporären Ordner abgelegt; nichts verlässt Ihren Rechner. Ordnerbaum und Gliederung funktionieren bereits mit Screenreadern: Sie sagen den Namen der gewählten Datei bzw. Überschrift an.
+
 ## Darstellung anpassen
 
 Über *Ansicht → CSS* (`Strg+4`) lässt sich ein eigenes Stylesheet bearbeiten, das über die eingebauten Vorgaben gelegt wird. Damit können z.B. Schriftart, Schriftgröße, Farben und Abstände angepasst werden. Die Datei (`user.css`) liegt im Einstellungsordner und bleibt über Updates hinweg erhalten.
@@ -274,6 +279,7 @@ Die Werte, die man kennen sollte:
 | `print/tableMinFontPct` | wie weit die Schrift beim Einpassen schrumpfen darf, in Prozent (Standard 70) |
 | `ui/theme`, `ui/mode` | benanntes Stylesheet und hell/dunkel/System — wird vom Dark-Mode-Befehl geschrieben |
 | `ui/currentFolder` | Ordner, der beim nächsten Start wiederhergestellt wird |
+| `ui/folderTreeHideDot` | Dateien und Ordner, deren Name mit einem Punkt beginnt (`.git`, `.obsidian`, `.trash` …), in der Ordneransicht ausblenden; mdVü schaut dann auch nicht hinein, das hält große Vaults und Repositories schnell. `true` (Standard) oder `false`. Wirkt beim nächsten Start |
 | `ui/pageSetupBar` | Seiteneinrichtungs-Leiste in der Druckvorschau zeigen (standardmäßig an) |
 | `ui/fileMru`, `ui/folderMru` | zuletzt benutzte Dateien und Ordner |
 | `ui/resizeBudgetMs`, `ui/resizeSettleMs`, `ui/resizeRefreshMs` | Zeitverhalten des Neuumbruchs während der Größenänderung des Fensters |
@@ -323,6 +329,7 @@ mdVü hat einige bewusst gesetzte harte Grenzen. Sie sorgen dafür, dass eine un
 | `Strg+4` | CSS bearbeiten |
 | `Strg+P` | Drucken |
 | `Strg+Umschalt+P` | Seiteneinrichtungs-Leiste in der Druckvorschau ein/aus |
+| `Strg+Umschalt+B` | Dokument im Browser lesen (für Screenreader) |
 
 ## Kommandozeile
 

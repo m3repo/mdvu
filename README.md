@@ -27,7 +27,7 @@ That's what mdVü is built for.
 |---|---|
 | **Formats** | GitHub-flavoured Markdown, plus Obsidian callouts, wikilinks and image embeds — see [Markdown support](docs/markdown-support.md) |
 | **Charts** | Pie, bar, line and sequence diagrams from Mermaid code blocks — a slimmed-down subset, drawn natively without JavaScript, crisp in print and PDF — see [Charts](docs/markdown-support.md#charts-mermaid-subset) |
-| **Folder view** | Tree of the current folder with live refresh, incremental search (`Ctrl+F3`) and arrow-key browsing |
+| **Folder view** | Tree of the current folder — or of the whole Obsidian vault or Git repository it belongs to — with live refresh, coloured dots for recently changed files, a page per folder, incremental search (`Ctrl+F3`) and arrow-key browsing. Fast even in vaults with thousands of notes |
 | **Outline** | All headings of the document as a tree; clicking jumps to the spot and flashes the target |
 | **Navigation** | Browser-style back/forward with history list, clickable path bar, working links between documents |
 | **Print & PDF** | Print preview, native PDF export, automatic fitting of wide tables, orphan-aware page breaks |
@@ -35,6 +35,7 @@ That's what mdVü is built for.
 | **Your own look** | A `user.css` layered over the built-in stylesheet — see [Customizing with CSS](docs/css-customizing.md) |
 | **Windows integration** | Drag & drop, command line, per-user `.md` file association (no admin rights) |
 | **Auto-reload** | The open file reloads by itself when another program changes it — scroll position preserved |
+| **Screen readers** | First steps: the folder view and the outline can be used with a screen reader (tested with Narrator); **Read in browser** (`Ctrl+Shift+B`) opens the document as a web page for your screen reader. Full accessibility is a declared goal — see [Screen readers](docs/manual.md#screen-readers) |
 
 ## Documentation
 

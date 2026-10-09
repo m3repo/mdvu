@@ -6,8 +6,14 @@ Hier stehen alle nennenswerten Änderungen an mdVü. Das Format folgt [Keep a Ch
 
 ## [Unveröffentlicht]
 
+### Neu
+
+- **Screenreader, erste Schritte:** Ordnerbaum und Gliederung funktionieren jetzt mit Screenreadern (geprüft mit der Windows-Sprachausgabe) — sie sagen die gewählte Datei bzw. Überschrift an und ob ein Ordner aufgeklappt ist. Die Dokumentansicht selbst können Screenreader noch nicht lesen; bis dahin öffnet **Read in browser** (`Strg+Umschalt+B`, Menü *Ansicht*) das aktuelle Dokument als Webseite im Standardbrowser, wo jeder Screenreader Überschriften, Listen, Tabellen und Links beherrscht. mdVü vollständig zugänglich zu machen, ist ein erklärtes Ziel — Rückmeldungen von Screenreader-Nutzern sind sehr willkommen. Siehe [Screenreader](docs/manual.de.md#screenreader).
+
 ### Geändert
 
+- **Der ganze Vault bzw. das ganze Repository in der Ordneransicht:** Wer eine Datei oder einen Ordner öffnet, die zu einem Obsidian-Vault oder Git-Repository gehören — per Kommandozeile, Dateidialog, Drag & Drop, Link oder aus den zuletzt benutzten Dateien —, sieht in der Ordneransicht jetzt den ganzen Vault bzw. das ganze Repository mit markierter Datei bzw. markiertem Ordner statt nur deren eigenen Ordner. Wer sich darin bewegt, behält die Ordneransicht. Ein Klick auf einen Ordner in der Pfadleiste oder ein auf das Fenster gezogener Ordner zeigt zusätzlich dessen Ordnerseite. Siehe [Dateien öffnen](docs/manual.de.md#dateien-öffnen).
+- **Schnellere Ordneransicht in großen Vaults:** Der Wechsel in einen großen Vault oder ein großes Repository geht spürbar schneller — jeder Ordner wird nur noch einmal gelesen, und Ordner, deren Name mit einem Punkt beginnt (`.git`, `.obsidian`, `.trash` …), werden weder angezeigt noch durchsucht. Die Einstellung `ui/folderTreeHideDot = false` zeigt sie wieder.
 - **In der Link-Einheit bleiben:** Wer einem Link folgt, während die Einheit *Links* aktiv ist, bleibt darin — das nächste Dokument beginnt beim ersten Link im Bild, und es geht ohne Maus von Link zu Link weiter. Links, die eine Suche mitbringen (die Treffer von *Suchen in Dateien*), öffnen weiterhin mit ihrer Suche.
 
 ### Behoben
