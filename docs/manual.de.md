@@ -230,6 +230,9 @@ Die Statuszeile zeigt, wo eine Datei liegt: **Obs** für einen Obsidian-Vault, *
 
 ## HTML-Datei nach Markdown wandeln
 
+> [!WARNING]
+> Der Wandler ist eine Vorschau. Der Menübefehl, der Schalter `/convert` und das Format der `mdvu-converter.yaml` können sich bis zur endgültigen Version noch ändern, oder der Wandler entfällt wieder. Bitte nichts darauf aufbauen, was Bestand haben muss.
+
 *Tools → Convert HTML file to Markdown* macht aus einer Webseite, die auf dem Rechner gespeichert ist, eine Markdown-Datei. Erst die HTML-Datei wählen, dann den Speicherort – vorgeschlagen wird derselbe Ordner, damit relative Bilder und Links der Seite weiter stimmen –, danach öffnet mdVü die neue Datei sofort. Gelesen wird nur die gewählte Datei: nichts wird nachgeladen, Bilder und Links bleiben als Verweise stehen. Skripte, Stilangaben und Kommentare entfallen. Seiten, die ihren Inhalt erst per Skript aufbauen, wandeln sich schlecht – solche Seiten nach dem Laden im Browser als „Webseite, nur HTML“ speichern.
 
 **Links innerhalb der Seite** funktionieren weiter, soweit Markdown das zulässt. Markdown kann nur Überschriften anspringen; ein Link auf eine Definition oder einen Absatz führt deshalb zur Überschrift des Abschnitts, in dem das Ziel steht, und ein Link auf ein Ziel vor der ersten Überschrift wird zu gewöhnlichem Text.
@@ -255,6 +258,33 @@ links:               # Adresse einer anderen Seite → ihre HTML-Datei in diesem
 - **Callouts** gehen für Block-Elemente wie `p` und `div`, nicht innerhalb von Tabellen. Die Typen sind die, die mdVü von Obsidian kennt (`note`, `warning`, `example`, `tip`, `danger` …).
 - **Sprachen** werden an `<pre>` und dem `<code>` darin gesucht; die üblichen `language-…`-Klassen erkennt mdVü ohne Eintrag.
 - Mit **links** zeigt ein Link auf eine andere, ebenfalls gespeicherte Seite danach auf deren Markdown-Fassung (`andere.md`), samt der Überschrift, zu der sein Anker gehört. mdVü liest dafür die andere HTML-Datei; die Reihenfolge, in der man die Seiten wandelt, spielt deshalb keine Rolle – aber alle mit derselben Einstellungsdatei wandeln. Ein Link passt, wenn seine Adresse mit `url` beginnt. Fehlt die Datei, bleibt der Link, wie er ist.
+- **skip** entfernt auch Elemente mitten im Text, etwa `a.logo` oder `img.icon`.
+
+**Relative Links und Bilder.** Ist die Adresse der Seite bekannt, werden relative Ziele von Links und Bildern dagegen aufgelöst: aus `/images/a.svg` wird `https://example.org/images/a.svg`, damit sie auch aus der Markdown-Datei heraus irgendwohin führen. Die Adresse kommt aus `base:` oder, wenn das fehlt, aus dem `links`-Eintrag, dessen `file` die gerade gewandelte Seite ist – eine Einstellungsdatei, die die Seite selbst unter `links` aufführt, macht deren relative Links also zu absoluten. Links innerhalb der Seite (`#abschnitt`) und Ziele wie `mailto:` bleiben, wie sie sind; ein Link auf die Seite selbst ohne Anker behält die Adresse des Originals.
+
+**Kopf und Hinweis.** Drei weitere Abschnitte geben jeder gewandelten Seite einen Kopf und einen Hinweis mit:
+
+```yaml
+base: https://example.org/doku/     # Adresse der Seite, wenn „links“ sie nicht nennt
+vars:                               # eigene Werte, für alle Seiten
+  herausgeber: Beispiel e.V.
+frontmatter:                        # YAML-Kopf der Markdown-Datei
+  title: "{{ title }}"
+  source: "{{ url }}"
+  tags: [referenz, beispiel]
+banner:                             # Hinweis am Seitenanfang
+  callout: info                     # optional; ohne Angabe ein normaler Absatz
+  title: Inoffizielle Kopie         # optional, Titelzeile des Callouts
+  position: after-title             # after-title (Standard) oder top
+  text: |
+    Gewandelt aus [{{ title }}]({{ url }}) am {{ date }}.
+```
+
+- **frontmatter** wird zum YAML-Kopf der Markdown-Datei, mit Ihren Schlüsseln in Ihrer Reihenfolge. Werte sind Texte oder Listen von Texten; Anführungszeichen setzt mdVü dort, wo YAML sie braucht.
+- Der `text` des **Banners** ist Markdown und darf mehrere Absätze haben, aber keine Überschriften. `after-title` setzt ihn direkt hinter die erste Überschrift der Ebene 1 oder an den Anfang, wenn die Seite keine hat; `title` zählt nur zusammen mit `callout`.
+- **Platzhalter** gelten in den Werten von `frontmatter` und im Banner: `{{ title }}` (der `<title>` der Seite, ersatzweise ihre erste Überschrift), `{{ url }}` (Adresse der Seite, leer, wenn unbekannt), `{{ file }}` (Name der HTML-Datei), `{{ date }}` (Tag der Wandlung) und `{{ retrieved }}` (Tag der letzten Änderung der HTML-Datei, beide als `JJJJ-MM-TT`), dazu jeder Name aus `vars`. Ein Name, den es nicht gibt, bricht die Wandlung mit einer Meldung ab.
+- Ein `links`-Eintrag kann eigene `vars:` tragen, für Werte, die von Seite zu Seite verschieden sind, etwa den Stand, mit dem eine Seite gespeichert wurde.
+- Filter und Bedingungen gehen ebenfalls, zum Beispiel `{{ snapshot[:7] }}` oder `{% if url %}…{% endif %}`. In der Einstellungsdatei gehört ein Wert, der mit `{{` beginnt, in Anführungszeichen.
 
 Enthält die Einstellungsdatei einen Fehler, bricht die Wandlung mit einer Meldung ab, statt sie stillschweigend zu übergehen.
 
@@ -387,7 +417,7 @@ mdvu.exe /convert seite.html        HTML-Datei nach Markdown wandeln, ohne Fenst
 
 Der erste Parameter darf eine Datei oder ein Ordner sein; eine Datei wird geöffnet, ein Ordner in der Ordneransicht gezeigt. Auf diesem Weg funktioniert auch die Explorer-Verknüpfung.
 
-`/convert` schreibt die Markdown-Datei neben die HTML-Datei (`seite.md`) oder an den Pfad, der als zweiter Parameter angegeben ist, und endet dann, ohne ein Fenster zu öffnen: Exitcode 0 heißt gewandelt, 1 Wandlung fehlgeschlagen, 2 Aufruf unvollständig oder Datei fehlt. Eine `mdvu-converter.yaml` neben der HTML-Datei gilt wie beim Menübefehl – siehe [HTML-Datei nach Markdown wandeln](#html-datei-nach-markdown-wandeln). mdVü ist ein Fensterprogramm; ein Skript sollte deshalb ausdrücklich darauf warten, in PowerShell etwa mit `Start-Process mdvu.exe -ArgumentList '/convert','seite.html' -Wait -PassThru`.
+`/convert` schreibt die Markdown-Datei neben die HTML-Datei (`seite.md`) oder an den Pfad, der als zweiter Parameter angegeben ist, und endet dann, ohne ein Fenster zu öffnen: Exitcode 0 heißt gewandelt, 1 Wandlung fehlgeschlagen, 2 Aufruf unvollständig oder Datei fehlt. Eine `mdvu-converter.yaml` neben der HTML-Datei gilt wie beim Menübefehl – siehe [HTML-Datei nach Markdown wandeln](#html-datei-nach-markdown-wandeln). Der Wandler ist eine Vorschau; der Schalter kann sich ändern oder entfallen. mdVü ist ein Fensterprogramm; ein Skript sollte deshalb ausdrücklich darauf warten, in PowerShell etwa mit `Start-Process mdvu.exe -ArgumentList '/convert','seite.html' -Wait -PassThru`.
 
 `-accepteula` ist für unbeaufsichtigte Installationen gedacht, wo der Erststart-Dialog im Weg wäre — es hinterlegt die Bestätigung genauso, wie es ein Klick auf *Akzeptieren* täte.
 

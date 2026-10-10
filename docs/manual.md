@@ -230,6 +230,9 @@ The status bar shows where a file lives: **Obs** for an Obsidian vault, **Git** 
 
 ## Converting an HTML file to Markdown
 
+> [!WARNING]
+> The converter is a preview. The menu command, the `/convert` switch and the format of `mdvu-converter.yaml` may change before the final version, or the converter may be removed again. Do not build on it for anything that has to last.
+
 *Tools → Convert HTML file to Markdown* turns a web page you have saved on your computer into a Markdown file. Choose the HTML file, then where to save the result — mdVü suggests the same folder, so that relative images and links of the page keep working — and the new file opens right away. mdVü reads only the file you picked: nothing is downloaded, images and links stay as references. Scripts, styles and comments are left out. Pages that build their content with scripts convert poorly — save them from the browser as "web page, HTML only" after they have loaded.
 
 **Links within the page** keep working as far as Markdown allows. Markdown can only jump to headings, so a link to a definition or a paragraph leads to the heading of the section that contains it; a link whose target lies before the first heading becomes plain text.
@@ -255,6 +258,33 @@ links:               # address of another page → its HTML file in this folder
 - **Callouts** work for block elements such as `p` and `div`, not inside tables. The types are the ones mdVü knows from Obsidian (`note`, `warning`, `example`, `tip`, `danger` …).
 - **Languages** are looked up on `<pre>` and the `<code>` inside it; the usual `language-…` classes are recognized without an entry.
 - With **links**, a link to another page you have also saved points to its Markdown version afterwards (`other.md`), including the heading its anchor belongs to. mdVü reads the other HTML file for that, so the order in which you convert the pages does not matter — but convert all of them with the same settings file. A link matches when its address starts with `url`. If the file is missing, the link stays as it is.
+- **skip** also removes elements inside a line of text, such as `a.logo` or `img.icon`.
+
+**Relative links and images.** If the address of the page is known, relative targets of links and images are resolved against it: `/images/a.svg` becomes `https://example.org/images/a.svg`, so they still lead somewhere from the Markdown file. The address comes from `base:` or, without it, from the `links` entry whose `file` is the page being converted — a settings file that lists the page itself under `links` therefore turns its relative links into absolute ones. Links within the page (`#section`) and targets such as `mailto:` stay as they are; a link to the page itself without an anchor keeps the address of the original.
+
+**Header and note.** Three more sections add a header and a note to every converted page:
+
+```yaml
+base: https://example.org/doc/      # address of the page, if "links" does not name it
+vars:                               # your own values, for all pages
+  publisher: Example Org
+frontmatter:                        # YAML header of the Markdown file
+  title: "{{ title }}"
+  source: "{{ url }}"
+  tags: [reference, example]
+banner:                             # a note at the top of the page
+  callout: info                     # optional; without it a plain paragraph
+  title: Unofficial copy            # optional title line of the callout
+  position: after-title             # after-title (default) or top
+  text: |
+    Converted from [{{ title }}]({{ url }}) on {{ date }}.
+```
+
+- **frontmatter** becomes the YAML header of the Markdown file, with your keys in your order. Values are texts or lists of texts; mdVü adds quotation marks where YAML needs them.
+- The **banner** `text` is Markdown and may have several paragraphs, but no headings. `after-title` puts it right after the first level-1 heading, or at the top if the page has none; `title` only counts together with `callout`.
+- **Placeholders** work in `frontmatter` values and in the banner: `{{ title }}` (the `<title>` of the page, otherwise its first heading), `{{ url }}` (address of the page, empty if unknown), `{{ file }}` (name of the HTML file), `{{ date }}` (day of the conversion) and `{{ retrieved }}` (day the HTML file was last changed, both as `YYYY-MM-DD`), plus every name from `vars`. A name that does not exist stops the conversion with a message.
+- A `links` entry can carry its own `vars:` for values that differ from page to page, such as the version a page was saved at.
+- Filters and conditions work too, for example `{{ snapshot[:7] }}` or `{% if url %}…{% endif %}`. In the settings file, put a value that starts with `{{` in quotation marks.
 
 If the settings file contains a mistake, the conversion stops with a message instead of silently ignoring it.
 
@@ -387,7 +417,7 @@ mdvu.exe /convert page.html       convert an HTML file to Markdown, no window
 
 The first parameter may be a file or a folder; a file is opened, a folder shown in the folder view. This is also the mechanism behind the Explorer file association.
 
-`/convert` writes the Markdown file next to the HTML file (`page.md`), or to the path given as a second parameter, and then ends without opening a window: exit code 0 means converted, 1 the conversion failed, 2 the call was incomplete or the file is missing. A `mdvu-converter.yaml` next to the HTML file applies as in the menu command — see [Converting an HTML file to Markdown](#converting-an-html-file-to-markdown). mdVü is a window program, so a script should wait for it explicitly, for example `Start-Process mdvu.exe -ArgumentList '/convert','page.html' -Wait -PassThru` in PowerShell.
+`/convert` writes the Markdown file next to the HTML file (`page.md`), or to the path given as a second parameter, and then ends without opening a window: exit code 0 means converted, 1 the conversion failed, 2 the call was incomplete or the file is missing. A `mdvu-converter.yaml` next to the HTML file applies as in the menu command — see [Converting an HTML file to Markdown](#converting-an-html-file-to-markdown). The converter is a preview; the switch may change or be removed. mdVü is a window program, so a script should wait for it explicitly, for example `Start-Process mdvu.exe -ArgumentList '/convert','page.html' -Wait -PassThru` in PowerShell.
 
 `-accepteula` is meant for unattended setups where the first-start dialog would be in the way — it records the acknowledgement exactly as clicking *Accept* would.
 
