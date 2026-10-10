@@ -221,7 +221,7 @@ If a file lies in an **Obsidian vault** (a folder containing `.obsidian`), mdVü
 
 The status bar shows where a file lives: **Obs** for an Obsidian vault, **Git** for a Git repository, **Obs/Git** if both share the same folder. A click opens that folder in the folder view.
 
-**Wikilinks** such as `[[Note]]` and embeds such as `![[picture.png]]` are resolved inside a vault the way Obsidian does it: by name, anywhere in the vault. `[[Note#Heading]]` opens the note and jumps to the heading — so does a Markdown link like `[details](note.md#installation)`. See [Markdown support](markdown-support.md#wikilinks) for the details.
+**Wikilinks** such as `[[Note]]` and embeds such as `![[picture.png]]` are resolved inside a vault the way Obsidian does it: by name, anywhere in the vault. `[[Note#Heading]]` opens the note and jumps to the heading — so does a Markdown link like `[details](note.md#installation)`. A link to a picture or a PDF, such as `[[photo.jpg]]`, opens the file in its default application after a confirmation; it does not become part of the back/forward history. See [Markdown support](markdown-support.md#wikilinks) for the details.
 
 ## Dark mode
 
