@@ -18,6 +18,7 @@ Dies ist das ausführliche Handbuch für alle, die das ganze Bild wollen — sam
 - [Pfadleiste, vor und zurück](#pfadleiste-vor-und-zurück)
 - [Die vier Ansichten](#die-vier-ansichten)
 - [Drucken und PDF](#drucken-und-pdf)
+- [HTML-Datei nach Markdown wandeln](#html-datei-nach-markdown-wandeln)
 - [Dunkelmodus](#dunkelmodus)
 - [Screenreader](#screenreader)
 - [Darstellung anpassen](#darstellung-anpassen)
@@ -187,6 +188,10 @@ Wie im Browser navigiert mdVü durch die Historie: Pfeil-Symbole in der Leiste o
 
 Links innerhalb von Dokumenten funktionieren wie erwartet: ein relativer Link auf eine andere `.md`-Datei öffnet diese Datei, ein Link auf eine Überschrift (`#abschnitt`) springt im Dokument, ein `http(s)`-Link geht nach Rückfrage in den Browser. Links, die ins Leere oder ins Zwielichtige führen, werden abgelehnt statt befolgt. Ein Link der Form `mdvu:open?uri=…&find=…` bzw. `&mark=…` öffnet ein Dokument und markiert dabei Fundstellen oder Zeilen — siehe [Fundstellen verlinken](markdown-support.de.md#fundstellen-verlinken).
 
+**Sprünge innerhalb eines Dokuments gehören zum Verlauf.** Wer einem Link auf eine Überschrift im selben Dokument folgt, bekommt einen Eintrag; *Zurück* führt an die Stelle des Links – und der Link, von dem man kam, ist einen Moment lang markiert, damit das Auge ihn wiederfindet. Dasselbe geschieht bei der Rückkehr aus einem anderen Dokument. Die Verlaufsliste (Rechtsklick auf die Pfeile) zeigt bei einem solchen Eintrag die Überschrift hinter dem Dateinamen.
+
+**Wohin ein Link führt.** Links, die mdVü verlassen – Webadressen und E-Mail-Links –, haben eine eigene Farbe; so erkennt man sie vor dem Klick neben den Links innerhalb der eigenen Dokumente. Die Rückfrage vor dem Öffnen des Browsers bleibt. Solange die Maus auf einem Link steht, zeigt die Statuszeile sein Ziel statt des Dateinamens; in der Link-Einheit (`L`) das Ziel des aktiven Links. Die Farbe lässt sich im eigenen [CSS](css-customizing.de.md) über `a.external` ändern.
+
 ## Die vier Ansichten
 
 Der Dokumentbereich beherbergt vier austauschbare Ansichten:
@@ -222,6 +227,38 @@ Liegt eine Datei in einem **Obsidian-Vault** (ein Ordner mit `.obsidian`), über
 Die Statuszeile zeigt, wo eine Datei liegt: **Obs** für einen Obsidian-Vault, **Git** für ein Git-Repository, **Obs/Git**, wenn beide denselben Ordner haben. Ein Klick öffnet diesen Ordner in der Ordneransicht.
 
 **Wikilinks** wie `[[Notiz]]` und Einbettungen wie `![[bild.png]]` löst mdVü in einem Vault auf wie Obsidian: über den Namen, irgendwo im Vault. `[[Notiz#Überschrift]]` öffnet die Notiz und springt zur Überschrift — ebenso ein Markdown-Link wie `[Details](notiz.md#installation)`. Ein Link auf ein Bild oder ein PDF, etwa `[[foto.jpg]]`, öffnet die Datei nach einer Rückfrage in ihrer Standardanwendung; in den Verlauf (Zurück/Vor) kommt sie nicht. Einzelheiten stehen in der [Markdown-Referenz](markdown-support.de.md#wikilinks).
+
+## HTML-Datei nach Markdown wandeln
+
+*Tools → Convert HTML file to Markdown* macht aus einer Webseite, die auf dem Rechner gespeichert ist, eine Markdown-Datei. Erst die HTML-Datei wählen, dann den Speicherort – vorgeschlagen wird derselbe Ordner, damit relative Bilder und Links der Seite weiter stimmen –, danach öffnet mdVü die neue Datei sofort. Gelesen wird nur die gewählte Datei: nichts wird nachgeladen, Bilder und Links bleiben als Verweise stehen. Skripte, Stilangaben und Kommentare entfallen. Seiten, die ihren Inhalt erst per Skript aufbauen, wandeln sich schlecht – solche Seiten nach dem Laden im Browser als „Webseite, nur HTML“ speichern.
+
+**Links innerhalb der Seite** funktionieren weiter, soweit Markdown das zulässt. Markdown kann nur Überschriften anspringen; ein Link auf eine Definition oder einen Absatz führt deshalb zur Überschrift des Abschnitts, in dem das Ziel steht, und ein Link auf ein Ziel vor der ersten Überschrift wird zu gewöhnlichem Text.
+
+**Einstellungen für eine Seite.** Webseiten kennzeichnen Hinweise, Warnungen und Code-Sprachen jede auf ihre Art – HTML kennt dafür keinen Standard. Damit solche Feinheiten mitkommen, eine Datei `mdvu-converter.yaml` neben die HTML-Datei legen:
+
+```yaml
+callouts:            # element.klasse → Callout-Typ
+  p.note: note
+  p.warning: warning
+  div.example: example
+languages:           # Klasse an <pre>/<code> → Sprache des Codeblocks
+  js: javascript
+  idl: webidl
+skip:                # diese Elemente ganz weglassen
+  - div.advert
+links:               # Adresse einer anderen Seite → ihre HTML-Datei in diesem Ordner
+  - url: https://example.org/andere/
+    file: andere.html
+```
+
+- Ein **Selektor** ist `element.klasse` oder nur der Klassenname für jedes Element; bei Klassennamen zählt Groß-/Kleinschreibung.
+- **Callouts** gehen für Block-Elemente wie `p` und `div`, nicht innerhalb von Tabellen. Die Typen sind die, die mdVü von Obsidian kennt (`note`, `warning`, `example`, `tip`, `danger` …).
+- **Sprachen** werden an `<pre>` und dem `<code>` darin gesucht; die üblichen `language-…`-Klassen erkennt mdVü ohne Eintrag.
+- Mit **links** zeigt ein Link auf eine andere, ebenfalls gespeicherte Seite danach auf deren Markdown-Fassung (`andere.md`), samt der Überschrift, zu der sein Anker gehört. mdVü liest dafür die andere HTML-Datei; die Reihenfolge, in der man die Seiten wandelt, spielt deshalb keine Rolle – aber alle mit derselben Einstellungsdatei wandeln. Ein Link passt, wenn seine Adresse mit `url` beginnt. Fehlt die Datei, bleibt der Link, wie er ist.
+
+Enthält die Einstellungsdatei einen Fehler, bricht die Wandlung mit einer Meldung ab, statt sie stillschweigend zu übergehen.
+
+Dieselbe Wandlung gibt es auf der [Kommandozeile](#kommandozeile), für Skripte, die einen Satz Seiten neu aufbauen.
 
 ## Dunkelmodus
 
@@ -345,9 +382,12 @@ mdVü hat einige bewusst gesetzte harte Grenzen. Sie sorgen dafür, dass eine un
 mdvu.exe "C:\Notizen\Liesmich.md"   Datei öffnen
 mdvu.exe "C:\Notizen"               Ordner öffnen
 mdvu.exe -accepteula                Lizenz ohne Rückfrage bestätigen
+mdvu.exe /convert seite.html        HTML-Datei nach Markdown wandeln, ohne Fenster
 ```
 
 Der erste Parameter darf eine Datei oder ein Ordner sein; eine Datei wird geöffnet, ein Ordner in der Ordneransicht gezeigt. Auf diesem Weg funktioniert auch die Explorer-Verknüpfung.
+
+`/convert` schreibt die Markdown-Datei neben die HTML-Datei (`seite.md`) oder an den Pfad, der als zweiter Parameter angegeben ist, und endet dann, ohne ein Fenster zu öffnen: Exitcode 0 heißt gewandelt, 1 Wandlung fehlgeschlagen, 2 Aufruf unvollständig oder Datei fehlt. Eine `mdvu-converter.yaml` neben der HTML-Datei gilt wie beim Menübefehl – siehe [HTML-Datei nach Markdown wandeln](#html-datei-nach-markdown-wandeln). mdVü ist ein Fensterprogramm; ein Skript sollte deshalb ausdrücklich darauf warten, in PowerShell etwa mit `Start-Process mdvu.exe -ArgumentList '/convert','seite.html' -Wait -PassThru`.
 
 `-accepteula` ist für unbeaufsichtigte Installationen gedacht, wo der Erststart-Dialog im Weg wäre — es hinterlegt die Bestätigung genauso, wie es ein Klick auf *Akzeptieren* täte.
 
@@ -374,6 +414,10 @@ mdVü schreibt `mdvu.crash.log` neben die ausführbare Datei. Ist dieser Ordner 
 ### Performance-Seite
 
 *Hilfe → Performance* zeigt, was mdVü in der laufenden Sitzung gemessen hat: wie lange Seiten zum Laden und bis zur Anzeige brauchten (letzte Seite, Schnitt der letzten zehn, ganze Sitzung), wie viel davon auf Bilder entfiel, wie lange das Einlesen eines Obsidian-Vaults dauerte, und zu den letzten zehn Seiten jeweils Größe, Bilder, Chunks und Layout-Elemente. Darunter stehen die Zwischenspeicher und der belegte Speicher. `F5` aktualisiert die Werte. Die Seite eignet sich als Anhang, wenn Sie melden, dass etwas langsam wirkt.
+
+### Diagnose-Seite
+
+*Hilfe → Diagnostics* zeigt den Verlauf der laufenden Sitzung – jeden Ort, zu dem Zurück führt, samt der dafür abgelegten Leseposition – und die Ordner, die mdVü verwendet (Einstellungen, Ordneransicht, temporäre Dateien). Die Einträge sind Links. `F5` aktualisiert die Seite. Wie die Performance-Seite ist sie zum Nachsehen bei einem Problem gedacht oder als Anhang zu einer Fehlermeldung.
 
 ## Deinstallieren
 

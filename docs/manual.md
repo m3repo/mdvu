@@ -18,6 +18,7 @@ This is the extended manual for readers who want the whole picture, including in
 - [Path bar, back and forward](#path-bar-back-and-forward)
 - [The four views](#the-four-views)
 - [Printing and PDF](#printing-and-pdf)
+- [Converting an HTML file to Markdown](#converting-an-html-file-to-markdown)
 - [Dark mode](#dark-mode)
 - [Screen readers](#screen-readers)
 - [Customizing the display](#customizing-the-display)
@@ -187,6 +188,10 @@ mdVü navigates its history like a browser: the arrow icons in the toolbar or `A
 
 Links inside documents work as you'd expect: a relative link to another `.md` file opens that file; a link to a heading (`#section`) jumps within the document; an `http(s)` link opens in your browser after a confirmation. Links that lead nowhere sensible are refused rather than followed. A link of the form `mdvu:open?uri=…&find=…` or `&mark=…` opens a document and highlights matches or lines in it — see [Linking to places](markdown-support.md#linking-to-places).
 
+**Jumps within a document are part of the history.** Following a link to a heading in the same document adds an entry, so *Back* returns you to the place the link was — with the link you came from highlighted for a moment, so your eye finds it again. The same happens when you come back from another document. The history list (right-click on the arrows) shows the heading of such an entry after the file name.
+
+**Where a link leads.** Links that leave mdVü — web addresses and e-mail links — have their own color, so you can tell them from links within your documents before you click; mdVü still asks before it opens the browser. While the mouse is on a link, the status bar shows its target instead of the file name; in the link unit (`L`) it shows the target of the active link. The color can be changed with `a.external` in your [CSS](css-customizing.md).
+
 ## The four views
 
 The document area holds four interchangeable views:
@@ -222,6 +227,38 @@ If a file lies in an **Obsidian vault** (a folder containing `.obsidian`), mdVü
 The status bar shows where a file lives: **Obs** for an Obsidian vault, **Git** for a Git repository, **Obs/Git** if both share the same folder. A click opens that folder in the folder view.
 
 **Wikilinks** such as `[[Note]]` and embeds such as `![[picture.png]]` are resolved inside a vault the way Obsidian does it: by name, anywhere in the vault. `[[Note#Heading]]` opens the note and jumps to the heading — so does a Markdown link like `[details](note.md#installation)`. A link to a picture or a PDF, such as `[[photo.jpg]]`, opens the file in its default application after a confirmation; it does not become part of the back/forward history. See [Markdown support](markdown-support.md#wikilinks) for the details.
+
+## Converting an HTML file to Markdown
+
+*Tools → Convert HTML file to Markdown* turns a web page you have saved on your computer into a Markdown file. Choose the HTML file, then where to save the result — mdVü suggests the same folder, so that relative images and links of the page keep working — and the new file opens right away. mdVü reads only the file you picked: nothing is downloaded, images and links stay as references. Scripts, styles and comments are left out. Pages that build their content with scripts convert poorly — save them from the browser as "web page, HTML only" after they have loaded.
+
+**Links within the page** keep working as far as Markdown allows. Markdown can only jump to headings, so a link to a definition or a paragraph leads to the heading of the section that contains it; a link whose target lies before the first heading becomes plain text.
+
+**Settings for a page.** Web pages mark notes, warnings and code languages in their own ways — HTML has no standard for them. To carry such details over, put a file named `mdvu-converter.yaml` next to the HTML file:
+
+```yaml
+callouts:            # element.class → callout type
+  p.note: note
+  p.warning: warning
+  div.example: example
+languages:           # class on <pre>/<code> → language of the code block
+  js: javascript
+  idl: webidl
+skip:                # leave these elements out entirely
+  - div.advert
+links:               # address of another page → its HTML file in this folder
+  - url: https://example.org/other/
+    file: other.html
+```
+
+- A **selector** is `element.class`, or just the class name for any element; class names are case-sensitive.
+- **Callouts** work for block elements such as `p` and `div`, not inside tables. The types are the ones mdVü knows from Obsidian (`note`, `warning`, `example`, `tip`, `danger` …).
+- **Languages** are looked up on `<pre>` and the `<code>` inside it; the usual `language-…` classes are recognized without an entry.
+- With **links**, a link to another page you have also saved points to its Markdown version afterwards (`other.md`), including the heading its anchor belongs to. mdVü reads the other HTML file for that, so the order in which you convert the pages does not matter — but convert all of them with the same settings file. A link matches when its address starts with `url`. If the file is missing, the link stays as it is.
+
+If the settings file contains a mistake, the conversion stops with a message instead of silently ignoring it.
+
+The same conversion is available from the [command line](#command-line), for scripts that rebuild a set of pages.
 
 ## Dark mode
 
@@ -345,9 +382,12 @@ mdVü has a few deliberate hard limits. They exist so that an unusual file canno
 mdvu.exe "C:\Notes\Readme.md"     open a file
 mdvu.exe "C:\Notes"               open a folder
 mdvu.exe -accepteula              accept the license non-interactively
+mdvu.exe /convert page.html       convert an HTML file to Markdown, no window
 ```
 
 The first parameter may be a file or a folder; a file is opened, a folder shown in the folder view. This is also the mechanism behind the Explorer file association.
+
+`/convert` writes the Markdown file next to the HTML file (`page.md`), or to the path given as a second parameter, and then ends without opening a window: exit code 0 means converted, 1 the conversion failed, 2 the call was incomplete or the file is missing. A `mdvu-converter.yaml` next to the HTML file applies as in the menu command — see [Converting an HTML file to Markdown](#converting-an-html-file-to-markdown). mdVü is a window program, so a script should wait for it explicitly, for example `Start-Process mdvu.exe -ArgumentList '/convert','page.html' -Wait -PassThru` in PowerShell.
 
 `-accepteula` is meant for unattended setups where the first-start dialog would be in the way — it records the acknowledgement exactly as clicking *Accept* would.
 
@@ -374,6 +414,10 @@ mdVü writes `mdvu.crash.log` next to the executable. If that folder is read-onl
 ### Performance page
 
 *Help → Performance* shows what mdVü measured in the current session: how long pages took to load and to appear (last page, average of the last ten, whole session), how much of that went into images, how long scanning an Obsidian vault took, and for each of the last ten pages its size, images, chunks and layout elements. Below that are the caches and the memory in use. `F5` refreshes the values. The page is handy to attach when you report that something feels slow.
+
+### Diagnostics page
+
+*Help → Diagnostics* lists the history of the current session — every place you can go back to, with the reading position stored for it — and the folders mdVü uses (settings, folder view, temporary files). The entries are links. `F5` refreshes the page. Like the performance page, it is meant for looking into a problem or attaching to a report.
 
 ## Uninstalling
 

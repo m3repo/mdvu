@@ -44,6 +44,7 @@ Every block element in the document carries a style tag; those are your selector
 | `h1` … `h6` | headings |
 | `a` | links (colour only) |
 | `a.unresolved` | links whose target file is missing (colour, `text-decoration`, `background-color`, `border`) |
+| `a.external` | links that leave mdVü: `http`, `https`, `mailto` (same properties) |
 | `code` | inline code *and* the base colour of code blocks |
 | `pre` | the box around a code block |
 | `blockquote` | block quotes and callouts |
