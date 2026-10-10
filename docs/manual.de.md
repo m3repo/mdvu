@@ -274,6 +274,8 @@ Die Werte, die man kennen sollte:
 | `doc/zoom` | Zoom des Dokuments in Prozent (Standard 100); es gilt die nächstgelegene Stufe — geschrieben beim Zoomen |
 | `doc/lineBreaks` | Zeilenumbrüche außerhalb eines Obsidian-Vaults: `standard` (Standard, Markdown-Standard) oder `newline` (jeder Zeilenumbruch bricht um, wie in Typora). Im Vault gilt dessen eigene Einstellung. Wirkt beim nächsten Start |
 | `doc/tableImageMaxWidth` | größte Breite eines Bildes in einer Tabellenzelle in Pixeln (Standard 400); `0` zeigt Bilder in ihrer natürlichen Größe. Gilt nur für Bilder ohne eigene Breitenangabe (`![[bild.png\|300]]`). Wirkt beim nächsten Start |
+| `perf/textCacheMinMB`, `perf/textCacheMaxMB` | Speicher für den Textcache in MB (Standard 8 und 16): bis zum unteren Wert wird nichts verworfen, der obere ist eine feste Obergrenze (`0` = keine). Ein größerer Cache hält Seiten schnell, zu denen Sie zurückkehren. Wirkt beim nächsten Start |
+| `perf/textCacheIdleMinutes` | nach so vielen Minuten ohne Navigation schrumpft der Textcache einen Schritt, höchstens bis zur Mitte zwischen beiden Werten; ein liegengelassenes Fenster gibt so Speicher zurück (Standard 5, `0` = aus) |
 | `print/paper` | Papierformat: `A3`, `A4` (Standard), `A5`, `A6`, `Letter`, `Legal` — wird von der Seiteneinrichtung geschrieben |
 | `print/orientation` | `portrait` (Hochformat, Standard) oder `landscape` (Querformat) |
 | `print/printer` | Druckername; leer bedeutet den Windows-Standarddrucker |

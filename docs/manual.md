@@ -274,6 +274,8 @@ The values worth knowing about:
 | `doc/zoom` | document zoom in percent (default 100); the closest step applies — written when you zoom |
 | `doc/lineBreaks` | line breaks outside an Obsidian vault: `standard` (default, Markdown standard) or `newline` (every line break breaks, as in Typora). Inside a vault, the vault's own setting applies. Takes effect on the next start |
 | `doc/tableImageMaxWidth` | maximum width of an image in a table cell, in pixels (default 400); `0` shows images at their natural size. Applies only to images without a width of their own (`![[image.png\|300]]`). Takes effect on the next start |
+| `perf/textCacheMinMB`, `perf/textCacheMaxMB` | memory for the text cache in MB (defaults 8 and 16): up to the lower value nothing is discarded, the upper value is a fixed limit (`0` = no limit). A larger cache keeps pages you return to fast. Takes effect on the next start |
+| `perf/textCacheIdleMinutes` | after this many minutes without navigation the text cache shrinks one step, at most to halfway between the two values, so a window left open gives memory back (default 5, `0` = off) |
 | `print/paper` | paper size: `A3`, `A4` (default), `A5`, `A6`, `Letter`, `Legal` — written by the page setup strip |
 | `print/orientation` | `portrait` (default) or `landscape` |
 | `print/printer` | printer name; empty means the Windows default printer |
