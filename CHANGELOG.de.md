@@ -6,6 +6,26 @@ Hier stehen alle nennenswerten Änderungen an mdVü. Das Format folgt [Keep a Ch
 
 ## [Unveröffentlicht]
 
+## [0.17.0] — 2026-10-10
+
+### Neu
+
+- **Bilder in Tabellen:** eine Tabellenzelle, die nur Bilder enthält, zeigt sie jetzt statt des Alternativtexts. Ein Bild ohne eigene Breite wird auf 400 px begrenzt; die Einstellung `doc/tableImageMaxWidth` ändert das (0 = Naturgröße). Eine Zelle mit Bildern und Text zeigt weiterhin den Alternativtext.
+- **Performance-Seite:** *Hilfe → Performance* zeigt, was mdVü in der laufenden Sitzung gemessen hat — wie lange die letzten Seiten zum Laden und bis zur Anzeige brauchten, was die Caches halten und wie viel Speicher belegt ist. *Detail level* am Seitenanfang (normal, medium, verbose) schlüsselt jede Seite in ihre Schritte auf; Schritte, die ein Viertel der Zeit oder mehr ausmachen, sind hervorgehoben.
+- **Cache-Einstellungen:** der Textcache (`perf/textCacheMinMB`, `perf/textCacheMaxMB`, `perf/textCacheIdleMinutes`) und der Bild-Cache (`perf/imageCacheMB`, `perf/imageWicDecoder`) lassen sich anpassen; die Vorgaben sind 8/16 MB für Text und 64 MB für Bilder.
+- **Links auf Bilder und PDFs:** ein Link wie `[[foto.jpg]]` oder `[Scan](vertrag.pdf)` öffnet die Datei jetzt nach einer Rückfrage in ihrer Standardanwendung. In den Verlauf (Zurück/Vor) kommen solche Dateien nicht.
+
+### Geändert
+
+- **Schnelleres Blättern durch Dokumente:** einmal gesetzte Wörter und Emojis bleiben erhalten, statt auf jeder Seite neu berechnet zu werden; Farb-Emojis bleiben für die ganze Sitzung. Der Weg zurück auf eine schon gesehene Seite ist spürbar schneller.
+- **Schnellere Bilder, weniger Speicher:** PNG- und JPEG-Dateien dekodiert Windows in der Größe, in der sie gezeigt werden, und zwar beim ersten Zeichnen; sie liegen in dieser Größe in einem Cache.
+- **Schnellere Ordnerseite:** die Seite eines Ordners mit einigen hundert Dateien erscheint in deutlich unter einer Zehntelsekunde (gemessen: 280 Dateien in etwa 70 ms statt 170 ms).
+- **Schnellere Gliederung:** der Austausch der Gliederung beim Seitenwechsel braucht nur noch einen Bruchteil der Zeit.
+
+### Behoben
+
+- Ein Klick auf einen Link zu einem Bild zeigte die Datei als unlesbaren Text in der Dokumentansicht.
+
 ## [0.16.0] — 2026-10-09
 
 ### Neu

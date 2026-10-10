@@ -6,6 +6,26 @@ All notable changes to mdVü are documented here. The format follows [Keep a Cha
 
 ## [Unreleased]
 
+## [0.17.0] — 2026-10-10
+
+### Added
+
+- **Pictures in tables:** a table cell that contains only pictures now shows them instead of their alt text. A picture without a width of its own is limited to 400 px; the setting `doc/tableImageMaxWidth` changes that (0 = natural size). A cell that mixes pictures and text still shows the alt text.
+- **Performance page:** *Help → Performance* shows what mdVü measured in the current session — how long the last pages took to load and to appear, what the caches hold and how much memory is in use. *Detail level* at the top of the page (normal, medium, verbose) adds a breakdown of each page into its steps; steps that take a quarter of the time or more are highlighted.
+- **Cache settings:** the text cache (`perf/textCacheMinMB`, `perf/textCacheMaxMB`, `perf/textCacheIdleMinutes`) and the image cache (`perf/imageCacheMB`, `perf/imageWicDecoder`) can be adjusted; the defaults are 8/16 MB for text and 64 MB for images.
+- **Links to pictures and PDFs:** a link such as `[[photo.jpg]]` or `[scan](contract.pdf)` now opens the file in its default application, after a confirmation. Such files do not become part of the back/forward history.
+
+### Changed
+
+- **Faster paging through documents:** words and emoji that have been laid out once are kept instead of being worked out again on every page; colour emoji stay for the whole session. Going back to a page you have already seen is noticeably quicker.
+- **Faster pictures, less memory:** PNG and JPEG files are decoded by Windows at the size they are shown, when they are first drawn, and kept in a cache of that size.
+- **Faster folder page:** the page of a folder with a few hundred files appears in well under a tenth of a second (measured: 280 files in about 70 ms instead of 170 ms).
+- **Faster outline:** replacing the outline when a page changes takes a fraction of the time it did.
+
+### Fixed
+
+- Clicking a link to a picture showed the file as unreadable text in the document view.
+
 ## [0.16.0] — 2026-10-09
 
 ### Added
