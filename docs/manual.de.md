@@ -367,6 +367,10 @@ Dunkelmodus einmal aus- und wieder einschalten. Bleibt es dabei, ist das eine Me
 **Das Programm ist abgestürzt.**
 mdVü schreibt `mdvu.crash.log` neben die ausführbare Datei. Ist dieser Ordner schreibgeschützt (etwa unterhalb von *Programme*), landet die Datei stattdessen in `%LOCALAPPDATA%` — das in die Adresszeile des Explorers tippen, um dorthin zu gelangen. Die Datei enthält Fehlerort und Stapelabzug, keine Dokumentinhalte. Verschickt wird nichts — ob du sie einsendest, entscheidest du allein; sie erhöht die Chance auf eine Korrektur erheblich.
 
+### Performance-Seite
+
+*Hilfe → Performance* zeigt, was mdVü in der laufenden Sitzung gemessen hat: wie lange Seiten zum Laden und bis zur Anzeige brauchten (letzte Seite, Schnitt der letzten zehn, ganze Sitzung), wie viel davon auf Bilder entfiel, wie lange das Einlesen eines Obsidian-Vaults dauerte, und zu den letzten zehn Seiten jeweils Größe, Bilder, Chunks und Layout-Elemente. Darunter stehen die Zwischenspeicher und der belegte Speicher. `F5` aktualisiert die Werte. Die Seite eignet sich als Anhang, wenn Sie melden, dass etwas langsam wirkt.
+
 ## Deinstallieren
 
 `mdvu.exe` löschen. Optional außerdem:

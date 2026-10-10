@@ -367,6 +367,10 @@ Switch dark mode off and on again. If it persists, it's worth reporting — plea
 **The program crashed.**
 mdVü writes `mdvu.crash.log` next to the executable. If that folder is read-only (for example below *Program Files*), the file goes to `%LOCALAPPDATA%` instead — type that into the Explorer address bar to get there. The file contains the error location and a stack dump, no document content. Nothing is sent anywhere — mailing it in is entirely your decision, and it makes fixing the bug much more likely.
 
+### Performance page
+
+*Help → Performance* shows what mdVü measured in the current session: how long pages took to load and to appear (last page, average of the last ten, whole session), how much of that went into images, how long scanning an Obsidian vault took, and for each of the last ten pages its size, images, chunks and layout elements. Below that are the caches and the memory in use. `F5` refreshes the values. The page is handy to attach when you report that something feels slow.
+
 ## Uninstalling
 
 Delete `mdvu.exe`. Optionally also:
