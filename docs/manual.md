@@ -112,6 +112,8 @@ In the **document**, mdVü always searches the whole text — including parts of
 
 `Ctrl+F3` again, `Esc` or the `X` button closes the strip — highlights disappear, the folder filter is lifted. The search term itself is kept: `Ctrl+F` brings it back into the field, and `F3` resumes the search from the first hit. That also means `F3` can leave highlights in the document without a visible strip; `Esc` in the document clears them.
 
+While a document search is running — the strip is open, or `F3` has left highlights — it **moves along when you open another document**: the term is searched there right away and the hits are highlighted. The view does not jump to the first hit; `Enter` or `F3` takes you there. A search you closed stays closed.
+
 Only one strip is open at a time; switching views closes the main pane's strip (the strips above the trees stay).
 
 Note on the print preview: it searches what has actually been paginated. Documents cut off at the 200-page limit end there for the search as well.

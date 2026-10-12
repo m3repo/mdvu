@@ -112,6 +112,8 @@ Im **Dokument** durchsucht mdVü immer den ganzen Text — auch Teile sehr groß
 
 Nochmal `Strg+F3`, `Esc` oder der `X`-Knopf schließt den Streifen — Hervorhebungen verschwinden, der Ordnerfilter wird aufgehoben. Der Suchbegriff selbst bleibt erhalten: `Strg+F` holt ihn wieder ins Feld, `F3` nimmt die Suche beim ersten Treffer wieder auf. Damit kann `F3` auch ohne sichtbaren Streifen Hervorhebungen im Dokument stehen lassen; `Esc` im Dokument räumt sie weg.
 
+Solange eine Dokumentsuche läuft — der Streifen ist offen, oder `F3` hat Hervorhebungen stehen lassen —, **wandert sie beim Öffnen eines anderen Dokuments mit**: Der Begriff wird dort sofort gesucht, die Treffer werden hervorgehoben. Die Ansicht springt dabei nicht zum ersten Treffer; `Eingabe` oder `F3` führt dorthin. Eine geschlossene Suche bleibt geschlossen.
+
 Es ist immer höchstens ein Streifen offen; ein Ansichtswechsel schließt den Streifen des Haupt-Panes (die Streifen über den Bäumen bleiben).
 
 Hinweis zur Druckvorschau: Sie durchsucht, was tatsächlich paginiert wurde. Dokumente, die an der 200-Seiten-Grenze abgeschnitten sind, enden auch für die Suche dort.
