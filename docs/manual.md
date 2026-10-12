@@ -219,7 +219,9 @@ mdVü comes with its own print and PDF output — no detour through a browser or
 - **Wide tables** are fitted automatically: the font shrinks moderately (down to 70 %), anything still wider is cut off at the right page edge — so put the important columns first. Long-text columns are capped at 30 % of the page width when space is tight. The previous behaviour (squeeze all columns onto the page) is available via the setting `print/tableFit = squeeze`.
 - **Print** straight from the view with `Ctrl+P`. The print dialog starts with the printer and paper from the page setup, and changes made there flow back into the preview.
 
-Print and PDF output is always light, regardless of the dark mode setting — a dark page background would waste toner and read badly on paper. Preview, print and PDF are limited to the first **200 pages**; a note appears in the status bar when a document is cut off.
+Print and PDF output is always light, regardless of the dark mode setting — a dark page background would waste toner and read badly on paper. Preview, print and PDF are limited to the first **200 pages**; a red message appears in the status bar when a document is cut off.
+
+**Messages.** Messages appear in the status bar in place of the file name: red ones matter (something is missing from the output or has failed) and stay a little longer, orange ones are hints, blue ones just confirm a key press. A small flag at the right end of the status bar opens the list of earlier messages — all red ones and the last few orange ones; it turns red while there is a red message you have not looked at yet.
 
 ## Line breaks, Obsidian and Git
 

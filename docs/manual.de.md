@@ -219,7 +219,9 @@ mdVü bringt eine eigene Druck- und PDF-Ausgabe mit — kein Umweg über den Bro
 - **Überbreite Tabellen** werden automatisch eingepasst: Die Schrift wird maßvoll verkleinert (bis 70 %), was dann noch übersteht, wird am rechten Seitenrand abgeschnitten — die wichtigen Spalten also nach links stellen. Langtext-Spalten werden bei knappem Platz auf 30 % der Seitenbreite gedeckelt. Das bisherige Verhalten (alle Spalten auf die Seite quetschen) bleibt über die Einstellung `print/tableFit = squeeze` verfügbar.
 - **Drucken** direkt aus der Ansicht mit `Strg+P`. Der Druckdialog startet mit Drucker und Papier aus der Seiteneinrichtung, Änderungen darin fließen in die Vorschau zurück.
 
-Die Druck- und PDF-Ausgabe ist immer hell, unabhängig vom Dunkelmodus der Anzeige — ein dunkler Seitengrund würde Toner verschwenden und sich auf Papier schlecht lesen. Vorschau, Druck und PDF sind auf die ersten **200 Seiten** begrenzt; wird ein Dokument gekürzt, erscheint ein Hinweis in der Statuszeile.
+Die Druck- und PDF-Ausgabe ist immer hell, unabhängig vom Dunkelmodus der Anzeige — ein dunkler Seitengrund würde Toner verschwenden und sich auf Papier schlecht lesen. Vorschau, Druck und PDF sind auf die ersten **200 Seiten** begrenzt; wird ein Dokument gekürzt, erscheint eine rote Meldung in der Statuszeile.
+
+**Meldungen.** Meldungen erscheinen in der Statuszeile an der Stelle des Dateinamens: rote sind wichtig (in der Ausgabe fehlt etwas, oder etwas ist gescheitert) und stehen etwas länger, orange sind Hinweise, blaue bestätigen nur einen Tastendruck. Eine kleine Fahne am rechten Ende der Statuszeile öffnet die Liste der früheren Meldungen — alle roten und die letzten orangen; sie wird rot, solange es eine rote Meldung gibt, die Sie noch nicht angesehen haben.
 
 ## Zeilenumbrüche, Obsidian und Git
 
