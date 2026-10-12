@@ -20,6 +20,7 @@ This is the extended manual for readers who want the whole picture, including in
 - [Printing and PDF](#printing-and-pdf)
 - [Converting an HTML file to Markdown](#converting-an-html-file-to-markdown)
 - [Dark mode](#dark-mode)
+- [Frontmatter](#frontmatter)
 - [Screen readers](#screen-readers)
 - [Customizing the display](#customizing-the-display)
 - [Settings](#settings)
@@ -296,6 +297,10 @@ The same conversion is available from the [command line](#command-line), for scr
 
 Dark mode in the document is entirely CSS-driven: the built-in dark stylesheet is layered on top of the light one. This matters when you write your own CSS — see [Customizing with CSS](css-customizing.md), which explains why a colour you set only for dark mode can "stick" when you switch back.
 
+## Frontmatter
+
+*View → Show Frontmatter* shows or hides the YAML header at the top of a file; the setting is remembered. When it is hidden, a single line — `--- frontmatter (5 lines) ---` — stays in its place, so you can see that the file has one; a click on that line shows it again. While you step through search hits (unit `HIT`), the frontmatter is always shown in full, so a hit inside it is never invisible. Print, preview and PDF leave a hidden frontmatter out completely.
+
 ## Screen readers
 
 mdVü draws the document itself, and screen readers (NVDA, JAWS, Narrator) cannot read that view yet. Until they can, `Ctrl+Shift+B` (*View → Read in browser*) opens the current document as a web page in your default browser — with headings, lists, tables and links that every screen reader handles well. The page is written to a temporary folder; nothing leaves your computer. The folder view and the outline already work with screen readers: they announce the name of the selected file or heading.
@@ -338,6 +343,7 @@ The values worth knowing about:
 | Key | Meaning |
 |---|---|
 | `doc/maxLoadMB` | load limit for a single document in MB (default 50) |
+| `doc/showFrontmatter` | show the YAML header in full (`true`, default) or collapse it to one line — written by *View → Show Frontmatter* |
 | `doc/zoom` | document zoom in percent (default 100); the closest step applies — written when you zoom |
 | `doc/lineBreaks` | line breaks outside an Obsidian vault: `standard` (default, Markdown standard) or `newline` (every line break breaks, as in Typora). Inside a vault, the vault's own setting applies. Takes effect on the next start |
 | `doc/tableImageMaxWidth` | maximum width of an image in a table cell, in pixels (default 400); `0` shows images at their natural size. Applies only to images without a width of their own (`![[image.png\|300]]`). Takes effect on the next start |

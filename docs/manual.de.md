@@ -20,6 +20,7 @@ Dies ist das ausführliche Handbuch für alle, die das ganze Bild wollen — sam
 - [Drucken und PDF](#drucken-und-pdf)
 - [HTML-Datei nach Markdown wandeln](#html-datei-nach-markdown-wandeln)
 - [Dunkelmodus](#dunkelmodus)
+- [Frontmatter](#frontmatter)
 - [Screenreader](#screenreader)
 - [Darstellung anpassen](#darstellung-anpassen)
 - [Einstellungen](#einstellungen)
@@ -296,6 +297,10 @@ Dieselbe Wandlung gibt es auf der [Kommandozeile](#kommandozeile), für Skripte,
 
 Der Dunkelmodus im Dokument ist vollständig CSS-getrieben: Das eingebaute dunkle Stylesheet wird über das helle gelegt. Das ist wichtig, sobald man eigenes CSS schreibt — [Anpassen per CSS](css-customizing.de.md) erklärt, warum eine nur für den Dunkelmodus gesetzte Farbe beim Zurückschalten „hängenbleiben“ kann.
 
+## Frontmatter
+
+*Ansicht → Show Frontmatter* blendet den YAML-Kopf am Dateianfang ein oder aus; die Einstellung wird gemerkt. Ist er ausgeblendet, bleibt an seiner Stelle eine einzelne Zeile stehen — `--- frontmatter (5 lines) ---` —, damit erkennbar bleibt, dass die Datei einen hat; ein Klick auf die Zeile blendet ihn wieder ein. Solange Sie durch Suchtreffer gehen (Einheit `HIT`), steht das Frontmatter immer vollständig da, ein Treffer darin bleibt also nie unsichtbar. Druck, Vorschau und PDF lassen ein ausgeblendetes Frontmatter ganz weg.
+
 ## Screenreader
 
 mdVü zeichnet das Dokument selbst, und Screenreader (NVDA, JAWS, Windows-Sprachausgabe) können diese Ansicht noch nicht lesen. Bis dahin öffnet `Strg+Umschalt+B` (*Ansicht → Read in browser*) das aktuelle Dokument als Webseite im Standardbrowser — mit Überschriften, Listen, Tabellen und Links, mit denen jeder Screenreader gut umgehen kann. Die Seite wird in einem temporären Ordner abgelegt; nichts verlässt Ihren Rechner. Ordnerbaum und Gliederung funktionieren bereits mit Screenreadern: Sie sagen den Namen der gewählten Datei bzw. Überschrift an.
@@ -338,6 +343,7 @@ Die Werte, die man kennen sollte:
 | Schlüssel | Bedeutung |
 |---|---|
 | `doc/maxLoadMB` | Ladegrenze für ein einzelnes Dokument in MB (Standard 50) |
+| `doc/showFrontmatter` | YAML-Kopf vollständig zeigen (`true`, Standard) oder auf eine Zeile einklappen — geschrieben von *Ansicht → Show Frontmatter* |
 | `doc/zoom` | Zoom des Dokuments in Prozent (Standard 100); es gilt die nächstgelegene Stufe — geschrieben beim Zoomen |
 | `doc/lineBreaks` | Zeilenumbrüche außerhalb eines Obsidian-Vaults: `standard` (Standard, Markdown-Standard) oder `newline` (jeder Zeilenumbruch bricht um, wie in Typora). Im Vault gilt dessen eigene Einstellung. Wirkt beim nächsten Start |
 | `doc/tableImageMaxWidth` | größte Breite eines Bildes in einer Tabellenzelle in Pixeln (Standard 400); `0` zeigt Bilder in ihrer natürlichen Größe. Gilt nur für Bilder ohne eigene Breitenangabe (`![[bild.png\|300]]`). Wirkt beim nächsten Start |
