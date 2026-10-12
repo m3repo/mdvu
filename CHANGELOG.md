@@ -6,6 +6,31 @@ All notable changes to mdVü are documented here. The format follows [Keep a Cha
 
 ## [Unreleased]
 
+## [0.18.0] — 2026-10-12
+
+### Added
+
+- **HTML to Markdown (preview):** *Tools → Convert HTML file to Markdown* turns a local HTML file into a Markdown file next to it and opens it; `mdvu.exe /convert <html> [<md>]` does the same without a window. A file `mdvu-converter.yaml` next to the HTML file controls the details: callouts and code languages by CSS class, parts to skip, links to other converted pages, a frontmatter block, a banner and the base address for relative links. Nothing is downloaded. The converter is a preview — its settings may still change.
+- **Show or hide frontmatter:** *View → Show Frontmatter* collapses the YAML header at the top of a file to a single line, so you can still see that there is one; a click on the line shows it again. While you step through search hits, the frontmatter is always shown in full. Print and PDF leave a hidden frontmatter out. Setting: `doc/showFrontmatter`.
+- **Messages with a history:** messages in the status bar now come in three kinds — red for what matters (something is missing from the output or has failed), orange for hints, blue for a mere confirmation. A small flag at the right end of the status bar lists the earlier ones.
+- **Link target in the status bar:** while the mouse is on a link, or a link is selected with the keyboard, the status bar shows where it leads. Links that leave mdVü (web, e-mail) have their own color.
+- **Mark at the reading position:** a thin bar at the left edge shows the line of the caret, the current search hit or the selected link.
+- **Diagnostics page:** *Help → Diagnostics* lists the back/forward history with the stored reading positions, and the folders mdVü uses.
+- **Window size is remembered** — separately for each screen size, so the notebook display and the large monitor each keep their own. The position is left to Windows. Setting: `ui/windowSize`.
+
+### Changed
+
+- **A running search moves along:** when you open another document while the search strip is open, the term is searched there right away and the hits are highlighted. `Enter` and `F3` search again instead of doing nothing when there are no hits yet.
+- **Links within a document are part of the history:** a jump to `[section](#section)` can be undone with *Back*.
+- **Link navigation keeps the page where it is:** a page opened with the links unit no longer jumps to its first link if that link is off screen (`LINK 0/41`); `↑` on the topmost link returns to the top of the page.
+- **Messages that matter are red and stay longer:** “Preview limited to 200 pages” and “Table wider than page” were easy to miss. Reaching the start or end of the history is now only a brief blue note.
+
+### Fixed
+
+- In print, the title of a callout could stay alone at the bottom of a page.
+- The caret now takes the text color of the document instead of a fixed color.
+- Where a word broke across two lines at a hyphen (a link such as “Little Snow-white”), part of it was left out of the selection, the search highlight or the link mark.
+
 ## [0.17.0] — 2026-10-10
 
 ### Added

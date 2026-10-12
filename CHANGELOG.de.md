@@ -6,6 +6,31 @@ Hier stehen alle nennenswerten Änderungen an mdVü. Das Format folgt [Keep a Ch
 
 ## [Unveröffentlicht]
 
+## [0.18.0] — 2026-10-12
+
+### Neu
+
+- **HTML nach Markdown (Vorschau):** *Tools → Convert HTML file to Markdown* wandelt eine lokale HTML-Datei in eine Markdown-Datei daneben und öffnet sie; `mdvu.exe /convert <html> [<md>]` tut dasselbe ohne Fenster. Eine Datei `mdvu-converter.yaml` neben der HTML-Datei steuert die Einzelheiten: Callouts und Code-Sprachen nach CSS-Klasse, auszulassende Teile, Links auf andere gewandelte Seiten, einen Frontmatter-Block, ein Banner und die Basisadresse für relative Links. Es wird nichts nachgeladen. Der Wandler ist eine Vorschau — seine Einstellungen können sich noch ändern.
+- **Frontmatter ein- und ausblenden:** *Ansicht → Show Frontmatter* klappt den YAML-Kopf am Dateianfang auf eine einzelne Zeile ein, damit erkennbar bleibt, dass es einen gibt; ein Klick auf die Zeile blendet ihn wieder ein. Solange Sie durch Suchtreffer gehen, steht das Frontmatter immer vollständig da. Druck und PDF lassen ein ausgeblendetes Frontmatter weg. Einstellung: `doc/showFrontmatter`.
+- **Meldungen mit Verlauf:** Meldungen in der Statuszeile gibt es jetzt in drei Arten — rot für Wichtiges (in der Ausgabe fehlt etwas, oder etwas ist gescheitert), orange für Hinweise, blau für eine bloße Bestätigung. Eine kleine Fahne am rechten Ende der Statuszeile listet die früheren auf.
+- **Linkziel in der Statuszeile:** Solange die Maus auf einem Link steht oder ein Link mit der Tastatur gewählt ist, zeigt die Statuszeile, wohin er führt. Links, die mdVü verlassen (Web, E-Mail), haben eine eigene Farbe.
+- **Marke an der Leseposition:** Ein schmaler Strich am linken Rand zeigt die Zeile des Carets, des aktuellen Suchtreffers oder des gewählten Links.
+- **Diagnose-Seite:** *Hilfe → Diagnostics* listet den Verlauf (Zurück/Vor) mit den gemerkten Lesepositionen und die Ordner, die mdVü benutzt.
+- **Die Fenstergröße wird gemerkt** — getrennt je Bildschirmgröße, das Notebook-Display und der große Monitor behalten also jeweils ihre eigene. Die Position bleibt Windows überlassen. Einstellung: `ui/windowSize`.
+
+### Geändert
+
+- **Eine laufende Suche wandert mit:** Wer bei offenem Suchstreifen ein anderes Dokument öffnet, bekommt den Begriff dort sofort gesucht und die Treffer hervorgehoben. `Eingabe` und `F3` suchen neu, statt nichts zu tun, wenn es noch keine Treffer gibt.
+- **Links innerhalb eines Dokuments stehen im Verlauf:** Ein Sprung zu `[Abschnitt](#abschnitt)` lässt sich mit *Zurück* rückgängig machen.
+- **Die Link-Navigation lässt die Seite stehen:** Eine in der Link-Einheit geöffnete Seite springt nicht mehr zu ihrem ersten Link, wenn der außerhalb des Bildes liegt (`LINK 0/41`); `↑` auf dem obersten Link führt an den Seitenanfang zurück.
+- **Wichtige Meldungen sind rot und stehen länger:** „Preview limited to 200 pages“ und „Table wider than page“ waren leicht zu übersehen. Anfang oder Ende des Verlaufs ist jetzt nur noch ein kurzer blauer Hinweis.
+
+### Behoben
+
+- Im Druck konnte der Titel eines Callouts allein am Seitenende stehen bleiben.
+- Der Caret nimmt jetzt die Textfarbe des Dokuments statt einer festen Farbe.
+- Wo ein Wort an einem Bindestrich über zwei Zeilen umbrach (ein Link wie „Little Snow-white“), blieb ein Teil davon bei Auswahl, Suchmarkierung oder Link-Marke ausgespart.
+
 ## [0.17.0] — 2026-10-10
 
 ### Neu
