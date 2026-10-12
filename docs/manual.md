@@ -362,6 +362,7 @@ The values worth knowing about:
 | `ui/theme`, `ui/mode` | named stylesheet and light/dark/system — written by the Dark Mode command |
 | `ui/currentFolder` | folder restored on the next start |
 | `ui/folderTreeHideDot` | hide files and folders whose name starts with a dot (`.git`, `.obsidian`, `.trash` …) in the folder view; mdVü then doesn't look inside them either, which keeps large vaults and repositories fast. `true` (default) or `false`. Takes effect on the next start |
+| `ui/windowSize` | window size from last time as `width,height,maximized` (at 100 % scaling); the position is left to Windows. Next to it mdVü keeps one entry per screen size, such as `ui/windowSize.2560x1440`, so each of your screens gets its own size back |
 | `ui/startPage` | page shown at start, as a link such as `mdvu:open?uri=m3-mdvu:start.md&nav=links` — any file or page works, e.g. `mdvu:open?uri=C:/Notes/Index.md`. Empty means the welcome page; after the first session in which you opened a file, mdVü fills in the start page once and never touches the value again. A file passed on the command line (double-click in Explorer) always wins |
 | `ui/pageSetupBar` | show the page setup strip in the print preview (on by default) |
 | `ui/fileMru`, `ui/folderMru` | recently used files and folders |

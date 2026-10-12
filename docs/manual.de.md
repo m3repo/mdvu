@@ -362,6 +362,7 @@ Die Werte, die man kennen sollte:
 | `ui/theme`, `ui/mode` | benanntes Stylesheet und hell/dunkel/System — wird vom Dark-Mode-Befehl geschrieben |
 | `ui/currentFolder` | Ordner, der beim nächsten Start wiederhergestellt wird |
 | `ui/folderTreeHideDot` | Dateien und Ordner, deren Name mit einem Punkt beginnt (`.git`, `.obsidian`, `.trash` …), in der Ordneransicht ausblenden; mdVü schaut dann auch nicht hinein, das hält große Vaults und Repositories schnell. `true` (Standard) oder `false`. Wirkt beim nächsten Start |
+| `ui/windowSize` | Fenstergröße vom letzten Mal als `Breite,Höhe,maximiert` (bei 100 % Skalierung); die Position bleibt Windows überlassen. Daneben führt mdVü je Bildschirmgröße einen Eintrag, etwa `ui/windowSize.2560x1440` — jeder Ihrer Bildschirme bekommt so seine eigene Größe zurück |
 | `ui/startPage` | Seite beim Start, als Link wie `mdvu:open?uri=m3-mdvu:start.md&nav=links` — jede Datei oder Seite geht, z.B. `mdvu:open?uri=C:/Notizen/Index.md`. Leer bedeutet die Willkommensseite; nach der ersten Sitzung, in der Sie eine Datei geöffnet haben, trägt mdVü einmalig die Startseite ein und ändert den Wert danach nie wieder. Eine per Kommandozeile übergebene Datei (Doppelklick im Explorer) hat immer Vorrang |
 | `ui/pageSetupBar` | Seiteneinrichtungs-Leiste in der Druckvorschau zeigen (standardmäßig an) |
 | `ui/fileMru`, `ui/folderMru` | zuletzt benutzte Dateien und Ordner |
