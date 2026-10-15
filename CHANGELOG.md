@@ -9,7 +9,7 @@ All notable changes to mdVü are documented here. The format follows [Keep a Cha
 ### Added
 
 - **Several windows:** *File → New window* (`Ctrl+N`) *Open in new window* in the menu of a file or folder, `Ctrl`+click or middle click on a link or in the folder view. Each window keeps its own folder view, history and search; recent files and favorites are shared, and the program ends with the last window.
-- **Files go to the running window:** with mdVü already open, a file or folder opened from Explorer or the command line shows up in that window when it belongs to the vault, repository or folder shown there — no second window, and the caches are already warm. Everything else still opens a window of its own. Settings: `open/inOpenVault`, `open/inShownFolder`, `open/loose`, `open/other`.
+- **Files go to the running window:** with mdVü already open, a file or folder opened from Explorer or the command line shows up in that window when it belongs to the vault, repository or folder shown there — no second window, and the caches are already warm. Files outside any vault or repository share one window, everything else opens a new window in the same program. Settings: `open/inOpenVault`, `open/inShownFolder`, `open/loose`, `open/other`.
 - **Portable mode:** an empty `settings.ini` next to `mdvu.exe` keeps settings, favorites, `user.css` and the license acceptance in the program folder — nothing goes to the user profile or the registry. The license acceptance is tied to the computer and Windows user, so a copied `settings.ini` does not carry it over. Registering as Markdown default is not available in this mode. Releases come with a ready-made `mdvu-<version>-portable.zip`. See [Portable use](docs/manual.md#portable-use).
 
 ## [0.18.0] — 2026-10-12
