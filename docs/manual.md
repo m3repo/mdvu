@@ -98,6 +98,7 @@ There are several ways to open a file:
 - **Double-click in Explorer:** *File → Register as Markdown default* associates mdVü with `.md` files (per user, no admin rights required). Windows may ask once via "Open with" — see [Troubleshooting](#troubleshooting).
 - **Explorer context menu:** the same registration adds *Open with mdVü*, *Print with mdVü* (opens the print preview) and *Export as PDF with mdVü* to every `.md` file — even if another program is the default — and *Open in mdVü* to folders. On Windows 11 they are under *Show more options* (`Shift+F10`). If you registered with an earlier version, register once more to get them.
 - **Command line:** `mdvu.exe "C:\Notes\Readme.md"` — see [Command line](#command-line).
+- **Several windows:** *File → New window* (`Ctrl+N`) opens the current document in a second window; *Open in new window* in the menu of a file or folder (right-click in the folder view or on the path in the status bar) does the same for that file or folder. Each window has its own folder view, history and search; recent files and favorites are shared. The program ends with the last window.
 - **mdVü already running:** a file opened from Explorer or the command line goes to the open window if it belongs there — it lies in the vault or repository shown there, or in the folder shown in the folder view. The window comes to the front, no second window opens. Anything else opens a window of its own as before; *Print with* and *Export as PDF with* always do. If a dialog is open in the running window, the file opens in a new window instead.
 
 If the displayed file is changed by another program, mdVü reloads it automatically — the scroll position is preserved. `F5` does the same manually. Files that appear in or disappear from the current folder show up in the tree without a manual refresh; this works recursively, for subfolders too.
@@ -404,6 +405,7 @@ mdVü has a few deliberate hard limits. They exist so that an unusual file canno
 | Key | Function |
 |---|---|
 | `Ctrl+O` | Open file |
+| `Ctrl+N` | New window with the current document |
 | `F1` | Manual |
 | `Ctrl+F` | Search in the main pane |
 | `F3` / `Shift+F3` | Next / previous hit in the main pane |
