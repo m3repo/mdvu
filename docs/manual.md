@@ -10,6 +10,7 @@ This is the extended manual for readers who want the whole picture, including in
 
 - [Why a Markdown viewer?](#why-a-markdown-viewer)
 - [Installation and first start](#installation-and-first-start)
+- [Portable use](#portable-use)
 - [The window at a glance](#the-window-at-a-glance)
 - [Opening files](#opening-files)
 - [Folder view and search](#folder-view-and-search)
@@ -51,9 +52,23 @@ There is no installer. mdVü is a single executable:
 2. Start it. On the very first start the license is shown and has to be accepted once.
 3. Optional: *File → Register as Markdown default* makes `.md` files open in mdVü on double-click.
 
-Nothing is installed system-wide, no admin rights are required, and no services or scheduled tasks are created. The program writes to exactly two places outside its own folder — see [Uninstalling](#uninstalling).
+Nothing is installed system-wide, no admin rights are required, and no services or scheduled tasks are created. The program writes to exactly two places outside its own folder — see [Uninstalling](#uninstalling). If you want it to write to none, use the [portable mode](#portable-use).
 
 **If SmartScreen warns you:** published builds are code-signed and timestamped, but Windows also considers *reputation*, which a new build has yet to earn. „More info → Run anyway" starts the program; you can verify the signature beforehand via *Properties → Digital Signatures*.
+
+## Portable use
+
+mdVü can also run without leaving anything in your user profile or the registry — from a USB stick, a synced folder or a tools folder you carry from computer to computer. The portable download (`mdvu-<version>-portable.zip`) contains `mdvu.exe` and an empty `settings.ini`; unpack both into the same folder.
+
+**How it works:** if a file named `settings.ini` lies next to `mdvu.exe`, mdVü runs in portable mode and keeps everything in that folder — `settings.ini` (values), `user.css` and `favorites.yaml`. Any existing `.exe` becomes portable the same way: just create an empty `settings.ini` next to it. Delete the file (or move the EXE away from it) and mdVü uses the normal settings folder again; the two never mix. Settings are not carried over between the modes — copy `user.css` and `favorites.yaml` by hand if you want them in both.
+
+**The folder must be writable.** If it is not (for example below *Program Files*, or a write-protected stick), mdVü says so at startup and runs anyway, but cannot save anything — not even the license acceptance, so you would be asked again on every start.
+
+**License acceptance:** in portable mode it is stored in `settings.ini`, tied to the computer and the Windows user. On a computer or user account where you have not accepted it yet, the license is shown once — a `settings.ini` copied from someone else does not count. Each computer you use keeps its own entry.
+
+**What is not available:** *File → Register as Markdown default* — the association would point to a folder that may move or carry another drive letter next time. *File → Remove Markdown registration* still works, for cleaning up after an earlier installed copy.
+
+*Help → Diagnostics* shows the settings folder as *Settings (portable)*.
 
 ## The window at a glance
 
@@ -333,7 +348,7 @@ There is no settings dialog yet. *Help → Setting* opens a small note with a cl
 %APPDATA%\m3Works\mdVu
 ```
 
-It contains `settings.ini` (values), `user.css` (your stylesheet) and `favorites.yaml` (your favorites). Values are written through immediately — mdVü never loses a setting on a crash, but it also means **you should close the program before editing `settings.ini` by hand**, otherwise your changes will be overwritten.
+In [portable mode](#portable-use) it is the program folder instead. It contains `settings.ini` (values), `user.css` (your stylesheet) and `favorites.yaml` (your favorites). Values are written through immediately — mdVü never loses a setting on a crash, but it also means **you should close the program before editing `settings.ini` by hand**, otherwise your changes will be overwritten.
 
 Keys are hierarchical: everything before the slash is the INI section, everything after is the key name. `doc/maxLoadMB = 80` therefore looks like this in the file:
 
@@ -468,7 +483,7 @@ Delete `mdvu.exe`. Optionally also:
 - the registry key `HKCU\Software\m3Works\mdVu` (the license acknowledgement)
 - the file association, via *File → Remove Markdown registration* **before** deleting the EXE
 
-That's everything mdVü ever touches.
+That's everything mdVü ever touches. In [portable mode](#portable-use), deleting the program folder is all there is to it — unless you removed a registration from an earlier installed copy, nothing was written elsewhere.
 
 ---
 

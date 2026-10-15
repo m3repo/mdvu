@@ -6,6 +6,10 @@ Hier stehen alle nennenswerten Änderungen an mdVü. Das Format folgt [Keep a Ch
 
 ## [Unveröffentlicht]
 
+### Neu
+
+- **Portabler Modus:** eine leere `settings.ini` neben `mdvu.exe` hält Einstellungen, Favoriten, `user.css` und die Lizenz-Bestätigung im Programmordner — nichts landet im Benutzerprofil oder in der Registry. Die Lizenz-Bestätigung ist an Rechner und Windows-Benutzer gebunden; eine kopierte `settings.ini` nimmt sie nicht mit. Als Markdown-Standard registrieren geht in diesem Modus nicht. Releases enthalten eine fertige `mdvu-<version>-portable.zip`. Siehe [Portabel nutzen](docs/manual.de.md#portabel-nutzen).
+
 ## [0.18.0] — 2026-10-12
 
 ### Neu
