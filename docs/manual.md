@@ -98,6 +98,7 @@ There are several ways to open a file:
 - **Double-click in Explorer:** *File → Register as Markdown default* associates mdVü with `.md` files (per user, no admin rights required). Windows may ask once via "Open with" — see [Troubleshooting](#troubleshooting).
 - **Explorer context menu:** the same registration adds *Open with mdVü*, *Print with mdVü* (opens the print preview) and *Export as PDF with mdVü* to every `.md` file — even if another program is the default — and *Open in mdVü* to folders. On Windows 11 they are under *Show more options* (`Shift+F10`). If you registered with an earlier version, register once more to get them.
 - **Command line:** `mdvu.exe "C:\Notes\Readme.md"` — see [Command line](#command-line).
+- **mdVü already running:** a file opened from Explorer or the command line goes to the open window if it belongs there — it lies in the vault or repository shown there, or in the folder shown in the folder view. The window comes to the front, no second window opens. Anything else opens a window of its own as before; *Print with* and *Export as PDF with* always do. If a dialog is open in the running window, the file opens in a new window instead.
 
 If the displayed file is changed by another program, mdVü reloads it automatically — the scroll position is preserved. `F5` does the same manually. Files that appear in or disappear from the current folder show up in the tree without a manual refresh; this works recursively, for subfolders too.
 
@@ -370,6 +371,7 @@ The values worth knowing about:
 | `perf/textCacheIdleMinutes` | after this many minutes without navigation the text cache shrinks one step, at most to halfway between the two values, so a window left open gives memory back (default 5, `0` = off) |
 | `perf/imageCacheMB` | memory for decoded images in MB (default 64, at least 8). Images are kept at the size they are shown, so scrolling and returning to a page do not decode them again. Takes effect on the next start |
 | `perf/imageWicDecoder` | decode PNG and JPEG with the Windows image decoder, which is considerably faster (default `true`); `false` uses the previous built-in decoders — a way out if an image looks wrong |
+| `open/inOpenVault`, `open/inShownFolder`, `open/loose`, `open/other` | what happens when mdVü is already running and a file or folder is opened from outside — one key per case: it lies in a vault or repository open in the window; it lies in the folder shown in the folder view; it lies in no vault or repository; it lies in a vault or repository that is not open. Values: `match` (into the window the case refers to), `reuse` (into the running window anyway), `instance` (a window of its own). Defaults: `match`, `match`, `instance`, `instance`. The values `window` and `loose` are reserved for multiple windows and currently act like `instance` and `reuse` |
 | `print/paper` | paper size: `A3`, `A4` (default), `A5`, `A6`, `Letter`, `Legal` — written by the page setup strip |
 | `print/orientation` | `portrait` (default) or `landscape` |
 | `print/printer` | printer name; empty means the Windows default printer |
@@ -442,6 +444,8 @@ mdvu.exe /convert page.html       convert an HTML file to Markdown, no window
 ```
 
 The first parameter may be a file or a folder; a file is opened, a folder shown in the folder view. This is also the mechanism behind the Explorer file association.
+
+If mdVü is already running, a file or folder may go to the open window instead — see *mdVü already running* under [Opening files](#opening-files) and the `open/…` settings. `/print` and `/pdf` always run in a process of their own, so a script can wait for them.
 
 `/convert` writes the Markdown file next to the HTML file (`page.md`), or to the path given as a second parameter, and then ends without opening a window: exit code 0 means converted, 1 the conversion failed, 2 the call was incomplete or the file is missing. A `mdvu-converter.yaml` next to the HTML file applies as in the menu command — see [Converting an HTML file to Markdown](#converting-an-html-file-to-markdown). The converter is a preview; the switch may change or be removed. mdVü is a window program, so a script should wait for it explicitly, for example `Start-Process mdvu.exe -ArgumentList '/convert','page.html' -Wait -PassThru` in PowerShell.
 

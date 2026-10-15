@@ -98,6 +98,7 @@ Es gibt mehrere Wege, eine Datei zu öffnen:
 - **Doppelklick im Explorer:** Über *Datei → Als Markdown-Standard registrieren* verknüpft sich mdVü mit `.md`-Dateien (pro Benutzer, keine Admin-Rechte nötig). Windows fragt ggf. einmalig per „Öffnen mit“ nach — siehe [Fehlersuche](#fehlersuche).
 - **Kontextmenü im Explorer:** Dieselbe Registrierung ergänzt bei jeder `.md`-Datei — auch wenn ein anderes Programm Standard ist — *Open with mdVü*, *Print with mdVü* (öffnet die Druckvorschau) und *Export as PDF with mdVü*, bei Ordnern *Open in mdVü*. Unter Windows 11 stehen sie unter *Weitere Optionen anzeigen* (`Umschalt+F10`). Wer mit einer früheren Version registriert hat, registriert einmal neu, um sie zu bekommen.
 - **Kommandozeile:** `mdvu.exe "C:\Notizen\Liesmich.md"` — siehe [Kommandozeile](#kommandozeile).
+- **mdVü läuft schon:** eine aus dem Explorer oder per Kommandozeile geöffnete Datei landet im offenen Fenster, wenn sie dorthin gehört — sie liegt im dort gezeigten Vault oder Repository oder im Ordner der Ordneransicht. Das Fenster kommt nach vorn, ein zweites öffnet sich nicht. Alles andere öffnet wie bisher ein eigenes Fenster; *Print with* und *Export as PDF with* immer. Ist im laufenden Fenster ein Dialog offen, öffnet die Datei stattdessen in einem neuen Fenster.
 
 Wird die angezeigte Datei von einem anderen Programm geändert, lädt mdVü sie automatisch neu — die Scrollposition bleibt erhalten. Mit `F5` geht das auch von Hand. Dateien, die im aktuellen Ordner hinzukommen oder verschwinden, erscheinen im Baum ohne manuelles Auffrischen; das gilt rekursiv, also auch für Unterordner.
 
@@ -370,6 +371,7 @@ Die Werte, die man kennen sollte:
 | `perf/textCacheIdleMinutes` | nach so vielen Minuten ohne Navigation schrumpft der Textcache einen Schritt, höchstens bis zur Mitte zwischen beiden Werten; ein liegengelassenes Fenster gibt so Speicher zurück (Standard 5, `0` = aus) |
 | `perf/imageCacheMB` | Speicher für dekodierte Bilder in MB (Standard 64, mindestens 8). Bilder werden in der Größe gehalten, in der sie erscheinen; Scrollen und die Rückkehr zu einer Seite dekodieren sie nicht erneut. Wirkt beim nächsten Start |
 | `perf/imageWicDecoder` | PNG und JPEG mit dem Bild-Decoder von Windows dekodieren, das ist deutlich schneller (Standard `true`); `false` nimmt die bisherigen eingebauten Decoder — ein Ausweg, falls ein Bild falsch aussieht |
+| `open/inOpenVault`, `open/inShownFolder`, `open/loose`, `open/other` | was geschieht, wenn mdVü schon läuft und eine Datei oder ein Ordner von außen geöffnet wird — ein Schlüssel je Fall: liegt in einem im Fenster offenen Vault oder Repository; liegt im Ordner der Ordneransicht; liegt in keinem Vault oder Repository; liegt in einem Vault oder Repository, das nicht offen ist. Werte: `match` (in das Fenster, auf das der Fall zutrifft), `reuse` (trotzdem ins laufende Fenster), `instance` (eigenes Fenster). Standard: `match`, `match`, `instance`, `instance`. Die Werte `window` und `loose` sind für mehrere Fenster vorgesehen und wirken derzeit wie `instance` bzw. `reuse` |
 | `print/paper` | Papierformat: `A3`, `A4` (Standard), `A5`, `A6`, `Letter`, `Legal` — wird von der Seiteneinrichtung geschrieben |
 | `print/orientation` | `portrait` (Hochformat, Standard) oder `landscape` (Querformat) |
 | `print/printer` | Druckername; leer bedeutet den Windows-Standarddrucker |
@@ -442,6 +444,8 @@ mdvu.exe /convert seite.html        HTML-Datei nach Markdown wandeln, ohne Fenst
 ```
 
 Der erste Parameter darf eine Datei oder ein Ordner sein; eine Datei wird geöffnet, ein Ordner in der Ordneransicht gezeigt. Auf diesem Weg funktioniert auch die Explorer-Verknüpfung.
+
+Läuft mdVü schon, kann eine Datei oder ein Ordner stattdessen im offenen Fenster landen — siehe *mdVü läuft schon* unter [Dateien öffnen](#dateien-öffnen) und die Einstellungen `open/…`. `/print` und `/pdf` laufen immer in einem eigenen Prozess, ein Skript kann also auf sie warten.
 
 `/convert` schreibt die Markdown-Datei neben die HTML-Datei (`seite.md`) oder an den Pfad, der als zweiter Parameter angegeben ist, und endet dann, ohne ein Fenster zu öffnen: Exitcode 0 heißt gewandelt, 1 Wandlung fehlgeschlagen, 2 Aufruf unvollständig oder Datei fehlt. Eine `mdvu-converter.yaml` neben der HTML-Datei gilt wie beim Menübefehl – siehe [HTML-Datei nach Markdown wandeln](#html-datei-nach-markdown-wandeln). Der Wandler ist eine Vorschau; der Schalter kann sich ändern oder entfallen. mdVü ist ein Fensterprogramm; ein Skript sollte deshalb ausdrücklich darauf warten, in PowerShell etwa mit `Start-Process mdvu.exe -ArgumentList '/convert','seite.html' -Wait -PassThru`.
 
