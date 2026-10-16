@@ -152,6 +152,7 @@ Vorausgewählt ist der engste Bereich — im Vault der Vault, im Repository das 
 |---|---|
 | `ab…` | Wortanfang, auch nach Bindestrich oder Satzzeichen: `der` findet *derzeit* und *Nord-der*, aber nicht *oder* |
 | `\|ab\|` | nur ganze Wörter |
+| `.*` | Begriff als regulären Ausdruck lesen; die Wortgrenzen-Umschalter gelten dann nicht (im Muster `\b` verwenden). Die Links der Trefferliste nehmen das mit |
 
 Suchen beim Tippen gibt es hier nicht: eine Suche über Tausende Dateien beginnt erst, wenn Sie sie anstoßen.
 

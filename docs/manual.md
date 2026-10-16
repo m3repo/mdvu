@@ -152,6 +152,7 @@ The narrowest area is preselected — inside a vault the vault, inside a reposit
 |---|---|
 | `ab…` | Beginning of a word, also after a hyphen or punctuation: `der` finds *derzeit* and *Nord-der*, but not *oder* |
 | `\|ab\|` | Whole words only |
+| `.*` | Read the term as a regular expression; the word-boundary toggles do not apply then (use `\b` in the pattern). The links of the result list carry it along |
 
 There is no search-as-you-type here: a search across thousands of files only starts when you ask for it.
 
