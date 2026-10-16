@@ -20,6 +20,7 @@ Hier stehen alle nennenswerten Änderungen an mdVü. Das Format folgt [Keep a Ch
 
 ### Behoben
 
+- **Dateien mit Byte-Order-Mark (UTF-8 mit BOM)** zeigten ihr Frontmatter als normalen Text; auch *Find in files* übersah solches Frontmatter. Fehlerhaft seit 0.12.
 - Die Links der Startseite auf das Handbuch und auf die Sprachliste wurden mit „Link denied“ abgewiesen.
 - Eine von einem anderen Programm gesperrte `settings.ini` (Sync-Werkzeug, Virenscanner) hält mdVü nicht mehr mit einem Fehler an; mdVü versucht es mit der nächsten Änderung und beim Beenden erneut.
 

@@ -20,6 +20,7 @@ All notable changes to mdVü are documented here. The format follows [Keep a Cha
 
 ### Fixed
 
+- **Files saved with a byte order mark (UTF-8 with BOM)** showed their frontmatter as plain text; *Find in files* also missed such frontmatter. Broken since 0.12.
 - The links on the start page to the manual and to the list of languages were refused with “Link denied”.
 - A `settings.ini` locked by another program (a sync tool, a virus scanner) no longer stops mdVü with an error; mdVü tries again with the next change and when it closes.
 
