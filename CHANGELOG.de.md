@@ -4,13 +4,24 @@
 
 Hier stehen alle nennenswerten Änderungen an mdVü. Das Format folgt [Keep a Changelog](https://keepachangelog.com/de/1.1.0/); Versionen sind `Major.Minor.Patch`, die vierte Stelle in der Dateiversion der EXE ist der Build-Zähler.
 
-## [Unveröffentlicht]
+## [0.19.0] — 2026-10-16
 
 ### Neu
 
-- **Mehrere Fenster:** *File → New window* (`Strg+N`) *Open in new window* im Menü einer Datei oder eines Ordners, `Strg`+Klick oder mittlere Maustaste auf einen Link oder in der Ordneransicht. Jedes Fenster behält seine eigene Ordneransicht, seinen Verlauf und seine Suche; zuletzt geöffnete Dateien und Favoriten sind gemeinsam, und das Programm endet mit dem letzten Fenster.
+- **Mehrere Fenster:** *File → New window* (`Strg+N`), *Open in new window* im Menü einer Datei oder eines Ordners, `Strg`+Klick oder mittlere Maustaste auf einen Link oder in der Ordneransicht. Jedes Fenster behält seine eigene Ordneransicht, seinen Verlauf und seine Suche; zuletzt geöffnete Dateien und Favoriten sind gemeinsam, und das Programm endet mit dem letzten Fenster.
 - **Dateien landen im laufenden Fenster:** ist mdVü schon offen, erscheint eine aus dem Explorer oder per Kommandozeile geöffnete Datei bzw. ein Ordner in diesem Fenster, wenn sie zum dort gezeigten Vault, Repository oder Ordner gehört — kein zweites Fenster, und die Zwischenspeicher sind schon warm. Dateien außerhalb jedes Vaults oder Repositorys teilen sich ein Fenster, alles andere öffnet ein neues Fenster im selben Programm. Einstellungen: `open/inOpenVault`, `open/inShownFolder`, `open/loose`, `open/other`.
 - **Portabler Modus:** eine leere `settings.ini` neben `mdvu.exe` hält Einstellungen, Favoriten, `user.css` und die Lizenz-Bestätigung im Programmordner — nichts landet im Benutzerprofil oder in der Registry. Die Lizenz-Bestätigung ist an Rechner und Windows-Benutzer gebunden; eine kopierte `settings.ini` nimmt sie nicht mit. Als Markdown-Standard registrieren geht in diesem Modus nicht. Releases enthalten eine fertige `mdvu-<version>-portable.zip`. Siehe [Portabel nutzen](docs/manual.de.md#portabel-nutzen).
+- **Reguläre Ausdrücke in der Suche:** Der Schalter `.*` der Suchstreifen wirkt jetzt (vorher blieb er ohne Wirkung), und *Find in files* hat ihn ebenfalls.
+
+### Geändert
+
+- **HTML und XML in Codeblöcken** (`html`, `xml`, `svg` …) färbt mdVüs eigener HTML-/XML-Leser; `<script>` und `<style>` innerhalb von HTML werden als JavaScript und CSS gefärbt, SVG innerhalb von HTML als XML.
+- **Temporäre Dateien an einem Ort:** Kopierte Bilder und *Read in browser* benutzen jetzt einen einzigen Ordner `%TEMP%\{mdvu.exe}`; *Hilfe → Diagnostics* zeigt ihn an.
+
+### Behoben
+
+- Die Links der Startseite auf das Handbuch und auf die Sprachliste wurden mit „Link denied“ abgewiesen.
+- Eine von einem anderen Programm gesperrte `settings.ini` (Sync-Werkzeug, Virenscanner) hält mdVü nicht mehr mit einem Fehler an; mdVü versucht es mit der nächsten Änderung und beim Beenden erneut.
 
 ## [0.18.0] — 2026-10-12
 
