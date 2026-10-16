@@ -8,7 +8,9 @@
 
 Genau dafür ist mdVü gebaut.
 
-![mdVü-Hauptfenster |620](docs/img/mdvu-screenshot-main-en.png)
+**[Neueste Version herunterladen](https://github.com/m3repo/mdvu/releases/latest)** — kostenlos · Windows 10/11 · ohne Installation · signierte `mdvu.exe` oder portables ZIP
+
+![mdVü-Hauptfenster|620](docs/img/mdvu-screenshot-main-de.png)
 
 
 ## Was es anders macht
@@ -18,6 +20,7 @@ Genau dafür ist mdVü gebaut.
 - **Sparsam** — ein Bruchteil des Arbeitsspeichers Chromium-basierter Editoren, weil hier kein Chromium mitläuft.
 - **Offline und ruhig** — mdVü bindet keine einzige Netzwerk-DLL ein. Keine Telemetrie, keine Update-Anfragen, keine Konten. Jedes Release wird [gegen eine Baseline seiner eigenen Importe geprüft](#datenschutz-und-sicherheit), bevor es signiert wird.
 - **Echte Druck- und PDF-Ausgabe** — ein echtes Vektor-PDF mit kopierbarem Text, direkt erzeugt, ohne Umweg über Browser oder PDF-Druckertreiber.
+- **Für Notizsammlungen gemacht** — einen ganzen Obsidian-Vault oder ein Git-Repository als Baum öffnen und mit den Pfeiltasten durchblättern; jede Notiz ist sofort da. Wikilinks, Bild-Embeds, Callouts und `==Markierungen==` funktionieren wie in Obsidian, `Strg+Umschalt+F` durchsucht alle Dateien.
 - **Ergänzung, kein Ersatz** — Obsidian, Typora und VS Code bleiben fürs Schreiben zuständig. mdVü ist das Werkzeug für den schnellen Blick: im Explorer doppelklicken, lesen, fertig.
 
 ## Funktionen im Überblick
@@ -54,11 +57,11 @@ Das Handbuch steckt außerdem im Programm: Taste `F1`.
 - Kein .NET, kein Visual-C++-Redistributable, kein WebView2 — die EXE bringt alles mit
 - Rund 15 MB Plattenplatz
 
-Die Einstellungen liegen unter `%APPDATA%\m3Works\mdVu`, die einmalige Lizenz-Bestätigung unter `HKCU\Software\m3Works\mdVu`. Sonst wird außerhalb des Programmordners nichts geschrieben; wer beides entfernt, entfernt jede Spur.
+Die Einstellungen liegen unter `%APPDATA%\m3Works\mdVu`, die einmalige Lizenz-Bestätigung unter `HKCU\Software\m3Works\mdVu`. Sonst wird außerhalb des Programmordners nichts geschrieben; wer beides entfernt, entfernt jede Spur. Im [portablen Modus](docs/manual.de.md#portabel-nutzen) nicht einmal das — alles bleibt neben der EXE.
 
 ## Download
 
-Releases werden auf der [Releases-Seite](https://github.com/m3repo/mdvu/releases/latest) veröffentlicht: eine einzelne, signierte `mdvu.exe`, kein Installer, keine Einrichtung. Herunterladen, hinlegen wo es passt, starten. Zu jedem Release stehen der SHA-256-Hash der Datei und ein Link auf den zugehörigen VirusTotal-Report — damit lässt sich prüfen, ob das Heruntergeladene das hier Veröffentlichte ist.
+Releases werden auf der [Releases-Seite](https://github.com/m3repo/mdvu/releases/latest) veröffentlicht: eine einzelne, signierte `mdvu.exe`, kein Installer, keine Einrichtung. Herunterladen, hinlegen wo es passt, starten. Für USB-Stick oder Werkzeugordner stattdessen `mdvu-<version>-portable.zip` nehmen: damit bleiben Einstellungen, Favoriten und `user.css` im Programmordner ([Portabel nutzen](docs/manual.de.md#portabel-nutzen)). Zu jedem Release stehen der SHA-256-Hash der Datei und ein Link auf den zugehörigen VirusTotal-Report — damit lässt sich prüfen, ob das Heruntergeladene das hier Veröffentlichte ist.
 
 ## Hinweis zur Beta
 
