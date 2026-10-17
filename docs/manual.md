@@ -232,6 +232,7 @@ mdVü comes with its own print and PDF output — no detour through a browser or
 
 - **Print preview** (`Ctrl+F2`): even for long documents, 100 pages are ready in a few seconds.
 - **Page setup:** a strip at the top of the print preview selects the printer, the paper size (A3, A4, A5, A6, Letter, Legal) and portrait or landscape. The preview is laid out anew right away, and print and PDF use exactly this format — what you see in the preview is what comes out of the printer. *Printer setup…* opens the Windows printer settings without printing; printer, paper size and orientation chosen there are taken over. Show or hide the strip with `Ctrl+Shift+P` (*View → Page setup*), close it with `Esc`. The choice is remembered. In a narrow window the printer list gets narrower first; then *Printer setup…*, *PDF…* and *Print…* move into a menu behind **»**. Paper sizes outside the list above are not supported yet; if the printer dialog returns one, mdVü keeps the size set in the strip.
+- **Zoom:** while the print preview is showing, the zoom item in the status bar belongs to it: *Fit page* (the default — the whole sheet is visible), *Fit width* or a fixed percentage. Both fit settings follow the window size; `Ctrl`+mouse wheel or `Ctrl`+`+`/`-` zoom freely. The choice is remembered.
 - **Native PDF:** *View → Export as PDF* produces a true vector PDF with selectable text and a PDF outline built from the document's headings. The files are usually smaller than "Print to PDF" via a printer driver.
 - **Clean page breaks:** orphaned lines are taken into account — a single line of a paragraph is never left alone at the top or bottom of a page.
 - **Wide tables** are fitted automatically: the font shrinks moderately (down to 70 %), anything still wider is cut off at the right page edge — so put the important columns first. Long-text columns are capped at 30 % of the page width when space is tight. The previous behaviour (squeeze all columns onto the page) is available via the setting `print/tableFit = squeeze`.
@@ -377,6 +378,7 @@ The values worth knowing about:
 | `print/paper` | paper size: `A3`, `A4` (default), `A5`, `A6`, `Letter`, `Legal` — written by the page setup strip |
 | `print/orientation` | `portrait` (default) or `landscape` |
 | `print/printer` | printer name; empty means the Windows default printer |
+| `print/previewZoom` | zoom of the print preview: `fitpage` (default), `fitwidth` or a percentage such as `100` — written when you zoom |
 | `print/tableFit` | how wide tables are fitted: `shrink` (default) or `squeeze` |
 | `print/tableMaxColPct` | maximum width of a long-text column in percent of the page (default 30) |
 | `print/tableMinFontPct` | how far the font may shrink when fitting, in percent (default 70) |
