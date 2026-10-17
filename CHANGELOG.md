@@ -4,10 +4,14 @@
 
 All notable changes to mdVü are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versions are `Major.Minor.Patch`, and the fourth number in the file version of the EXE is the build counter.
 
-## [0.19.0] — 2026-10-16
+## [0.20.0] — 2026-10-17
+
+0.19 was not published; its changes are part of this release.
 
 ### Added
 
+- **Tags:** give files and folders your own tags — without changing a single file: mdVü keeps them in `tags.yaml` next to its settings, so a Git repository or someone else's vault stays untouched. Right-click a file or folder (in the folder view, on the path in the status bar or in the open document) and choose **Tags…**. A tag on a folder applies to everything below it. Tags from a document's frontmatter (`tags:`) count as well — one set of tags. A tag line at the top of the document lists them, `#3` in the status bar shows how many there are, *File → Show tags* lists all tags with their places, and *Search in files* searches one tag's places at once or narrows any search with `tag:name`. See [Tags](docs/manual.md#tags).
+- **Zoom of the print preview:** while the preview is showing, the zoom item in the status bar belongs to it — *Fit page* (the default), *Fit width* or a fixed percentage; both fit settings follow the window size. Setting: `print/previewZoom`.
 - **Several windows:** *File → New window* (`Ctrl+N`), *Open in new window* in the menu of a file or folder, `Ctrl`+click or middle click on a link or in the folder view. Each window keeps its own folder view, history and search; recent files and favorites are shared, and the program ends with the last window.
 - **Files go to the running window:** with mdVü already open, a file or folder opened from Explorer or the command line shows up in that window when it belongs to the vault, repository or folder shown there — no second window, and the caches are already warm. Files outside any vault or repository share one window, everything else opens a new window in the same program. Settings: `open/inOpenVault`, `open/inShownFolder`, `open/loose`, `open/other`.
 - **Portable mode:** an empty `settings.ini` next to `mdvu.exe` keeps settings, favorites, `user.css` and the license acceptance in the program folder — nothing goes to the user profile or the registry. The license acceptance is tied to the computer and Windows user, so a copied `settings.ini` does not carry it over. Registering as Markdown default is not available in this mode. Releases come with a ready-made `mdvu-<version>-portable.zip`. See [Portable use](docs/manual.md#portable-use).
@@ -16,6 +20,8 @@ All notable changes to mdVü are documented here. The format follows [Keep a Cha
 ### Changed
 
 - **HTML and XML in code blocks** (`html`, `xml`, `svg` …) are coloured by mdVü's own HTML/XML reader; `<script>` and `<style>` inside HTML are coloured as JavaScript and CSS, SVG inside HTML as XML.
+- **Print strip in a narrow window:** the printer list gets narrower first, then *Printer setup…*, *PDF…* and *Print…* move into a menu behind **»**.
+- **The window size is no longer shown in the status bar.** It was meant as a help for screenshots; the setting `ui/footerWindowSize` turns it back on.
 - **Temporary files in one place:** copied pictures and *Read in browser* now use a single folder `%TEMP%\{mdvu.exe}`; *Help → Diagnostics* shows it.
 
 ### Fixed

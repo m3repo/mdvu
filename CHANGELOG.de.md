@@ -4,10 +4,14 @@
 
 Hier stehen alle nennenswerten Änderungen an mdVü. Das Format folgt [Keep a Changelog](https://keepachangelog.com/de/1.1.0/); Versionen sind `Major.Minor.Patch`, die vierte Stelle in der Dateiversion der EXE ist der Build-Zähler.
 
-## [0.19.0] — 2026-10-16
+## [0.20.0] — 2026-10-17
+
+0.19 wurde nicht veröffentlicht; ihre Änderungen sind Teil dieser Version.
 
 ### Neu
 
+- **Tags:** Dateien und Ordner lassen sich mit eigenen Tags versehen — ohne dass sich eine Datei ändert: mdVü legt sie in `tags.yaml` bei den Einstellungen ab, ein Git-Repository oder ein fremder Vault bleibt also unberührt. Rechtsklick auf eine Datei oder einen Ordner (in der Ordneransicht, auf den Pfad in der Statuszeile oder im geöffneten Dokument), dann **Tags…**. Ein Tag an einem Ordner gilt für alles darunter. Tags aus dem Frontmatter eines Dokuments (`tags:`) zählen ebenso — ein gemeinsamer Satz. Eine Tag-Zeile oben im Dokument zeigt sie, `#3` in der Statuszeile ihre Anzahl, *File → Show tags* listet alle Tags mit ihren Orten, und die *Suche in Dateien* durchsucht alle Orte eines Tags auf einmal oder beschränkt jede Suche mit `tag:name`. Siehe [Tags](docs/manual.de.md#tags).
+- **Zoom der Druckvorschau:** solange die Vorschau vorn ist, gilt ihr der Zoom-Eintrag der Statuszeile — *Fit page* (Standard), *Fit width* oder eine feste Stufe; beide Einpassungen folgen der Fenstergröße. Einstellung: `print/previewZoom`.
 - **Mehrere Fenster:** *File → New window* (`Strg+N`), *Open in new window* im Menü einer Datei oder eines Ordners, `Strg`+Klick oder mittlere Maustaste auf einen Link oder in der Ordneransicht. Jedes Fenster behält seine eigene Ordneransicht, seinen Verlauf und seine Suche; zuletzt geöffnete Dateien und Favoriten sind gemeinsam, und das Programm endet mit dem letzten Fenster.
 - **Dateien landen im laufenden Fenster:** ist mdVü schon offen, erscheint eine aus dem Explorer oder per Kommandozeile geöffnete Datei bzw. ein Ordner in diesem Fenster, wenn sie zum dort gezeigten Vault, Repository oder Ordner gehört — kein zweites Fenster, und die Zwischenspeicher sind schon warm. Dateien außerhalb jedes Vaults oder Repositorys teilen sich ein Fenster, alles andere öffnet ein neues Fenster im selben Programm. Einstellungen: `open/inOpenVault`, `open/inShownFolder`, `open/loose`, `open/other`.
 - **Portabler Modus:** eine leere `settings.ini` neben `mdvu.exe` hält Einstellungen, Favoriten, `user.css` und die Lizenz-Bestätigung im Programmordner — nichts landet im Benutzerprofil oder in der Registry. Die Lizenz-Bestätigung ist an Rechner und Windows-Benutzer gebunden; eine kopierte `settings.ini` nimmt sie nicht mit. Als Markdown-Standard registrieren geht in diesem Modus nicht. Releases enthalten eine fertige `mdvu-<version>-portable.zip`. Siehe [Portabel nutzen](docs/manual.de.md#portabel-nutzen).
@@ -16,6 +20,8 @@ Hier stehen alle nennenswerten Änderungen an mdVü. Das Format folgt [Keep a Ch
 ### Geändert
 
 - **HTML und XML in Codeblöcken** (`html`, `xml`, `svg` …) färbt mdVüs eigener HTML-/XML-Leser; `<script>` und `<style>` innerhalb von HTML werden als JavaScript und CSS gefärbt, SVG innerhalb von HTML als XML.
+- **Druckleiste im schmalen Fenster:** zuerst wird die Druckerliste schmaler, dann wandern *Printer setup…*, *PDF…* und *Print…* in ein Menü hinter **»**.
+- **Die Fenstergröße steht nicht mehr in der Statuszeile.** Sie war als Hilfe für Screenshots gedacht; die Einstellung `ui/footerWindowSize` blendet sie wieder ein.
 - **Temporäre Dateien an einem Ort:** Kopierte Bilder und *Read in browser* benutzen jetzt einen einzigen Ordner `%TEMP%\{mdvu.exe}`; *Hilfe → Diagnostics* zeigt ihn an.
 
 ### Behoben
