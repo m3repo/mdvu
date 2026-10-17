@@ -16,6 +16,8 @@ This is the extended manual for readers who want the whole picture, including in
 - [Folder view and search](#folder-view-and-search)
 - [Outline](#outline)
 - [Reading with the keyboard](#reading-with-the-keyboard)
+- [Favorites](#favorites)
+- [Tags](#tags)
 - [Path bar, back and forward](#path-bar-back-and-forward)
 - [The four views](#the-four-views)
 - [Printing and PDF](#printing-and-pdf)
@@ -60,7 +62,7 @@ Nothing is installed system-wide, no admin rights are required, and no services 
 
 mdVü can also run without leaving anything in your user profile or the registry — from a USB stick, a synced folder or a tools folder you carry from computer to computer. The portable download (`mdvu-<version>-portable.zip`) contains `mdvu.exe` and an empty `settings.ini`; unpack both into the same folder.
 
-**How it works:** if a file named `settings.ini` lies next to `mdvu.exe`, mdVü runs in portable mode and keeps everything in that folder — `settings.ini` (values), `user.css` and `favorites.yaml`. Any existing `.exe` becomes portable the same way: just create an empty `settings.ini` next to it. Delete the file (or move the EXE away from it) and mdVü uses the normal settings folder again; the two never mix. Settings are not carried over between the modes — copy `user.css` and `favorites.yaml` by hand if you want them in both.
+**How it works:** if a file named `settings.ini` lies next to `mdvu.exe`, mdVü runs in portable mode and keeps everything in that folder — `settings.ini` (values), `user.css`, `favorites.yaml` and `tags.yaml`. Any existing `.exe` becomes portable the same way: just create an empty `settings.ini` next to it. Delete the file (or move the EXE away from it) and mdVü uses the normal settings folder again; the two never mix. Settings are not carried over between the modes — copy `user.css`, `favorites.yaml` and `tags.yaml` by hand if you want them in both.
 
 **The folder must be writable.** If it is not (for example below *Program Files*, or a write-protected stick), mdVü says so at startup and runs anyway, but cannot save anything — not even the license acceptance, so you would be asked again on every start.
 
@@ -145,6 +147,7 @@ Note on the print preview: it searches what has actually been paginated. Documen
 | Repository | the Git repository of the current document |
 | Folder | the folder shown in the folder view, with all subfolders |
 | All favorites | every folder among your favorites at once; the hits are grouped by favorite |
+| Tag #… | every file and folder with that tag (your own tags) — see [Tags](#tags) |
 
 The narrowest area is preselected — inside a vault the vault, inside a repository the repository, otherwise the folder. Selected text or the term of a running document search is filled in. `Enter` starts the search; once the result list for exactly this search is showing, `Enter` moves the focus into the list instead (`F5` searches again). `↓` always ends up in the list — if the term or the options have changed since, it searches first, so you never land in stale results. `Aa` matches case; a term in quotes (`"ab"`) searches for exactly that text. Two more toggles set word boundaries — only one of them can be on:
 
@@ -196,6 +199,14 @@ A click into the text switches to the caret. `Esc` steps back the way you came: 
 ## Favorites
 
 Folders you return to often — your vaults, your repositories — can be kept as **favorites**. `Ctrl+D` adds the folder shown in the folder view, or removes it again; the **star** in the toolbar is filled when the current folder is a favorite. Clicking the star (or `Ctrl+Shift+D`) opens the list: arrow keys and `Enter` open a favorite, `Del` removes the selected one. The favorites also appear in the **File** menu, and the menu of a file or folder (right-click in the folder view) adds or removes them. Search in files can search **all favorites** at once. mdVü keeps them in `favorites.yaml` next to its other settings.
+
+## Tags
+
+You can give files and folders your **own tags** — without changing a single file: mdVü keeps them in its settings folder, so a Git repository or someone else's vault stays untouched. Right-click a file or folder (in the folder view, on the path in the status bar, or anywhere in the open document) and choose **Tags…**: the list shows all your tags with a check mark; a click sets or removes one, and the list stays open so you can set several. **New tag…** asks for a name — letters, digits, `_`, `-` and `/`, at least one character that is not a digit; `project/mdvu` also counts as `project`. A tag on a **folder** applies to everything below it; such inherited tags appear greyed out with the folder they come from. The page of a folder shows its tags at the top.
+
+Search in files offers one area per tag: **Tag #…** searches all places with that tag at once — handy for folders spread over several vaults, say every `Protokoll` folder tagged `#dailylog`. *File → Show tags* lists all tags with their places. If a place was renamed or moved while mdVü was running, its tags move along; places that can no longer be found are listed there separately, where you can assign the tags to the new location or remove them.
+
+Tags written in a document's **frontmatter** (`tags:` or `tag:`, as a list or separated by commas) count as well — your own tags and document tags are one set of tags. At the top of the document a line shows all its tags: document tags filled, your own ones only outlined; a click lists all files with that tag in the same vault, repository or folder. With many tags, `+n` at the end shows the rest. The status bar shows the number (`#3`); a click opens the list with where each tag comes from. In the search field of *Search in files*, `tag:name` (or `tag:#name`) limits any search to files with that tag; `tag:name` alone lists them all. mdVü keeps your own tags in `tags.yaml` next to its other settings.
 
 ## Path bar, back and forward
 
@@ -352,7 +363,7 @@ There is no settings dialog yet. *Help → Setting* opens a small note with a cl
 %APPDATA%\m3Works\mdVu
 ```
 
-In [portable mode](#portable-use) it is the program folder instead. It contains `settings.ini` (values), `user.css` (your stylesheet) and `favorites.yaml` (your favorites). Values are written through immediately — mdVü never loses a setting on a crash, but it also means **you should close the program before editing `settings.ini` by hand**, otherwise your changes will be overwritten.
+In [portable mode](#portable-use) it is the program folder instead. It contains `settings.ini` (values), `user.css` (your stylesheet) `favorites.yaml` (your favorites) and `tags.yaml` (your own tags). Values are written through immediately — mdVü never loses a setting on a crash, but it also means **you should close the program before editing `settings.ini` by hand**, otherwise your changes will be overwritten.
 
 Keys are hierarchical: everything before the slash is the INI section, everything after is the key name. `doc/maxLoadMB = 80` therefore looks like this in the file:
 

@@ -16,6 +16,8 @@ Dies ist das ausführliche Handbuch für alle, die das ganze Bild wollen — sam
 - [Ordneransicht und Suche](#ordneransicht-und-suche)
 - [Gliederung](#gliederung)
 - [Lesen mit der Tastatur](#lesen-mit-der-tastatur)
+- [Favoriten](#favoriten)
+- [Tags](#tags)
 - [Pfadleiste, vor und zurück](#pfadleiste-vor-und-zurück)
 - [Die vier Ansichten](#die-vier-ansichten)
 - [Drucken und PDF](#drucken-und-pdf)
@@ -60,7 +62,7 @@ Es wird nichts systemweit installiert, es sind keine Admin-Rechte nötig, und es
 
 mdVü läuft auch, ohne Spuren im Benutzerprofil oder in der Registry zu hinterlassen — vom USB-Stick, aus einem synchronisierten Ordner oder aus einem Werkzeugordner, den man von Rechner zu Rechner mitnimmt. Der portable Download (`mdvu-<version>-portable.zip`) enthält `mdvu.exe` und eine leere `settings.ini`; beide in denselben Ordner entpacken.
 
-**So funktioniert es:** liegt neben `mdvu.exe` eine Datei `settings.ini`, läuft mdVü im portablen Modus und hält alles in diesem Ordner — `settings.ini` (Werte), `user.css` und `favorites.yaml`. Jede vorhandene EXE wird auf dieselbe Weise portabel: einfach eine leere `settings.ini` danebenlegen. Wird die Datei gelöscht (oder die EXE woandershin verschoben), nimmt mdVü wieder den normalen Einstellungsordner; beide vermischen sich nie. Einstellungen wandern nicht zwischen den Modi — `user.css` und `favorites.yaml` bei Bedarf von Hand kopieren.
+**So funktioniert es:** liegt neben `mdvu.exe` eine Datei `settings.ini`, läuft mdVü im portablen Modus und hält alles in diesem Ordner — `settings.ini` (Werte), `user.css`, `favorites.yaml` und `tags.yaml`. Jede vorhandene EXE wird auf dieselbe Weise portabel: einfach eine leere `settings.ini` danebenlegen. Wird die Datei gelöscht (oder die EXE woandershin verschoben), nimmt mdVü wieder den normalen Einstellungsordner; beide vermischen sich nie. Einstellungen wandern nicht zwischen den Modi — `user.css`, `favorites.yaml` und `tags.yaml` bei Bedarf von Hand kopieren.
 
 **Der Ordner muss beschreibbar sein.** Ist er es nicht (etwa unter *Programme* oder auf einem schreibgeschützten Stick), meldet mdVü das beim Start und läuft trotzdem, kann aber nichts speichern — auch nicht die Lizenz-Bestätigung, sodass sie bei jedem Start erneut abgefragt wird.
 
@@ -145,6 +147,7 @@ Hinweis zur Druckvorschau: Sie durchsucht, was tatsächlich paginiert wurde. Dok
 | Repository | das Git-Repository des aktuellen Dokuments |
 | Ordner | den Ordner der Ordneransicht samt Unterordnern |
 | Alle Favoriten | alle Ordner unter Ihren Favoriten auf einmal; die Treffer nach Favorit gruppiert |
+| Tag #… | alle Dateien und Ordner mit diesem Tag (eigene Tags) — siehe [Tags](#tags) |
 
 Vorausgewählt ist der engste Bereich — im Vault der Vault, im Repository das Repository, sonst der Ordner. Markierter Text oder der Begriff einer laufenden Dokumentsuche wird übernommen. `Enter` startet die Suche; zeigt das Dokument schon die Trefferliste genau dieser Suche, setzt `Enter` stattdessen den Fokus in die Liste (`F5` sucht neu). `↓` landet immer in der Liste — sind Begriff oder Schalter seither geändert, wird vorher gesucht, man landet also nie in alten Ergebnissen. `Aa` beachtet Groß-/Kleinschreibung; ein Begriff in Anführungszeichen (`"ab"`) sucht genau diesen Text. Zwei weitere Umschalter legen Wortgrenzen fest — es ist immer höchstens einer an:
 
@@ -196,6 +199,14 @@ Ein Klick in den Text schaltet auf den Caret. `Esc` geht den Weg zurück, den Si
 ## Favoriten
 
 Ordner, zu denen Sie oft zurückkehren — Ihre Vaults, Ihre Repositories —, lassen sich als **Favoriten** merken. `Strg+D` nimmt den Ordner der Ordneransicht auf oder entfernt ihn wieder; der **Stern** in der Leiste ist gefüllt, wenn der aktuelle Ordner ein Favorit ist. Ein Klick auf den Stern (oder `Strg+Umschalt+D`) öffnet die Liste: Pfeiltasten und `Enter` öffnen einen Favoriten, `Entf` entfernt den markierten. Die Favoriten stehen auch im Menü **File**, und das Menü zu einer Datei oder einem Ordner (Rechtsklick in der Ordneransicht) nimmt sie auf oder entfernt sie. Die Suche in Dateien kann **alle Favoriten** auf einmal durchsuchen. mdVü speichert sie in `favorites.yaml` bei den übrigen Einstellungen.
+
+## Tags
+
+Dateien und Ordner lassen sich mit **eigenen Tags** versehen — ohne dass sich eine Datei ändert: mdVü legt sie im Einstellungsordner ab, ein Git-Repository oder ein fremder Vault bleibt also unberührt. Rechtsklick auf eine Datei oder einen Ordner (in der Ordneransicht, auf den Pfad in der Statuszeile oder irgendwo im geöffneten Dokument), dann **Tags…**: die Liste zeigt alle Ihre Tags mit Häkchen; ein Klick setzt oder entfernt einen, und die Liste bleibt offen, sodass sich mehrere setzen lassen. **New tag…** fragt nach einem Namen — Buchstaben, Ziffern, `_`, `-` und `/`, mindestens ein Zeichen keine Ziffer; `projekt/mdvu` zählt auch als `projekt`. Ein Tag an einem **Ordner** gilt für alles darunter; solche geerbten Tags stehen ausgegraut mit dem Ordner, von dem sie kommen. Die Seite eines Ordners zeigt seine Tags oben.
+
+Die Suche in Dateien bietet je Tag einen Bereich: **Tag #…** durchsucht alle Orte mit diesem Tag auf einmal — praktisch für Ordner, die über mehrere Vaults verstreut sind, etwa alle `Protokoll`-Ordner mit `#tagesprotokoll`. *File → Show tags* listet alle Tags mit ihren Orten. Wird ein Ort umbenannt oder verschoben, während mdVü läuft, ziehen seine Tags mit; Orte, die sich nicht mehr finden, stehen dort gesondert — mit Links, um die Tags dem neuen Ort zuzuordnen oder sie zu entfernen.
+
+Tags, die im **Frontmatter** eines Dokuments stehen (`tags:` oder `tag:`, als Liste oder mit Kommas getrennt), zählen ebenso — eigene Tags und Dokument-Tags sind ein gemeinsamer Satz. Oben im Dokument zeigt eine Zeile alle seine Tags: Dokument-Tags gefüllt, eigene nur umrandet; ein Klick listet alle Dateien mit diesem Tag im selben Vault, Repository oder Ordner. Bei vielen Tags zeigt `+n` am Ende den Rest. Die Statuszeile zeigt die Anzahl (`#3`); ein Klick öffnet die Liste samt Herkunft jedes Tags. Im Suchfeld der *Suche in Dateien* beschränkt `tag:name` (oder `tag:#name`) jede Suche auf Dateien mit diesem Tag; `tag:name` allein listet sie alle auf. Die eigenen Tags speichert mdVü in `tags.yaml` bei den übrigen Einstellungen.
 
 ## Pfadleiste, vor und zurück
 
@@ -352,7 +363,7 @@ Einen Einstellungsdialog gibt es noch nicht. *Hilfe → Setting* öffnet einen k
 %APPDATA%\m3Works\mdVu
 ```
 
-Im [portablen Modus](#portabel-nutzen) ist es stattdessen der Programmordner. Darin liegen `settings.ini` (Werte), `user.css` (das eigene Stylesheet) und `favorites.yaml` (die Favoriten). Werte werden sofort geschrieben — mdVü verliert bei einem Absturz keine Einstellung, das heißt aber auch: **vor dem Bearbeiten der `settings.ini` von Hand das Programm schließen**, sonst werden die Änderungen wieder überschrieben.
+Im [portablen Modus](#portabel-nutzen) ist es stattdessen der Programmordner. Darin liegen `settings.ini` (Werte), `user.css` (das eigene Stylesheet) `favorites.yaml` (die Favoriten) und `tags.yaml` (die eigenen Tags). Werte werden sofort geschrieben — mdVü verliert bei einem Absturz keine Einstellung, das heißt aber auch: **vor dem Bearbeiten der `settings.ini` von Hand das Programm schließen**, sonst werden die Änderungen wieder überschrieben.
 
 Die Schlüssel sind hierarchisch: alles vor dem Schrägstrich ist der INI-Abschnitt, alles dahinter der Name. `doc/maxLoadMB = 80` sieht in der Datei also so aus:
 

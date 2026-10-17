@@ -31,6 +31,7 @@ That's what mdVü is built for.
 | **Formats** | GitHub-flavoured Markdown, plus Obsidian callouts, wikilinks and image embeds — see [Markdown support](docs/markdown-support.md) |
 | **Charts** | Pie, bar, line and sequence diagrams from Mermaid code blocks — a slimmed-down subset, drawn natively without JavaScript, crisp in print and PDF — see [Charts](docs/markdown-support.md#charts-mermaid-subset) |
 | **Folder view** | Tree of the current folder — or of the whole Obsidian vault or Git repository it belongs to — with live refresh, coloured dots for recently changed files, a page per folder, incremental search (`Ctrl+F3`) and arrow-key browsing. Fast even in vaults with thousands of notes |
+| **Tags** | Tag files and folders without changing them — your own tags live in mdVü's settings, folder tags apply to everything below; frontmatter tags count too. A tag line at the top of each note, and search in files by tag |
 | **Outline** | All headings of the document as a tree; clicking jumps to the spot and flashes the target |
 | **Navigation** | Browser-style back/forward with history list, clickable path bar, working links between documents |
 | **Print & PDF** | Print preview, native PDF export, automatic fitting of wide tables, orphan-aware page breaks |
