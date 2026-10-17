@@ -10,7 +10,7 @@ Genau dafür ist mdVü gebaut.
 
 **[Neueste Version herunterladen](https://github.com/m3repo/mdvu/releases/latest)** — kostenlos · Windows 10/11 · ohne Installation · signierte `mdvu.exe` oder portables ZIP
 
-![mdVü-Hauptfenster|620](docs/img/mdvu-screenshot-main-de.png)
+![Durchblättern eines Obsidian-Vaults in mdVü: Callouts, Bilder und Diagramme, jede Notiz sofort da](docs/img/mdvu-folder-walkthrough.gif)
 
 
 ## Was es anders macht
@@ -39,6 +39,8 @@ Genau dafür ist mdVü gebaut.
 | **Windows-Integration** | Drag & Drop, Kommandozeile, `.md`-Verknüpfung pro Benutzer (ohne Admin-Rechte) |
 | **Automatisches Neuladen** | Die geöffnete Datei lädt sich selbst neu, wenn ein anderes Programm sie ändert — die Scrollposition bleibt |
 | **Screenreader** | Erste Schritte: Ordneransicht und Gliederung lassen sich mit einem Screenreader bedienen (geprüft mit der Windows-Sprachausgabe); **Read in browser** (`Strg+Umschalt+B`) öffnet das Dokument als Webseite für den Screenreader. Volle Zugänglichkeit ist ein erklärtes Ziel — siehe [Screenreader](docs/manual.de.md#screenreader) |
+
+![mdVü-Hauptfenster|620](docs/img/mdvu-screenshot-main-de.png)
 
 ## Dokumentation
 
