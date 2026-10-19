@@ -188,9 +188,19 @@ Several words find files that contain **all** of them, in any order. The syntax 
 | `tag:todo,idea` | one of the tags (comma = or); `tag:=todo` without subtags |
 | `file:readme`, `path:2026` | the file name or path contains it (`file:=readme.md`: exactly) |
 | `content:invoice` | only in the text, not in the file name |
+| `line:(invoice open)` | both words in the same line; `section:( … )` in the same section (from a heading to the next) |
+| `modified:>=-7d` | changed in the last seven days; also `modified:2026-10` (in October), `modified:<2026`, `modified:2026-01..2026-03`, `created:` |
+| `size:>1mb` | larger than 1 MB; `size:10kb..1mb` for a range |
+| `[status]` | the frontmatter has the property *status* |
+| `[status:draft,review]` | the property contains one of the values; `[prio>=2]`, `[status!=done]` compare |
+| `[client.name:miller]` | a nested property; through a list it means “any entry”, e.g. `[aliases:x]` |
 | `scope:favorites` | search elsewhere: `vault`, `repo`, `folder` (around the area chosen in the strip), `favorites`, `#tag`; a comma for several |
 
 Without any word (only `#todo`, `file:` …) the result is a plain list of the matching files. Apart from letters, digits and `_` — and `-` or `/` inside a word — characters are reserved: put a term like `C#`, `a&b` or `file.md` in quotes. A mistake in the search is reported in the status bar.
+
+Dates can be written as `2026-10-19`, `2026-10` (a month), `2026-Q4`, `2026-W42` or relative to today: `today`, `yesterday`, `-7d`, `-2w`, `-3m`, `-1y` (each meaning a whole day). Compared with a period, `=` or `:` means inside it, `<` before it and `>` after it. Sizes take `b`, `kb`, `mb`, `gb`. Inside `[ … ]` you can also calculate (`[price * qty > 1000]`); `-` is always a minus there, so a property name with a hyphen goes in quotes: `["due-date"<today]`. A single word on the right is text (`[status=draft]`); `=` compares exactly, `:` ignores case and also finds parts.
+
+`created:` is the creation date the file system reports — copying or checking out a file resets it; a `created` property in the frontmatter is more reliable (`[created<2026]`).
 
 ## Outline
 

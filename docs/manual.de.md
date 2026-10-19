@@ -188,9 +188,19 @@ Mehrere Wörter finden Dateien, die **alle** enthalten, in beliebiger Reihenfolg
 | `tag:todo,idee` | einen der Tags (Komma = oder); `tag:=todo` ohne Untertags |
 | `file:readme`, `path:2026` | Dateiname bzw. Pfad enthält es (`file:=readme.md`: genau) |
 | `content:rechnung` | nur im Text, nicht im Dateinamen |
+| `line:(rechnung offen)` | beide Wörter in derselben Zeile; `section:( … )` im selben Abschnitt (von einer Überschrift bis zur nächsten) |
+| `modified:>=-7d` | in den letzten sieben Tagen geändert; auch `modified:2026-10` (im Oktober), `modified:<2026`, `modified:2026-01..2026-03`, `created:` |
+| `size:>1mb` | größer als 1 MB; `size:10kb..1mb` für einen Bereich |
+| `[status]` | das Frontmatter hat die Eigenschaft *status* |
+| `[status:entwurf,review]` | die Eigenschaft enthält einen der Werte; `[prio>=2]`, `[status!=fertig]` vergleichen |
+| `[kunde.name:müller]` | eine verschachtelte Eigenschaft; durch eine Liste heißt es „irgendein Eintrag“, z.B. `[aliases:x]` |
 | `scope:favorites` | woanders suchen: `vault`, `repo`, `folder` (zum Bereich, der im Streifen gewählt ist), `favorites`, `#tag`; mit Komma mehrere |
 
 Ohne Suchwort (nur `#todo`, `file:` …) ist das Ergebnis eine einfache Liste der passenden Dateien. Außer Buchstaben, Ziffern und `_` — sowie `-` oder `/` innerhalb eines Worts — sind Zeichen reserviert: einen Begriff wie `C#`, `a&b` oder `datei.md` setzen Sie in Anführungszeichen. Ein Fehler in der Suche erscheint in der Statuszeile.
+
+Datumsangaben schreiben Sie als `2026-10-19`, `2026-10` (ein Monat), `2026-Q4`, `2026-W42` oder relativ zu heute: `today`, `yesterday`, `-7d`, `-2w`, `-3m`, `-1y` (jeweils ein ganzer Tag). Im Vergleich mit einem Zeitraum heißt `=` oder `:` darin, `<` davor und `>` danach. Größen nehmen `b`, `kb`, `mb`, `gb`. In `[ … ]` darf auch gerechnet werden (`[preis * menge > 1000]`); `-` ist dort immer ein Minus, ein Eigenschaftsname mit Bindestrich steht deshalb in Anführungszeichen: `["fällig-am"<today]`. Ein einzelnes Wort rechts ist Text (`[status=entwurf]`); `=` vergleicht genau, `:` ohne Groß-/Kleinschreibung und findet auch Teile.
+
+`created:` ist das Erstelldatum des Dateisystems — Kopieren oder Auschecken setzt es neu; eine Eigenschaft `created` im Frontmatter ist verlässlicher (`[created<2026]`).
 
 ## Gliederung
 
