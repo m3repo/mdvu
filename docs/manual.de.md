@@ -171,6 +171,27 @@ Große Ordner werden im Hintergrund durchsucht: die Liste wächst, während Sie 
 
 mdVü durchsucht **den Text, den Sie sehen** — in Dateien genau wie im Dokument, beide zählen also dieselben Treffer: Frontmatter (Eigenschaften) gehört dazu und ist in der Liste gekennzeichnet, `%%Kommentare%%`, Linkziele und Markdown-Auszeichnung dagegen nicht. Die Suche in Obsidian findet Kommentare. Versteckte Ordner (mit Punkt am Anfang, etwa `.obsidian` oder `.git`) werden übersprungen, durchsucht werden nur `*.md`-Dateien.
 
+### Suchsyntax
+
+Mehrere Wörter finden Dateien, die **alle** enthalten, in beliebiger Reihenfolge. Die Schreibweise folgt Obsidian und GitHub:
+
+| Eingabe | Findet |
+|---|---|
+| `rechnung mahnung` | Dateien mit beiden Wörtern (im Dateinamen oder im Text) |
+| `rechnung OR mahnung` | Dateien mit einem davon (`OR` großgeschrieben) |
+| `rechnung -entwurf` | *rechnung*, aber nicht *entwurf* (auch `NOT entwurf`) |
+| `(a OR b) c` | Klammern gruppieren |
+| `"offene Posten"` | genau diesen Text |
+| `/rech(nung)?/` | einen regulären Ausdruck |
+| `#todo` | Dateien mit dem Tag *todo* — eigener oder im Dokument, auch `#todo/untertag` |
+| `tag.own:todo` | nur eigene Tags; `tag.fm:` nur das Frontmatter, `tag.-fm:` alles außer dem Frontmatter |
+| `tag:todo,idee` | einen der Tags (Komma = oder); `tag:=todo` ohne Untertags |
+| `file:readme`, `path:2026` | Dateiname bzw. Pfad enthält es (`file:=readme.md`: genau) |
+| `content:rechnung` | nur im Text, nicht im Dateinamen |
+| `scope:favorites` | woanders suchen: `vault`, `repo`, `folder` (zum Bereich, der im Streifen gewählt ist), `favorites`, `#tag`; mit Komma mehrere |
+
+Ohne Suchwort (nur `#todo`, `file:` …) ist das Ergebnis eine einfache Liste der passenden Dateien. Außer Buchstaben, Ziffern und `_` — sowie `-` oder `/` innerhalb eines Worts — sind Zeichen reserviert: einen Begriff wie `C#`, `a&b` oder `datei.md` setzen Sie in Anführungszeichen. Ein Fehler in der Suche erscheint in der Statuszeile.
+
 ## Gliederung
 
 Unterhalb der Ordneransicht zeigt mdVü die **Gliederung** des aktuellen Dokuments — alle Überschriften als Baum, nach Ebenen verschachtelt. Ein Klick springt zur entsprechenden Stelle im Dokument; das Sprungziel leuchtet kurz auf, damit das Auge es sofort findet. Wie in der Ordneransicht schauen Klick und Pfeiltasten nur hinein; erst `Enter` oder ein Doppelklick nimmt den Sprung in den Verlauf auf, *Zurück* führt dann wieder zu diesem Kapitel.
@@ -206,7 +227,7 @@ Dateien und Ordner lassen sich mit **eigenen Tags** versehen — ohne dass sich 
 
 Die Suche in Dateien bietet je Tag einen Bereich: **Tag #…** durchsucht alle Orte mit diesem Tag auf einmal — praktisch für Ordner, die über mehrere Vaults verstreut sind, etwa alle `Protokoll`-Ordner mit `#tagesprotokoll`. *File → Show tags* listet alle Tags mit ihren Orten. Wird ein Ort umbenannt oder verschoben, während mdVü läuft, ziehen seine Tags mit; Orte, die sich nicht mehr finden, stehen dort gesondert — mit Links, um die Tags dem neuen Ort zuzuordnen oder sie zu entfernen.
 
-Tags, die im **Frontmatter** eines Dokuments stehen (`tags:` oder `tag:`, als Liste oder mit Kommas getrennt), zählen ebenso — eigene Tags und Dokument-Tags sind ein gemeinsamer Satz. Oben im Dokument zeigt eine Zeile alle seine Tags: Dokument-Tags gefüllt, eigene nur umrandet; ein Klick listet alle Dateien mit diesem Tag im selben Vault, Repository oder Ordner. Bei vielen Tags zeigt `+n` am Ende den Rest. Die Statuszeile zeigt die Anzahl (`#3`); ein Klick öffnet die Liste samt Herkunft jedes Tags. Im Suchfeld der *Suche in Dateien* beschränkt `tag:name` (oder `tag:#name`) jede Suche auf Dateien mit diesem Tag; `tag:name` allein listet sie alle auf. Die eigenen Tags speichert mdVü in `tags.yaml` bei den übrigen Einstellungen.
+Tags, die im **Frontmatter** eines Dokuments stehen (`tags:` oder `tag:`, als Liste oder mit Kommas getrennt), zählen ebenso — eigene Tags und Dokument-Tags sind ein gemeinsamer Satz. Oben im Dokument zeigt eine Zeile alle seine Tags: Dokument-Tags gefüllt, eigene nur umrandet; ein Klick listet alle Dateien mit diesem Tag im selben Vault, Repository oder Ordner. Bei vielen Tags zeigt `+n` am Ende den Rest. Die Statuszeile zeigt die Anzahl (`#3`); ein Klick öffnet die Liste samt Herkunft jedes Tags. Im Suchfeld der *Suche in Dateien* listet `#name` alle Dateien mit diesem Tag und beschränkt jede Suche auf sie; `tag.own:name` zählt nur eigene Tags, `tag.fm:name` nur das Frontmatter (siehe [Suchsyntax](#suchsyntax)). Die eigenen Tags speichert mdVü in `tags.yaml` bei den übrigen Einstellungen.
 
 ## Pfadleiste, vor und zurück
 

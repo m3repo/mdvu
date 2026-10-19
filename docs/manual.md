@@ -171,6 +171,27 @@ Large folders are searched in the background: the list grows while you read, and
 
 mdVü searches **the text you see** — in files exactly as in the document, so both count the same hits: front matter (properties) is included and marked as such in the list, but `%%comments%%`, link targets and Markdown markup are not. Obsidian's own search does find comments. Hidden folders (starting with a dot, like `.obsidian` or `.git`) are skipped, and only `*.md` files are searched.
 
+### Search syntax
+
+Several words find files that contain **all** of them, in any order. The syntax follows Obsidian and GitHub:
+
+| Input | Finds |
+|---|---|
+| `invoice reminder` | files with both words (in the file name or the text) |
+| `invoice OR reminder` | files with one of them (`OR` in capitals) |
+| `invoice -draft` | *invoice*, but not *draft* (also `NOT draft`) |
+| `(a OR b) c` | parentheses group |
+| `"open items"` | exactly this text |
+| `/inv(oice)?/` | a regular expression |
+| `#todo` | files with the tag *todo* — your own or in the document, also `#todo/subtag` |
+| `tag.own:todo` | only your own tags; `tag.fm:` only the frontmatter, `tag.-fm:` all but the frontmatter |
+| `tag:todo,idea` | one of the tags (comma = or); `tag:=todo` without subtags |
+| `file:readme`, `path:2026` | the file name or path contains it (`file:=readme.md`: exactly) |
+| `content:invoice` | only in the text, not in the file name |
+| `scope:favorites` | search elsewhere: `vault`, `repo`, `folder` (around the area chosen in the strip), `favorites`, `#tag`; a comma for several |
+
+Without any word (only `#todo`, `file:` …) the result is a plain list of the matching files. Apart from letters, digits and `_` — and `-` or `/` inside a word — characters are reserved: put a term like `C#`, `a&b` or `file.md` in quotes. A mistake in the search is reported in the status bar.
+
 ## Outline
 
 Below the folder view, mdVü shows the **outline** of the current document — all headings as a tree, nested by level. A click jumps to that position in the document; the target flashes briefly so your eye finds it right away. Like the folder view, a click or the arrow keys only peek; `Enter` or a double-click makes the jump part of the history, so *Back* returns to that chapter.
@@ -206,7 +227,7 @@ You can give files and folders your **own tags** — without changing a single f
 
 Search in files offers one area per tag: **Tag #…** searches all places with that tag at once — handy for folders spread over several vaults, say every `Protokoll` folder tagged `#dailylog`. *File → Show tags* lists all tags with their places. If a place was renamed or moved while mdVü was running, its tags move along; places that can no longer be found are listed there separately, where you can assign the tags to the new location or remove them.
 
-Tags written in a document's **frontmatter** (`tags:` or `tag:`, as a list or separated by commas) count as well — your own tags and document tags are one set of tags. At the top of the document a line shows all its tags: document tags filled, your own ones only outlined; a click lists all files with that tag in the same vault, repository or folder. With many tags, `+n` at the end shows the rest. The status bar shows the number (`#3`); a click opens the list with where each tag comes from. In the search field of *Search in files*, `tag:name` (or `tag:#name`) limits any search to files with that tag; `tag:name` alone lists them all. mdVü keeps your own tags in `tags.yaml` next to its other settings.
+Tags written in a document's **frontmatter** (`tags:` or `tag:`, as a list or separated by commas) count as well — your own tags and document tags are one set of tags. At the top of the document a line shows all its tags: document tags filled, your own ones only outlined; a click lists all files with that tag in the same vault, repository or folder. With many tags, `+n` at the end shows the rest. The status bar shows the number (`#3`); a click opens the list with where each tag comes from. In the search field of *Search in files*, `#name` lists all files with that tag and narrows any search to them; `tag.own:name` counts only your own tags, `tag.fm:name` only the frontmatter (see [Search syntax](#search-syntax)). mdVü keeps your own tags in `tags.yaml` next to its other settings.
 
 ## Path bar, back and forward
 
