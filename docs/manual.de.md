@@ -495,7 +495,7 @@ mdVü schreibt `mdvu.crash.log` neben die ausführbare Datei. Ist dieser Ordner 
 
 ### Diagnose-Seite
 
-*Hilfe → Diagnostics* zeigt den Verlauf der laufenden Sitzung – jeden Ort, zu dem Zurück führt, samt der dafür abgelegten Leseposition – und die Ordner, die mdVü verwendet (Einstellungen, Ordneransicht, temporäre Dateien). Die Einträge sind Links. `F5` aktualisiert die Seite. Wie die Performance-Seite ist sie zum Nachsehen bei einem Problem gedacht oder als Anhang zu einer Fehlermeldung.
+*Hilfe → Diagnostics* zeigt den Verlauf der laufenden Sitzung – jeden Ort, zu dem Zurück führt, samt der dafür abgelegten Leseposition – und die Ordner, die mdVü verwendet (Einstellungen, Ordneransicht, temporäre Dateien, Cache). Die Einträge sind Links. `F5` aktualisiert die Seite. Wie die Performance-Seite ist sie zum Nachsehen bei einem Problem gedacht oder als Anhang zu einer Fehlermeldung.
 
 ## Deinstallieren
 
