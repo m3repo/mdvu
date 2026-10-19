@@ -495,7 +495,7 @@ mdVü writes `mdvu.crash.log` next to the executable. If that folder is read-onl
 
 ### Diagnostics page
 
-*Help → Diagnostics* lists the history of the current session — every place you can go back to, with the reading position stored for it — and the folders mdVü uses (settings, folder view, temporary files, cache). The entries are links. `F5` refreshes the page. Like the performance page, it is meant for looking into a problem or attaching to a report.
+*Help → Diagnostics* lists the history of the current session — every place you can go back to, with the reading position stored for it — and the folders mdVü uses (settings, folder view, temporary files, cache). A click on a path shows it in Explorer after a confirmation. `F5` refreshes the page. Like the performance page, it is meant for looking into a problem or attaching to a report.
 
 ## Uninstalling
 
