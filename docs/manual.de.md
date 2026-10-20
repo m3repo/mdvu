@@ -140,17 +140,14 @@ Hinweis zur Druckvorschau: Sie durchsucht, was tatsächlich paginiert wurde. Dok
 
 ## Suchen in Dateien
 
-`Strg+Umschalt+F` öffnet einen Streifen, der **alle Markdown-Dateien** eines Bereichs auf einmal durchsucht. Den Bereich wählen Sie neben dem Suchfeld:
+`Strg+Umschalt+F` öffnet einen Streifen, der **alle Markdown-Dateien** eines Bereichs auf einmal durchsucht. Es gibt zwei Bereiche; der Knopf neben dem Suchfeld zeigt den aktuellen:
 
 | Bereich | Was er umfasst |
 |---|---|
-| Vault | den Obsidian-Vault des aktuellen Dokuments |
-| Repository | das Git-Repository des aktuellen Dokuments |
-| Ordner | den Ordner der Ordneransicht samt Unterordnern |
+| Ort des Dokuments | den Obsidian-Vault des aktuellen Dokuments, sonst sein Git-Repository, sonst den Ordner der Ordneransicht (samt Unterordnern) |
 | Alle Favoriten | alle Ordner unter Ihren Favoriten auf einmal; die Treffer nach Favorit gruppiert |
-| Tag #… | alle Dateien und Ordner mit diesem Tag (eigene Tags) — siehe [Tags](#tags) |
 
-Vorausgewählt ist der engste Bereich — im Vault der Vault, im Repository das Repository, sonst der Ordner. Markierter Text oder der Begriff einer laufenden Dokumentsuche wird übernommen. `Enter` startet die Suche; zeigt das Dokument schon die Trefferliste genau dieser Suche, setzt `Enter` stattdessen den Fokus in die Liste (`F5` sucht neu). `↓` landet immer in der Liste — sind Begriff oder Schalter seither geändert, wird vorher gesucht, man landet also nie in alten Ergebnissen. `Aa` beachtet Groß-/Kleinschreibung; ein Begriff in Anführungszeichen (`"ab"`) sucht genau diesen Text. Zwei weitere Umschalter legen Wortgrenzen fest — es ist immer höchstens einer an:
+Der Streifen beginnt immer beim Ort des Dokuments. Haben Sie Favoriten, wechselt ein zweites `Strg+Umschalt+F` bei Cursor im Suchfeld (oder ein Klick auf den Bereichs-Knopf) auf alle Favoriten — und ein weiteres wieder zurück. Andere Orte, etwa alle Orte mit einem Ihrer eigenen [Tags](#tags), kommen mit `scope:` in den Suchtext (s. Suchsyntax). Markierter Text oder der Begriff einer laufenden Dokumentsuche wird übernommen. `Enter` startet die Suche; zeigt das Dokument schon die Trefferliste genau dieser Suche, setzt `Enter` stattdessen den Fokus in die Liste (`F5` sucht neu). `↓` landet immer in der Liste — sind Begriff oder Schalter seither geändert, wird vorher gesucht, man landet also nie in alten Ergebnissen. `Aa` beachtet Groß-/Kleinschreibung; ein Begriff in Anführungszeichen (`"ab"`) sucht genau diesen Text. Zwei weitere Umschalter legen Wortgrenzen fest — es ist immer höchstens einer an:
 
 | Umschalter | Bedeutung |
 |---|---|
@@ -236,7 +233,7 @@ Ordner, zu denen Sie oft zurückkehren — Ihre Vaults, Ihre Repositories —, l
 
 Dateien und Ordner lassen sich mit **eigenen Tags** versehen — ohne dass sich eine Datei ändert: mdVü legt sie im Einstellungsordner ab, ein Git-Repository oder ein fremder Vault bleibt also unberührt. Rechtsklick auf eine Datei oder einen Ordner (in der Ordneransicht, auf den Pfad in der Statuszeile oder irgendwo im geöffneten Dokument), dann **Tags…**: die Liste zeigt alle Ihre Tags mit Häkchen; ein Klick setzt oder entfernt einen, und die Liste bleibt offen, sodass sich mehrere setzen lassen. **New tag…** fragt nach einem Namen — Buchstaben, Ziffern, `_`, `-` und `/`, mindestens ein Zeichen keine Ziffer; `projekt/mdvu` zählt auch als `projekt`. Ein Tag an einem **Ordner** gilt für alles darunter; solche geerbten Tags stehen ausgegraut mit dem Ordner, von dem sie kommen. Die Seite eines Ordners zeigt seine Tags oben.
 
-Die Suche in Dateien bietet je Tag einen Bereich: **Tag #…** durchsucht alle Orte mit diesem Tag auf einmal — praktisch für Ordner, die über mehrere Vaults verstreut sind, etwa alle `Protokoll`-Ordner mit `#tagesprotokoll`. *File → Show tags* listet alle Tags mit ihren Orten. Wird ein Ort umbenannt oder verschoben, während mdVü läuft, ziehen seine Tags mit; Orte, die sich nicht mehr finden, stehen dort gesondert — mit Links, um die Tags dem neuen Ort zuzuordnen oder sie zu entfernen.
+In der Suche in Dateien durchsucht `scope:#tag` alle Orte mit diesem Tag auf einmal — praktisch für Ordner, die über mehrere Vaults verstreut sind, etwa alle `Protokoll`-Ordner mit `#tagesprotokoll`. *File → Show tags* listet alle Tags mit ihren Orten. Wird ein Ort umbenannt oder verschoben, während mdVü läuft, ziehen seine Tags mit; Orte, die sich nicht mehr finden, stehen dort gesondert — mit Links, um die Tags dem neuen Ort zuzuordnen oder sie zu entfernen.
 
 Tags, die im **Frontmatter** eines Dokuments stehen (`tags:` oder `tag:`, als Liste oder mit Kommas getrennt), zählen ebenso — eigene Tags und Dokument-Tags sind ein gemeinsamer Satz. Oben im Dokument zeigt eine Zeile alle seine Tags: Dokument-Tags gefüllt, eigene nur umrandet; ein Klick listet alle Dateien mit diesem Tag im selben Vault, Repository oder Ordner. Bei vielen Tags zeigt `+n` am Ende den Rest. Die Statuszeile zeigt die Anzahl (`#3`); ein Klick öffnet die Liste samt Herkunft jedes Tags. Im Suchfeld der *Suche in Dateien* listet `#name` alle Dateien mit diesem Tag und beschränkt jede Suche auf sie; `tag.own:name` zählt nur eigene Tags, `tag.fm:name` nur das Frontmatter (siehe [Suchsyntax](#suchsyntax)). Die eigenen Tags speichert mdVü in `tags.yaml` bei den übrigen Einstellungen.
 

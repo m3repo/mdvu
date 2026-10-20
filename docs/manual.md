@@ -140,17 +140,14 @@ Note on the print preview: it searches what has actually been paginated. Documen
 
 ## Search in files
 
-`Ctrl+Shift+F` opens a strip that searches **all Markdown files** of an area at once. Next to the search field you pick the area:
+`Ctrl+Shift+F` opens a strip that searches **all Markdown files** of an area at once. There are two areas; the button next to the search field shows the current one:
 
 | Area | What it covers |
 |---|---|
-| Vault | the Obsidian vault of the current document |
-| Repository | the Git repository of the current document |
-| Folder | the folder shown in the folder view, with all subfolders |
+| Place of the document | the Obsidian vault of the current document, otherwise its Git repository, otherwise the folder shown in the folder view (with all subfolders) |
 | All favorites | every folder among your favorites at once; the hits are grouped by favorite |
-| Tag #… | every file and folder with that tag (your own tags) — see [Tags](#tags) |
 
-The narrowest area is preselected — inside a vault the vault, inside a repository the repository, otherwise the folder. Selected text or the term of a running document search is filled in. `Enter` starts the search; once the result list for exactly this search is showing, `Enter` moves the focus into the list instead (`F5` searches again). `↓` always ends up in the list — if the term or the options have changed since, it searches first, so you never land in stale results. `Aa` matches case; a term in quotes (`"ab"`) searches for exactly that text. Two more toggles set word boundaries — only one of them can be on:
+The strip always starts with the place of the document. If you have favorites, press `Ctrl+Shift+F` once more while the cursor is in the search field (or click the area button) to switch to all favorites — and again to switch back. Other places, such as all places with one of your own [tags](#tags), go into the search text with `scope:` (see the search syntax). Selected text or the term of a running document search is filled in. `Enter` starts the search; once the result list for exactly this search is showing, `Enter` moves the focus into the list instead (`F5` searches again). `↓` always ends up in the list — if the term or the options have changed since, it searches first, so you never land in stale results. `Aa` matches case; a term in quotes (`"ab"`) searches for exactly that text. Two more toggles set word boundaries — only one of them can be on:
 
 | Toggle | Meaning |
 |---|---|
@@ -236,7 +233,7 @@ Folders you return to often — your vaults, your repositories — can be kept a
 
 You can give files and folders your **own tags** — without changing a single file: mdVü keeps them in its settings folder, so a Git repository or someone else's vault stays untouched. Right-click a file or folder (in the folder view, on the path in the status bar, or anywhere in the open document) and choose **Tags…**: the list shows all your tags with a check mark; a click sets or removes one, and the list stays open so you can set several. **New tag…** asks for a name — letters, digits, `_`, `-` and `/`, at least one character that is not a digit; `project/mdvu` also counts as `project`. A tag on a **folder** applies to everything below it; such inherited tags appear greyed out with the folder they come from. The page of a folder shows its tags at the top.
 
-Search in files offers one area per tag: **Tag #…** searches all places with that tag at once — handy for folders spread over several vaults, say every `Protokoll` folder tagged `#dailylog`. *File → Show tags* lists all tags with their places. If a place was renamed or moved while mdVü was running, its tags move along; places that can no longer be found are listed there separately, where you can assign the tags to the new location or remove them.
+In search in files, `scope:#tag` searches all places with that tag at once — handy for folders spread over several vaults, say every `Protokoll` folder tagged `#dailylog`. *File → Show tags* lists all tags with their places. If a place was renamed or moved while mdVü was running, its tags move along; places that can no longer be found are listed there separately, where you can assign the tags to the new location or remove them.
 
 Tags written in a document's **frontmatter** (`tags:` or `tag:`, as a list or separated by commas) count as well — your own tags and document tags are one set of tags. At the top of the document a line shows all its tags: document tags filled, your own ones only outlined; a click lists all files with that tag in the same vault, repository or folder. With many tags, `+n` at the end shows the rest. The status bar shows the number (`#3`); a click opens the list with where each tag comes from. In the search field of *Search in files*, `#name` lists all files with that tag and narrows any search to them; `tag.own:name` counts only your own tags, `tag.fm:name` only the frontmatter (see [Search syntax](#search-syntax)). mdVü keeps your own tags in `tags.yaml` next to its other settings.
 
