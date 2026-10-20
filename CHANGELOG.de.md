@@ -4,6 +4,27 @@
 
 Hier stehen alle nennenswerten Änderungen an mdVü. Das Format folgt [Keep a Changelog](https://keepachangelog.com/de/1.1.0/); Versionen sind `Major.Minor.Patch`, die vierte Stelle in der Dateiversion der EXE ist der Build-Zähler.
 
+## [0.21.0] — 2026-10-20
+
+### Neu
+
+- **Schnell öffnen (`Strg+O`)**, wie Obsidians Quick Switcher: unter der Pfadleiste erscheint ein Streifen; tippen Sie einen Teil eines Dateinamens, eines Alias (`aliases` im Frontmatter) oder eines Ordnernamens, und die Treffer erscheinen darunter in einer Liste — die besten zuerst, rechts der Ordner. `↓` wechselt in die Liste, `Enter` öffnet (im Eingabefeld: den ersten Treffer), `Esc` geht einen Schritt zurück. Mehrere Wörter müssen alle passen; passt nichts zum Namen, prüft mdVü die Ordnernamen und zuletzt die Buchstaben der Reihe nach (`mdrd` findet `mdvu-readme`). Bei leerem Feld zeigt die Liste die zuletzt geöffneten Dateien. Ein **Ordner** (📁) öffnet direkt in der Liste — seine Unterordner und Dateien, Tippen sucht darin, `Backspace` geht eine Ebene hoch; mit `quickOpen/folder = open` zeigt er stattdessen die Ordnerseite. Siehe [Datei öffnen](docs/manual.de.md#dateien-öffnen).
+- **Taste nochmal = Bereich wechseln:** *Schnell öffnen* und *Suche in Dateien* beginnen beim Ort des aktuellen Dokuments — seinem Vault, sonst seinem Repository, sonst dem Ordner der Ordneransicht. Haben Sie Favoriten, wechselt ein zweites `Strg+O` bzw. `Strg+Umschalt+F` auf **alle Favoriten**, das nächste zurück; der Knopf im Streifen zeigt, wo Sie sind.
+- **Suchsprache für die Suche in Dateien:** `rechnung OR mahnung`, `rechnung -entwurf`, `(a OR b) c`, `"offene Posten"`, `/regex/`, `#todo`, `file:readme`, `path:2026`, `content:…`, `line:( … )` und `section:( … )` für Wörter in derselben Zeile bzw. demselben Abschnitt, `modified:>=-7d`, `created:2026-10`, `size:>1mb`, Frontmatter-Eigenschaften in eckigen Klammern (`[status:entwurf]`, `[prio>=2]`, `[kunde.name:müller]`) und `scope:`, um woanders zu suchen (`scope:#tag`, `scope:repo` …). Ohne Wort gibt es eine reine Liste der passenden Dateien. Fehler meldet die Statuszeile. Siehe [Suchsyntax](docs/manual.de.md#suchsyntax).
+- **Emoji-Zwischenspeicher auf der Platte:** Farb-Emojis werden einmal gezeichnet und in einer kleinen Cache-Datei gehalten, Dokumente voller Emojis erscheinen ab dem zweiten Start schneller. Einstellung: `perf/emojiDiskCacheMB` (Standard 16, `0` = aus). Die Performance-Seite zeigt die Zeit für Emojis.
+- **Emojis in PDFs** lassen sich jetzt im PDF-Betrachter kopieren und suchen (Microsoft Edge macht beim Kopieren noch Platzhalter daraus — ein Edge-Fehler), und Schriften aus Schriftsammlungen (`.ttc`, etwa manche CJK-Schriften) werden korrekt eingebettet.
+- **Diagnose-Seite:** die dort genannten Ordner öffnen per Klick im Explorer (nach einer Rückfrage), und der Cache-Ordner steht mit drin.
+
+### Geändert
+
+- **Der Datei-Dialog liegt jetzt auf `Strg+Umschalt+O`**; `Strg+O` ist *Schnell öffnen*.
+- **Suche in Dateien** bietet im Streifen zwei Bereiche — den Ort des Dokuments und alle Favoriten — statt einer Liste aller Vaults, Repositorys, Ordner und Tags. Tag-Bereiche und die übrigen erreichen Sie mit `scope:` im Suchtext; Links auf frühere Trefferlisten funktionieren weiter.
+- `Strg`+Klick in der Ordneransicht öffnet kein neues Fenster mehr — er bleibt frei für eine spätere Mehrfachauswahl. Die mittlere Maustaste tut es dort weiterhin, ebenso `Strg`+Klick auf einen Link im Dokument.
+
+### Behoben
+
+- Der Bereichs-Knopf eines offenen Suchstreifens folgt jetzt, wenn Sie einen anderen Ordner wählen oder ein Dokument in einem anderen Vault öffnen.
+
 ## [0.20.0] — 2026-10-17
 
 0.19 wurde nicht veröffentlicht; ihre Änderungen sind Teil dieser Version.

@@ -4,6 +4,27 @@
 
 All notable changes to mdVü are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versions are `Major.Minor.Patch`, and the fourth number in the file version of the EXE is the build counter.
 
+## [0.21.0] — 2026-10-20
+
+### Added
+
+- **Quick open (`Ctrl+O`)**, like Obsidian's quick switcher: a strip appears below the path bar; type part of a file name, of an alias (`aliases` in the frontmatter) or of a folder name, and the matches appear in a list below — best first, the folder on the right. `↓` moves into the list, `Enter` opens (from the input field: the first match), `Esc` steps back. Several words must all match; if nothing matches the name, mdVü tries the folder names and finally the letters in order (`mdrd` finds `mdvu-readme`). With the field empty, the list shows the files you opened last. A **folder** (📁) opens right in the list — its subfolders and files, typing searches inside it, `Backspace` goes one level up; with `quickOpen/folder = open` it shows the folder page instead. See [Opening a file](docs/manual.md#opening-files).
+- **Press the key again to switch the area:** *Quick open* and *Search in files* start with the place of the current document — its vault, otherwise its repository, otherwise the folder shown in the folder view. If you have favorites, a second `Ctrl+O` or `Ctrl+Shift+F` switches to **all favorites**, the next one back; the button in the strip shows where you are.
+- **Search language for Search in files:** `invoice OR reminder`, `invoice -draft`, `(a OR b) c`, `"open items"`, `/regex/`, `#todo`, `file:readme`, `path:2026`, `content:…`, `line:( … )` and `section:( … )` for words in the same line or section, `modified:>=-7d`, `created:2026-10`, `size:>1mb`, frontmatter properties in brackets (`[status:draft]`, `[prio>=2]`, `[client.name:miller]`), and `scope:` to search elsewhere (`scope:#tag`, `scope:repo` …). Without a word you get a plain list of matching files. Mistakes are reported in the status bar. See [Search syntax](docs/manual.md#search-syntax).
+- **Emoji cache on disk:** colour emoji are drawn once and kept in a small cache file, so documents full of emoji appear faster from the second start on. Setting: `perf/emojiDiskCacheMB` (default 16, `0` = off). The performance page shows the time spent on emoji.
+- **Emoji in PDFs** can now be copied and searched in the PDF viewer (Microsoft Edge still turns them into placeholders when copying — an Edge bug), and fonts from font collections (`.ttc`, such as some CJK fonts) are embedded correctly.
+- **Diagnostics page:** the folders listed there open in Explorer with a click (after a confirmation), and the cache folder is listed as well.
+
+### Changed
+
+- **The file dialog moved to `Ctrl+Shift+O`**; `Ctrl+O` is now *Quick open*.
+- **Search in files** offers two areas in the strip — the place of the document and all favorites — instead of a list of every vault, repository, folder and tag. Tag areas and the others are reached with `scope:` in the search text; links to earlier result lists keep working.
+- `Ctrl`+click in the folder view no longer opens a new window — it is kept free for selecting several entries later. The middle mouse button still does it there, and `Ctrl`+click on a link in a document as well.
+
+### Fixed
+
+- The area button of an open search strip now follows when you choose another folder or open a document in another vault.
+
 ## [0.20.0] — 2026-10-17
 
 0.19 was not published; its changes are part of this release.
