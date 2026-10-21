@@ -466,6 +466,7 @@ mdVü has a few deliberate hard limits. They exist so that an unusual file canno
 | `Ctrl+C` | Document: copy the selection — as text, and with formatting for Word, Outlook & Co. Images go along as links to the original files (in their original format); Word embeds them when pasting |
 | `Ctrl+Shift+C` | Document: copy the selection as Markdown |
 | Right mouse button | Document: menu with Copy, Copy as Markdown, Back and Forward |
+| *Copy* on a code block | Appears at the top right while the mouse is over a code block; copies the whole code as plain text |
 | `Ctrl+mouse wheel` | Document: zoom (50–200 %). A click on the zoom value in the footer offers all steps; the zoom is kept for the next start |
 | `F5` | Reload document / search again on the result list |
 | `F6` | Switch between panes (tree / document / editor) |
