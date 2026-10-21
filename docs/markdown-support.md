@@ -27,6 +27,7 @@ Want to see it all at once? Open [`samples/showcase.md`](../samples/showcase.md)
 | `\| a \| b \|` + `\|---\|---\|` | GFM tables — see below |
 | `---`, `***`, `___` | horizontal rule |
 | `---` … `---` at the top of the file | YAML front matter — see below |
+| `+++` … `+++` at the top of the file | TOML front matter (Hugo, Zola) — see below |
 
 ## Inline elements
 
@@ -380,7 +381,7 @@ Obsidian comments are never shown — neither on screen nor in the print preview
 
 ## Front matter
 
-A YAML block delimited by `---` at the very beginning of the file is recognized as front matter and shown as a dimmed monospaced block, fences included. It is deliberately *not* hidden: in a viewer, metadata is content — you usually want to see the tags and the date.
+A YAML block delimited by `---` at the very beginning of the file is recognized as front matter and shown as a dimmed monospaced block, fences included. A TOML block delimited by `+++` (as used by Hugo and Zola) is recognized and shown the same way; its keys are not evaluated yet (tags, aliases, search by property). It is deliberately *not* hidden: in a viewer, metadata is content — you usually want to see the tags and the date.
 
 It has its own style tag, so hiding it is a two-line change in your `user.css`:
 

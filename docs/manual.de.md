@@ -362,7 +362,7 @@ Der Dunkelmodus im Dokument ist vollständig CSS-getrieben: Das eingebaute dunkl
 
 ## Frontmatter
 
-*Ansicht → Show Frontmatter* blendet den YAML-Kopf am Dateianfang ein oder aus; die Einstellung wird gemerkt. Ist er ausgeblendet, bleibt an seiner Stelle eine einzelne Zeile stehen — `--- frontmatter (5 lines) ---` —, damit erkennbar bleibt, dass die Datei einen hat; ein Klick auf die Zeile blendet ihn wieder ein. Solange Sie durch Suchtreffer gehen (Einheit `HIT`), steht das Frontmatter immer vollständig da, ein Treffer darin bleibt also nie unsichtbar. Druck, Vorschau und PDF lassen ein ausgeblendetes Frontmatter ganz weg.
+*Ansicht → Show Frontmatter* blendet den YAML-Kopf am Dateianfang ein oder aus; die Einstellung wird gemerkt. Ist er ausgeblendet, bleibt an seiner Stelle eine einzelne Zeile stehen — `--- frontmatter (5 lines) ---` —, damit erkennbar bleibt, dass die Datei einen hat; ein Klick auf die Zeile blendet ihn wieder ein. Solange Sie durch Suchtreffer gehen (Einheit `HIT`), steht das Frontmatter immer vollständig da, ein Treffer darin bleibt also nie unsichtbar. Druck, Vorschau und PDF lassen ein ausgeblendetes Frontmatter ganz weg. Neben dem YAML-Kopf zwischen `---`-Zeilen erkennt mdVü auch den TOML-Kopf zwischen `+++`-Zeilen, wie ihn Hugo und Zola verwenden; er wird genauso gezeigt und ausgeblendet, seine Eigenschaften zählen für Tags, Aliase und `[ ]` in der Suche aber noch nicht.
 
 ## Screenreader
 

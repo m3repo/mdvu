@@ -362,7 +362,7 @@ Dark mode in the document is entirely CSS-driven: the built-in dark stylesheet i
 
 ## Frontmatter
 
-*View → Show Frontmatter* shows or hides the YAML header at the top of a file; the setting is remembered. When it is hidden, a single line — `--- frontmatter (5 lines) ---` — stays in its place, so you can see that the file has one; a click on that line shows it again. While you step through search hits (unit `HIT`), the frontmatter is always shown in full, so a hit inside it is never invisible. Print, preview and PDF leave a hidden frontmatter out completely.
+*View → Show Frontmatter* shows or hides the YAML header at the top of a file; the setting is remembered. When it is hidden, a single line — `--- frontmatter (5 lines) ---` — stays in its place, so you can see that the file has one; a click on that line shows it again. While you step through search hits (unit `HIT`), the frontmatter is always shown in full, so a hit inside it is never invisible. Print, preview and PDF leave a hidden frontmatter out completely. Besides the YAML header between `---` lines, mdVü also recognizes the TOML header between `+++` lines used by Hugo and Zola; it is shown and hidden the same way, but its properties do not count yet for tags, aliases and `[ ]` in the search.
 
 ## Screen readers
 

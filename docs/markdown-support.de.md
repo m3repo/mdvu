@@ -27,6 +27,7 @@ Alles auf einmal sehen? [`samples/showcase.de.md`](../samples/showcase.de.md) in
 | `\| a \| b \|` + `\|---\|---\|` | GFM-Tabellen — siehe unten |
 | `---`, `***`, `___` | Trennlinie |
 | `---` … `---` am Dateianfang | YAML-Frontmatter — siehe unten |
+| `+++` … `+++` am Dateianfang | TOML-Frontmatter (Hugo, Zola) — siehe unten |
 
 ## Inline-Elemente
 
@@ -380,7 +381,7 @@ Obsidian-Kommentare werden nie angezeigt — weder am Bildschirm noch in Druckvo
 
 ## Frontmatter
 
-Ein durch `---` begrenzter YAML-Block ganz am Dateianfang wird als Frontmatter erkannt und als gedämpfter Monospace-Block angezeigt, samt der Zäune. Er wird bewusst *nicht* versteckt: In einem Viewer sind Metadaten Inhalt — Tags und Datum will man in der Regel sehen.
+Ein durch `---` begrenzter YAML-Block ganz am Dateianfang wird als Frontmatter erkannt und als gedämpfter Monospace-Block angezeigt, samt der Zäune. Ein durch `+++` begrenzter TOML-Block (wie bei Hugo und Zola) wird genauso erkannt und angezeigt; seine Schlüssel werten Tags, Aliase und die Suche nach Eigenschaften aber noch nicht aus. Er wird bewusst *nicht* versteckt: In einem Viewer sind Metadaten Inhalt — Tags und Datum will man in der Regel sehen.
 
 Er trägt ein eigenes Style-Tag; ausblenden ist deshalb eine Zweizeilen-Änderung in der `user.css`:
 
