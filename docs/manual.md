@@ -271,7 +271,7 @@ Switching back from CSS to the Markdown view applies your changed stylesheet imm
 mdVü comes with its own print and PDF output — no detour through a browser or a PDF printer driver:
 
 - **Print preview** (`Ctrl+F2`): even for long documents, 100 pages are ready in a few seconds.
-- **Page setup:** a strip at the top of the print preview selects the printer, the paper size (A3, A4, A5, A6, Letter, Legal) and portrait or landscape. The preview is laid out anew right away, and print and PDF use exactly this format — what you see in the preview is what comes out of the printer. *Printer setup…* opens the Windows printer settings without printing; printer, paper size and orientation chosen there are taken over. Show or hide the strip with `Ctrl+Shift+P` (*View → Page setup*), close it with `Esc`. The choice is remembered. In a narrow window the printer list gets narrower first; then *Printer setup…*, *PDF…* and *Print…* move into a menu behind **»**. Paper sizes outside the list above are not supported yet; if the printer dialog returns one, mdVü keeps the size set in the strip.
+- **Page setup:** a strip at the top of the print preview selects the printer, the paper size (A3, A4, A5, A6, Letter, Legal) and portrait or landscape. The preview is laid out anew right away, and print and PDF use exactly this format — what you see in the preview is what comes out of the printer. *Printer setup…* opens the Windows printer settings without printing; printer, paper size and orientation chosen there are taken over. The strip belongs to the preview: `Ctrl+Shift+P` opens the preview with the focus in the strip, and its **×** or `Esc` closes the whole preview and returns to the normal view. The choice is remembered. In a narrow window the printer list gets narrower first; then *Printer setup…*, *PDF…* and *Print…* move into a menu behind **»**. Paper sizes outside the list above are not supported yet; if the printer dialog returns one, mdVü keeps the size set in the strip.
 - **Zoom:** while the print preview is showing, the zoom item in the status bar belongs to it: *Fit page* (the default — the whole sheet is visible), *Fit width* or a fixed percentage. Both fit settings follow the window size; `Ctrl`+mouse wheel or `Ctrl`+`+`/`-` zoom freely. The choice is remembered.
 - **Native PDF:** *View → Export as PDF* produces a true vector PDF with selectable text and a PDF outline built from the document's headings. The files are usually smaller than "Print to PDF" via a printer driver.
 - **Clean page breaks:** orphaned lines are taken into account — a single line of a paragraph is never left alone at the top or bottom of a page.
@@ -430,7 +430,6 @@ The values worth knowing about:
 | `quickOpen/folder` | what choosing a folder in *Quick open* (`Ctrl+O`) does: `browse` (default) steps into it in the list, `open` shows the folder page. Takes effect on the next start |
 | `ui/windowSize` | window size from last time as `width,height,maximized` (at 100 % scaling); the position is left to Windows. Next to it mdVü keeps one entry per screen size, such as `ui/windowSize.2560x1440`, so each of your screens gets its own size back |
 | `ui/startPage` | page shown at start, as a link such as `mdvu:open?uri=m3-mdvu:start.md&nav=links` — any file or page works, e.g. `mdvu:open?uri=C:/Notes/Index.md`. Empty means the welcome page; after the first session in which you opened a file, mdVü fills in the start page once and never touches the value again. A file passed on the command line (double-click in Explorer) always wins |
-| `ui/pageSetupBar` | show the page setup strip in the print preview (on by default) |
 | `ui/fileMru`, `ui/folderMru` | recently used files and folders |
 | `ui/resizeBudgetMs`, `ui/resizeSettleMs`, `ui/resizeRefreshMs` | timing of the re-layout while a window is being resized |
 
@@ -478,10 +477,10 @@ mdVü has a few deliberate hard limits. They exist so that an unusual file canno
 | `Ctrl+Shift+D` | Show favorites |
 | `Ctrl+1` | Markdown view |
 | `Ctrl+2` | Source view |
-| `Ctrl+3` / `Ctrl+F2` | Print preview |
+| `Ctrl+3` / `Ctrl+F2` | Print preview (`Esc` closes it) |
 | `Ctrl+4` | Edit CSS |
 | `Ctrl+P` | Print |
-| `Ctrl+Shift+P` | Page setup strip in the print preview on/off |
+| `Ctrl+Shift+P` | Print preview with the focus in the page setup strip |
 | `Ctrl+Shift+B` | Read the document in the browser (for screen readers) |
 
 ## Command line

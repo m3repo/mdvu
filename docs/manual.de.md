@@ -271,7 +271,7 @@ Beim Zurückschalten von der CSS-Ansicht auf die Markdown-Ansicht wird das geän
 mdVü bringt eine eigene Druck- und PDF-Ausgabe mit — kein Umweg über den Browser oder einen PDF-Druckertreiber:
 
 - **Druckvorschau** (`Strg+F2`): auch bei umfangreichen Dokumenten stehen 100 Seiten in wenigen Sekunden bereit.
-- **Seiteneinrichtung:** Eine Leiste oben in der Druckvorschau wählt Drucker, Papierformat (A3, A4, A5, A6, Letter, Legal) und Hoch- oder Querformat. Die Vorschau wird sofort neu umbrochen, Druck und PDF verwenden genau dieses Format — was die Vorschau zeigt, kommt aus dem Drucker. *Printer setup…* öffnet die Windows-Druckereinstellungen, ohne zu drucken; dort gewählter Drucker, Papierformat und Ausrichtung werden übernommen. Ein- und ausblenden mit `Strg+Umschalt+P` (*Ansicht → Page setup*), schließen mit `Esc`. Die Auswahl bleibt gespeichert. In einem schmalen Fenster wird zuerst die Druckerliste schmaler; danach wandern *Printer setup…*, *PDF…* und *Print…* in ein Menü hinter **»**. Papierformate außerhalb der Liste werden noch nicht unterstützt; liefert der Druckerdialog eines, behält mdVü das in der Leiste eingestellte Format.
+- **Seiteneinrichtung:** Eine Leiste oben in der Druckvorschau wählt Drucker, Papierformat (A3, A4, A5, A6, Letter, Legal) und Hoch- oder Querformat. Die Vorschau wird sofort neu umbrochen, Druck und PDF verwenden genau dieses Format — was die Vorschau zeigt, kommt aus dem Drucker. *Printer setup…* öffnet die Windows-Druckereinstellungen, ohne zu drucken; dort gewählter Drucker, Papierformat und Ausrichtung werden übernommen. Die Leiste gehört fest zur Vorschau: `Strg+Umschalt+P` öffnet die Vorschau mit dem Fokus in der Leiste, ihr **×** oder `Esc` schließt die ganze Vorschau und kehrt zur normalen Ansicht zurück. Die Auswahl bleibt gespeichert. In einem schmalen Fenster wird zuerst die Druckerliste schmaler; danach wandern *Printer setup…*, *PDF…* und *Print…* in ein Menü hinter **»**. Papierformate außerhalb der Liste werden noch nicht unterstützt; liefert der Druckerdialog eines, behält mdVü das in der Leiste eingestellte Format.
 - **Zoom:** Solange die Druckvorschau zu sehen ist, gilt ihr der Zoom-Eintrag in der Statuszeile: *Fit page* (Vorgabe — das ganze Blatt ist zu sehen), *Fit width* oder ein fester Prozentwert. Beide Fit-Stufen folgen der Fenstergröße; `Strg`+Mausrad bzw. `Strg`+`+`/`-` zoomen frei. Die Wahl bleibt gespeichert.
 - **Natives PDF:** *Ansicht → Als PDF exportieren* erzeugt ein echtes Vektor-PDF mit kopierbarem Text und einem Lesezeichen-Baum aus den Überschriften des Dokuments. Die Dateien sind in der Regel kleiner als bei „Drucken als PDF“ über einen Druckertreiber.
 - **Saubere Seitenumbrüche:** Beim Umbruch werden verwaiste Zeilen berücksichtigt — eine einzelne Absatzzeile bleibt nicht allein am Seitenende oder Seitenanfang stehen.
@@ -430,7 +430,6 @@ Die Werte, die man kennen sollte:
 | `quickOpen/folder` | was die Wahl eines Ordners im *Schnell öffnen* (`Strg+O`) tut: `browse` (Standard) betritt ihn in der Liste, `open` zeigt die Ordnerseite. Wirkt beim nächsten Start |
 | `ui/windowSize` | Fenstergröße vom letzten Mal als `Breite,Höhe,maximiert` (bei 100 % Skalierung); die Position bleibt Windows überlassen. Daneben führt mdVü je Bildschirmgröße einen Eintrag, etwa `ui/windowSize.2560x1440` — jeder Ihrer Bildschirme bekommt so seine eigene Größe zurück |
 | `ui/startPage` | Seite beim Start, als Link wie `mdvu:open?uri=m3-mdvu:start.md&nav=links` — jede Datei oder Seite geht, z.B. `mdvu:open?uri=C:/Notizen/Index.md`. Leer bedeutet die Willkommensseite; nach der ersten Sitzung, in der Sie eine Datei geöffnet haben, trägt mdVü einmalig die Startseite ein und ändert den Wert danach nie wieder. Eine per Kommandozeile übergebene Datei (Doppelklick im Explorer) hat immer Vorrang |
-| `ui/pageSetupBar` | Seiteneinrichtungs-Leiste in der Druckvorschau zeigen (standardmäßig an) |
 | `ui/fileMru`, `ui/folderMru` | zuletzt benutzte Dateien und Ordner |
 | `ui/resizeBudgetMs`, `ui/resizeSettleMs`, `ui/resizeRefreshMs` | Zeitverhalten des Neuumbruchs während der Größenänderung des Fensters |
 
@@ -478,10 +477,10 @@ mdVü hat einige bewusst gesetzte harte Grenzen. Sie sorgen dafür, dass eine un
 | `Strg+Umschalt+D` | Favoriten anzeigen |
 | `Strg+1` | Markdown-Ansicht |
 | `Strg+2` | Quelltext-Ansicht |
-| `Strg+3` / `Strg+F2` | Druckvorschau |
+| `Strg+3` / `Strg+F2` | Druckvorschau (`Esc` schließt sie) |
 | `Strg+4` | CSS bearbeiten |
 | `Strg+P` | Drucken |
-| `Strg+Umschalt+P` | Seiteneinrichtungs-Leiste in der Druckvorschau ein/aus |
+| `Strg+Umschalt+P` | Druckvorschau mit dem Fokus in der Seiteneinrichtung |
 | `Strg+Umschalt+B` | Dokument im Browser lesen (für Screenreader) |
 
 ## Kommandozeile
