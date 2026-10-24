@@ -130,7 +130,7 @@ Im **Dokument, im Quelltext, im CSS-Editor und in der Druckvorschau** erscheint 
 
 Im **Dokument** durchsucht mdVü immer den ganzen Text — auch Teile sehr großer Dateien, die noch gar nicht angezeigt wurden; gefunden wird, was man sieht (`foo` trifft auch `**fo**o`, aber nicht eine Link-Adresse). Beim Tippen sucht mdVü erst, wenn Sie kurz innehalten (0,3 Sekunden), und erst ab **3 Zeichen** — so bleibt die Eingabe auch in großen Dokumenten flüssig. `Eingabe` und `F3` suchen sofort, auch kürzere Begriffe. Steht der Begriff in Anführungszeichen (`"ab"`), wird genau dieser Text gesucht, auch wenn er kurz ist oder am Rand Leerzeichen hat. Bei sehr vielen Treffern werden die ersten 10 000 markiert; die Statuszeile sagt Bescheid.
 
-Nochmal `Strg+F3`, `Esc` oder der `X`-Knopf schließt den Streifen — Hervorhebungen verschwinden, der Ordnerfilter wird aufgehoben. Der Suchbegriff selbst bleibt erhalten: `Strg+F` holt ihn wieder ins Feld, `F3` nimmt die Suche beim ersten Treffer wieder auf. Damit kann `F3` auch ohne sichtbaren Streifen Hervorhebungen im Dokument stehen lassen; `Esc` im Dokument räumt sie weg.
+Nochmal `Strg+F3` oder der `X`-Knopf schließt den Streifen — Hervorhebungen verschwinden, der Ordnerfilter wird aufgehoben. Die Suche ist ein Modus: `Esc` im Dokument, in der Ordneransicht oder auf einem Knopf des Streifens führt zuerst zurück ins Suchfeld; `Esc` im Feld schließt den Streifen. Der Suchbegriff selbst bleibt erhalten: `Strg+F` holt ihn wieder ins Feld, `F3` nimmt die Suche beim ersten Treffer wieder auf. Damit kann `F3` auch ohne sichtbaren Streifen Hervorhebungen im Dokument stehen lassen; `Esc` im Dokument räumt sie weg.
 
 Solange eine Dokumentsuche läuft — der Streifen ist offen, oder `F3` hat Hervorhebungen stehen lassen —, **wandert sie beim Öffnen eines anderen Dokuments mit**: Der Begriff wird dort sofort gesucht, die Treffer werden hervorgehoben. Die Ansicht springt dabei nicht zum ersten Treffer; `Eingabe` oder `F3` führt dorthin. Eine geschlossene Suche bleibt geschlossen.
 
@@ -458,7 +458,7 @@ mdVü hat einige bewusst gesetzte harte Grenzen. Sie sorgen dafür, dass eine un
 | `F3` / `Umschalt+F3` | Nächster / vorheriger Treffer im Haupt-Pane |
 | `Strg+F3` | Suche im fokussierten Bereich ein/aus (inkl. Ordneransicht und Gliederung) |
 | `Strg+Umschalt+F` | Suchen in Dateien (Vault, Repository oder Ordner) |
-| `Esc` | Suchstreifen schließen / Hervorhebungen wegräumen / zurück zum Scrollen |
+| `Esc` | Zurück ins Suchfeld; im Feld: Suchstreifen schließen / Hervorhebungen wegräumen / zurück zum Scrollen |
 | `0` / `1` / `F7` | Dokument: Scrollen / Caret / umschalten |
 | `L` / `H` | Dokument: mit den Pfeiltasten durch Links / Suchtreffer |
 | `Tab` / `Umschalt+Tab` | Dokument: nächster / voriger Link |

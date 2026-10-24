@@ -130,7 +130,7 @@ In the **document, source text, CSS editor and print preview** the strip appears
 
 In the **document**, mdVü always searches the whole text — including parts of very large files that haven't been displayed yet; it finds what you see (`foo` also matches `**fo**o`, but not a link address). While you type, mdVü waits until you pause briefly (0.3 seconds) and until you've entered **3 characters**, so typing stays smooth even in large documents. `Enter` and `F3` search right away, shorter terms too. A term in quotes (`"ab"`) searches for exactly that text, even if it is short or has spaces at the edges. With a very large number of hits, the first 10,000 are highlighted; the status bar tells you.
 
-`Ctrl+F3` again, `Esc` or the `X` button closes the strip — highlights disappear, the folder filter is lifted. The search term itself is kept: `Ctrl+F` brings it back into the field, and `F3` resumes the search from the first hit. That also means `F3` can leave highlights in the document without a visible strip; `Esc` in the document clears them.
+`Ctrl+F3` again or the `X` button closes the strip — highlights disappear, the folder filter is lifted. Search works as a mode: `Esc` in the document, the folder tree or on a button of the strip first takes you back into the search field; `Esc` in the field closes the strip. The search term itself is kept: `Ctrl+F` brings it back into the field, and `F3` resumes the search from the first hit. That also means `F3` can leave highlights in the document without a visible strip; `Esc` in the document clears them.
 
 While a document search is running — the strip is open, or `F3` has left highlights — it **moves along when you open another document**: the term is searched there right away and the hits are highlighted. The view does not jump to the first hit; `Enter` or `F3` takes you there. A search you closed stays closed.
 
@@ -458,7 +458,7 @@ mdVü has a few deliberate hard limits. They exist so that an unusual file canno
 | `F3` / `Shift+F3` | Next / previous hit in the main pane |
 | `Ctrl+F3` | Search in the focused pane on/off (incl. folder view and outline) |
 | `Ctrl+Shift+F` | Search in files (vault, repository or folder) |
-| `Esc` | Close the search strip / clear the highlights / back to scrolling |
+| `Esc` | Back into the search field; in the field: close the search strip / clear the highlights / back to scrolling |
 | `0` / `1` / `F7` | Document: scroll / caret / switch between them |
 | `L` / `H` | Document: walk through links / search hits with the arrow keys |
 | `Tab` / `Shift+Tab` | Document: next / previous link |
