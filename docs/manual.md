@@ -120,7 +120,7 @@ The folder view shows the folder of the current document, filtered to `*.md`. It
 
 In the **folder view** and the **outline** the strip appears above the tree. As you type, the tree is filtered — to matching files or headings — and hits are highlighted. The arrow-down key moves the focus from the search field into the tree, so you can type, then browse without touching the mouse. When you close the strip, the tree is expanded the way it was before the search.
 
-In the **document, source text, CSS editor and print preview** the strip appears below the path bar and works like a browser's find bar: `Enter` and `Shift+Enter` step through the hits (in the document, a further `Enter` moves into the text instead — see *Reading with the keyboard*), a counter shows *hit / total*, and all hits are highlighted at once. Three toggles refine the search:
+In the **document, source text, CSS editor and print preview** the strip appears below the path bar and works like a browser's find bar: `Enter` and `Shift+Enter` step through the hits (in the document and the print preview, a further `Enter` moves into the text instead — see *Reading with the keyboard*), a counter shows *hit / total*, and all hits are highlighted at once. Three toggles refine the search:
 
 | Toggle | Meaning |
 |---|---|
@@ -135,6 +135,8 @@ In the **document**, mdVü always searches the whole text — including parts of
 While a document search is running — the strip is open, or `F3` has left highlights — it **moves along when you open another document**: the term is searched there right away and the hits are highlighted. The view does not jump to the first hit; `Enter` or `F3` takes you there. A search you closed stays closed.
 
 Only one strip is open at a time; switching views closes the main pane's strip (the strips above the trees stay).
+
+In the print preview, `↓` or a further `Enter` moves the focus onto the pages: the arrow keys then step through the hits, the status bar shows `HIT 2/7`, and `Page Up`/`Page Down` and the mouse wheel keep scrolling. `Esc` goes back to the search field.
 
 Note on the print preview: it searches what has actually been paginated. Documents cut off at the 200-page limit end there for the search as well.
 

@@ -120,7 +120,7 @@ Die Ordneransicht zeigt den Ordner des aktuellen Dokuments, gefiltert auf `*.md`
 
 In der **Ordneransicht** und in der **Gliederung** erscheint der Streifen über dem Baum. Während der Eingabe wird der Baum gefiltert — auf passende Dateien bzw. Überschriften —, Treffer werden hervorgehoben. Die Pfeil-runter-Taste setzt den Fokus vom Suchfeld in den Baum — tippen, dann blättern, ganz ohne Maus. Nach dem Schließen ist der Baum wieder so aufgeklappt wie vor der Suche.
 
-Im **Dokument, im Quelltext, im CSS-Editor und in der Druckvorschau** erscheint der Streifen unter der Pfadleiste und arbeitet wie die Suchleiste eines Browsers: `Eingabe` und `Umschalt+Eingabe` gehen durch die Treffer (im Dokument führt ein weiteres `Eingabe` stattdessen in den Text — s. *Lesen mit der Tastatur*), ein Zähler zeigt *Treffer / gesamt*, und alle Treffer sind gleichzeitig hervorgehoben. Drei Umschalter verfeinern die Suche:
+Im **Dokument, im Quelltext, im CSS-Editor und in der Druckvorschau** erscheint der Streifen unter der Pfadleiste und arbeitet wie die Suchleiste eines Browsers: `Eingabe` und `Umschalt+Eingabe` gehen durch die Treffer (im Dokument und in der Druckvorschau führt ein weiteres `Eingabe` stattdessen in den Text — s. *Lesen mit der Tastatur*), ein Zähler zeigt *Treffer / gesamt*, und alle Treffer sind gleichzeitig hervorgehoben. Drei Umschalter verfeinern die Suche:
 
 | Umschalter | Bedeutung |
 |---|---|
@@ -135,6 +135,8 @@ Nochmal `Strg+F3` oder der `X`-Knopf schließt den Streifen — Hervorhebungen v
 Solange eine Dokumentsuche läuft — der Streifen ist offen, oder `F3` hat Hervorhebungen stehen lassen —, **wandert sie beim Öffnen eines anderen Dokuments mit**: Der Begriff wird dort sofort gesucht, die Treffer werden hervorgehoben. Die Ansicht springt dabei nicht zum ersten Treffer; `Eingabe` oder `F3` führt dorthin. Eine geschlossene Suche bleibt geschlossen.
 
 Es ist immer höchstens ein Streifen offen; ein Ansichtswechsel schließt den Streifen des Haupt-Panes (die Streifen über den Bäumen bleiben).
+
+In der Druckvorschau setzt `↓` oder ein weiteres `Eingabe` den Fokus auf die Seiten: Die Pfeiltasten gehen dann durch die Treffer, die Statuszeile zeigt `HIT 2/7`, `Bild↑`/`Bild↓` und das Mausrad blättern weiter. `Esc` führt zurück ins Suchfeld.
 
 Hinweis zur Druckvorschau: Sie durchsucht, was tatsächlich paginiert wurde. Dokumente, die an der 200-Seiten-Grenze abgeschnitten sind, enden auch für die Suche dort.
 
