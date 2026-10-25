@@ -60,13 +60,13 @@ Nothing is installed system-wide, no admin rights are required, and no services 
 
 ## Portable use
 
-mdVü can also run without leaving anything in your user profile or the registry — from a USB stick, a synced folder or a tools folder you carry from computer to computer. The portable download (`mdvu-<version>-portable.zip`) contains `mdvu.exe` and an empty `settings.ini`; unpack both into the same folder.
+mdVü can also run without leaving anything in your user profile or the registry — from a USB stick, a synced folder or a tools folder you carry from computer to computer. The portable download (`mdvu-<version>-portable.zip`) contains `mdvu.exe` and an empty `settings.yaml`; unpack both into the same folder.
 
-**How it works:** if a file named `settings.ini` lies next to `mdvu.exe`, mdVü runs in portable mode and keeps everything in that folder — `settings.ini` (values), `user.css`, `favorites.yaml` and `tags.yaml`. Any existing `.exe` becomes portable the same way: just create an empty `settings.ini` next to it. Delete the file (or move the EXE away from it) and mdVü uses the normal settings folder again; the two never mix. Settings are not carried over between the modes — copy `user.css`, `favorites.yaml` and `tags.yaml` by hand if you want them in both.
+**How it works:** if a file named `settings.yaml` lies next to `mdvu.exe`, mdVü runs in portable mode and keeps everything in that folder — `settings.yaml` (settings), `state.yaml` (recent files, window size, license acceptance), `user.css`, `favorites.yaml` and `tags.yaml`. Any existing `.exe` becomes portable the same way: just create an empty `settings.yaml` next to it. A `settings.ini` from version 0.21 or earlier works too and is taken over once. Delete the file (or move the EXE away from it) and mdVü uses the normal settings folder again; the two never mix. Settings are not carried over between the modes — copy `user.css`, `favorites.yaml` and `tags.yaml` by hand if you want them in both.
 
 **The folder must be writable.** If it is not (for example below *Program Files*, or a write-protected stick), mdVü says so at startup and runs anyway, but cannot save anything — not even the license acceptance, so you would be asked again on every start.
 
-**License acceptance:** in portable mode it is stored in `settings.ini`, tied to the computer and the Windows user. On a computer or user account where you have not accepted it yet, the license is shown once — a `settings.ini` copied from someone else does not count. Each computer you use keeps its own entry.
+**License acceptance:** in portable mode it is stored in `state.yaml`, tied to the computer and the Windows user. On a computer or user account where you have not accepted it yet, the license is shown once — a `state.yaml` copied from someone else does not count. Each computer you use keeps its own entry.
 
 **What is not available:** *File → Register as Markdown default* — the association would point to a folder that may move or carry another drive letter next time. *File → Remove Markdown registration* still works, for cleaning up after an earlier installed copy.
 
@@ -96,7 +96,7 @@ There are several ways to open a file:
 - **Quick open** with `Ctrl+O`: a strip appears below the path bar, as with the search. Type part of a file name, of an alias (`aliases` in the frontmatter, as in Obsidian) or of a folder name — the matches appear in a list below, best first; folders are marked with 📁, the folder of each match is shown on the right. Choosing a folder **steps into it** right in the list: a header line shows where you are, below come its subfolders and files; typing now searches only inside this folder (also further down), `Backspace` in the empty field goes one level up. With the setting `quickOpen/folder = open`, a folder opens as folder page instead, ready for the keyboard (arrow keys from link to link). Folders count if they contain Markdown files (also further down). `↓` moves into the list, `↑`/`↓` choose, `Enter` opens (from the input field: the first match); `Esc` in the list returns to the input field, a second `Esc` closes. Several words must all match, in any order; if nothing matches the name, mdVü also tries the folder names and, as a last resort, the letters in order (`mdrd` finds `mdvu-readme`). It searches the whole vault or repository of the current document, otherwise the folder of the folder view. If you have favorites, press `Ctrl+O` once more (or click the button on the right of the strip) to search **all favorites** instead — and again to switch back. With the field empty, the list shows the files you opened last.
 - **Open dialog** with `Ctrl+Shift+O`.
 - **Start page** (*File → Start page*): the files you opened last and your favorites, one click away. As soon as you have opened a file once, mdVü starts with this page; the welcome page of the first start is in the *Help* menu.
-- **Folder view:** clicking a file in the folder tree on the left, or moving through the tree with the arrow keys, shows it right away — just a **peek**: it does not end up in the history (*Back*) or among the recent files, and the path bar shows its name in *italics*. `Enter` or a double-click opens the file for real and moves the focus into the document; clicking into the document or `F6` does the same for a peeked file. `Ctrl+Shift+E` takes you back to the folder view. A **folder** shows up as a page of its own: its subfolders and Markdown files with size, date and the first lines of each file. `Enter` (or clicking into the page) moves into it ready for the keyboard — the arrow keys go from link to link, `Enter` opens a file or subfolder. Opening a file or folder that belongs to an Obsidian vault or a Git repository — from the command line, the file dialog, drag & drop, a link, the path bar or the recent files — shows the **whole vault or repository** in the folder view, with the file or folder selected; if they are nested, the innermost one. As long as you stay inside it, the folder view stays put. Files and folders whose name starts with a dot (`.git`, `.obsidian` …) are not shown (setting `ui/folderTreeHideDot`).
+- **Folder view:** clicking a file in the folder tree on the left, or moving through the tree with the arrow keys, shows it right away — just a **peek**: it does not end up in the history (*Back*) or among the recent files, and the path bar shows its name in *italics*. `Enter` or a double-click opens the file for real and moves the focus into the document; clicking into the document or `F6` does the same for a peeked file. `Ctrl+Shift+E` takes you back to the folder view. A **folder** shows up as a page of its own: its subfolders and Markdown files with size, date and the first lines of each file. `Enter` (or clicking into the page) moves into it ready for the keyboard — the arrow keys go from link to link, `Enter` opens a file or subfolder. Opening a file or folder that belongs to an Obsidian vault or a Git repository — from the command line, the file dialog, drag & drop, a link, the path bar or the recent files — shows the **whole vault or repository** in the folder view, with the file or folder selected; if they are nested, the innermost one. As long as you stay inside it, the folder view stays put. Files and folders whose name starts with a dot (`.git`, `.obsidian` …) are not shown (setting `folderTree/hideDot`).
 - **Recently used:** the *File* menu lists recently opened files and folders. The **start page** (*File → Start page*) also shows the last five files.
 - **Double-click in Explorer:** *File → Register as Markdown default* associates mdVü with `.md` files (per user, no admin rights required). Windows may ask once via "Open with" — see [Troubleshooting](#troubleshooting).
 - **Explorer context menu:** the same registration adds *Open with mdVü*, *Print with mdVü* (opens the print preview) and *Export as PDF with mdVü* to every `.md` file — even if another program is the default — and *Open in mdVü* to folders. On Windows 11 they are under *Show more options* (`Shift+F10`). If you registered with an earlier version, register once more to get them.
@@ -167,7 +167,7 @@ The result is a **document of its own**, with its own place in the history:
 
 **Back** (`Alt+←`) returns to the result list at the place you left. The list is kept — the last five result lists are held in memory — so it looks exactly as before, even if files have changed since. `F5` on the result list searches again. Because the list is a document, you can search in it (`Ctrl+F`), print it or save it as PDF, and its outline lists the folders and files.
 
-Large folders are searched in the background: the list grows while you read, and the footer shows the progress. Opening another document stops a running search; going back to it then searches again. Files larger than the load limit (`doc/maxLoadMB`) are searched up to that limit, like the display; the list marks them.
+Large folders are searched in the background: the list grows while you read, and the footer shows the progress. Opening another document stops a running search; going back to it then searches again. Files larger than the load limit (`document/maxLoadMB`) are searched up to that limit, like the display; the list marks them.
 
 mdVü searches **the text you see** — in files exactly as in the document, so both count the same hits: front matter (properties) is included and marked as such in the list, but `%%comments%%`, link targets and Markdown markup are not. Obsidian's own search does find comments. Hidden folders (starting with a dot, like `.obsidian` or `.git`) are skipped, and only `*.md` files are searched.
 
@@ -277,7 +277,7 @@ mdVü comes with its own print and PDF output — no detour through a browser or
 - **Zoom:** while the print preview is showing, the zoom item in the status bar belongs to it: *Fit page* (the default — the whole sheet is visible), *Fit width* or a fixed percentage. Both fit settings follow the window size; `Ctrl`+mouse wheel or `Ctrl`+`+`/`-` zoom freely. The choice is remembered.
 - **Native PDF:** *View → Export as PDF* produces a true vector PDF with selectable text and a PDF outline built from the document's headings. The files are usually smaller than "Print to PDF" via a printer driver.
 - **Clean page breaks:** orphaned lines are taken into account — a single line of a paragraph is never left alone at the top or bottom of a page.
-- **Wide tables** are fitted automatically: the font shrinks moderately (down to 70 %), anything still wider is cut off at the right page edge — so put the important columns first. Long-text columns are capped at 30 % of the page width when space is tight. The previous behaviour (squeeze all columns onto the page) is available via the setting `print/tableFit = squeeze`.
+- **Wide tables** are fitted automatically: the font shrinks moderately (down to 70 %), anything still wider is cut off at the right page edge — so put the important columns first. Long-text columns are capped at 30 % of the page width when space is tight. The previous behaviour (squeeze all columns onto the page) is available via the setting `print/table/fit: squeeze`.
 - **Print** straight from the view with `Ctrl+P`. The print dialog starts with the printer and paper from the page setup, and changes made there flow back into the preview.
 
 Print and PDF output is always light, regardless of the dark mode setting — a dark page background would waste toner and read badly on paper. Preview, print and PDF are limited to the first **200 pages**; a red message appears in the status bar when a document is cut off.
@@ -288,7 +288,7 @@ Print and PDF output is always light, regardless of the dark mode setting — a 
 
 By default, mdVü follows the Markdown standard (CommonMark): a single line break inside a paragraph becomes a space. A line only breaks where it ends with two spaces or a backslash `\`. Apps like Typora and Obsidian break at every line instead.
 
-If a file lies in an **Obsidian vault** (a folder containing `.obsidian`), mdVü uses the vault's setting *Strict line breaks*, so the note looks the way it does in Obsidian. For all other files, `doc/lineBreaks = newline` in `settings.ini` switches to one line, one break.
+If a file lies in an **Obsidian vault** (a folder containing `.obsidian`), mdVü uses the vault's setting *Strict line breaks*, so the note looks the way it does in Obsidian. For all other files, `lineBreaks: newline` under `document:` in `settings.yaml` switches to one line, one break.
 
 The status bar shows where a file lives: **Obs** for an Obsidian vault, **Git** for a Git repository, **Obs/Git** if both share the same folder. A click opens that folder in the folder view.
 
@@ -394,46 +394,56 @@ There is no settings dialog yet. *Help → Setting* opens a small note with a cl
 %APPDATA%\m3Works\mdVu
 ```
 
-In [portable mode](#portable-use) it is the program folder instead. It contains `settings.ini` (values), `user.css` (your stylesheet) `favorites.yaml` (your favorites) and `tags.yaml` (your own tags). Values are written through immediately — mdVü never loses a setting on a crash, but it also means **you should close the program before editing `settings.ini` by hand**, otherwise your changes will be overwritten.
+In [portable mode](#portable-use) it is the program folder instead. It contains `settings.yaml` (your settings), `state.yaml` (what mdVü remembers by itself: recent files, window size, the license acceptance), `user.css` (your stylesheet), `favorites.yaml` (your favorites) and `tags.yaml` (your own tags). A `settings.ini` from version 0.21 or earlier is taken over once on the first start and renamed to `settings.ini.bak`.
 
-Keys are hierarchical: everything before the slash is the INI section, everything after is the key name. `doc/maxLoadMB = 80` therefore looks like this in the file:
+Values are written through immediately — mdVü never loses a setting on a crash. You may edit `settings.yaml` by hand, even while mdVü runs: before it saves a change of its own, it reads the file again, so your edit is kept. Comments of your own are not kept, though — mdVü writes the file anew, with a short description above every value. Only values that differ from the default are stored; a deleted line means the default applies again. If the file contains an error, mdVü starts with default values and does not overwrite it.
 
-```ini
-[doc]
-maxLoadMB=80
+Keys are hierarchical: every part before a slash is a group in the file. `document/maxLoadMB` set to 80 therefore looks like this:
+
+```yaml
+document:
+  # Larger files are only loaded up to this size and show a notice. 0 = no
+  # limit.
+  # 1..4096 MB, 0 = off. Default: 50
+  maxLoadMB: 80
 ```
 
-The values worth knowing about:
+The settings worth knowing about (`settings.yaml`):
 
 | Key | Meaning |
 |---|---|
-| `doc/maxLoadMB` | load limit for a single document in MB (default 50) |
-| `doc/showFrontmatter` | show the YAML header in full (`true`, default) or collapse it to one line — written by *View → Show Frontmatter* |
-| `doc/zoom` | document zoom in percent (default 100); the closest step applies — written when you zoom |
-| `doc/lineBreaks` | line breaks outside an Obsidian vault: `standard` (default, Markdown standard) or `newline` (every line break breaks, as in Typora). Inside a vault, the vault's own setting applies. Takes effect on the next start |
-| `doc/tableImageMaxWidth` | maximum width of an image in a table cell, in pixels (default 400); `0` shows images at their natural size. Applies only to images without a width of their own (`![[image.png\|300]]`). Takes effect on the next start |
-| `perf/textCacheMinMB`, `perf/textCacheMaxMB` | memory for the text cache in MB (defaults 8 and 16): up to the lower value nothing is discarded, the upper value is a fixed limit (`0` = no limit). A larger cache keeps pages you return to fast. Takes effect on the next start |
-| `perf/textCacheIdleMinutes` | after this many minutes without navigation the text cache shrinks one step, at most to halfway between the two values, so a window left open gives memory back (default 5, `0` = off) |
-| `perf/imageCacheMB` | memory for decoded images in MB (default 64, at least 8). Images are kept at the size they are shown, so scrolling and returning to a page do not decode them again. Takes effect on the next start |
-| `perf/imageWicDecoder` | decode PNG and JPEG with the Windows image decoder, which is considerably faster (default `true`); `false` uses the previous built-in decoders — a way out if an image looks wrong |
-| `perf/emojiDiskCacheMB` | size limit in MB for the file in which mdVü keeps colour emoji once they have been drawn (default 16, `0` = off). Drawing an emoji for the first time takes several milliseconds; with the file, a restart does not draw them again. The file lies in `%LOCALAPPDATA%\m3Works\cache\emoji` (portable: `cache\emoji` next to the program) and may be deleted at any time. Takes effect on the next start |
+| `document/maxLoadMB` | load limit for a single document in MB (default 50) |
+| `document/showFrontmatter` | show the YAML header in full (`true`, default) or collapse it to one line — written by *View → Show Frontmatter* |
+| `document/lineBreaks` | line breaks outside an Obsidian vault: `standard` (default, Markdown standard) or `newline` (every line break breaks, as in Typora). Inside a vault, the vault's own setting applies. Takes effect on the next start |
+| `document/tableImageMaxWidth` | maximum width of an image in a table cell, in pixels (default 400); `0` shows images at their natural size. Applies only to images without a width of their own (`![[image.png\|300]]`). Takes effect on the next start |
+| `start/page` | page shown at start, as a link such as `mdvu:open?uri=m3-mdvu:start.md&nav=links` — any file or page works, e.g. `mdvu:open?uri=C:/Notes/Index.md`. Empty means the welcome page; after the first session in which you opened a file, mdVü fills in the start page once and never touches the value again. A file passed on the command line (double-click in Explorer) always wins |
 | `open/inOpenVault`, `open/inShownFolder`, `open/loose`, `open/other` | what happens when mdVü is already running and a file or folder is opened from outside — one key per case: it lies in a vault or repository open in the window; it lies in the folder shown in the folder view; it lies in no vault or repository; it lies in a vault or repository that is not open. Values: `match` (into the window the case refers to), `reuse` (into the most recently used window), `loose` (into the window that shows a file outside any vault or repository, otherwise a new one), `window` (a new window), `instance` (a separate mdVü). Defaults: `match`, `match`, `loose`, `window` |
+| `open/quickOpenFolder` | what choosing a folder in *Quick open* (`Ctrl+O`) does: `browse` (default) steps into it in the list, `open` shows the folder page. Takes effect on the next start |
+| `folderTree/hideDot` | hide files and folders whose name starts with a dot (`.git`, `.obsidian`, `.trash` …) in the folder view; mdVü then doesn't look inside them either, which keeps large vaults and repositories fast. `true` (default) or `false`. Takes effect on the next start |
+| `appearance/theme`, `appearance/mode` | named stylesheet and light/dark/system — written by the Dark Mode command |
 | `print/paper` | paper size: `A3`, `A4` (default), `A5`, `A6`, `Letter`, `Legal` — written by the page setup strip |
 | `print/orientation` | `portrait` (default) or `landscape` |
 | `print/printer` | printer name; empty means the Windows default printer |
 | `print/previewZoom` | zoom of the print preview: `fitpage` (default), `fitwidth` or a percentage such as `100` — written when you zoom |
-| `print/tableFit` | how wide tables are fitted: `shrink` (default) or `squeeze` |
-| `print/tableMaxColPct` | maximum width of a long-text column in percent of the page (default 30) |
-| `print/tableMinFontPct` | how far the font may shrink when fitting, in percent (default 70) |
-| `ui/theme`, `ui/mode` | named stylesheet and light/dark/system — written by the Dark Mode command |
-| `ui/currentFolder` | folder restored on the next start |
-| `ui/folderTreeHideDot` | hide files and folders whose name starts with a dot (`.git`, `.obsidian`, `.trash` …) in the folder view; mdVü then doesn't look inside them either, which keeps large vaults and repositories fast. `true` (default) or `false`. Takes effect on the next start |
-| `ui/footerWindowSize` | show the window size (`w: … h: …`) as the first item of the status bar — a help for screenshots and testing. `false` (default) or `true`. Takes effect on the next start |
-| `quickOpen/folder` | what choosing a folder in *Quick open* (`Ctrl+O`) does: `browse` (default) steps into it in the list, `open` shows the folder page. Takes effect on the next start |
-| `ui/windowSize` | window size from last time as `width,height,maximized` (at 100 % scaling); the position is left to Windows. Next to it mdVü keeps one entry per screen size, such as `ui/windowSize.2560x1440`, so each of your screens gets its own size back |
-| `ui/startPage` | page shown at start, as a link such as `mdvu:open?uri=m3-mdvu:start.md&nav=links` — any file or page works, e.g. `mdvu:open?uri=C:/Notes/Index.md`. Empty means the welcome page; after the first session in which you opened a file, mdVü fills in the start page once and never touches the value again. A file passed on the command line (double-click in Explorer) always wins |
-| `ui/fileMru`, `ui/folderMru` | recently used files and folders |
-| `ui/resizeBudgetMs`, `ui/resizeSettleMs`, `ui/resizeRefreshMs` | timing of the re-layout while a window is being resized |
+| `print/table/fit` | how wide tables are fitted: `shrink` (default) or `squeeze` |
+| `print/table/maxColPct` | maximum width of a long-text column in percent of the page (default 30) |
+| `print/table/minFontPct` | how far the font may shrink when fitting, in percent (default 70) |
+| `performance/textCache/minMB`, `performance/textCache/maxMB` | memory for the text cache in MB (defaults 8 and 16): up to the lower value nothing is discarded, the upper value is a fixed limit (`0` = no limit). A larger cache keeps pages you return to fast. Takes effect on the next start |
+| `performance/textCache/idleMinutes` | after this many minutes without navigation the text cache shrinks one step, at most to halfway between the two values, so a window left open gives memory back (default 5, `0` = off) |
+| `performance/imageCache/maxMB` | memory for decoded images in MB (default 64, at least 8). Images are kept at the size they are shown, so scrolling and returning to a page do not decode them again. Takes effect on the next start |
+| `performance/images/wicDecoder` | decode PNG and JPEG with the Windows image decoder, which is considerably faster (default `true`); `false` uses the previous built-in decoders — a way out if an image looks wrong |
+| `performance/emojiCache/diskMB` | size limit in MB for the file in which mdVü keeps colour emoji once they have been drawn (default 16, `0` = off). Drawing an emoji for the first time takes several milliseconds; with the file, a restart does not draw them again. The file lies in `%LOCALAPPDATA%\m3Works\cache\emoji` (portable: `cache\emoji` next to the program) and may be deleted at any time. Takes effect on the next start |
+| `performance/resize/budgetMs`, `performance/resize/settleMs`, `performance/resize/refreshMs` | timing of the re-layout while a window is being resized |
+| `developer/footerWindowSize` | show the window size (`w: … h: …`) as the first item of the status bar — a help for screenshots and testing. `false` (default) or `true`. Takes effect on the next start |
+
+What mdVü remembers by itself (`state.yaml`, not meant for editing):
+
+| Key | Meaning |
+|---|---|
+| `folder/current` | folder restored on the next start |
+| `mru/files`, `mru/folders` | recently used files and folders |
+| `view/zoom` | document zoom in percent (default 100); the closest step applies — written when you zoom |
+| `window/size` | window size from last time as `width,height,maximized` (at 100 % scaling); the position is left to Windows. Next to it mdVü keeps one entry per screen size, such as `window/size.2560x1440`, so each of your screens gets its own size back |
 
 ## Limits
 
@@ -441,7 +451,7 @@ mdVü has a few deliberate hard limits. They exist so that an unusual file canno
 
 | Limit | Value | What happens |
 |---|---|---|
-| File size | 50 MB | only the beginning is displayed, with a yellow banner at the top; adjustable via `doc/maxLoadMB` |
+| File size | 50 MB | only the beginning is displayed, with a yellow banner at the top; adjustable via `document/maxLoadMB` |
 | Pages in preview / print / PDF | 200 | output is cut off, with a note in the status bar |
 | Single paragraph | 100 KB | an over-long paragraph is split (this affects generated files, not hand-written prose) |
 | Search in files | 500 files | the result list stops there, with a note to narrow the search |
