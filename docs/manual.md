@@ -167,7 +167,7 @@ The result is a **document of its own**, with its own place in the history:
 
 **Back** (`Alt+←`) returns to the result list at the place you left. The list is kept — the last five result lists are held in memory — so it looks exactly as before, even if files have changed since. `F5` on the result list searches again. Because the list is a document, you can search in it (`Ctrl+F`), print it or save it as PDF, and its outline lists the folders and files.
 
-Large folders are searched in the background: the list grows while you read, and the footer shows the progress. Opening another document stops a running search; going back to it then searches again. Files larger than the load limit (`document/maxLoadMB`) are searched up to that limit, like the display; the list marks them.
+Large folders are searched in the background: the list grows while you read, and the footer shows the progress. Opening another document stops a running search; going back to it then searches again. Files larger than the load limit (50 MB) are searched up to that limit, like the display; the list marks them.
 
 mdVü searches **the text you see** — in files exactly as in the document, so both count the same hits: front matter (properties) is included and marked as such in the list, but `%%comments%%`, link targets and Markdown markup are not. Obsidian's own search does find comments. Hidden folders (starting with a dot, like `.obsidian` or `.git`) are skipped, and only `*.md` files are searched.
 
@@ -398,21 +398,20 @@ In [portable mode](#portable-use) it is the program folder instead. It contains 
 
 Values are written through immediately — mdVü never loses a setting on a crash. You may edit `settings.yaml` by hand, even while mdVü runs: before it saves a change of its own, it reads the file again, so your edit is kept. Comments of your own are not kept, though — mdVü writes the file anew, with a short description above every value. Only values that differ from the default are stored; a deleted line means the default applies again. If the file contains an error, mdVü starts with default values and does not overwrite it.
 
-Keys are hierarchical: every part before a slash is a group in the file. `document/maxLoadMB` set to 80 therefore looks like this:
+Keys are hierarchical: every part before a slash is a group in the file. `document/tableImageMaxWidth` set to 600 therefore looks like this:
 
 ```yaml
 document:
-  # Larger files are only loaded up to this size and show a notice. 0 = no
-  # limit.
-  # 1..4096 MB, 0 = off. Default: 50
-  maxLoadMB: 80
+  # Largest width of an image in a table cell, for images without a width of
+  # their own. 0 = natural size.
+  # 16..4000 px, 0 = off. Default: 400
+  tableImageMaxWidth: 600
 ```
 
 The settings worth knowing about (`settings.yaml`):
 
 | Key | Meaning |
 |---|---|
-| `document/maxLoadMB` | load limit for a single document in MB (default 50) |
 | `document/showFrontmatter` | show the YAML header in full (`true`, default) or collapse it to one line — written by *View → Show Frontmatter* |
 | `document/lineBreaks` | line breaks outside an Obsidian vault: `standard` (default, Markdown standard) or `newline` (every line break breaks, as in Typora). Inside a vault, the vault's own setting applies. Takes effect on the next start |
 | `document/tableImageMaxWidth` | maximum width of an image in a table cell, in pixels (default 400); `0` shows images at their natural size. Applies only to images without a width of their own (`![[image.png\|300]]`). Takes effect on the next start |
@@ -451,7 +450,7 @@ mdVü has a few deliberate hard limits. They exist so that an unusual file canno
 
 | Limit | Value | What happens |
 |---|---|---|
-| File size | 50 MB | only the beginning is displayed, with a yellow banner at the top; adjustable via `document/maxLoadMB` |
+| File size | 50 MB | only the beginning is displayed, with a yellow banner at the top |
 | Pages in preview / print / PDF | 200 | output is cut off, with a note in the status bar |
 | Single paragraph | 100 KB | an over-long paragraph is split (this affects generated files, not hand-written prose) |
 | Search in files | 500 files | the result list stops there, with a note to narrow the search |

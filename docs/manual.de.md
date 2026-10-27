@@ -167,7 +167,7 @@ Das Ergebnis ist ein **eigenes Dokument** mit eigenem Platz im Verlauf:
 
 **Zurück** (`Alt+←`) führt zur Trefferliste an die Stelle, von der Sie kamen. Die Liste wird aufbewahrt — die letzten fünf Trefferlisten hält mdVü im Speicher —, sie sieht also genauso aus wie vorher, auch wenn sich Dateien inzwischen geändert haben. `F5` auf der Trefferliste sucht neu. Weil die Liste ein Dokument ist, können Sie darin suchen (`Strg+F`), sie drucken oder als PDF speichern, und ihre Gliederung zeigt die Ordner und Dateien.
 
-Große Ordner werden im Hintergrund durchsucht: die Liste wächst, während Sie lesen, die Fußzeile zeigt den Fortschritt. Wer ein anderes Dokument öffnet, bricht eine laufende Suche ab; zurück auf der Liste wird dann neu gesucht. Dateien über der Ladegrenze (`document/maxLoadMB`) werden wie in der Anzeige bis zu dieser Grenze durchsucht; die Liste kennzeichnet sie.
+Große Ordner werden im Hintergrund durchsucht: die Liste wächst, während Sie lesen, die Fußzeile zeigt den Fortschritt. Wer ein anderes Dokument öffnet, bricht eine laufende Suche ab; zurück auf der Liste wird dann neu gesucht. Dateien über der Ladegrenze (50 MB) werden wie in der Anzeige bis zu dieser Grenze durchsucht; die Liste kennzeichnet sie.
 
 mdVü durchsucht **den Text, den Sie sehen** — in Dateien genau wie im Dokument, beide zählen also dieselben Treffer: Frontmatter (Eigenschaften) gehört dazu und ist in der Liste gekennzeichnet, `%%Kommentare%%`, Linkziele und Markdown-Auszeichnung dagegen nicht. Die Suche in Obsidian findet Kommentare. Versteckte Ordner (mit Punkt am Anfang, etwa `.obsidian` oder `.git`) werden übersprungen, durchsucht werden nur `*.md`-Dateien.
 
@@ -398,21 +398,20 @@ Im [portablen Modus](#portabel-nutzen) ist es stattdessen der Programmordner. Da
 
 Werte werden sofort geschrieben — mdVü verliert bei einem Absturz keine Einstellung. Die `settings.yaml` darf von Hand bearbeitet werden, auch während mdVü läuft: bevor es eine eigene Änderung speichert, liest es die Datei neu, Ihre Änderung bleibt also erhalten. Eigene Kommentare bleiben allerdings nicht stehen — mdVü schreibt die Datei neu, mit einer kurzen Beschreibung über jedem Wert. Gespeichert werden nur Werte, die vom Standard abweichen; eine gelöschte Zeile heißt: der Standard gilt wieder. Enthält die Datei einen Fehler, startet mdVü mit Standardwerten und überschreibt sie nicht.
 
-Die Schlüssel sind hierarchisch: jeder Teil vor einem Schrägstrich ist eine Gruppe in der Datei. `document/maxLoadMB` auf 80 sieht also so aus:
+Die Schlüssel sind hierarchisch: jeder Teil vor einem Schrägstrich ist eine Gruppe in der Datei. `document/tableImageMaxWidth` auf 600 sieht also so aus:
 
 ```yaml
 document:
-  # Larger files are only loaded up to this size and show a notice. 0 = no
-  # limit.
-  # 1..4096 MB, 0 = off. Default: 50
-  maxLoadMB: 80
+  # Largest width of an image in a table cell, for images without a width of
+  # their own. 0 = natural size.
+  # 16..4000 px, 0 = off. Default: 400
+  tableImageMaxWidth: 600
 ```
 
 Die Einstellungen, die man kennen sollte (`settings.yaml`):
 
 | Schlüssel | Bedeutung |
 |---|---|
-| `document/maxLoadMB` | Ladegrenze für ein einzelnes Dokument in MB (Standard 50) |
 | `document/showFrontmatter` | YAML-Kopf vollständig zeigen (`true`, Standard) oder auf eine Zeile einklappen — geschrieben von *Ansicht → Show Frontmatter* |
 | `document/lineBreaks` | Zeilenumbrüche außerhalb eines Obsidian-Vaults: `standard` (Standard, Markdown-Standard) oder `newline` (jeder Zeilenumbruch bricht um, wie in Typora). Im Vault gilt dessen eigene Einstellung. Wirkt beim nächsten Start |
 | `document/tableImageMaxWidth` | größte Breite eines Bildes in einer Tabellenzelle in Pixeln (Standard 400); `0` zeigt Bilder in ihrer natürlichen Größe. Gilt nur für Bilder ohne eigene Breitenangabe (`![[bild.png\|300]]`). Wirkt beim nächsten Start |
@@ -451,7 +450,7 @@ mdVü hat einige bewusst gesetzte harte Grenzen. Sie sorgen dafür, dass eine un
 
 | Grenze | Wert | Was passiert |
 |---|---|---|
-| Dateigröße | 50 MB | nur der Anfang wird angezeigt, mit gelbem Banner am Dokumentkopf; über `document/maxLoadMB` änderbar |
+| Dateigröße | 50 MB | nur der Anfang wird angezeigt, mit gelbem Banner am Dokumentkopf |
 | Seiten in Vorschau / Druck / PDF | 200 | die Ausgabe wird gekappt, mit Hinweis in der Statuszeile |
 | Einzelner Absatz | 100 KB | ein überlanger Absatz wird geteilt (betrifft generierte Dateien, nicht von Hand geschriebenen Text) |
 | Suchen in Dateien | 500 Dateien | die Trefferliste endet dort, mit dem Hinweis, die Suche einzugrenzen |
