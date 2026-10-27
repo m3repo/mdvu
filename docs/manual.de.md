@@ -486,6 +486,7 @@ mdVü hat einige bewusst gesetzte harte Grenzen. Sie sorgen dafür, dass eine un
 | `F10` / `Alt` | Menüleiste per Tastatur: `←`/`→` wählen das Menü, `Enter` öffnet es, `↑`/`↓` + `Enter` führen einen Eintrag aus, ein Buchstabe springt dorthin, `Esc` geht zurück. `Alt`+Anfangsbuchstabe öffnet ein Menü direkt |
 | `Strg+D` | Aktuellen Ordner als Favorit aufnehmen/entfernen |
 | `Strg+Umschalt+D` | Favoriten anzeigen |
+| `Strg+,` | Einstellungen |
 | `Strg+1` | Markdown-Ansicht |
 | `Strg+2` | Quelltext-Ansicht |
 | `Strg+3` / `Strg+F2` | Druckvorschau (`Esc` schließt sie) |
@@ -551,4 +552,4 @@ Mehr fasst mdVü nie an. Im [portablen Modus](#portabel-nutzen) genügt es, den 
 
 ---
 
-*mdVü befindet sich in der Beta-Phase. Das Programm wird kostenlos und „wie besehen“ („AS IS“) bereitgestellt; eine Gewährleistung für Fehlerfreiheit oder Eignung für einen bestimmten Zweck wird nicht übernommen. Siehe [LICENSE](../LICENSE.md).*
+*mdVü wird kostenlos und „wie besehen“ („AS IS“) bereitgestellt; eine Gewährleistung für Fehlerfreiheit oder Eignung für einen bestimmten Zweck wird nicht übernommen. Siehe [LICENSE](../LICENSE.md).*

@@ -486,6 +486,7 @@ mdVü has a few deliberate hard limits. They exist so that an unusual file canno
 | `F10` / `Alt` | Menu bar by keyboard: `←`/`→` choose a menu, `Enter` opens it, `↑`/`↓` + `Enter` run an entry, a letter jumps to it, `Esc` steps back. `Alt`+initial letter opens a menu directly |
 | `Ctrl+D` | Add/remove the current folder as favorite |
 | `Ctrl+Shift+D` | Show favorites |
+| `Ctrl+,` | Settings |
 | `Ctrl+1` | Markdown view |
 | `Ctrl+2` | Source view |
 | `Ctrl+3` / `Ctrl+F2` | Print preview (`Esc` closes it) |
@@ -551,4 +552,4 @@ That's everything mdVü ever touches. In [portable mode](#portable-use), deletin
 
 ---
 
-*mdVü is in beta. The program is provided free of charge and "AS IS"; no warranty is given for freedom from defects or fitness for a particular purpose. See [LICENSE](../LICENSE.md).*
+*mdVü is provided free of charge and "AS IS"; no warranty is given for freedom from defects or fitness for a particular purpose. See [LICENSE](../LICENSE.md).*

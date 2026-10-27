@@ -26,10 +26,6 @@ Redistribution of the unmodified program is permitted, provided that all accompa
 
 Modification, renaming, decompilation, reverse engineering, commercial exploitation, or incorporation into other products is not permitted without the express consent of the author, to the extent legally permissible.
 
-### Beta Version
-
-This program is a preview (beta) version intended for testing and evaluation. Features may be incomplete, subject to change, or removed without notice; malfunctions cannot be ruled out. The following notes on warranty and liability apply to this preview version in particular.
-
 ### Warranty and Liability
 
 This program is provided "AS IS".

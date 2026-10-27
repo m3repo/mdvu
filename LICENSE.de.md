@@ -26,10 +26,6 @@ Die Weitergabe des unveränderten Programms ist erlaubt, sofern alle mitgeliefer
 
 Eine Veränderung, Umbenennung, Dekompilierung, Zurückentwicklung, kommerzielle Weiterverwertung oder Einbindung in andere Produkte ist ohne ausdrückliche Zustimmung des Autors nicht gestattet, soweit dies gesetzlich zulässig ist.
 
-### Beta-Version
-
-Dieses Programm ist eine Vorschau-Version (Beta) zum Testen und Ausprobieren. Funktionen können unvollständig sein, sich ohne Ankündigung ändern oder wegfallen; Fehlfunktionen sind nicht auszuschließen. Die nachfolgenden Hinweise zu Gewährleistung und Haftung gelten für diese Vorschau-Version in besonderem Maße.
-
 ### Gewährleistung und Haftung
 
 Dieses Programm wird „wie besehen“ („AS IS“) bereitgestellt.

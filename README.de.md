@@ -66,11 +66,11 @@ Die Einstellungen liegen unter `%APPDATA%\m3Works\mdVu`, die einmalige Lizenz-Be
 
 Releases werden auf der [Releases-Seite](https://github.com/m3repo/mdvu/releases/latest) veröffentlicht: eine einzelne, signierte `mdvu.exe`, kein Installer, keine Einrichtung. Herunterladen, hinlegen wo es passt, starten. Für USB-Stick oder Werkzeugordner stattdessen `mdvu-<version>-portable.zip` nehmen: damit bleiben Einstellungen, Favoriten und `user.css` im Programmordner ([Portabel nutzen](docs/manual.de.md#portabel-nutzen)). Zu jedem Release stehen der SHA-256-Hash der Datei und ein Link auf den zugehörigen VirusTotal-Report — damit lässt sich prüfen, ob das Heruntergeladene das hier Veröffentlichte ist.
 
-## Hinweis zur Beta
+## Rückmeldungen
 
-mdVü ist eine **Vorschau-Version**. Sie hat viel internes Testen hinter sich, trotzdem können sich Funktionen ändern und Fehlfunktionen sind nicht auszuschließen. Das Programm wird kostenlos und „wie besehen“ („AS IS“) bereitgestellt — siehe [LICENSE](LICENSE.md).
+Das Programm wird kostenlos und „wie besehen“ („AS IS“) bereitgestellt — siehe [LICENSE](LICENSE.md).
 
-Rückmeldungen sind willkommen, gerade jetzt: was sich falsch anfühlt, was fehlt, was kaputtgeht. Für alles Reproduzierbare bitte ein [Issue anlegen](https://github.com/m3repo/mdvu/issues) — dann sehen es andere Tester mit. Für Absturzprotokolle (`mdvu.crash.log`, wird neben der EXE abgelegt) oder Dinge, die nicht öffentlich stehen sollen, geht eine Mail an `mdView@outlook.de` (die Adresse stammt noch aus der Zeit vor der Umbenennung und funktioniert weiterhin).
+Rückmeldungen sind willkommen: was sich falsch anfühlt, was fehlt, was kaputtgeht. Für alles Reproduzierbare bitte ein [Issue anlegen](https://github.com/m3repo/mdvu/issues) — dann sehen es andere mit. Für Absturzprotokolle (`mdvu.crash.log`, wird neben der EXE abgelegt) oder Dinge, die nicht öffentlich stehen sollen, geht eine Mail an `mdView@outlook.de` (die Adresse stammt noch aus der Zeit vor der Umbenennung und funktioniert weiterhin).
 
 ## Datenschutz und Sicherheit
 

@@ -67,11 +67,11 @@ Settings live in `%APPDATA%\m3Works\mdVu` and the one-time license acknowledgeme
 
 Releases are published on the [Releases page](https://github.com/m3repo/mdvu/releases/latest): a single code-signed `mdvu.exe`, no installer and no setup. Download it, put it wherever you like, run it. For a USB stick or a tools folder take `mdvu-<version>-portable.zip` instead: it keeps settings, favorites and `user.css` in the program folder ([Portable use](docs/manual.md#portable-use)). Every release lists the SHA-256 of the file and a link to its VirusTotal report, so you can check that what you downloaded is what was published here.
 
-## Beta notice
+## Feedback
 
-mdVü is a **preview version**. It has been through a lot of internal testing, but features may change and malfunctions cannot be ruled out. The program is provided free of charge and "AS IS" — see [LICENSE](LICENSE.md).
+The program is provided free of charge and "AS IS" — see [LICENSE](LICENSE.md).
 
-Feedback is genuinely welcome, especially now: what feels wrong, what is missing, what breaks. Please [open an issue](https://github.com/m3repo/mdvu/issues) for anything reproducible — that way other testers see it too. For crash logs (`mdvu.crash.log`, written next to the EXE) or anything you'd rather not post publicly, mail to `mdView@outlook.de` (the address predates the rename and still works).
+Feedback is genuinely welcome: what feels wrong, what is missing, what breaks. Please [open an issue](https://github.com/m3repo/mdvu/issues) for anything reproducible — that way other users see it too. For crash logs (`mdvu.crash.log`, written next to the EXE) or anything you'd rather not post publicly, mail to `mdView@outlook.de` (the address predates the rename and still works).
 
 ## Privacy and security
 
