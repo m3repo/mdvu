@@ -50,7 +50,7 @@ That's exactly what mdVü is built for:
 
 Every release on the [Releases page](https://github.com/m3repo/mdvu/releases/latest) comes in three forms, all code-signed:
 
-- **`mdvu-<version>-setup.exe`** — the installer. It installs for your Windows user only, without admin rights, into `%LOCALAPPDATA%\Programs\mdVu`, and adds a Start menu entry and an entry under *Settings → Apps*. On request it registers mdVü for `.md` files („Open with" and the Explorer context menu). A newer setup simply installs over the existing version.
+- **`mdvu-<version>-setup.exe`** — the installer. It installs for your Windows user only, without admin rights, into `%LOCALAPPDATA%\Programs\mdVu`, and adds a Start menu entry and an entry under *Settings → Apps*. On request it registers mdVü for `.md` files („Open with" and the Explorer context menu). Unless you untick it, it also installs this documentation and the sample files into the subfolder `Documentation` — the Start menu entry *mdVü Documentation* opens them in mdVü, so there is something to try right away. A newer setup simply installs over the existing version.
 - **`mdvu.exe`** — the program on its own, no installation needed. Put it wherever you like — a program folder, a synced folder — and start it.
 - **`mdvu-<version>-portable.zip`** — for a USB stick or a tools folder that travels with you, see [Portable use](#portable-use).
 
@@ -552,7 +552,7 @@ mdVü writes `mdvu.crash.log` next to the executable. If that folder is read-onl
 
 ## Uninstalling
 
-**Installed with the setup:** *Settings → Apps → mdVü → Uninstall*. This removes the program, its Start menu entry and the file association. Your settings stay, in case you install again.
+**Installed with the setup:** *Settings → Apps → mdVü → Uninstall*. This removes the program, the installed documentation, the Start menu entries and the file association. Your settings stay, in case you install again.
 
 **Without the setup:** delete `mdvu.exe` — if you had registered it for `.md` files, use *File → Remove Markdown registration* **before** deleting the EXE.
 

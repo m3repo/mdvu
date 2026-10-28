@@ -50,7 +50,7 @@ mdVü ist genau dafür gebaut:
 
 Jedes Release auf der [Releases-Seite](https://github.com/m3repo/mdvu/releases/latest) gibt es in drei Formen, alle code-signiert:
 
-- **`mdvu-<version>-setup.exe`** — der Installer. Er installiert nur für Ihren Windows-Benutzer, ohne Admin-Rechte, nach `%LOCALAPPDATA%\Programs\mdVu` und legt einen Startmenü-Eintrag und einen Eintrag unter *Einstellungen → Apps* an. Auf Wunsch meldet er mdVü für `.md`-Dateien an („Öffnen mit“ und Kontextmenü im Explorer). Ein neueres Setup installiert einfach über die vorhandene Version.
+- **`mdvu-<version>-setup.exe`** — der Installer. Er installiert nur für Ihren Windows-Benutzer, ohne Admin-Rechte, nach `%LOCALAPPDATA%\Programs\mdVu` und legt einen Startmenü-Eintrag und einen Eintrag unter *Einstellungen → Apps* an. Auf Wunsch meldet er mdVü für `.md`-Dateien an („Öffnen mit“ und Kontextmenü im Explorer). Wenn Sie es nicht abwählen, installiert er außerdem diese Dokumentation und die Beispieldateien in den Unterordner `Documentation` — der Startmenü-Eintrag *mdVü Dokumentation* öffnet sie in mdVü, so gibt es gleich etwas zum Ausprobieren. Ein neueres Setup installiert einfach über die vorhandene Version.
 - **`mdvu.exe`** — das Programm allein, ohne Installation. Dorthin legen, wo es passt — Programmordner, synchronisierter Ordner — und starten.
 - **`mdvu-<version>-portable.zip`** — für USB-Stick oder einen Werkzeugordner, der mitreist, siehe [Portabel nutzen](#portabel-nutzen).
 
@@ -552,7 +552,7 @@ mdVü schreibt `mdvu.crash.log` neben die ausführbare Datei. Ist dieser Ordner 
 
 ## Deinstallieren
 
-**Mit dem Setup installiert:** *Einstellungen → Apps → mdVü → Deinstallieren*. Das entfernt das Programm, den Startmenü-Eintrag und die Dateiverknüpfung. Ihre Einstellungen bleiben, falls Sie wieder installieren.
+**Mit dem Setup installiert:** *Einstellungen → Apps → mdVü → Deinstallieren*. Das entfernt das Programm, die installierte Dokumentation, die Startmenü-Einträge und die Dateiverknüpfung. Ihre Einstellungen bleiben, falls Sie wieder installieren.
 
 **Ohne Setup:** `mdvu.exe` löschen — war sie für `.md`-Dateien registriert, vorher *Datei → Markdown-Registrierung entfernen*.
 
