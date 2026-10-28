@@ -5,14 +5,14 @@
 This repository holds three kinds of material, each under its own terms.
 
 1. **The program mdVü (`mdvu.exe`)** — free of charge, proprietary. Full text below under "A. Program License".
-2. **The documentation in this repository** (README files, `docs/`) — [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/). Share and adapt it, including commercially, as long as you give appropriate credit to Martin Niedergesäß / m3Works and indicate whether changes were made.
+2. **The documentation in this repository** (README files, `docs/`) — [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/). Share and adapt it, including commercially, as long as you give appropriate credit to Martin Niedergesäß and indicate whether changes were made.
 3. **The sample files (`samples/`)** — MIT License. Full text below under "C. Sample Files".
 
 The source code of mdVü is not published and is not part of this repository.
 
 A German translation is available in [LICENSE.de.md](LICENSE.de.md) and inside the application (*Help → License*). In case of doubt, the English text below prevails.
 
-© 2026 Martin Niedergesäß — m3Works
+© 2026 Martin Niedergesäß
 
 ---
 

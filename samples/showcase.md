@@ -1,6 +1,6 @@
 ---
 title: Everything mdVü renders
-author: m3Works
+author: Martin Niedergesäß
 tags: [demo, markdown, reference]
 ---
 

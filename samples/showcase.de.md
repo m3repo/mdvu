@@ -1,6 +1,6 @@
 ---
 titel: Alles, was mdVü darstellt
-autor: m3Works
+autor: Martin Niedergesäß
 tags: [demo, markdown, referenz]
 ---
 

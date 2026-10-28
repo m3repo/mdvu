@@ -1,6 +1,6 @@
 # mdVü — Manual
 
-Markdown viewer for Windows · © 2026 Martin Niedergesäß — m3Works · *[Deutsche Version](manual.de.md)*
+Markdown viewer for Windows · © 2026 Martin Niedergesäß · *[Deutsche Version](manual.de.md)*
 
 ---
 

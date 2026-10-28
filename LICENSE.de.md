@@ -5,14 +5,14 @@
 Dieses Repository enthält dreierlei Material, jeweils zu eigenen Bedingungen.
 
 1. **Das Programm mdVü (`mdvu.exe`)** — kostenlos, proprietär. Volltext unten unter „A. Programm-Lizenz“.
-2. **Die Dokumentation in diesem Repository** (README-Dateien, `docs/`) — [Creative Commons Namensnennung 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/deed.de). Weitergeben und bearbeiten, auch kommerziell, solange Martin Niedergesäß / m3Works angemessen genannt wird und Änderungen kenntlich gemacht werden.
+2. **Die Dokumentation in diesem Repository** (README-Dateien, `docs/`) — [Creative Commons Namensnennung 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/deed.de). Weitergeben und bearbeiten, auch kommerziell, solange Martin Niedergesäß angemessen genannt wird und Änderungen kenntlich gemacht werden.
 3. **Die Beispieldateien (`samples/`)** — MIT-Lizenz. Volltext unten unter „C. Beispieldateien“.
 
 Der Quellcode von mdVü wird nicht veröffentlicht und ist nicht Teil dieses Repositorys.
 
 Rechtlich maßgeblich ist die englische Fassung in [LICENSE](LICENSE.md); diese Übersetzung dient dem Verständnis.
 
-© 2026 Martin Niedergesäß — m3Works
+© 2026 Martin Niedergesäß
 
 ---
 

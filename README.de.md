@@ -97,4 +97,4 @@ Der Quellcode von mdVü wird nicht veröffentlicht.
 
 ---
 
-© 2026 Martin Niedergesäß — m3Works
+© 2026 Martin Niedergesäß

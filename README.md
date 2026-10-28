@@ -98,4 +98,4 @@ The source code of mdVü is not published.
 
 ---
 
-© 2026 Martin Niedergesäß — m3Works
+© 2026 Martin Niedergesäß
