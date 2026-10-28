@@ -4,6 +4,36 @@
 
 Hier stehen alle nennenswerten Änderungen an mdVü. Das Format folgt [Keep a Changelog](https://keepachangelog.com/de/1.1.0/); Versionen sind `Major.Minor.Patch`, die vierte Stelle in der Dateiversion der EXE ist der Build-Zähler.
 
+## [1.0.0] — 2026-10-28
+
+Die erste Version nach der Beta.
+
+### Neu
+
+- **Einstellungsseite:** *Hilfe → Settings*, das Zahnrad in der Leiste oder `Strg+,`. Jede Einstellung mit kurzer Erklärung, nach Themen gruppiert, selten gebrauchte unter *Advanced*; Änderungen wirken sofort, `↺` stellt die Vorgabe wieder her. Ein Filterfeld oben lässt nur die passenden Einstellungen stehen (Name, Erklärung, Schlüssel und die Wahlmöglichkeiten einer Liste). Mit der Tastatur führt `↓` in die Liste, die Pfeiltasten gehen von Einstellung zu Einstellung, `Enter` oder `Tab` in ihre Bedienelemente und `Enter`/`Esc` zurück; die Statuszeile zeigt, wo man steht (`FILTER`, `SETTING 3/27`, `EDIT`). Im Filter leert `Esc` zuerst den Text und schließt danach die Seite. Siehe [Einstellungen](docs/manual.de.md#einstellungen).
+- **Installer:** `mdvu-1.0.0-setup.exe` installiert nur für den eigenen Windows-Benutzer, ohne Admin-Rechte, mit Startmenü-Eintrag und auf Wunsch der `.md`-Verknüpfung; Deinstallieren unter *Einstellungen → Apps* entfernt die Verknüpfung wieder. Die einzelne `mdvu.exe` und das portable ZIP gibt es weiterhin. `mdvu.exe /register` und `/unregister` erledigen die Dateiverknüpfung über die Kommandozeile. Siehe [Installation](docs/manual.de.md#installation-und-erster-start).
+- **Kopier-Knopf an Codeblöcken:** Mit der Maus über einen Codeblock, und ein Knopf in seiner Ecke kopiert den Code.
+- **TOML-Frontmatter** (`+++` … `+++`, wie bei Hugo und Zola) wird wie YAML-Frontmatter erkannt — gezeigt, eingeklappt oder ausgeblendet, und in der Ordnervorschau ausgelassen.
+- **Suchtreffer in der Druckvorschau:** `↓` oder ein weiteres `Enter` im Suchfeld, und die Pfeiltasten gehen durch die Treffer; die Statuszeile zeigt `HIT 3/12`.
+- **Namen statt Adressen:** Pfadleiste und Verlaufsmenü zeigen Seiten wie *Settings*, *Manual* oder *Search in files* mit Namen.
+- **Tooltips in den Farben des Themes**, im Dunkelmodus dunkel.
+- **Sprachausgabe:** Die Knöpfe der Suchleiste lassen sich vorlesen (UI Automation).
+
+### Geändert
+
+- **Einstellungen liegen jetzt in `settings.yaml` und `state.yaml`** statt in der `settings.ini` — mit einer kurzen Beschreibung über jedem Wert, nur Werte, die von der Vorgabe abweichen, und Änderungen von Hand bleiben auch bei laufendem mdVü erhalten. Änderungen wirken sofort, in allen Fenstern. Eine vorhandene `settings.ini` wird beim ersten Start übernommen und in `settings.ini.bak` umbenannt. **Die Schlüssel heißen neu**, gruppiert wie auf der Einstellungsseite: aus `doc/…` wird `document/…`, aus `perf/…` wird `performance/…`, aus `ui/theme` und `ui/mode` werden `appearance/theme` und `appearance/mode`, aus `ui/startPage` wird `start/page`; die ganze Liste steht im [Handbuch](docs/manual.de.md#einstellungen).
+- **Alle Leisten zeichnet mdVü selbst** — Suche, Suchen in Dateien, Schnell öffnen, Seiteneinrichtung. Kein Flackern mehr beim Ändern der Fenstergröße.
+- **Suche ist ein Modus:** `Esc` im Dokument oder auf einem Knopf einer Suchleiste führt zuerst zurück ins Suchfeld; `Esc` im Feld schließt die Leiste.
+- **Die Druckleiste gehört zur Vorschau:** Schließen (`×`, `Esc`) beendet die Vorschau, ebenso `Esc` in der Vorschau.
+- **Der Fenstertitel** zeigt nur noch den Datei- oder Ordnernamen — das Symbol nennt das Programm schon, und Taskleisten-Vorschau und `Alt+Tab` haben wenig Platz.
+- **Die Ladegrenze von 50 MB je Dokument** lässt sich nicht mehr ändern.
+- **Keine Beta mehr:** Der Beta-Abschnitt der Lizenz ist entfallen.
+
+### Behoben
+
+- mdVü konnte beim Beenden eine Reihe von Fehlermeldungen zeigen, nachdem Theme oder Dunkelmodus mehrfach umgeschaltet worden waren.
+- `Enter` in einem Textfeld der Einstellungen zeigt in der Statuszeile nicht mehr „Unknown URL“.
+
 ## [0.21.0] — 2026-10-20
 
 ### Neu

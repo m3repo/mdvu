@@ -4,6 +4,36 @@
 
 All notable changes to mdVü are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versions are `Major.Minor.Patch`, and the fourth number in the file version of the EXE is the build counter.
 
+## [1.0.0] — 2026-10-28
+
+The first release out of beta.
+
+### Added
+
+- **Settings page:** *Help → Settings*, the gear in the toolbar or `Ctrl+,`. Every setting with a short explanation, grouped by topic, rarely needed ones under *Advanced*; changes apply right away, `↺` restores the default. A filter field at the top keeps only the matching settings (name, explanation, key and the choices of a list). With the keyboard, `↓` leads into the list, the arrow keys go from setting to setting, `Enter` or `Tab` into its controls and `Enter`/`Esc` back; the status bar shows where you are (`FILTER`, `SETTING 3/27`, `EDIT`). In the filter, `Esc` clears the text first, then closes the page. See [Settings](docs/manual.md#settings).
+- **Installer:** `mdvu-1.0.0-setup.exe` installs for your Windows user only, without admin rights, with a Start menu entry and — if you like — the `.md` file association; uninstalling under *Settings → Apps* removes the association again. The single `mdvu.exe` and the portable ZIP stay available. `mdvu.exe /register` and `/unregister` do the file association from the command line. See [Installation](docs/manual.md#installation-and-first-start).
+- **Copy button on code blocks:** move the mouse over a code block and a button in its corner copies the code.
+- **TOML frontmatter** (`+++` … `+++`, as in Hugo and Zola) is recognised like YAML frontmatter — shown, collapsed or hidden, and left out of the folder preview.
+- **Search hits in the print preview:** `↓` or another `Enter` in the search field lets the arrow keys step through the hits; the status bar shows `HIT 3/12`.
+- **Names instead of addresses:** the path bar and the history menu show pages like *Settings*, *Manual* or *Search in files* by name.
+- **Tooltips in the colours of the theme**, dark in dark mode.
+- **Screen readers:** the buttons of the search strip can be read out (UI Automation).
+
+### Changed
+
+- **Settings are now kept in `settings.yaml` and `state.yaml`** instead of `settings.ini` — with a short description above every value, only values that differ from the default, and edits by hand are kept even while mdVü runs. Changes apply at once, in all windows. An existing `settings.ini` is taken over on the first start and renamed to `settings.ini.bak`. **Keys have new names**, grouped like the settings page: `doc/…` is now `document/…`, `perf/…` is `performance/…`, `ui/theme` and `ui/mode` are `appearance/theme` and `appearance/mode`, `ui/startPage` is `start/page`; the full list is in the [manual](docs/manual.md#settings).
+- **All strips are drawn by mdVü itself** — search, search in files, quick open, page setup. No more flicker when the window is resized.
+- **Search is a mode:** `Esc` in the document or on a button of a search strip goes back to the search field first; `Esc` in the field closes the strip.
+- **The print strip belongs to the preview:** closing it (`×`, `Esc`) closes the preview, and `Esc` in the preview does the same.
+- **Window title** shows the file or folder name only — the icon already names the program, and taskbar previews and `Alt+Tab` have little room.
+- **The load limit of 50 MB per document** can no longer be changed.
+- **No more beta:** the beta section of the license is gone.
+
+### Fixed
+
+- mdVü could end with a series of error messages after the theme or dark mode had been switched several times.
+- Pressing `Enter` in a text field of the settings no longer shows “Unknown URL” in the status bar.
+
 ## [0.21.0] — 2026-10-20
 
 ### Added
