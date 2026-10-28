@@ -48,13 +48,15 @@ mdVü ist genau dafür gebaut:
 
 ## Installation und erster Start
 
-Es gibt keinen Installer. mdVü ist eine einzelne ausführbare Datei:
+Jedes Release auf der [Releases-Seite](https://github.com/m3repo/mdvu/releases/latest) gibt es in drei Formen, alle code-signiert:
 
-1. `mdvu.exe` dorthin legen, wo es passt — Programmordner, USB-Stick, synchronisierter Ordner. Es läuft von überall.
-2. Starten. Beim allerersten Start wird die Lizenz angezeigt und ist einmalig zu bestätigen.
-3. Optional: *Datei → Als Markdown-Standard registrieren* sorgt dafür, dass `.md`-Dateien per Doppelklick in mdVü aufgehen.
+- **`mdvu-<version>-setup.exe`** — der Installer. Er installiert nur für Ihren Windows-Benutzer, ohne Admin-Rechte, nach `%LOCALAPPDATA%\Programs\mdVu` und legt einen Startmenü-Eintrag und einen Eintrag unter *Einstellungen → Apps* an. Auf Wunsch meldet er mdVü für `.md`-Dateien an („Öffnen mit“ und Kontextmenü im Explorer). Ein neueres Setup installiert einfach über die vorhandene Version.
+- **`mdvu.exe`** — das Programm allein, ohne Installation. Dorthin legen, wo es passt — Programmordner, synchronisierter Ordner — und starten.
+- **`mdvu-<version>-portable.zip`** — für USB-Stick oder einen Werkzeugordner, der mitreist, siehe [Portabel nutzen](#portabel-nutzen).
 
-Es wird nichts systemweit installiert, es sind keine Admin-Rechte nötig, und es werden weder Dienste noch geplante Aufgaben angelegt. Außerhalb des eigenen Ordners schreibt das Programm an genau zwei Stellen — siehe [Deinstallieren](#deinstallieren). Wer gar keine möchte, nimmt den [portablen Modus](#portabel-nutzen).
+Beim allerersten Start wird die Lizenz angezeigt und ist einmalig zu bestätigen. Ohne Installer sorgt *Datei → Als Markdown-Standard registrieren* dafür, dass `.md`-Dateien per Doppelklick in mdVü aufgehen; Windows lässt die Wahl unter Umständen einmal über „Öffnen mit“ bestätigen.
+
+Es sind keine Admin-Rechte nötig, und es werden weder Dienste noch geplante Aufgaben angelegt. Außer in seinen Programmordner schreibt mdVü an genau zwei Stellen — siehe [Deinstallieren](#deinstallieren). Wer gar keine möchte, nimmt den [portablen Modus](#portabel-nutzen).
 
 **Falls SmartScreen warnt:** veröffentlichte Builds sind code-signiert und zeitgestempelt, aber Windows bewertet zusätzlich die *Reputation*, die ein neuer Build erst noch sammeln muss. „Weitere Informationen → Trotzdem ausführen“ startet das Programm; die Signatur lässt sich vorher über *Eigenschaften → Digitale Signaturen* prüfen.
 
@@ -388,7 +390,15 @@ Die vollständige Referenz mit durchgerechneten Beispielen steht in [Anpassen pe
 
 ## Einstellungen
 
-Einen Einstellungsdialog gibt es noch nicht. *Hilfe → Setting* öffnet einen kleinen Hinweis mit einem klickbaren Link auf den Einstellungsordner:
+*Hilfe → Settings*, das Zahnrad in der Leiste oder `Strg+,` öffnen die Einstellungsseite. Sie zeigt jede Einstellung mit einer kurzen Erklärung, nach Themen gruppiert; selten gebrauchte folgen am Ende jeder Gruppe unter *Advanced*. Änderungen wirken sofort und werden gleich gespeichert — wo eine Einstellung erst beim nächsten Dokument, in neuen Fenstern oder nach einem Neustart greift, steht es dabei. `↺` stellt die Vorgabe wieder her.
+
+**Eine Einstellung finden:** Beim Öffnen steht der Cursor im Filterfeld oben. Ein paar Buchstaben tippen, und es bleiben nur die passenden Einstellungen. Jedes getippte Wort muss passen; gesucht wird im Namen, in der Erklärung, im Schlüssel (etwa `print/table`) und in den Wahlmöglichkeiten einer Liste. Ein Wort, das auf eine Gruppenüberschrift passt, zeigt die ganze Gruppe, und `"zwei Wörter"` sucht die Wörter zusammen.
+
+**Mit der Tastatur:** `↓` (oder `Enter`) führt aus dem Filter in die Liste. Die Pfeiltasten gehen dann von Einstellung zu Einstellung; die aktuelle ist hervorgehoben, und die Statuszeile zeigt `SETTING 3/27`. `Enter` oder `Tab` führen in die Bedienelemente dieser Einstellung — `Tab` wechselt zwischen ihnen, die Leertaste schaltet ein Kästchen oder eine Option um, und die Statuszeile zeigt `EDIT`. `Enter` oder `Esc` führen zurück in die Liste; in einem einzeiligen Textfeld übernehmen auch `↑` und `↓` die Eingabe und gehen zur nächsten Einstellung. `Esc` in der Liste führt zurück in den Filter. Im Filter leert `Esc` zuerst den Text, ein zweites `Esc` schließt die Einstellungsseite.
+
+### Die Einstellungsdatei
+
+Hinter der Seite liegt alles im Einstellungsordner:
 
 ```
 %APPDATA%\m3Works\mdVu
@@ -542,11 +552,14 @@ mdVü schreibt `mdvu.crash.log` neben die ausführbare Datei. Ist dieser Ordner 
 
 ## Deinstallieren
 
-`mdvu.exe` löschen. Optional außerdem:
+**Mit dem Setup installiert:** *Einstellungen → Apps → mdVü → Deinstallieren*. Das entfernt das Programm, den Startmenü-Eintrag und die Dateiverknüpfung. Ihre Einstellungen bleiben, falls Sie wieder installieren.
 
-- den Einstellungsordner `%APPDATA%\m3Works\mdVu` (Einstellungen und die eigene `user.css`)
+**Ohne Setup:** `mdvu.exe` löschen — war sie für `.md`-Dateien registriert, vorher *Datei → Markdown-Registrierung entfernen*.
+
+Wer auch den Rest entfernen möchte:
+
+- den Einstellungsordner `%APPDATA%\m3Works\mdVu` (Einstellungen, Favoriten, Tags und die eigene `user.css`)
 - den Registry-Schlüssel `HKCU\Software\m3Works\mdVu` (die Lizenz-Bestätigung)
-- die Dateiverknüpfung, über *Datei → Markdown-Registrierung entfernen* **bevor** die EXE gelöscht wird
 
 Mehr fasst mdVü nie an. Im [portablen Modus](#portabel-nutzen) genügt es, den Programmordner zu löschen — außer beim Entfernen der Registrierung einer früher installierten Kopie wurde nichts anderswo geschrieben.
 

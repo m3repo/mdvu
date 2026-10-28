@@ -8,14 +8,14 @@
 
 Genau dafür ist mdVü gebaut.
 
-**[Neueste Version herunterladen](https://github.com/m3repo/mdvu/releases/latest)** — kostenlos · Windows 10/11 · ohne Installation · signierte `mdvu.exe` oder portables ZIP
+**[Neueste Version herunterladen](https://github.com/m3repo/mdvu/releases/latest)** — kostenlos · Windows 10/11 · Installer, einzelne signierte `mdvu.exe` oder portables ZIP
 
 ![Durchblättern eines Obsidian-Vaults in mdVü: Callouts, Bilder und Diagramme, jede Notiz sofort da](docs/img/mdvu-folder-walkthrough.gif)
 
 
 ## Was es anders macht
 
-- **Schlank** — eine einzelne EXE unter 15 MB. Kein Installer, kein Framework, keine Laufzeitumgebung, keine Browser-Engine. Irgendwohin kopieren und starten.
+- **Schlank** — eine einzelne EXE unter 15 MB. Kein Framework, keine Laufzeitumgebung, keine Browser-Engine. In Sekunden ohne Admin-Rechte installiert — oder einfach irgendwohin kopieren und starten.
 - **Schnell** — native Windows-Anwendung mit eigener Layout-Engine. Große Dokumente öffnen ohne spürbare Wartezeit; eine Druckvorschau über 100 Seiten steht in Sekunden.
 - **Sparsam** — ein Bruchteil des Arbeitsspeichers Chromium-basierter Editoren, weil hier kein Chromium mitläuft.
 - **Offline und ruhig** — mdVü bindet keine einzige Netzwerk-DLL ein. Keine Telemetrie, keine Update-Anfragen, keine Konten. Jedes Release wird [gegen eine Baseline seiner eigenen Importe geprüft](#datenschutz-und-sicherheit), bevor es signiert wird.
@@ -64,7 +64,7 @@ Die Einstellungen liegen unter `%APPDATA%\m3Works\mdVu`, die einmalige Lizenz-Be
 
 ## Download
 
-Releases werden auf der [Releases-Seite](https://github.com/m3repo/mdvu/releases/latest) veröffentlicht: eine einzelne, signierte `mdvu.exe`, kein Installer, keine Einrichtung. Herunterladen, hinlegen wo es passt, starten. Für USB-Stick oder Werkzeugordner stattdessen `mdvu-<version>-portable.zip` nehmen: damit bleiben Einstellungen, Favoriten und `user.css` im Programmordner ([Portabel nutzen](docs/manual.de.md#portabel-nutzen)). Zu jedem Release stehen der SHA-256-Hash der Datei und ein Link auf den zugehörigen VirusTotal-Report — damit lässt sich prüfen, ob das Heruntergeladene das hier Veröffentlichte ist.
+Releases werden auf der [Releases-Seite](https://github.com/m3repo/mdvu/releases/latest) veröffentlicht, alle code-signiert. `mdvu-<version>-setup.exe` installiert nur für den eigenen Benutzer, ohne Admin-Rechte, mit Startmenü-Eintrag und auf Wunsch der `.md`-Verknüpfung; deinstalliert wird unter *Einstellungen → Apps*. Lieber ohne Installation? Dann `mdvu.exe` nehmen, hinlegen wo es passt, starten. Für USB-Stick oder Werkzeugordner `mdvu-<version>-portable.zip` nehmen: damit bleiben Einstellungen, Favoriten und `user.css` im Programmordner ([Portabel nutzen](docs/manual.de.md#portabel-nutzen)). Zu jedem Release stehen der SHA-256-Hash der Datei und ein Link auf den zugehörigen VirusTotal-Report — damit lässt sich prüfen, ob das Heruntergeladene das hier Veröffentlichte ist.
 
 ## Rückmeldungen
 

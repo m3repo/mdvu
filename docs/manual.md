@@ -48,13 +48,15 @@ That's exactly what mdVü is built for:
 
 ## Installation and first start
 
-There is no installer. mdVü is a single executable:
+Every release on the [Releases page](https://github.com/m3repo/mdvu/releases/latest) comes in three forms, all code-signed:
 
-1. Put `mdvu.exe` wherever you like — a program folder, a USB stick, a synced folder. It runs from anywhere.
-2. Start it. On the very first start the license is shown and has to be accepted once.
-3. Optional: *File → Register as Markdown default* makes `.md` files open in mdVü on double-click.
+- **`mdvu-<version>-setup.exe`** — the installer. It installs for your Windows user only, without admin rights, into `%LOCALAPPDATA%\Programs\mdVu`, and adds a Start menu entry and an entry under *Settings → Apps*. On request it registers mdVü for `.md` files („Open with" and the Explorer context menu). A newer setup simply installs over the existing version.
+- **`mdvu.exe`** — the program on its own, no installation needed. Put it wherever you like — a program folder, a synced folder — and start it.
+- **`mdvu-<version>-portable.zip`** — for a USB stick or a tools folder that travels with you, see [Portable use](#portable-use).
 
-Nothing is installed system-wide, no admin rights are required, and no services or scheduled tasks are created. The program writes to exactly two places outside its own folder — see [Uninstalling](#uninstalling). If you want it to write to none, use the [portable mode](#portable-use).
+On the very first start the license is shown and has to be accepted once. Without the installer, *File → Register as Markdown default* makes `.md` files open in mdVü on double-click; Windows may ask you to confirm the choice once via „Open with".
+
+No admin rights are required, and no services or scheduled tasks are created. Apart from its program folder, mdVü writes to exactly two places — see [Uninstalling](#uninstalling). If you want it to write to none, use the [portable mode](#portable-use).
 
 **If SmartScreen warns you:** published builds are code-signed and timestamped, but Windows also considers *reputation*, which a new build has yet to earn. „More info → Run anyway" starts the program; you can verify the signature beforehand via *Properties → Digital Signatures*.
 
@@ -388,7 +390,15 @@ The full reference with worked examples is in [Customizing with CSS](css-customi
 
 ## Settings
 
-There is no settings dialog yet. *Help → Setting* opens a small note with a clickable link to the settings folder:
+*Help → Settings*, the gear in the toolbar or `Ctrl+,` open the settings page. It lists every setting with a short explanation, grouped by topic; settings you will rarely need follow under *Advanced* at the end of each group. Changes apply right away and are saved immediately — where a setting only takes effect for the next document, in new windows or after a restart, it says so. `↺` restores the default.
+
+**Finding a setting:** when the page opens, the cursor is in the filter field at the top. Type a few letters and only the matching settings remain. Every word you type has to match; mdVü looks in the name, the explanation, the key (such as `print/table`) and the choices of a list. A word that matches a group heading shows the whole group, and `"two words"` looks for the words together.
+
+**With the keyboard:** `↓` (or `Enter`) leads from the filter into the list. The arrow keys then go from setting to setting; the current one is highlighted, and the status bar shows `SETTING 3/27`. `Enter` or `Tab` step into the controls of that setting — `Tab` moves between them, `Space` switches a check box or option, and the status bar shows `EDIT`. `Enter` or `Esc` take you back to the list; in a single-line text field, `↑` and `↓` also accept the input and move on to the next setting. `Esc` in the list returns to the filter. In the filter, `Esc` first clears the text, a second `Esc` closes the settings page.
+
+### The settings file
+
+Behind the page, everything is kept in the settings folder:
 
 ```
 %APPDATA%\m3Works\mdVu
@@ -542,11 +552,14 @@ mdVü writes `mdvu.crash.log` next to the executable. If that folder is read-onl
 
 ## Uninstalling
 
-Delete `mdvu.exe`. Optionally also:
+**Installed with the setup:** *Settings → Apps → mdVü → Uninstall*. This removes the program, its Start menu entry and the file association. Your settings stay, in case you install again.
 
-- the settings folder `%APPDATA%\m3Works\mdVu` (settings and your `user.css`)
+**Without the setup:** delete `mdvu.exe` — if you had registered it for `.md` files, use *File → Remove Markdown registration* **before** deleting the EXE.
+
+To remove the rest as well:
+
+- the settings folder `%APPDATA%\m3Works\mdVu` (settings, favorites, tags and your `user.css`)
 - the registry key `HKCU\Software\m3Works\mdVu` (the license acknowledgement)
-- the file association, via *File → Remove Markdown registration* **before** deleting the EXE
 
 That's everything mdVü ever touches. In [portable mode](#portable-use), deleting the program folder is all there is to it — unless you removed a registration from an earlier installed copy, nothing was written elsewhere.
 
