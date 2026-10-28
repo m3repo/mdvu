@@ -4,6 +4,12 @@
 
 All notable changes to mdVü are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versions are `Major.Minor.Patch`, and the fourth number in the file version of the EXE is the build counter.
 
+## [1.0.1] — 2026-10-28
+
+### Added
+
+- **Documentation and samples come with the installer:** unless you untick it, the setup puts this documentation and the sample files into the subfolder `Documentation` of the program folder. The Start menu entry *mdVü Documentation* opens them in mdVü — something to try right away. They are refreshed with every update and removed on uninstall. See [Installation](docs/manual.md#installation-and-first-start).
+
 ## [1.0.0] — 2026-10-28
 
 The first release out of beta.
