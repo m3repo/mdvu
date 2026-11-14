@@ -4,6 +4,13 @@
 
 Hier stehen alle nennenswerten Änderungen an mdVü. Das Format folgt [Keep a Changelog](https://keepachangelog.com/de/1.1.0/); Versionen sind `Major.Minor.Patch`, die vierte Stelle in der Dateiversion der EXE ist der Build-Zähler.
 
+## [1.0.2] — 2026-11-14
+
+### Behoben
+
+- **Drucken:** auf Druckern mit nicht bedruckbarem Rand saß der Text gegenüber dem Blatt versetzt (bei einem HP-Tintenstrahler etwa 3 mm), Text am Rand konnte dadurch abgeschnitten werden. Der PDF-Export war nicht betroffen.
+- **Titelmenüleiste ab 150 % Skalierung:** neben den Fensterknöpfen erschien eine helle Bildlaufleiste. Die Abstände der Menüeinträge wachsen jetzt wie die Schrift mit der Skalierung.
+
 ## [1.0.1] — 2026-10-28
 
 ### Neu

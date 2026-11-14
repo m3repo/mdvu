@@ -4,6 +4,13 @@
 
 All notable changes to mdVü are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versions are `Major.Minor.Patch`, and the fourth number in the file version of the EXE is the build counter.
 
+## [1.0.2] — 2026-11-14
+
+### Fixed
+
+- **Printing:** on printers with a non-printable margin the text was shifted against the page (about 3 mm on an HP inkjet), so text near the edge could be cut off. The PDF export was not affected.
+- **Title menu bar at 150 % scaling and above:** a light scrollbar appeared next to the window buttons. The spacing of the menu entries now grows with the scaling, like the font.
+
 ## [1.0.1] — 2026-10-28
 
 ### Added
