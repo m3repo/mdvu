@@ -117,9 +117,12 @@ When the open file is changed by another program, mdVü does not just show the n
 
 - **new blocks** (paragraphs, list items, table rows …) with a green background,
 - **removed blocks** in red at the place where they used to be — built as they looked before, so a removed list item still has its number and a removed table row its columns,
-- **changed words** inside a block highlighted in green.
+- **removed words** inside a block struck through in red, right before what replaced them,
+- **changed words** inside a block highlighted in green — also words whose formatting changed (`word` → `**word**`) and link texts whose target changed,
+- an image with a new source as a whole in yellow,
+- the frontmatter line by line; when it is collapsed, its line turns yellow and says how many lines changed: `--- frontmatter (5 lines, 2 changed) ---`.
 
-Further changes add up: you always see everything that changed since the first reload, until you end the display. The status bar shows a chip such as `+2 −1 ~3` (inserted, removed, changed blocks); a **click on the chip** hides the changes, and so does **`F5`**, which reloads the document without them. `Esc` deliberately leaves them alone. Opening another document ends the display as well. If you don't want this at all, switch it off with the setting `document/showChanges`; mdVü then simply reloads.
+After an automatic reload the red parts — removed blocks and words — disappear after **5 seconds**, so only what is new stays green; the setting `document/showRemoved` keeps them (`show`) or never shows them (`hide`). After a comparison you started yourself they stay. Further changes add up: you always see everything that changed since the first reload, until you end the display. The status bar shows a chip such as `+2 −1 ~3` (inserted, removed, changed blocks); a **click on the chip** hides the changes, and so does **`F5`**, which reloads the document without them. `Esc` deliberately leaves them alone. Opening another document ends the display as well. If you don't want this at all, switch it off with the setting `document/showChanges`; mdVü then simply reloads.
 
 **Walking through the changes:** press `C` in the document for the unit *Changes* (`CHANGE 2/5` in the status bar): `←`/`→` (and `↑`/`↓`) go from change to change in reading order, removed blocks included; the bar at the left edge marks the current one. See [Reading with the keyboard](#reading-with-the-keyboard).
 
@@ -131,7 +134,7 @@ Further changes add up: you always see everything that changed since the first r
 
 After such a comparison mdVü switches to the unit *Changes* and selects the first change. A reload by itself keeps your reading position instead.
 
-Comparing needs the whole document: very large files (over 2 MB of text) are shown without the changes. A changed block shows only its new wording with the changed words marked, not the old wording.
+Comparing needs the whole document: very large files (over 2 MB of text) are shown without the changes. In code blocks and the frontmatter only the new lines are marked; removed lines are not shown there. Frontmatter keys that only moved show up as removed and inserted lines.
 
 ## Folder view and search
 
@@ -447,6 +450,7 @@ The settings worth knowing about (`settings.yaml`):
 | Key | Meaning |
 |---|---|
 | `document/showChanges` | show what changed when the open file is reloaded after a change by another program (`true`, default) or just reload (`false`) — see [Seeing what changed](#seeing-what-changed) |
+| `document/showRemoved` | removed blocks and words while changes are shown: `fade` (default: hidden 5 seconds after an automatic reload), `show` (always) or `hide` (never) |
 | `document/showFrontmatter` | show the YAML header in full (`true`, default) or collapse it to one line — written by *View → Show Frontmatter* |
 | `document/lineBreaks` | line breaks outside an Obsidian vault: `standard` (default, Markdown standard) or `newline` (every line break breaks, as in Typora). Inside a vault, the vault's own setting applies. Takes effect on the next start |
 | `document/tableImageMaxWidth` | maximum width of an image in a table cell, in pixels (default 400); `0` shows images at their natural size. Applies only to images without a width of their own (`![[image.png\|300]]`). Takes effect on the next start |

@@ -117,9 +117,12 @@ Sehr große Dateien werden bis zu einer Grenze von **50 MB** geladen — ein Ban
 
 - **neue Blöcke** (Absätze, Listenpunkte, Tabellenzeilen …) grün hinterlegt,
 - **entfernte Blöcke** rot an der Stelle, an der sie standen — so gebaut, wie sie vorher aussahen: ein entfernter Listenpunkt behält seine Nummer, eine entfernte Tabellenzeile ihre Spalten,
-- **geänderte Wörter** innerhalb eines Blocks grün markiert.
+- **entfernte Wörter** innerhalb eines Blocks rot durchgestrichen, direkt vor dem, was sie ersetzt,
+- **geänderte Wörter** innerhalb eines Blocks grün markiert — auch Wörter mit geänderter Formatierung (`Wort` → `**Wort**`) und Linktexte, deren Ziel sich geändert hat,
+- ein Bild mit neuer Quelle als Ganzes gelb,
+- das Frontmatter zeilenweise; eingeklappt wird seine Zeile gelb und nennt, wie viele Zeilen sich geändert haben: `--- frontmatter (5 lines, 2 changed) ---`.
 
-Weitere Änderungen summieren sich: Sie sehen immer alles, was sich seit dem ersten Neuladen geändert hat, bis Sie die Anzeige beenden. Die Statuszeile zeigt einen Chip wie `+2 −1 ~3` (eingefügte, entfernte, geänderte Blöcke); ein **Klick auf den Chip** blendet die Änderungen aus, ebenso **`F5`**, das das Dokument ohne sie neu lädt. `Esc` lässt sie bewusst stehen. Auch ein anderes Dokument beendet die Anzeige. Wer das gar nicht möchte, schaltet es mit der Einstellung `document/showChanges` ab; mdVü lädt dann einfach neu.
+Nach dem automatischen Neuladen verschwinden die roten Teile — entfernte Blöcke und Wörter — nach **5 Sekunden**, nur das Neue bleibt grün; die Einstellung `document/showRemoved` lässt sie stehen (`show`) oder zeigt sie nie (`hide`). Nach einem Vergleich, den Sie selbst angestoßen haben, bleiben sie stehen. Weitere Änderungen summieren sich: Sie sehen immer alles, was sich seit dem ersten Neuladen geändert hat, bis Sie die Anzeige beenden. Die Statuszeile zeigt einen Chip wie `+2 −1 ~3` (eingefügte, entfernte, geänderte Blöcke); ein **Klick auf den Chip** blendet die Änderungen aus, ebenso **`F5`**, das das Dokument ohne sie neu lädt. `Esc` lässt sie bewusst stehen. Auch ein anderes Dokument beendet die Anzeige. Wer das gar nicht möchte, schaltet es mit der Einstellung `document/showChanges` ab; mdVü lädt dann einfach neu.
 
 **Durch die Änderungen gehen:** `C` im Dokument wählt die Einheit *Änderungen* (`CHANGE 2/5` in der Statuszeile): `←`/`→` (und `↑`/`↓`) gehen in Lesereihenfolge von Änderung zu Änderung, entfernte Blöcke eingeschlossen; der Strich am linken Rand markiert die aktuelle. Siehe [Lesen mit der Tastatur](#lesen-mit-der-tastatur).
 
@@ -131,7 +134,7 @@ Weitere Änderungen summieren sich: Sie sehen immer alles, was sich seit dem ers
 
 Nach so einem Vergleich wechselt mdVü in die Einheit *Änderungen* und wählt die erste Änderung. Ein bloßes Neuladen lässt dagegen die Leseposition stehen.
 
-Der Vergleich braucht das ganze Dokument: sehr große Dateien (über 2 MB Text) erscheinen ohne die Änderungen. Ein geänderter Block zeigt nur seinen neuen Wortlaut mit markierten Wörtern, nicht den alten.
+Der Vergleich braucht das ganze Dokument: sehr große Dateien (über 2 MB Text) erscheinen ohne die Änderungen. In Codeblöcken und im Frontmatter sind nur die neuen Zeilen markiert; entfernte Zeilen erscheinen dort nicht. Frontmatter-Schlüssel, die nur umgestellt wurden, erscheinen als entfernte und eingefügte Zeilen.
 
 ## Ordneransicht und Suche
 
@@ -447,6 +450,7 @@ Die Einstellungen, die man kennen sollte (`settings.yaml`):
 | Schlüssel | Bedeutung |
 |---|---|
 | `document/showChanges` | beim Neuladen nach einer Änderung durch ein anderes Programm zeigen, was sich geändert hat (`true`, Standard), oder einfach neu laden (`false`) — siehe [Sehen, was sich geändert hat](#sehen-was-sich-geändert-hat) |
+| `document/showRemoved` | entfernte Blöcke und Wörter in der Änderungsanzeige: `fade` (Standard: 5 Sekunden nach dem automatischen Neuladen ausgeblendet), `show` (immer) oder `hide` (nie) |
 | `document/showFrontmatter` | YAML-Kopf vollständig zeigen (`true`, Standard) oder auf eine Zeile einklappen — geschrieben von *Ansicht → Show Frontmatter* |
 | `document/lineBreaks` | Zeilenumbrüche außerhalb eines Obsidian-Vaults: `standard` (Standard, Markdown-Standard) oder `newline` (jeder Zeilenumbruch bricht um, wie in Typora). Im Vault gilt dessen eigene Einstellung. Wirkt beim nächsten Start |
 | `document/tableImageMaxWidth` | größte Breite eines Bildes in einer Tabellenzelle in Pixeln (Standard 400); `0` zeigt Bilder in ihrer natürlichen Größe. Gilt nur für Bilder ohne eigene Breitenangabe (`![[bild.png\|300]]`). Wirkt beim nächsten Start |
