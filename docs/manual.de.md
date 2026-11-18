@@ -13,6 +13,7 @@ Dies ist das ausführliche Handbuch für alle, die das ganze Bild wollen — sam
 - [Portabel nutzen](#portabel-nutzen)
 - [Das Fenster im Überblick](#das-fenster-im-überblick)
 - [Dateien öffnen](#dateien-öffnen)
+- [Sehen, was sich geändert hat](#sehen-was-sich-geändert-hat)
 - [Ordneransicht und Suche](#ordneransicht-und-suche)
 - [Gliederung](#gliederung)
 - [Lesen mit der Tastatur](#lesen-mit-der-tastatur)
@@ -106,9 +107,31 @@ Es gibt mehrere Wege, eine Datei zu öffnen:
 - **Mehrere Fenster:** *File → New window* (`Strg+N`) öffnet das aktuelle Dokument in einem zweiten Fenster; *Open in new window* im Menü einer Datei oder eines Ordners (Rechtsklick in der Ordneransicht oder auf den Pfad in der Statuszeile) tut dasselbe für diese Datei bzw. diesen Ordner, ebenso `Strg`+Klick auf einen Link oder die mittlere Maustaste auf einen Link oder in der Ordneransicht. Jedes Fenster hat seine eigene Ordneransicht, seinen Verlauf und seine Suche; zuletzt geöffnete Dateien und Favoriten teilen sie sich. Das Programm endet mit dem letzten Fenster.
 - **mdVü läuft schon:** eine aus dem Explorer oder per Kommandozeile geöffnete Datei bleibt im laufenden Programm. Liegt sie in einem Vault oder Repository, das in einem der Fenster offen ist, oder im Ordner einer Ordneransicht, öffnet sie dort, und das Fenster kommt nach vorn. Eine Datei außerhalb jedes Vaults oder Repositorys landet in dem Fenster, das schon eine solche Datei zeigt — lose Dateien türmen also keine Fenster auf. Alles andere öffnet ein neues Fenster. *Print with* und *Export as PDF with* laufen immer für sich. Ist in mdVü ein Dialog offen, öffnet die Datei stattdessen in einem eigenen mdVü.
 
-Wird die angezeigte Datei von einem anderen Programm geändert, lädt mdVü sie automatisch neu — die Scrollposition bleibt erhalten. Mit `F5` geht das auch von Hand. Dateien, die im aktuellen Ordner hinzukommen oder verschwinden, erscheinen im Baum ohne manuelles Auffrischen; das gilt rekursiv, also auch für Unterordner.
+Wird die angezeigte Datei von einem anderen Programm geändert, lädt mdVü sie automatisch neu und zeigt, was sich geändert hat — siehe [Sehen, was sich geändert hat](#sehen-was-sich-geändert-hat); die Scrollposition bleibt erhalten. `F5` lädt von Hand neu und zeigt das Dokument ohne Änderungen. Dateien, die im aktuellen Ordner hinzukommen oder verschwinden, erscheinen im Baum ohne manuelles Auffrischen; das gilt rekursiv, also auch für Unterordner.
 
 Sehr große Dateien werden bis zu einer Grenze von **50 MB** geladen — ein Banner am Dokumentanfang weist darauf hin, dass nur der Anfang angezeigt wird. Siehe [Grenzen](#grenzen).
+
+## Sehen, was sich geändert hat
+
+Ändert ein anderes Programm die offene Datei, zeigt mdVü nicht einfach die neue Fassung, sondern **was sich geändert hat** — direkt im Dokument:
+
+- **neue Blöcke** (Absätze, Listenpunkte, Tabellenzeilen …) grün hinterlegt,
+- **entfernte Blöcke** rot an der Stelle, an der sie standen — so gebaut, wie sie vorher aussahen: ein entfernter Listenpunkt behält seine Nummer, eine entfernte Tabellenzeile ihre Spalten,
+- **geänderte Wörter** innerhalb eines Blocks grün markiert.
+
+Weitere Änderungen summieren sich: Sie sehen immer alles, was sich seit dem ersten Neuladen geändert hat, bis Sie die Anzeige beenden. Die Statuszeile zeigt einen Chip wie `+2 −1 ~3` (eingefügte, entfernte, geänderte Blöcke); ein **Klick auf den Chip** blendet die Änderungen aus, ebenso **`F5`**, das das Dokument ohne sie neu lädt. `Esc` lässt sie bewusst stehen. Auch ein anderes Dokument beendet die Anzeige. Wer das gar nicht möchte, schaltet es mit der Einstellung `document/showChanges` ab; mdVü lädt dann einfach neu.
+
+**Durch die Änderungen gehen:** `C` im Dokument wählt die Einheit *Änderungen* (`CHANGE 2/5` in der Statuszeile): `←`/`→` (und `↑`/`↓`) gehen in Lesereihenfolge von Änderung zu Änderung, entfernte Blöcke eingeschlossen; der Strich am linken Rand markiert die aktuelle. Siehe [Lesen mit der Tastatur](#lesen-mit-der-tastatur).
+
+**Gezielt vergleichen:** Das offene Dokument gilt immer als die neuere Fassung — mdVü zeigt, was der anderen fehlt oder dort anders ist:
+
+- *Tools → Compare with file...* wählt die ältere Fassung in einem Dateidialog; *Compare with current document* im Menü einer Datei (Rechtsklick in der Ordneransicht) tut dasselbe für diese Datei.
+- *Tools → Set as comparison reference* merkt sich den Text des offenen Dokuments, **wie er gerade ist**. Später — nach einer Änderung in einem anderen Programm oder mit einem anderen offenen Dokument — zeigt *Tools → Compare with reference*, was sich seitdem geändert hat. Die Referenz gilt, bis mdVü geschlossen wird, und in jedem Fenster. Beide Befehle stehen auch im Menü des Dateinamens in der Statuszeile.
+- *Tools → Compare with window: …* vergleicht mit dem Dokument, das ein anderes mdVü-Fenster zeigt (mit nur einem Fenster ist der Eintrag ausgegraut).
+
+Nach so einem Vergleich wechselt mdVü in die Einheit *Änderungen* und wählt die erste Änderung. Ein bloßes Neuladen lässt dagegen die Leseposition stehen.
+
+Der Vergleich braucht das ganze Dokument: sehr große Dateien (über 2 MB Text) erscheinen ohne die Änderungen. Ein geänderter Block zeigt nur seinen neuen Wortlaut mit markierten Wörtern, nicht den alten.
 
 ## Ordneransicht und Suche
 
@@ -220,6 +243,7 @@ mdVü ist ein Leser, das Dokument braucht also nicht ständig einen Textcursor �
 | `1` | Caret | `CARET` | bewegen einen Textcursor zeichen- und zeilenweise, wie nach einem Klick in den Text |
 | `L` | Links | `LINK 3/41` | `←`/`→` voriger/nächster Link in Lesereihenfolge, `↑`/`↓` nächstgelegener Link in der Zeile darüber/darunter |
 | `H` | Treffer | `HIT 2/17` | gehen durch die Treffer der Dokumentsuche (`Strg+F`) |
+| `C` | Änderungen | `CHANGE 2/5` | gehen durch die Änderungen, nur solange sie angezeigt werden ([Sehen, was sich geändert hat](#sehen-was-sich-geändert-hat)) |
 
 Ein Klick auf die Einheit im Footer öffnet ein Menü mit allen Einheiten.
 
@@ -422,6 +446,7 @@ Die Einstellungen, die man kennen sollte (`settings.yaml`):
 
 | Schlüssel | Bedeutung |
 |---|---|
+| `document/showChanges` | beim Neuladen nach einer Änderung durch ein anderes Programm zeigen, was sich geändert hat (`true`, Standard), oder einfach neu laden (`false`) — siehe [Sehen, was sich geändert hat](#sehen-was-sich-geändert-hat) |
 | `document/showFrontmatter` | YAML-Kopf vollständig zeigen (`true`, Standard) oder auf eine Zeile einklappen — geschrieben von *Ansicht → Show Frontmatter* |
 | `document/lineBreaks` | Zeilenumbrüche außerhalb eines Obsidian-Vaults: `standard` (Standard, Markdown-Standard) oder `newline` (jeder Zeilenumbruch bricht um, wie in Typora). Im Vault gilt dessen eigene Einstellung. Wirkt beim nächsten Start |
 | `document/tableImageMaxWidth` | größte Breite eines Bildes in einer Tabellenzelle in Pixeln (Standard 400); `0` zeigt Bilder in ihrer natürlichen Größe. Gilt nur für Bilder ohne eigene Breitenangabe (`![[bild.png\|300]]`). Wirkt beim nächsten Start |
@@ -480,7 +505,7 @@ mdVü hat einige bewusst gesetzte harte Grenzen. Sie sorgen dafür, dass eine un
 | `Strg+Umschalt+F` | Suchen in Dateien (Vault, Repository oder Ordner) |
 | `Esc` | Zurück ins Suchfeld; im Feld: Suchstreifen schließen / Hervorhebungen wegräumen / zurück zum Scrollen |
 | `0` / `1` / `F7` | Dokument: Scrollen / Caret / umschalten |
-| `L` / `H` | Dokument: mit den Pfeiltasten durch Links / Suchtreffer |
+| `L` / `H` / `C` | Dokument: mit den Pfeiltasten durch Links / Suchtreffer / Änderungen |
 | `Tab` / `Umschalt+Tab` | Dokument: nächster / voriger Link |
 | `Eingabe` | Dokument: aktivem Link folgen |
 | `Strg+C` | Dokument: Auswahl kopieren — als Text und mit Formatierung für Word, Outlook & Co. Bilder gehen als Verweis auf die Originaldatei mit (im Originalformat); Word bettet sie beim Einfügen ein |
@@ -488,7 +513,7 @@ mdVü hat einige bewusst gesetzte harte Grenzen. Sie sorgen dafür, dass eine un
 | Rechte Maustaste | Dokument: Menü mit Kopieren, Als Markdown kopieren, Zurück und Vor |
 | *Copy* am Codeblock | Erscheint oben rechts, solange die Maus über einem Codeblock steht; kopiert den ganzen Code als reinen Text |
 | `Strg+Mausrad` | Dokument: Zoom (50–200 %). Ein Klick auf den Zoomwert im Footer bietet alle Stufen an; der Zoom bleibt für den nächsten Start erhalten |
-| `F5` | Dokument neu laden / auf der Trefferliste neu suchen |
+| `F5` | Dokument neu laden (beendet die Änderungsanzeige) / auf der Trefferliste neu suchen |
 | `F6` | Zwischen Bereichen wechseln (Baum / Dokument / Editor) |
 | `Strg+Umschalt+E` | Zur Ordneransicht |
 | `Alt+←` / `Alt+→` | Zurück / Vorwärts (auch `AltGr+←` / `AltGr+→`, einhändig neben den Pfeiltasten) |

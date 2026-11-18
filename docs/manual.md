@@ -13,6 +13,7 @@ This is the extended manual for readers who want the whole picture, including in
 - [Portable use](#portable-use)
 - [The window at a glance](#the-window-at-a-glance)
 - [Opening files](#opening-files)
+- [Seeing what changed](#seeing-what-changed)
 - [Folder view and search](#folder-view-and-search)
 - [Outline](#outline)
 - [Reading with the keyboard](#reading-with-the-keyboard)
@@ -106,9 +107,31 @@ There are several ways to open a file:
 - **Several windows:** *File → New window* (`Ctrl+N`) opens the current document in a second window; *Open in new window* in the menu of a file or folder (right-click in the folder view or on the path in the status bar) does the same for that file or folder, and so does `Ctrl`+click on a link or the middle mouse button on a link or in the folder view. Each window has its own folder view, history and search; recent files and favorites are shared. The program ends with the last window.
 - **mdVü already running:** a file opened from Explorer or the command line stays in the running program. If it lies in a vault or repository open in one of the windows, or in the folder shown in a folder view, it opens there and the window comes to the front. A file outside any vault or repository goes to the window that already shows such a file, so stray files don't pile up windows. Anything else opens a new window. *Print with* and *Export as PDF with* always run on their own. If a dialog is open in mdVü, the file opens in a separate mdVü instead.
 
-If the displayed file is changed by another program, mdVü reloads it automatically — the scroll position is preserved. `F5` does the same manually. Files that appear in or disappear from the current folder show up in the tree without a manual refresh; this works recursively, for subfolders too.
+If the displayed file is changed by another program, mdVü reloads it automatically and shows what changed — see [Seeing what changed](#seeing-what-changed); the scroll position is preserved. `F5` reloads manually and shows the plain document. Files that appear in or disappear from the current folder show up in the tree without a manual refresh; this works recursively, for subfolders too.
 
 Very large files are loaded up to a limit of **50 MB** — a banner at the top of the document indicates that only the beginning is shown. See [Limits](#limits).
+
+## Seeing what changed
+
+When the open file is changed by another program, mdVü does not just show the new version — it shows **what changed**, right in the document:
+
+- **new blocks** (paragraphs, list items, table rows …) with a green background,
+- **removed blocks** in red at the place where they used to be — built as they looked before, so a removed list item still has its number and a removed table row its columns,
+- **changed words** inside a block highlighted in green.
+
+Further changes add up: you always see everything that changed since the first reload, until you end the display. The status bar shows a chip such as `+2 −1 ~3` (inserted, removed, changed blocks); a **click on the chip** hides the changes, and so does **`F5`**, which reloads the document without them. `Esc` deliberately leaves them alone. Opening another document ends the display as well. If you don't want this at all, switch it off with the setting `document/showChanges`; mdVü then simply reloads.
+
+**Walking through the changes:** press `C` in the document for the unit *Changes* (`CHANGE 2/5` in the status bar): `←`/`→` (and `↑`/`↓`) go from change to change in reading order, removed blocks included; the bar at the left edge marks the current one. See [Reading with the keyboard](#reading-with-the-keyboard).
+
+**Comparing on purpose:** the open document always counts as the newer version — mdVü shows what the other one lacks or has differently:
+
+- *Tools → Compare with file...* picks the older version in a file dialog; *Compare with current document* in the menu of a file (right-click in the folder view) does the same for that file.
+- *Tools → Set as comparison reference* remembers the text of the open document **as it is now**. Later — after editing it in another program, or with a different document open — *Tools → Compare with reference* shows what changed since then. The reference lasts until mdVü is closed and works in every window. Both commands are also in the menu of the file name in the status bar.
+- *Tools → Compare with window: …* compares with the document shown in another mdVü window (with only one window the entry is greyed out).
+
+After such a comparison mdVü switches to the unit *Changes* and selects the first change. A reload by itself keeps your reading position instead.
+
+Comparing needs the whole document: very large files (over 2 MB of text) are shown without the changes. A changed block shows only its new wording with the changed words marked, not the old wording.
 
 ## Folder view and search
 
@@ -220,6 +243,7 @@ mdVü is a reader, so the document doesn't need a text cursor all the time — t
 | `1` | Caret | `CARET` | move a text cursor by character and line, as after a click into the text |
 | `L` | Links | `LINK 3/41` | `←`/`→` previous/next link in reading order, `↑`/`↓` nearest link in the line above/below |
 | `H` | Hits | `HIT 2/17` | walk through the hits of the document search (`Ctrl+F`) |
+| `C` | Changes | `CHANGE 2/5` | walk through the changes, only while they are shown ([Seeing what changed](#seeing-what-changed)) |
 
 A click on the unit in the footer opens a menu with all units.
 
@@ -422,6 +446,7 @@ The settings worth knowing about (`settings.yaml`):
 
 | Key | Meaning |
 |---|---|
+| `document/showChanges` | show what changed when the open file is reloaded after a change by another program (`true`, default) or just reload (`false`) — see [Seeing what changed](#seeing-what-changed) |
 | `document/showFrontmatter` | show the YAML header in full (`true`, default) or collapse it to one line — written by *View → Show Frontmatter* |
 | `document/lineBreaks` | line breaks outside an Obsidian vault: `standard` (default, Markdown standard) or `newline` (every line break breaks, as in Typora). Inside a vault, the vault's own setting applies. Takes effect on the next start |
 | `document/tableImageMaxWidth` | maximum width of an image in a table cell, in pixels (default 400); `0` shows images at their natural size. Applies only to images without a width of their own (`![[image.png\|300]]`). Takes effect on the next start |
@@ -480,7 +505,7 @@ mdVü has a few deliberate hard limits. They exist so that an unusual file canno
 | `Ctrl+Shift+F` | Search in files (vault, repository or folder) |
 | `Esc` | Back into the search field; in the field: close the search strip / clear the highlights / back to scrolling |
 | `0` / `1` / `F7` | Document: scroll / caret / switch between them |
-| `L` / `H` | Document: walk through links / search hits with the arrow keys |
+| `L` / `H` / `C` | Document: walk through links / search hits / changes with the arrow keys |
 | `Tab` / `Shift+Tab` | Document: next / previous link |
 | `Enter` | Document: follow the active link |
 | `Ctrl+C` | Document: copy the selection — as text, and with formatting for Word, Outlook & Co. Images go along as links to the original files (in their original format); Word embeds them when pasting |
@@ -488,7 +513,7 @@ mdVü has a few deliberate hard limits. They exist so that an unusual file canno
 | Right mouse button | Document: menu with Copy, Copy as Markdown, Back and Forward |
 | *Copy* on a code block | Appears at the top right while the mouse is over a code block; copies the whole code as plain text |
 | `Ctrl+mouse wheel` | Document: zoom (50–200 %). A click on the zoom value in the footer offers all steps; the zoom is kept for the next start |
-| `F5` | Reload document / search again on the result list |
+| `F5` | Reload document (ends the display of changes) / search again on the result list |
 | `F6` | Switch between panes (tree / document / editor) |
 | `Ctrl+Shift+E` | Go to the folder view |
 | `Alt+←` / `Alt+→` | Back / forward (also `AltGr+←` / `AltGr+→`, one-handed next to the arrow keys) |
