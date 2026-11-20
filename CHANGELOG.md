@@ -4,6 +4,21 @@
 
 All notable changes to mdVü are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versions are `Major.Minor.Patch`, and the fourth number in the file version of the EXE is the build counter.
 
+## [1.1.0] — 2026-11-20
+
+### Added
+
+- **German and French user interface:** menus, settings, notices and dialogs are available in German and French. *Language* at the top of the settings page chooses; by default mdVü follows the display language of Windows, and a change takes effect after a restart. German is complete, including the built-in manual (`F1`); French covers mdVü's own texts, the manual stays English for now. See [Settings](docs/manual.md#settings).
+- **Seeing what changed:** when another program changes the displayed file, mdVü reloads it and shows the changes in place — new blocks, changed words, removed text struck through — also inside lists, callouts, tables and the frontmatter. A chip in the status bar (`+3 −1 ~2`) counts them and ends the display with a click; removed parts fade after five seconds (setting *Removed text in changes*). See [Seeing what changed](docs/manual.md#seeing-what-changed).
+- **Comparing documents:** *Tools → Compare with file...*, with a remembered **comparison reference** (the text as it was at that moment), or with the document of another mdVü window; the same commands are in the right-click menu of a file. After a comparison the reading unit *Changes* (`C`) steps through the changes with the arrow keys, the status bar shows `CHANGE 2/7`.
+- **Icons in the pane headers:** a magnifier in the header of the folder view, the outline and the document switches the search strip of that pane on and off — no need to know `Ctrl+F3`. Binoculars above the document open the search in files. An icon is coloured while its strip is open.
+
+### Changed
+
+- **Filter “recently changed”:** the clock in the header of the folder view is now a proper icon; with a filter set it is coloured and shows the period next to it. The filter expands the tree only down to the matching files and keeps folders you opened yourself.
+- **Toolbar:** the icon for the user CSS is gone; the view is still under *View*.
+- **Search syntax:** a semicolon separates alternatives like the comma does (`tag:todo;idea`). In number comparisons a comma is now a decimal comma (`[price:10,5..20]`) — use a semicolon for a list of numbers.
+
 ## [1.0.2] — 2026-11-14
 
 ### Fixed

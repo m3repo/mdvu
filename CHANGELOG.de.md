@@ -4,6 +4,21 @@
 
 Hier stehen alle nennenswerten Änderungen an mdVü. Das Format folgt [Keep a Changelog](https://keepachangelog.com/de/1.1.0/); Versionen sind `Major.Minor.Patch`, die vierte Stelle in der Dateiversion der EXE ist der Build-Zähler.
 
+## [1.1.0] — 2026-11-20
+
+### Neu
+
+- **Deutsche und französische Oberfläche:** Menüs, Einstellungen, Hinweise und Dialoge gibt es auf Deutsch und Französisch. *Sprache* oben auf der Einstellungsseite wählt aus; als Vorgabe folgt mdVü der Anzeigesprache von Windows, ein Wechsel gilt nach einem Neustart. Deutsch ist vollständig, samt eingebautem Handbuch (`F1`); Französisch umfasst die eigenen Texte von mdVü, das Handbuch bleibt vorerst englisch. Siehe [Einstellungen](docs/manual.de.md#einstellungen).
+- **Sehen, was sich geändert hat:** ändert ein anderes Programm die angezeigte Datei, lädt mdVü sie neu und zeigt die Änderungen an Ort und Stelle — neue Blöcke, geänderte Wörter, Entferntes durchgestrichen —, auch in Listen, Callouts, Tabellen und im Frontmatter. Ein Chip in der Statuszeile (`+3 −1 ~2`) zählt sie und beendet die Anzeige per Klick; Entferntes wird nach fünf Sekunden ausgeblendet (einstellbar). Siehe [Sehen, was sich geändert hat](docs/manual.de.md#sehen-was-sich-geändert-hat).
+- **Dokumente vergleichen:** *Werkzeuge → Mit Datei vergleichen...*, mit einer gemerkten **Vergleichsreferenz** (dem Text, wie er in dem Moment war) oder mit dem Dokument eines anderen mdVü-Fensters; dieselben Befehle stehen im Rechtsklick-Menü einer Datei. Nach einem Vergleich geht die Lese-Einheit *Änderungen* (`C`) mit den Pfeiltasten durch die Änderungen, die Statuszeile zeigt `ÄNDERUNG 2/7`.
+- **Symbole in den Köpfen der Bereiche:** eine Lupe im Kopf von Ordneransicht, Gliederung und Dokument schaltet den Suchstreifen dieses Bereichs ein und aus — `Strg+F3` muss man dafür nicht kennen. Das Fernglas über dem Dokument öffnet das Suchen in Dateien. Ein Symbol ist farbig, solange sein Streifen offen ist.
+
+### Geändert
+
+- **Filter „zuletzt geändert“:** die Uhr im Kopf der Ordneransicht ist jetzt ein richtiges Symbol; mit gesetztem Filter ist sie farbig und zeigt den Zeitraum daneben. Der Filter klappt den Baum nur bis zu den passenden Dateien auf und lässt selbst geöffnete Ordner offen.
+- **Werkzeugleiste:** das Symbol für das Benutzer-CSS ist entfallen; die Ansicht steht weiter unter *Ansicht*.
+- **Suchsyntax:** ein Semikolon trennt Alternativen wie das Komma (`tag:todo;idee`). In Zahlenvergleichen ist ein Komma jetzt ein Dezimalkomma (`[preis:10,5..20]`) — für eine Liste von Zahlen das Semikolon nehmen.
+
 ## [1.0.2] — 2026-11-14
 
 ### Behoben

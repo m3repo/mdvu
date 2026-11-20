@@ -79,7 +79,7 @@ mdVü can also run without leaving anything in your user profile or the registry
 
 ![mdVü main window |620](img/mdvu-screenshot-main-en.png)
 
-The window has no classic menu bar — the **main menu sits in the title bar** (*File*, *View*, *Help*), next to the toolbar icons.
+The window has no classic menu bar — the **main menu sits in the title bar** (*File*, *View*, *Tools*, *Help*), next to the toolbar icons.
 
 Below that, the window is split:
 
@@ -88,6 +88,8 @@ Below that, the window is split:
 - **right, top:** the **path bar** with the location of the current file
 - **right, centre:** the **document**
 - **bottom:** the status bar with document information and notices, and where the file lives (Obsidian vault, Git repository)
+
+The header of each pane carries small icons on the right: a **magnifier** searches in that pane, the **clock** in the folder view filters it by recently changed files, and the **binoculars** above the document open the [search in files](#search-in-files). An icon is coloured while its strip is open or its filter is set.
 
 `F6` cycles the keyboard focus between the panes.
 
@@ -144,7 +146,7 @@ The folder view shows the folder of the current document, filtered to `*.md`. It
 
 `Ctrl+F` opens the search strip for the main pane — the view currently showing: document, source text, CSS or print preview. `F3` and `Shift+F3` step to the next and previous hit in the main pane, wherever the focus is: in the search field, in the document, even in the folder view or the outline. So you can keep reading and press `F3` to move on.
 
-`Ctrl+F3` searches wherever you are — the pane holding the keyboard focus gets the strip. It is the only way to reach the folder view and the outline, and unlike `Ctrl+F` it also switches the strip off again.
+`Ctrl+F3` searches wherever you are — the pane holding the keyboard focus gets the strip. This is how the keyboard reaches the folder view and the outline, and unlike `Ctrl+F` it also switches the strip off again. With the mouse, the **magnifier in the header** of a pane does the same for that pane.
 
 In the **folder view** and the **outline** the strip appears above the tree. As you type, the tree is filtered — to matching files or headings — and hits are highlighted. The arrow-down key moves the focus from the search field into the tree, so you can type, then browse without touching the mouse. When you close the strip, the tree is expanded the way it was before the search.
 
@@ -213,7 +215,7 @@ Several words find files that contain **all** of them, in any order. The syntax 
 | `/inv(oice)?/` | a regular expression |
 | `#todo` | files with the tag *todo* — your own or in the document, also `#todo/subtag` |
 | `tag.own:todo` | only your own tags; `tag.fm:` only the frontmatter, `tag.-fm:` all but the frontmatter |
-| `tag:todo,idea` | one of the tags (comma = or); `tag:=todo` without subtags |
+| `tag:todo,idea` | one of the tags (comma or semicolon = or); `tag:=todo` without subtags |
 | `file:readme`, `path:2026` | the file name or path contains it (`file:=readme.md`: exactly) |
 | `content:invoice` | only in the text, not in the file name |
 | `line:(invoice open)` | both words in the same line; `section:( … )` in the same section (from a heading to the next) |
@@ -419,6 +421,8 @@ The full reference with worked examples is in [Customizing with CSS](css-customi
 
 *Help → Settings*, the gear in the toolbar or `Ctrl+,` open the settings page. It lists every setting with a short explanation, grouped by topic; settings you will rarely need follow under *Advanced* at the end of each group. Changes apply right away and are saved immediately — where a setting only takes effect for the next document, in new windows or after a restart, it says so. `↺` restores the default.
 
+**Language:** mdVü speaks English, German and French. *Language* at the top of the settings page chooses the language of the user interface; by default it follows the display language of Windows, and a change takes effect after a restart. The built-in manual (`F1`) is available in English and German.
+
 **Finding a setting:** when the page opens, the cursor is in the filter field at the top. Type a few letters and only the matching settings remain. Every word you type has to match; mdVü looks in the name, the explanation, the key (such as `print/table`) and the choices of a list. A word that matches a group heading shows the whole group, and `"two words"` looks for the words together.
 
 **With the keyboard:** `↓` (or `Enter`) leads from the filter into the list. The arrow keys then go from setting to setting; the current one is highlighted, and the status bar shows `SETTING 3/27`. `Enter` or `Tab` step into the controls of that setting — `Tab` moves between them, `Space` switches a check box or option, and the status bar shows `EDIT`. `Enter` or `Esc` take you back to the list; in a single-line text field, `↑` and `↓` also accept the input and move on to the next setting. `Esc` in the list returns to the filter. In the filter, `Esc` first clears the text, a second `Esc` closes the settings page.
@@ -458,6 +462,7 @@ The settings worth knowing about (`settings.yaml`):
 | `open/inOpenVault`, `open/inShownFolder`, `open/loose`, `open/other` | what happens when mdVü is already running and a file or folder is opened from outside — one key per case: it lies in a vault or repository open in the window; it lies in the folder shown in the folder view; it lies in no vault or repository; it lies in a vault or repository that is not open. Values: `match` (into the window the case refers to), `reuse` (into the most recently used window), `loose` (into the window that shows a file outside any vault or repository, otherwise a new one), `window` (a new window), `instance` (a separate mdVü). Defaults: `match`, `match`, `loose`, `window` |
 | `open/quickOpenFolder` | what choosing a folder in *Quick open* (`Ctrl+O`) does: `browse` (default) steps into it in the list, `open` shows the folder page. Takes effect on the next start |
 | `folderTree/hideDot` | hide files and folders whose name starts with a dot (`.git`, `.obsidian`, `.trash` …) in the folder view; mdVü then doesn't look inside them either, which keeps large vaults and repositories fast. `true` (default) or `false`. Takes effect on the next start |
+| `appearance/language` | language of the user interface: `system` (default, follows Windows), `en`, `de` or `fr`; takes effect after a restart |
 | `appearance/theme`, `appearance/mode` | named stylesheet and light/dark/system — written by the Dark Mode command |
 | `print/paper` | paper size: `A3`, `A4` (default), `A5`, `A6`, `Letter`, `Legal` — written by the page setup strip |
 | `print/orientation` | `portrait` (default) or `landscape` |

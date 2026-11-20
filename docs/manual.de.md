@@ -55,7 +55,7 @@ Jedes Release auf der [Releases-Seite](https://github.com/m3repo/mdvu/releases/l
 - **`mdvu.exe`** — das Programm allein, ohne Installation. Dorthin legen, wo es passt — Programmordner, synchronisierter Ordner — und starten.
 - **`mdvu-<version>-portable.zip`** — für USB-Stick oder einen Werkzeugordner, der mitreist, siehe [Portabel nutzen](#portabel-nutzen).
 
-Beim allerersten Start wird die Lizenz angezeigt und ist einmalig zu bestätigen. Ohne Installer sorgt *Datei → Als Markdown-Standard registrieren* dafür, dass `.md`-Dateien per Doppelklick in mdVü aufgehen; Windows lässt die Wahl unter Umständen einmal über „Öffnen mit“ bestätigen.
+Beim allerersten Start wird die Lizenz angezeigt und ist einmalig zu bestätigen. Ohne Installer sorgt *Datei → Als Standard für Markdown registrieren* dafür, dass `.md`-Dateien per Doppelklick in mdVü aufgehen; Windows lässt die Wahl unter Umständen einmal über „Öffnen mit“ bestätigen.
 
 Es sind keine Admin-Rechte nötig, und es werden weder Dienste noch geplante Aufgaben angelegt. Außer in seinen Programmordner schreibt mdVü an genau zwei Stellen — siehe [Deinstallieren](#deinstallieren). Wer gar keine möchte, nimmt den [portablen Modus](#portabel-nutzen).
 
@@ -71,15 +71,15 @@ mdVü läuft auch, ohne Spuren im Benutzerprofil oder in der Registry zu hinterl
 
 **Lizenz-Bestätigung:** im portablen Modus steht sie in der `state.yaml`, gebunden an Rechner und Windows-Benutzer. Auf einem Rechner oder Benutzerkonto, auf dem sie noch nicht bestätigt wurde, erscheint die Lizenz einmal — eine von jemand anderem kopierte `state.yaml` zählt nicht. Jeder benutzte Rechner bekommt seinen eigenen Eintrag.
 
-**Was nicht geht:** *Datei → Als Markdown-Standard registrieren* — die Verknüpfung zeigte auf einen Ordner, der wandern oder beim nächsten Mal einen anderen Laufwerksbuchstaben haben kann. *Datei → Markdown-Registrierung entfernen* funktioniert weiterhin, zum Aufräumen nach einer früher installierten Kopie.
+**Was nicht geht:** *Datei → Als Standard für Markdown registrieren* — die Verknüpfung zeigte auf einen Ordner, der wandern oder beim nächsten Mal einen anderen Laufwerksbuchstaben haben kann. *Datei → Markdown-Registrierung entfernen* funktioniert weiterhin, zum Aufräumen nach einer früher installierten Kopie.
 
-*Help → Diagnostics* zeigt den Einstellungsordner als *Settings (portable)*.
+*Hilfe → Diagnose* zeigt den Einstellungsordner als *Einstellungen (portabel)*.
 
 ## Das Fenster im Überblick
 
 ![mdVü-Hauptfenster | 620](img/mdvu-screenshot-main-de.png)
 
-Das Fenster hat keine klassische Menüleiste — das **Hauptmenü sitzt in der Titelleiste** (*Datei*, *Ansicht*, *Hilfe*), neben den Symbolen der Werkzeugleiste.
+Das Fenster hat keine klassische Menüleiste — das **Hauptmenü sitzt in der Titelleiste** (*Datei*, *Ansicht*, *Werkzeuge*, *Hilfe*), neben den Symbolen der Werkzeugleiste. Menüpunkte nennt dieses Handbuch so, wie sie in der deutschen Oberfläche heißen.
 
 Darunter ist das Fenster geteilt:
 
@@ -88,6 +88,8 @@ Darunter ist das Fenster geteilt:
 - **rechts oben:** die **Pfadleiste** mit dem Ort der aktuellen Datei
 - **rechts in der Mitte:** das **Dokument**
 - **unten:** die Statuszeile mit Angaben zum Dokument und Hinweisen, dazu, wo die Datei liegt (Obsidian-Vault, Git-Repository)
+
+Im Kopf jedes Bereichs stehen rechts kleine Symbole: die **Lupe** sucht in diesem Bereich, die **Uhr** in der Ordneransicht filtert nach zuletzt geänderten Dateien, das **Fernglas** über dem Dokument öffnet das [Suchen in Dateien](#suchen-in-dateien). Ein Symbol ist farbig, solange sein Streifen offen oder sein Filter gesetzt ist.
 
 `F6` schaltet den Tastaturfokus reihum zwischen den Bereichen weiter.
 
@@ -98,13 +100,13 @@ Es gibt mehrere Wege, eine Datei zu öffnen:
 - **Drag & Drop:** eine `.md`-Datei oder einen ganzen **Ordner** auf das Fenster ziehen. Ein Ordner wird in der Ordneransicht geöffnet und zeigt seine Ordnerseite. Wird mehreres zugleich fallengelassen, hat eine Datei Vorrang vor einem Ordner.
 - **Schnell öffnen** mit `Strg+O`: wie bei der Suche erscheint unter der Pfadleiste eine Leiste. Tippen Sie einen Teil eines Dateinamens, eines Alias (`aliases` im Frontmatter, wie in Obsidian) oder eines Ordnernamens — die Treffer erscheinen darunter in einer Liste, die besten zuerst; Ordner tragen ein 📁, rechts steht jeweils der Ordner des Treffers. Wählen Sie einen Ordner, **betreten** Sie ihn direkt in der Liste: eine Kopfzeile zeigt, wo Sie sind, darunter stehen seine Unterordner und Dateien; Tippen sucht jetzt nur in diesem Ordner (auch tiefer), `Backspace` im leeren Feld geht eine Ebene hoch. Mit der Einstellung `quickOpen/folder = open` öffnet ein Ordner stattdessen als Ordnerseite, gleich bereit für die Tastatur (Pfeiltasten von Link zu Link). Ordner zählen, wenn darin (auch tiefer) Markdown-Dateien liegen. `↓` wechselt in die Liste, `↑`/`↓` wählen, `Enter` öffnet (im Eingabefeld: den ersten Treffer); `Esc` in der Liste springt zurück ins Eingabefeld, ein zweites `Esc` schließt. Mehrere Wörter müssen alle passen, in beliebiger Reihenfolge; passt nichts zum Namen, prüft mdVü auch die Ordnernamen und zuletzt die Buchstaben der Reihe nach (`mdrd` findet `mdvu-readme`). Gesucht wird im ganzen Vault bzw. Repository des aktuellen Dokuments, sonst im Ordner der Ordneransicht. Haben Sie Favoriten, wechselt ein zweites `Strg+O` (oder der Knopf rechts in der Leiste) auf **alle Favoriten** — und ein weiteres wieder zurück. Bei leerem Feld zeigt die Liste die zuletzt geöffneten Dateien.
 - **Öffnen-Dialog** mit `Strg+Umschalt+O`.
-- **Startseite** (*Datei → Start page*): die zuletzt geöffneten Dateien und Ihre Favoriten, je einen Klick entfernt. Sobald Sie einmal eine Datei geöffnet haben, startet mdVü mit dieser Seite; die Willkommensseite des Erststarts steht im Menü *Hilfe*.
+- **Startseite** (*Datei → Startseite*): die zuletzt geöffneten Dateien und Ihre Favoriten, je einen Klick entfernt. Sobald Sie einmal eine Datei geöffnet haben, startet mdVü mit dieser Seite; die Willkommensseite des Erststarts steht im Menü *Hilfe*.
 - **Ordneransicht:** Ein Klick auf eine Datei im Ordnerbaum links oder das Durchblättern mit den Pfeiltasten zeigt sie sofort an — aber nur zum **Hineinschauen** (Peek): Sie landet weder im Verlauf (*Zurück*) noch in den zuletzt benutzten Dateien, und die Pfadleiste zeigt ihren Namen *kursiv*. `Enter` oder ein Doppelklick öffnet die Datei richtig und setzt den Fokus ins Dokument; ein Klick ins Dokument oder `F6` macht dasselbe mit einer angesehenen Datei. `Strg+Umschalt+E` führt zurück in die Ordneransicht. Ein **Ordner** erscheint als eigene Seite: seine Unterordner und Markdown-Dateien mit Größe, Datum und den ersten Zeilen jeder Datei. `Enter` (oder ein Klick in die Seite) wechselt hinein, bereit für die Tastatur — die Pfeiltasten gehen von Link zu Link, `Enter` öffnet eine Datei oder einen Unterordner. Öffnen Sie eine Datei oder einen Ordner, die zu einem Obsidian-Vault oder Git-Repository gehören — per Kommandozeile, Dateidialog, Drag & Drop, Link, Pfadleiste oder aus den zuletzt benutzten Dateien —, zeigt die Ordneransicht den **ganzen Vault bzw. das ganze Repository** und markiert darin die Datei oder den Ordner; bei Verschachtelung den inneren Vault bzw. das innere Repository. Solange Sie sich darin bewegen, bleibt die Ordneransicht stehen. Dateien und Ordner, deren Name mit einem Punkt beginnt (`.git`, `.obsidian` …), werden nicht angezeigt (Einstellung `folderTree/hideDot`).
 - **Zuletzt verwendet:** Das *Datei*-Menü führt die zuletzt geöffneten Dateien und Ordner. Auch die **Startseite** (*Datei → Startseite*) zeigt die letzten fünf Dateien.
-- **Doppelklick im Explorer:** Über *Datei → Als Markdown-Standard registrieren* verknüpft sich mdVü mit `.md`-Dateien (pro Benutzer, keine Admin-Rechte nötig). Windows fragt ggf. einmalig per „Öffnen mit“ nach — siehe [Fehlersuche](#fehlersuche).
+- **Doppelklick im Explorer:** Über *Datei → Als Standard für Markdown registrieren* verknüpft sich mdVü mit `.md`-Dateien (pro Benutzer, keine Admin-Rechte nötig). Windows fragt ggf. einmalig per „Öffnen mit“ nach — siehe [Fehlersuche](#fehlersuche).
 - **Kontextmenü im Explorer:** Dieselbe Registrierung ergänzt bei jeder `.md`-Datei — auch wenn ein anderes Programm Standard ist — *Open with mdVü*, *Print with mdVü* (öffnet die Druckvorschau) und *Export as PDF with mdVü*, bei Ordnern *Open in mdVü*. Unter Windows 11 stehen sie unter *Weitere Optionen anzeigen* (`Umschalt+F10`). Wer mit einer früheren Version registriert hat, registriert einmal neu, um sie zu bekommen.
 - **Kommandozeile:** `mdvu.exe "C:\Notizen\Liesmich.md"` — siehe [Kommandozeile](#kommandozeile).
-- **Mehrere Fenster:** *File → New window* (`Strg+N`) öffnet das aktuelle Dokument in einem zweiten Fenster; *Open in new window* im Menü einer Datei oder eines Ordners (Rechtsklick in der Ordneransicht oder auf den Pfad in der Statuszeile) tut dasselbe für diese Datei bzw. diesen Ordner, ebenso `Strg`+Klick auf einen Link oder die mittlere Maustaste auf einen Link oder in der Ordneransicht. Jedes Fenster hat seine eigene Ordneransicht, seinen Verlauf und seine Suche; zuletzt geöffnete Dateien und Favoriten teilen sie sich. Das Programm endet mit dem letzten Fenster.
+- **Mehrere Fenster:** *Datei → Neues Fenster* (`Strg+N`) öffnet das aktuelle Dokument in einem zweiten Fenster; *In neuem Fenster öffnen* im Menü einer Datei oder eines Ordners (Rechtsklick in der Ordneransicht oder auf den Pfad in der Statuszeile) tut dasselbe für diese Datei bzw. diesen Ordner, ebenso `Strg`+Klick auf einen Link oder die mittlere Maustaste auf einen Link oder in der Ordneransicht. Jedes Fenster hat seine eigene Ordneransicht, seinen Verlauf und seine Suche; zuletzt geöffnete Dateien und Favoriten teilen sie sich. Das Programm endet mit dem letzten Fenster.
 - **mdVü läuft schon:** eine aus dem Explorer oder per Kommandozeile geöffnete Datei bleibt im laufenden Programm. Liegt sie in einem Vault oder Repository, das in einem der Fenster offen ist, oder im Ordner einer Ordneransicht, öffnet sie dort, und das Fenster kommt nach vorn. Eine Datei außerhalb jedes Vaults oder Repositorys landet in dem Fenster, das schon eine solche Datei zeigt — lose Dateien türmen also keine Fenster auf. Alles andere öffnet ein neues Fenster. *Print with* und *Export as PDF with* laufen immer für sich. Ist in mdVü ein Dialog offen, öffnet die Datei stattdessen in einem eigenen mdVü.
 
 Wird die angezeigte Datei von einem anderen Programm geändert, lädt mdVü sie automatisch neu und zeigt, was sich geändert hat — siehe [Sehen, was sich geändert hat](#sehen-was-sich-geändert-hat); die Scrollposition bleibt erhalten. `F5` lädt von Hand neu und zeigt das Dokument ohne Änderungen. Dateien, die im aktuellen Ordner hinzukommen oder verschwinden, erscheinen im Baum ohne manuelles Auffrischen; das gilt rekursiv, also auch für Unterordner.
@@ -128,9 +130,9 @@ Nach dem automatischen Neuladen verschwinden die roten Teile — entfernte Blöc
 
 **Gezielt vergleichen:** Das offene Dokument gilt immer als die neuere Fassung — mdVü zeigt, was der anderen fehlt oder dort anders ist:
 
-- *Tools → Compare with file...* wählt die ältere Fassung in einem Dateidialog; *Compare with current document* im Menü einer Datei (Rechtsklick in der Ordneransicht) tut dasselbe für diese Datei.
-- *Tools → Set as comparison reference* merkt sich den Text des offenen Dokuments, **wie er gerade ist**. Später — nach einer Änderung in einem anderen Programm oder mit einem anderen offenen Dokument — zeigt *Tools → Compare with reference*, was sich seitdem geändert hat. Die Referenz gilt, bis mdVü geschlossen wird, und in jedem Fenster. Beide Befehle stehen auch im Menü des Dateinamens in der Statuszeile.
-- *Tools → Compare with window: …* vergleicht mit dem Dokument, das ein anderes mdVü-Fenster zeigt (mit nur einem Fenster ist der Eintrag ausgegraut).
+- *Werkzeuge → Mit Datei vergleichen...* wählt die ältere Fassung in einem Dateidialog; *Mit aktuellem Dokument vergleichen* im Menü einer Datei (Rechtsklick in der Ordneransicht) tut dasselbe für diese Datei.
+- *Werkzeuge → Als Vergleichsreferenz setzen* merkt sich den Text des offenen Dokuments, **wie er gerade ist**. Später — nach einer Änderung in einem anderen Programm oder mit einem anderen offenen Dokument — zeigt *Werkzeuge → Mit Referenz vergleichen*, was sich seitdem geändert hat. Die Referenz gilt, bis mdVü geschlossen wird, und in jedem Fenster. Beide Befehle stehen auch im Menü des Dateinamens in der Statuszeile.
+- *Werkzeuge → Mit Fenster vergleichen: …* vergleicht mit dem Dokument, das ein anderes mdVü-Fenster zeigt (mit nur einem Fenster ist der Eintrag ausgegraut).
 
 Nach so einem Vergleich wechselt mdVü in die Einheit *Änderungen* und wählt die erste Änderung. Ein bloßes Neuladen lässt dagegen die Leseposition stehen.
 
@@ -144,7 +146,7 @@ Die Ordneransicht zeigt den Ordner des aktuellen Dokuments, gefiltert auf `*.md`
 
 `Strg+F` öffnet den Suchstreifen für das Haupt-Pane — also für die gerade sichtbare Ansicht: Dokument, Quelltext, CSS oder Druckvorschau. `F3` und `Umschalt+F3` springen zum nächsten bzw. vorherigen Treffer im Haupt-Pane, egal wo der Fokus gerade steht: im Suchfeld, im Dokument, auch in Ordneransicht oder Gliederung. Man kann also weiterlesen und mit `F3` weiterspringen.
 
-`Strg+F3` sucht dort, wo Sie gerade sind — der Bereich mit dem Tastaturfokus bekommt den Streifen. Nur so erreicht man Ordneransicht und Gliederung, und anders als `Strg+F` schaltet diese Taste den Streifen auch wieder aus.
+`Strg+F3` sucht dort, wo Sie gerade sind — der Bereich mit dem Tastaturfokus bekommt den Streifen. So erreicht man mit der Tastatur Ordneransicht und Gliederung, und anders als `Strg+F` schaltet diese Taste den Streifen auch wieder aus. Mit der Maus tut die **Lupe im Kopf** eines Bereichs dasselbe für diesen Bereich.
 
 In der **Ordneransicht** und in der **Gliederung** erscheint der Streifen über dem Baum. Während der Eingabe wird der Baum gefiltert — auf passende Dateien bzw. Überschriften —, Treffer werden hervorgehoben. Die Pfeil-runter-Taste setzt den Fokus vom Suchfeld in den Baum — tippen, dann blättern, ganz ohne Maus. Nach dem Schließen ist der Baum wieder so aufgeklappt wie vor der Suche.
 
@@ -213,7 +215,7 @@ Mehrere Wörter finden Dateien, die **alle** enthalten, in beliebiger Reihenfolg
 | `/rech(nung)?/` | einen regulären Ausdruck |
 | `#todo` | Dateien mit dem Tag *todo* — eigener oder im Dokument, auch `#todo/untertag` |
 | `tag.own:todo` | nur eigene Tags; `tag.fm:` nur das Frontmatter, `tag.-fm:` alles außer dem Frontmatter |
-| `tag:todo,idee` | einen der Tags (Komma = oder); `tag:=todo` ohne Untertags |
+| `tag:todo,idee` | einen der Tags (Komma oder Semikolon = oder); `tag:=todo` ohne Untertags |
 | `file:readme`, `path:2026` | Dateiname bzw. Pfad enthält es (`file:=readme.md`: genau) |
 | `content:rechnung` | nur im Text, nicht im Dateinamen |
 | `line:(rechnung offen)` | beide Wörter in derselben Zeile; `section:( … )` im selben Abschnitt (von einer Überschrift bis zur nächsten) |
@@ -258,13 +260,13 @@ Ein Klick in den Text schaltet auf den Caret. `Esc` geht den Weg zurück, den Si
 
 ## Favoriten
 
-Ordner, zu denen Sie oft zurückkehren — Ihre Vaults, Ihre Repositories —, lassen sich als **Favoriten** merken. `Strg+D` nimmt den Ordner der Ordneransicht auf oder entfernt ihn wieder; der **Stern** in der Leiste ist gefüllt, wenn der aktuelle Ordner ein Favorit ist. Ein Klick auf den Stern (oder `Strg+Umschalt+D`) öffnet die Liste: Pfeiltasten und `Enter` öffnen einen Favoriten, `Entf` entfernt den markierten. Die Favoriten stehen auch im Menü **File**, und das Menü zu einer Datei oder einem Ordner (Rechtsklick in der Ordneransicht) nimmt sie auf oder entfernt sie. Die Suche in Dateien kann **alle Favoriten** auf einmal durchsuchen. mdVü speichert sie in `favorites.yaml` bei den übrigen Einstellungen.
+Ordner, zu denen Sie oft zurückkehren — Ihre Vaults, Ihre Repositories —, lassen sich als **Favoriten** merken. `Strg+D` nimmt den Ordner der Ordneransicht auf oder entfernt ihn wieder; der **Stern** in der Leiste ist gefüllt, wenn der aktuelle Ordner ein Favorit ist. Ein Klick auf den Stern (oder `Strg+Umschalt+D`) öffnet die Liste: Pfeiltasten und `Enter` öffnen einen Favoriten, `Entf` entfernt den markierten. Die Favoriten stehen auch im Menü **Datei**, und das Menü zu einer Datei oder einem Ordner (Rechtsklick in der Ordneransicht) nimmt sie auf oder entfernt sie. Die Suche in Dateien kann **alle Favoriten** auf einmal durchsuchen. mdVü speichert sie in `favorites.yaml` bei den übrigen Einstellungen.
 
 ## Tags
 
-Dateien und Ordner lassen sich mit **eigenen Tags** versehen — ohne dass sich eine Datei ändert: mdVü legt sie im Einstellungsordner ab, ein Git-Repository oder ein fremder Vault bleibt also unberührt. Rechtsklick auf eine Datei oder einen Ordner (in der Ordneransicht, auf den Pfad in der Statuszeile oder irgendwo im geöffneten Dokument), dann **Tags…**: die Liste zeigt alle Ihre Tags mit Häkchen; ein Klick setzt oder entfernt einen, und die Liste bleibt offen, sodass sich mehrere setzen lassen. **New tag…** fragt nach einem Namen — Buchstaben, Ziffern, `_`, `-` und `/`, mindestens ein Zeichen keine Ziffer; `projekt/mdvu` zählt auch als `projekt`. Ein Tag an einem **Ordner** gilt für alles darunter; solche geerbten Tags stehen ausgegraut mit dem Ordner, von dem sie kommen. Die Seite eines Ordners zeigt seine Tags oben.
+Dateien und Ordner lassen sich mit **eigenen Tags** versehen — ohne dass sich eine Datei ändert: mdVü legt sie im Einstellungsordner ab, ein Git-Repository oder ein fremder Vault bleibt also unberührt. Rechtsklick auf eine Datei oder einen Ordner (in der Ordneransicht, auf den Pfad in der Statuszeile oder irgendwo im geöffneten Dokument), dann **Tags…**: die Liste zeigt alle Ihre Tags mit Häkchen; ein Klick setzt oder entfernt einen, und die Liste bleibt offen, sodass sich mehrere setzen lassen. **Neuer Tag…** fragt nach einem Namen — Buchstaben, Ziffern, `_`, `-` und `/`, mindestens ein Zeichen keine Ziffer; `projekt/mdvu` zählt auch als `projekt`. Ein Tag an einem **Ordner** gilt für alles darunter; solche geerbten Tags stehen ausgegraut mit dem Ordner, von dem sie kommen. Die Seite eines Ordners zeigt seine Tags oben.
 
-In der Suche in Dateien durchsucht `scope:#tag` alle Orte mit diesem Tag auf einmal — praktisch für Ordner, die über mehrere Vaults verstreut sind, etwa alle `Protokoll`-Ordner mit `#tagesprotokoll`. *File → Show tags* listet alle Tags mit ihren Orten. Wird ein Ort umbenannt oder verschoben, während mdVü läuft, ziehen seine Tags mit; Orte, die sich nicht mehr finden, stehen dort gesondert — mit Links, um die Tags dem neuen Ort zuzuordnen oder sie zu entfernen.
+In der Suche in Dateien durchsucht `scope:#tag` alle Orte mit diesem Tag auf einmal — praktisch für Ordner, die über mehrere Vaults verstreut sind, etwa alle `Protokoll`-Ordner mit `#tagesprotokoll`. *Datei → Tags anzeigen* listet alle Tags mit ihren Orten. Wird ein Ort umbenannt oder verschoben, während mdVü läuft, ziehen seine Tags mit; Orte, die sich nicht mehr finden, stehen dort gesondert — mit Links, um die Tags dem neuen Ort zuzuordnen oder sie zu entfernen.
 
 Tags, die im **Frontmatter** eines Dokuments stehen (`tags:` oder `tag:`, als Liste oder mit Kommas getrennt), zählen ebenso — eigene Tags und Dokument-Tags sind ein gemeinsamer Satz. Oben im Dokument zeigt eine Zeile alle seine Tags: Dokument-Tags gefüllt, eigene nur umrandet; ein Klick listet alle Dateien mit diesem Tag im selben Vault, Repository oder Ordner. Bei vielen Tags zeigt `+n` am Ende den Rest. Die Statuszeile zeigt die Anzahl (`#3`); ein Klick öffnet die Liste samt Herkunft jedes Tags. Im Suchfeld der *Suche in Dateien* listet `#name` alle Dateien mit diesem Tag und beschränkt jede Suche auf sie; `tag.own:name` zählt nur eigene Tags, `tag.fm:name` nur das Frontmatter (siehe [Suchsyntax](#suchsyntax)). Die eigenen Tags speichert mdVü in `tags.yaml` bei den übrigen Einstellungen.
 
@@ -302,8 +304,8 @@ Beim Zurückschalten von der CSS-Ansicht auf die Markdown-Ansicht wird das geän
 mdVü bringt eine eigene Druck- und PDF-Ausgabe mit — kein Umweg über den Browser oder einen PDF-Druckertreiber:
 
 - **Druckvorschau** (`Strg+F2`): auch bei umfangreichen Dokumenten stehen 100 Seiten in wenigen Sekunden bereit.
-- **Seiteneinrichtung:** Eine Leiste oben in der Druckvorschau wählt Drucker, Papierformat (A3, A4, A5, A6, Letter, Legal) und Hoch- oder Querformat. Die Vorschau wird sofort neu umbrochen, Druck und PDF verwenden genau dieses Format — was die Vorschau zeigt, kommt aus dem Drucker. *Printer setup…* öffnet die Windows-Druckereinstellungen, ohne zu drucken; dort gewählter Drucker, Papierformat und Ausrichtung werden übernommen. Die Leiste gehört fest zur Vorschau: `Strg+Umschalt+P` öffnet die Vorschau mit dem Fokus in der Leiste, ihr **×** oder `Esc` schließt die ganze Vorschau und kehrt zur normalen Ansicht zurück. Die Auswahl bleibt gespeichert. In einem schmalen Fenster wird zuerst die Druckerliste schmaler; danach wandern *Printer setup…*, *PDF…* und *Print…* in ein Menü hinter **»**. Papierformate außerhalb der Liste werden noch nicht unterstützt; liefert der Druckerdialog eines, behält mdVü das in der Leiste eingestellte Format.
-- **Zoom:** Solange die Druckvorschau zu sehen ist, gilt ihr der Zoom-Eintrag in der Statuszeile: *Fit page* (Vorgabe — das ganze Blatt ist zu sehen), *Fit width* oder ein fester Prozentwert. Beide Fit-Stufen folgen der Fenstergröße; `Strg`+Mausrad bzw. `Strg`+`+`/`-` zoomen frei. Die Wahl bleibt gespeichert.
+- **Seiteneinrichtung:** Eine Leiste oben in der Druckvorschau wählt Drucker, Papierformat (A3, A4, A5, A6, Letter, Legal) und Hoch- oder Querformat. Die Vorschau wird sofort neu umbrochen, Druck und PDF verwenden genau dieses Format — was die Vorschau zeigt, kommt aus dem Drucker. *Drucker einrichten…* öffnet die Windows-Druckereinstellungen, ohne zu drucken; dort gewählter Drucker, Papierformat und Ausrichtung werden übernommen. Die Leiste gehört fest zur Vorschau: `Strg+Umschalt+P` öffnet die Vorschau mit dem Fokus in der Leiste, ihr **×** oder `Esc` schließt die ganze Vorschau und kehrt zur normalen Ansicht zurück. Die Auswahl bleibt gespeichert. In einem schmalen Fenster wird zuerst die Druckerliste schmaler; danach wandern *Drucker einrichten…*, *PDF…* und *Drucken…* in ein Menü hinter **»**. Papierformate außerhalb der Liste werden noch nicht unterstützt; liefert der Druckerdialog eines, behält mdVü das in der Leiste eingestellte Format.
+- **Zoom:** Solange die Druckvorschau zu sehen ist, gilt ihr der Zoom-Eintrag in der Statuszeile: *Ganze Seite* (Vorgabe — das ganze Blatt ist zu sehen), *Seitenbreite* oder ein fester Prozentwert. Beide Fit-Stufen folgen der Fenstergröße; `Strg`+Mausrad bzw. `Strg`+`+`/`-` zoomen frei. Die Wahl bleibt gespeichert.
 - **Natives PDF:** *Ansicht → Als PDF exportieren* erzeugt ein echtes Vektor-PDF mit kopierbarem Text und einem Lesezeichen-Baum aus den Überschriften des Dokuments. Die Dateien sind in der Regel kleiner als bei „Drucken als PDF“ über einen Druckertreiber.
 - **Saubere Seitenumbrüche:** Beim Umbruch werden verwaiste Zeilen berücksichtigt — eine einzelne Absatzzeile bleibt nicht allein am Seitenende oder Seitenanfang stehen.
 - **Überbreite Tabellen** werden automatisch eingepasst: Die Schrift wird maßvoll verkleinert (bis 70 %), was dann noch übersteht, wird am rechten Seitenrand abgeschnitten — die wichtigen Spalten also nach links stellen. Langtext-Spalten werden bei knappem Platz auf 30 % der Seitenbreite gedeckelt. Das bisherige Verhalten (alle Spalten auf die Seite quetschen) bleibt über die Einstellung `print/table/fit: squeeze` verfügbar.
@@ -328,7 +330,7 @@ Die Statuszeile zeigt, wo eine Datei liegt: **Obs** für einen Obsidian-Vault, *
 > [!WARNING]
 > Der Wandler ist eine Vorschau. Der Menübefehl, der Schalter `/convert` und das Format der `mdvu-converter.yaml` können sich bis zur endgültigen Version noch ändern, oder der Wandler entfällt wieder. Bitte nichts darauf aufbauen, was Bestand haben muss.
 
-*Tools → Convert HTML file to Markdown* macht aus einer Webseite, die auf dem Rechner gespeichert ist, eine Markdown-Datei. Erst die HTML-Datei wählen, dann den Speicherort – vorgeschlagen wird derselbe Ordner, damit relative Bilder und Links der Seite weiter stimmen –, danach öffnet mdVü die neue Datei sofort. Gelesen wird nur die gewählte Datei: nichts wird nachgeladen, Bilder und Links bleiben als Verweise stehen. Skripte, Stilangaben und Kommentare entfallen. Seiten, die ihren Inhalt erst per Skript aufbauen, wandeln sich schlecht – solche Seiten nach dem Laden im Browser als „Webseite, nur HTML“ speichern.
+*Werkzeuge → HTML-Datei nach Markdown wandeln* macht aus einer Webseite, die auf dem Rechner gespeichert ist, eine Markdown-Datei. Erst die HTML-Datei wählen, dann den Speicherort – vorgeschlagen wird derselbe Ordner, damit relative Bilder und Links der Seite weiter stimmen –, danach öffnet mdVü die neue Datei sofort. Gelesen wird nur die gewählte Datei: nichts wird nachgeladen, Bilder und Links bleiben als Verweise stehen. Skripte, Stilangaben und Kommentare entfallen. Seiten, die ihren Inhalt erst per Skript aufbauen, wandeln sich schlecht – solche Seiten nach dem Laden im Browser als „Webseite, nur HTML“ speichern.
 
 **Links innerhalb der Seite** funktionieren weiter, soweit Markdown das zulässt. Markdown kann nur Überschriften anspringen; ein Link auf eine Definition oder einen Absatz führt deshalb zur Überschrift des Abschnitts, in dem das Ziel steht, und ein Link auf ein Ziel vor der ersten Überschrift wird zu gewöhnlichem Text.
 
@@ -387,17 +389,17 @@ Dieselbe Wandlung gibt es auf der [Kommandozeile](#kommandozeile), für Skripte,
 
 ## Dunkelmodus
 
-*Ansicht → Dark Mode* schaltet die komplette Oberfläche samt Dokument um. Die Einstellung wird gemerkt.
+*Ansicht → Dunkelmodus* schaltet die komplette Oberfläche samt Dokument um. Die Einstellung wird gemerkt.
 
 Der Dunkelmodus im Dokument ist vollständig CSS-getrieben: Das eingebaute dunkle Stylesheet wird über das helle gelegt. Das ist wichtig, sobald man eigenes CSS schreibt — [Anpassen per CSS](css-customizing.de.md) erklärt, warum eine nur für den Dunkelmodus gesetzte Farbe beim Zurückschalten „hängenbleiben“ kann.
 
 ## Frontmatter
 
-*Ansicht → Show Frontmatter* blendet den YAML-Kopf am Dateianfang ein oder aus; die Einstellung wird gemerkt. Ist er ausgeblendet, bleibt an seiner Stelle eine einzelne Zeile stehen — `--- frontmatter (5 lines) ---` —, damit erkennbar bleibt, dass die Datei einen hat; ein Klick auf die Zeile blendet ihn wieder ein. Solange Sie durch Suchtreffer gehen (Einheit `HIT`), steht das Frontmatter immer vollständig da, ein Treffer darin bleibt also nie unsichtbar. Druck, Vorschau und PDF lassen ein ausgeblendetes Frontmatter ganz weg. Neben dem YAML-Kopf zwischen `---`-Zeilen erkennt mdVü auch den TOML-Kopf zwischen `+++`-Zeilen, wie ihn Hugo und Zola verwenden; er wird genauso gezeigt und ausgeblendet, seine Eigenschaften zählen für Tags, Aliase und `[ ]` in der Suche aber noch nicht.
+*Ansicht → Frontmatter anzeigen* blendet den YAML-Kopf am Dateianfang ein oder aus; die Einstellung wird gemerkt. Ist er ausgeblendet, bleibt an seiner Stelle eine einzelne Zeile stehen — `--- Frontmatter (5 Zeilen) ---` —, damit erkennbar bleibt, dass die Datei einen hat; ein Klick auf die Zeile blendet ihn wieder ein. Solange Sie durch Suchtreffer gehen (Einheit `HIT`), steht das Frontmatter immer vollständig da, ein Treffer darin bleibt also nie unsichtbar. Druck, Vorschau und PDF lassen ein ausgeblendetes Frontmatter ganz weg. Neben dem YAML-Kopf zwischen `---`-Zeilen erkennt mdVü auch den TOML-Kopf zwischen `+++`-Zeilen, wie ihn Hugo und Zola verwenden; er wird genauso gezeigt und ausgeblendet, seine Eigenschaften zählen für Tags, Aliase und `[ ]` in der Suche aber noch nicht.
 
 ## Screenreader
 
-mdVü zeichnet das Dokument selbst, und Screenreader (NVDA, JAWS, Windows-Sprachausgabe) können diese Ansicht noch nicht lesen. Bis dahin öffnet `Strg+Umschalt+B` (*Ansicht → Read in browser*) das aktuelle Dokument als Webseite im Standardbrowser — mit Überschriften, Listen, Tabellen und Links, mit denen jeder Screenreader gut umgehen kann. Die Seite wird in einem temporären Ordner abgelegt; nichts verlässt Ihren Rechner. Ordnerbaum und Gliederung funktionieren bereits mit Screenreadern: Sie sagen den Namen der gewählten Datei bzw. Überschrift an.
+mdVü zeichnet das Dokument selbst, und Screenreader (NVDA, JAWS, Windows-Sprachausgabe) können diese Ansicht noch nicht lesen. Bis dahin öffnet `Strg+Umschalt+B` (*Ansicht → Im Browser lesen*) das aktuelle Dokument als Webseite im Standardbrowser — mit Überschriften, Listen, Tabellen und Links, mit denen jeder Screenreader gut umgehen kann. Die Seite wird in einem temporären Ordner abgelegt; nichts verlässt Ihren Rechner. Ordnerbaum und Gliederung funktionieren bereits mit Screenreadern: Sie sagen den Namen der gewählten Datei bzw. Überschrift an.
 
 ## Darstellung anpassen
 
@@ -417,7 +419,9 @@ Die vollständige Referenz mit durchgerechneten Beispielen steht in [Anpassen pe
 
 ## Einstellungen
 
-*Hilfe → Settings*, das Zahnrad in der Leiste oder `Strg+,` öffnen die Einstellungsseite. Sie zeigt jede Einstellung mit einer kurzen Erklärung, nach Themen gruppiert; selten gebrauchte folgen am Ende jeder Gruppe unter *Advanced*. Änderungen wirken sofort und werden gleich gespeichert — wo eine Einstellung erst beim nächsten Dokument, in neuen Fenstern oder nach einem Neustart greift, steht es dabei. `↺` stellt die Vorgabe wieder her.
+*Hilfe → Einstellungen*, das Zahnrad in der Leiste oder `Strg+,` öffnen die Einstellungsseite. Sie zeigt jede Einstellung mit einer kurzen Erklärung, nach Themen gruppiert; selten gebrauchte folgen am Ende jeder Gruppe unter *Erweitert*. Änderungen wirken sofort und werden gleich gespeichert — wo eine Einstellung erst beim nächsten Dokument, in neuen Fenstern oder nach einem Neustart greift, steht es dabei. `↺` stellt die Vorgabe wieder her.
+
+**Sprache:** mdVü gibt es auf Englisch, Deutsch und Französisch. *Sprache* oben auf der Einstellungsseite legt die Sprache der Oberfläche fest; als Vorgabe folgt sie der Anzeigesprache von Windows, ein Wechsel gilt nach einem Neustart. Das eingebaute Handbuch (`F1`) gibt es auf Englisch und Deutsch.
 
 **Eine Einstellung finden:** Beim Öffnen steht der Cursor im Filterfeld oben. Ein paar Buchstaben tippen, und es bleiben nur die passenden Einstellungen. Jedes getippte Wort muss passen; gesucht wird im Namen, in der Erklärung, im Schlüssel (etwa `print/table`) und in den Wahlmöglichkeiten einer Liste. Ein Wort, das auf eine Gruppenüberschrift passt, zeigt die ganze Gruppe, und `"zwei Wörter"` sucht die Wörter zusammen.
 
@@ -451,13 +455,14 @@ Die Einstellungen, die man kennen sollte (`settings.yaml`):
 |---|---|
 | `document/showChanges` | beim Neuladen nach einer Änderung durch ein anderes Programm zeigen, was sich geändert hat (`true`, Standard), oder einfach neu laden (`false`) — siehe [Sehen, was sich geändert hat](#sehen-was-sich-geändert-hat) |
 | `document/showRemoved` | entfernte Blöcke und Wörter in der Änderungsanzeige: `fade` (Standard: 5 Sekunden nach dem automatischen Neuladen ausgeblendet), `show` (immer) oder `hide` (nie) |
-| `document/showFrontmatter` | YAML-Kopf vollständig zeigen (`true`, Standard) oder auf eine Zeile einklappen — geschrieben von *Ansicht → Show Frontmatter* |
+| `document/showFrontmatter` | YAML-Kopf vollständig zeigen (`true`, Standard) oder auf eine Zeile einklappen — geschrieben von *Ansicht → Frontmatter anzeigen* |
 | `document/lineBreaks` | Zeilenumbrüche außerhalb eines Obsidian-Vaults: `standard` (Standard, Markdown-Standard) oder `newline` (jeder Zeilenumbruch bricht um, wie in Typora). Im Vault gilt dessen eigene Einstellung. Wirkt beim nächsten Start |
 | `document/tableImageMaxWidth` | größte Breite eines Bildes in einer Tabellenzelle in Pixeln (Standard 400); `0` zeigt Bilder in ihrer natürlichen Größe. Gilt nur für Bilder ohne eigene Breitenangabe (`![[bild.png\|300]]`). Wirkt beim nächsten Start |
 | `start/page` | Seite beim Start, als Link wie `mdvu:open?uri=m3-mdvu:start.md&nav=links` — jede Datei oder Seite geht, z.B. `mdvu:open?uri=C:/Notizen/Index.md`. Leer bedeutet die Willkommensseite; nach der ersten Sitzung, in der Sie eine Datei geöffnet haben, trägt mdVü einmalig die Startseite ein und ändert den Wert danach nie wieder. Eine per Kommandozeile übergebene Datei (Doppelklick im Explorer) hat immer Vorrang |
 | `open/inOpenVault`, `open/inShownFolder`, `open/loose`, `open/other` | was geschieht, wenn mdVü schon läuft und eine Datei oder ein Ordner von außen geöffnet wird — ein Schlüssel je Fall: liegt in einem im Fenster offenen Vault oder Repository; liegt im Ordner der Ordneransicht; liegt in keinem Vault oder Repository; liegt in einem Vault oder Repository, das nicht offen ist. Werte: `match` (in das Fenster, auf das der Fall zutrifft), `reuse` (ins zuletzt benutzte Fenster), `loose` (in das Fenster, das eine Datei außerhalb jedes Vaults oder Repositorys zeigt, sonst ein neues), `window` (neues Fenster), `instance` (ein eigenes mdVü). Standard: `match`, `match`, `loose`, `window` |
 | `open/quickOpenFolder` | was die Wahl eines Ordners im *Schnell öffnen* (`Strg+O`) tut: `browse` (Standard) betritt ihn in der Liste, `open` zeigt die Ordnerseite. Wirkt beim nächsten Start |
 | `folderTree/hideDot` | Dateien und Ordner, deren Name mit einem Punkt beginnt (`.git`, `.obsidian`, `.trash` …), in der Ordneransicht ausblenden; mdVü schaut dann auch nicht hinein, das hält große Vaults und Repositories schnell. `true` (Standard) oder `false`. Wirkt beim nächsten Start |
+| `appearance/language` | Sprache der Oberfläche: `system` (Vorgabe, folgt Windows), `en`, `de` oder `fr`; gilt nach einem Neustart |
 | `appearance/theme`, `appearance/mode` | benanntes Stylesheet und hell/dunkel/System — wird vom Dark-Mode-Befehl geschrieben |
 | `print/paper` | Papierformat: `A3`, `A4` (Standard), `A5`, `A6`, `Letter`, `Legal` — wird von der Seiteneinrichtung geschrieben |
 | `print/orientation` | `portrait` (Hochformat, Standard) oder `landscape` (Querformat) |
@@ -515,7 +520,7 @@ mdVü hat einige bewusst gesetzte harte Grenzen. Sie sorgen dafür, dass eine un
 | `Strg+C` | Dokument: Auswahl kopieren — als Text und mit Formatierung für Word, Outlook & Co. Bilder gehen als Verweis auf die Originaldatei mit (im Originalformat); Word bettet sie beim Einfügen ein |
 | `Strg+Umschalt+C` | Dokument: Auswahl als Markdown kopieren |
 | Rechte Maustaste | Dokument: Menü mit Kopieren, Als Markdown kopieren, Zurück und Vor |
-| *Copy* am Codeblock | Erscheint oben rechts, solange die Maus über einem Codeblock steht; kopiert den ganzen Code als reinen Text |
+| *Kopieren* am Codeblock | Erscheint oben rechts, solange die Maus über einem Codeblock steht; kopiert den ganzen Code als reinen Text |
 | `Strg+Mausrad` | Dokument: Zoom (50–200 %). Ein Klick auf den Zoomwert im Footer bietet alle Stufen an; der Zoom bleibt für den nächsten Start erhalten |
 | `F5` | Dokument neu laden (beendet die Änderungsanzeige) / auf der Trefferliste neu suchen |
 | `F6` | Zwischen Bereichen wechseln (Baum / Dokument / Editor) |
@@ -577,7 +582,7 @@ mdVü schreibt `mdvu.crash.log` neben die ausführbare Datei. Ist dieser Ordner 
 
 ### Diagnose-Seite
 
-*Hilfe → Diagnostics* zeigt den Verlauf der laufenden Sitzung – jeden Ort, zu dem Zurück führt, samt der dafür abgelegten Leseposition – und die Ordner, die mdVü verwendet (Einstellungen, Ordneransicht, temporäre Dateien, Cache). Ein Klick auf einen Pfad zeigt ihn nach einer Rückfrage im Explorer. `F5` aktualisiert die Seite. Wie die Performance-Seite ist sie zum Nachsehen bei einem Problem gedacht oder als Anhang zu einer Fehlermeldung.
+*Hilfe → Diagnose* zeigt den Verlauf der laufenden Sitzung – jeden Ort, zu dem Zurück führt, samt der dafür abgelegten Leseposition – und die Ordner, die mdVü verwendet (Einstellungen, Ordneransicht, temporäre Dateien, Cache). Ein Klick auf einen Pfad zeigt ihn nach einer Rückfrage im Explorer. `F5` aktualisiert die Seite. Wie die Performance-Seite ist sie zum Nachsehen bei einem Problem gedacht oder als Anhang zu einer Fehlermeldung.
 
 ## Deinstallieren
 
