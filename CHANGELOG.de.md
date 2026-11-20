@@ -15,8 +15,9 @@ Hier stehen alle nennenswerten Änderungen an mdVü. Das Format folgt [Keep a Ch
 
 ### Geändert
 
-- **Filter „zuletzt geändert“:** die Uhr im Kopf der Ordneransicht ist jetzt ein richtiges Symbol; mit gesetztem Filter ist sie farbig und zeigt den Zeitraum daneben. Der Filter klappt den Baum nur bis zu den passenden Dateien auf und lässt selbst geöffnete Ordner offen.
+- **Filter „zuletzt geändert“:** die Uhr im Kopf der Ordneransicht ist jetzt ein richtiges Symbol; mit gesetztem Filter ist sie farbig und zeigt den Zeitraum daneben. Neue Zeiträume: 3 Tage, 1 Monat, 3 Monate und 1 Jahr. Der Filter klappt den Baum nur bis zu den passenden Dateien auf und lässt selbst geöffnete Ordner offen.
 - **Werkzeugleiste:** das Symbol für das Benutzer-CSS ist entfallen; die Ansicht steht weiter unter *Ansicht*.
+- **`settings.ini` wird nicht mehr übernommen:** die Versionen 1.0.x haben die `settings.ini` aus 0.21 und früher beim ersten Start nach `settings.yaml` übertragen; 1.1 tut das nicht mehr, und eine `settings.ini` neben der EXE schaltet den portablen Modus nicht mehr ein. Wer von 0.21 oder früher kommt, startet vor dem Update einmal 1.0.2 — oder beginnt mit frischen Einstellungen.
 - **Suchsyntax:** ein Semikolon trennt Alternativen wie das Komma (`tag:todo;idee`). In Zahlenvergleichen ist ein Komma jetzt ein Dezimalkomma (`[preis:10,5..20]`) — für eine Liste von Zahlen das Semikolon nehmen.
 
 ## [1.0.2] — 2026-11-14

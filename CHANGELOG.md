@@ -15,8 +15,9 @@ All notable changes to mdVü are documented here. The format follows [Keep a Cha
 
 ### Changed
 
-- **Filter “recently changed”:** the clock in the header of the folder view is now a proper icon; with a filter set it is coloured and shows the period next to it. The filter expands the tree only down to the matching files and keeps folders you opened yourself.
+- **Filter “recently changed”:** the clock in the header of the folder view is now a proper icon; with a filter set it is coloured and shows the period next to it. New periods: 3 days, 1 month, 3 months and 1 year. The filter expands the tree only down to the matching files and keeps folders you opened yourself.
 - **Toolbar:** the icon for the user CSS is gone; the view is still under *View*.
+- **`settings.ini` is no longer taken over:** versions 1.0.x converted the `settings.ini` of 0.21 and earlier to `settings.yaml` on the first start; 1.1 no longer does, and a `settings.ini` next to the EXE no longer switches on portable mode. Coming from 0.21 or earlier, start 1.0.2 once before updating — or begin with fresh settings.
 - **Search syntax:** a semicolon separates alternatives like the comma does (`tag:todo;idea`). In number comparisons a comma is now a decimal comma (`[price:10,5..20]`) — use a semicolon for a list of numbers.
 
 ## [1.0.2] — 2026-11-14
