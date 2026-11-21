@@ -4,7 +4,7 @@
 
 Hier stehen alle nennenswerten Änderungen an mdVü. Das Format folgt [Keep a Changelog](https://keepachangelog.com/de/1.1.0/); Versionen sind `Major.Minor.Patch`, die vierte Stelle in der Dateiversion der EXE ist der Build-Zähler.
 
-## [1.1.0] — 2026-11-20
+## [1.1.0] — 2026-11-21
 
 ### Neu
 
